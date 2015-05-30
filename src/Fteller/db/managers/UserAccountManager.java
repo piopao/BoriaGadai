@@ -382,7 +382,7 @@ public void changeAvatarName(User user, String newAvatarName) {
 //TODO: add after review class is created. 
 
 
-
+/*
 public List<Review> getReviews(User user, int page, int limit) {
 	List<Review> reviews = new ArrayList<Review>();
 	try {
@@ -415,7 +415,7 @@ public List<Review> getReviews(User user, int page, int limit) {
 	}
 	return reviews;
 }
-
+*/
 /**
  * Permanently deletes User account.
  * 
