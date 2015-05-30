@@ -1,39 +1,41 @@
 package authorization;
 
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 public class User {
 	/*userStatus: 0 - ordinary user; 1 - admin; */
 	private int id, userStatus;
-	private String username, hashPassword, email, name, surname, picture, info;
+	private String username, hashPassword, email, name, surname, picture, info, gender;
 	private ArrayList<Integer> friends; //stores ids
-	private int isMale;
+	private Date birthDate;
 	
 	
 	public User(String email){
-		this(email, null, null, null, null, null, null, -1);
+		this(email, null, null, null, null, null, null, null);
 	}
 	
-	public User(String email, String username, String name, String surname, String picture, String info,  String hashPassword, int isMale){
+	public User(String email, String username, String name, String surname, String picture, String info,  String hashPassword, String gender){
 		userStatus = 0;
 		friends = new ArrayList<Integer>();
 		setUsername(username);
 		setName(name);
 		setSurname(surname);
-		setPicture(picture);
+		setPictureDirname(picture);
 		setInfo(info);
-		setSex(isMale);
+		setGender(gender);
 		setEmail(email);
 		setHashPassword(hashPassword);
 	}	
 	
 	
+
 	private void setHashPassword(String hashPassword){
 		this.hashPassword = hashPassword;
 	}
 	
-	private String getPassword(){
+	public String getHashedPassword(){
 		return hashPassword;
 	}
 	
@@ -80,10 +82,10 @@ public class User {
 	
 	
 	/*picture setter/getters*/
-	public void setPicture(String picture){
-		this.picture = picture;
+	public void setPictureDirname(String pictureDirname){
+		this.picture = pictureDirname;
 	}
-	public String getPicture(){
+	public String getPictureDirname(){
 		return this.picture;
 	}
 	
@@ -98,12 +100,12 @@ public class User {
 	
 	
 	/*sex setter/getters*/
-	public void setSex(int isMale){
-		this.isMale = isMale;
+	public void setGender(String gender){
+		this.gender = gender;
 	}
 
-	public int getSex(){
-		return isMale;
+	public String getGender(){
+		return gender;
 	}	
 	
 	/*friendlist setter/getters*/
@@ -133,6 +135,14 @@ public class User {
 		return this.userStatus;
 	}	
 	
+	/*user birth date setter/getters*/
+	public void setBirthDate(Date date){
+		this.birthDate = date;
+	}
+	
+	public Date getBirthDate(){
+		return this.birthDate;
+	}	
 	
 	
 }

@@ -14,5 +14,9 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JDK"/>
+	<classpathentry kind="lib" path="C:/Users/Vano/Desktop/apache-tomcat-7.0.62/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Vano/Desktop/apache-tomcat-7.0.62/lib/javax.servlet-api-3.1.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
