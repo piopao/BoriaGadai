@@ -21,15 +21,13 @@
 	<p id = "warning"></p>
 	<form action="LoginServlet" method="post">
 	<div align="left">
-	<br>
-	User Name: <input type="text" size="25" value="" id = "username" name = "username">
-	<br><br>
-	Password: <input type="text" size="25" value="" id = "password" name = "password">
-	<input type="submit" value="Login" onclick = " return validateInfo()">
+		<p>User Name: <input type="text" size="25" value="" id = "username" name = "username"></p>
+		<p>Password: <input type="text" size="25" value="" id = "password" name = "password"></p>
+		<p><input type="submit" value="Login" onclick = " return validateInfo()"></p>
 	</div>
 	</form>
 	<br>
-	<a href  = "" > create new account </a>
-	<a href  = "" > continue as a visitor </a>	
+	<p><a href  = "" > create new account </a></p>
+	<p><a href  = "" > continue as a visitor </a></p>
 </body>
 </html>
