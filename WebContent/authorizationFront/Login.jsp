@@ -27,7 +27,7 @@
 	</div>
 	</form>
 	<br>
-	<p><a href  = "registration.jsp" > create new account </a></p>
+	<p><a href  = "registrationFront/registration.jsp" > create new account </a></p>
 	<p><a href  = "" > continue as a visitor </a></p>
 </body>
 </html>
