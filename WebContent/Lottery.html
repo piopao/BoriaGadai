@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Lottery</title>
+
+<script>
+function loadXMLDoc(numbers)
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {	  
+	  document.getElementById("response").innerHTML = xmlhttp.responseText;
+    }
+}
+	xmlhttp.open("GET","LotteryHelper.jsp?"+numbers,true);
+	xmlhttp.send();	
+}
+</script>
+
+
+
+
+</head>
+<body>
+
+<h6 id = "1"> - </h6>
+<h6 id = "2"> - </h6>
+<h6 id = "3"> - </h6>
+<h6 id = "4"> - </h6>
+<h6 id = "5"> - </h6>
+<h6 id = "6"> - </h6>
+<h6 id = "7"> - </h6>
+<br>
+
+<button id="genBut" onclick="GenerateNums()">Get Lucky Ticket</button>
+
+<script>
+	function GenerateNums(){
+		var finished = "";
+		var numbers = [];		
+		for(i = 1; i <= 7; i++){
+			var n =  Math.floor((Math.random() * 49) + 1);	
+			while(numbers.indexOf(n) > -1){
+				n =  Math.floor((Math.random() * 49) + 1);	
+			}			
+			numbers[i-1] = n;
+			document.getElementById("" + i).innerHTML = n			
+			if(i == 1) finished = finished + n;
+			else finished = finished + "-" + n;
+		}		
+		document.getElementById("genBut").disabled = true;
+		loadXMLDoc(finished);
+	}	
+</script>
+
+<h3 id = response> </h3>
+
+</body>
+</html>
