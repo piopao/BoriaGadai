@@ -19,7 +19,6 @@ public class DBManager {
 			if(i == weathVal.size() - 1) s+= weathVal.get(i)+ "*" + "rain.png";
 			else s +=weathVal.get(i) + "*" + "rain.png" + "/" ;			
 		}
-		System.out.print(s);
 		return s;
 	}
 	
