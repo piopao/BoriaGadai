@@ -1,6 +1,7 @@
-package Weather;
+package weather;
 
 import java.util.ArrayList;
+
 
 public class DBManager {
 
@@ -8,7 +9,7 @@ public class DBManager {
 			
 	}
 		
-	public boolean FortuneAdd(String numbers){		
+	public boolean LotteryAdd(String numbers){		
 		return true;		
 	}
 	
@@ -16,7 +17,7 @@ public class DBManager {
 		String s = "";
 		for(int i=0; i<weathVal.size(); i++){
 			s +=weathVal.get(i) + "<" + "C:\\Weather\\rain.png" + "*" ;
-			//if(i == weathVal.size() - 1) s+= weathVal.get(i) + "<" + "C:\\Weather\\rain.png";
+			if(i == weathVal.size() - 1) s+= weathVal.get(i) + "<" + "C:\\Weather\\rain.png";
 		}
 		
 		return s;

@@ -29,6 +29,14 @@
     <servlet-name>CheckRegistrationServlet</servlet-name>
     <url-pattern>/CheckRegistrationServlet</url-pattern>
   </servlet-mapping>
-  
-  
+  <servlet>
+    <description></description>
+    <display-name>WeatherServlet</display-name>
+    <servlet-name>WeatherServlet</servlet-name>
+    <servlet-class>weather.WeatherServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WeatherServlet</servlet-name>
+    <url-pattern>/WeatherServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
