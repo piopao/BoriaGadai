@@ -1,4 +1,4 @@
-package Weather;
+package weather;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,13 +14,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Weather.DBManager;
+import weather.DBManager;
+import weather.WeatherServlet;
 
 /**
  * Servlet implementation class WeatherGenerator
  */
 @WebServlet("/WeatherGenerator")
-public class WeatherGenerator extends HttpServlet {
+public class WeatherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private int userId;
 	private DBManager db;
@@ -34,7 +35,7 @@ public class WeatherGenerator extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public WeatherGenerator() {
+    public WeatherServlet() {
         super();
         this.userId = 4;
 		db = new DBManager();
@@ -62,7 +63,7 @@ public class WeatherGenerator extends HttpServlet {
 	}
 	
 	public static void main(String[] args){
-		WeatherGenerator w = new WeatherGenerator();
+		WeatherServlet w = new WeatherServlet();
 		for (int i=0; i<2; i++)
 		System.out.print(w.GenerateWeather() + "\n");
 	}
