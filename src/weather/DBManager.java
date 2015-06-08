@@ -16,10 +16,10 @@ public class DBManager {
 	public String GetWeather(ArrayList<String> weathVal){
 		String s = "";
 		for(int i=0; i<weathVal.size(); i++){
-			s +=weathVal.get(i) + "<" + "C:\\Weather\\rain.png" + "*" ;
-			if(i == weathVal.size() - 1) s+= weathVal.get(i) + "<" + "C:\\Weather\\rain.png";
+			if(i == weathVal.size() - 1) s+= weathVal.get(i)+ "*" + "rain.png";
+			else s +=weathVal.get(i) + "*" + "rain.png" + "/" ;			
 		}
-		
+		System.out.print(s);
 		return s;
 	}
 	

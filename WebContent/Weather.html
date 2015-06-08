@@ -6,7 +6,7 @@
 <script>
 $(document).ready(function(){
     $("button").click(function(){
-        $.get("WeatherServlet", function(data, status){
+        $.get("WeatherServlet", function(data, status){                	
            document.getElementById("dataSaver").innerHTML = data;
         });
         
@@ -15,10 +15,9 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-<img src="C:\Weather\raitn.png" alt="Mountain View" style="width:304px;height:228px;">
 
 
 <button>Get Today's Weather</button>
-<p  id = dataSaver>k </p>
+<p  id = "dataSaver">k </p>
 </body>
 </html>
