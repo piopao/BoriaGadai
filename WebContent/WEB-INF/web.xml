@@ -18,7 +18,7 @@
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/LoginServlet</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping>  
   <servlet>
     <description></description>
     <display-name>CheckRegistrationServlet</display-name>
@@ -29,4 +29,5 @@
     <servlet-name>CheckRegistrationServlet</servlet-name>
     <url-pattern>/CheckRegistrationServlet</url-pattern>
   </servlet-mapping>
+  
 </web-app>

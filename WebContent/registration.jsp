@@ -9,11 +9,18 @@
 	<script src="RegistrationValidation.js"></script>
 </head>
 <body>
+	
 	<p>Email: <input type="text" size="25" value="" id = "email" name = "email"></p>
 	<button id = "check">Check</button><p id = tryagain> </p>	
 	<button id = "change">Change Email</button>
 	<p>Password <input type="text" size="25" value="" class = "restricted" id = "password" name = "password" disabled></p>
 	<p id = "warning"></p>
 	<button class = "restricted"  onclick = " return validateInfo()" disabled>Submit</button>
+	
+	
+	<form action="CheckRegistrationServlet" method="post">
+	<br><br><br><br>
+		<button>bla</button>
+	</form>
 </body>
 </html>
