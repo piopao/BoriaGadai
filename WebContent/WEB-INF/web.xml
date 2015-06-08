@@ -29,14 +29,6 @@
     <servlet-name>CheckRegistrationServlet</servlet-name>
     <url-pattern>/CheckRegistrationServlet</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>WeatherGenerator</display-name>
-    <servlet-name>WeatherGenerator</servlet-name>
-    <servlet-class>Weather.WeatherGenerator</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>WeatherGenerator</servlet-name>
-    <url-pattern>/WeatherGenerator</url-pattern>
-  </servlet-mapping>
+  
+  
 </web-app>
