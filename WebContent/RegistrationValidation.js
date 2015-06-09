@@ -53,7 +53,7 @@ $(document).ready(function(){
 function validateInfo(){
 	var password = document.getElementById("password").value;	
 	if(password.length < 4 || !password.trim()){
-		document.getElementById("warning").innerHTML = "Please, enter username and password";
+		document.getElementById("warning").innerHTML = "The password should be at least 4 symbols long";
 		return false;
 	}
 	else{
