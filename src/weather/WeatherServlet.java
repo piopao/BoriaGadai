@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import weather.DBManager;
 import weather.WeatherServlet;
-
+import static weather.WeatherConstants.*;
 /**
  * Servlet implementation class WeatherGenerator
  */
@@ -25,13 +25,14 @@ public class WeatherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private int userId;
 	private DBManager db;
-	private HashMap<String, String[]> weatherMap;
-	private HashMap<String, String[]> restrict;
-	private ArrayList<String> finalWeather;
+	private HashMap<Integer, int[]> weatherMap;
+	private HashMap<Integer, int[]> restrict;
+	private ArrayList<Integer> finalWeather;
 	private Random rand;
 	private Date date;
 	private Calendar cal;
-	private final String START_STRING = "amindi";
+	private final int START_STRING = WEATHER;
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -50,6 +51,7 @@ public class WeatherServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
 		out.println(GenerateWeather());
 		out.close();
@@ -64,7 +66,7 @@ public class WeatherServlet extends HttpServlet {
 	
 	public static void main(String[] args){
 		WeatherServlet w = new WeatherServlet();
-		for (int i=0; i<2; i++)
+		for (int i=0; i<30; i++)
 		System.out.print(w.GenerateWeather() + "\n");
 	}
 	
@@ -75,24 +77,24 @@ public class WeatherServlet extends HttpServlet {
 		if(allreadyGenerated.length() != 0){
 			return allreadyGenerated;
 		}
-		finalWeather = new ArrayList<String>();
+		finalWeather = new ArrayList<Integer>();
 		int month = cal.get(Calendar.MONTH);
-		finalWeather.add(""+month);
-		String[] start = weatherMap.get(START_STRING);
+		finalWeather.add(month);
+		int[] start = weatherMap.get(START_STRING);
 		for(int i=0; i<start.length; i++){
 			GenerateRec(start[i]);
 		}
-		finalWeather.add(""+GenerateTemperature());
+		finalWeather.add(GenerateTemperature());
 		finalWeather.remove(0);
 		
 		return db.GetWeather(finalWeather);
 	}
 	
 	//Recursively generates values of weather
-	private boolean GenerateRec(String key){
-		if(key.equals("-")) return true;
+	private boolean GenerateRec(int key){
+		if(key==ZERO) return true;
 		if(restrict.containsKey(key)){
-			String[] restrictions = restrict.get(key);
+			int[] restrictions = restrict.get(key);
 			for(int i=0; i< restrictions.length; i++){
 				if(finalWeather.contains(restrictions[i])) return false;
 			}				
@@ -102,7 +104,7 @@ public class WeatherServlet extends HttpServlet {
 			return true;
 		}
 		
-		String[] values = weatherMap.get(key);
+		int[] values = weatherMap.get(key);
 		boolean opposites = false;
 	
 		for(int i=0; i<values.length; i++){
@@ -144,25 +146,26 @@ public class WeatherServlet extends HttpServlet {
 	}	
 	private void CreateWeatherValues(){
 		weatherMap = new HashMap<>();
-		weatherMap.put("amindi", new String[]{"ca", "qari", "naleqi"});
-		weatherMap.put("ca", new String[] {"mze", "ghrubeli"});
-		weatherMap.put("qari",new String[]{"qari-ki", "-"}); 
-		weatherMap.put("naleqi",new String[]{"wvima", "tovli", "-"});
-		weatherMap.put("qari-ki",new String[]{"dzala", "mimartuleba"});
-		weatherMap.put("dzala", new String[]{"qarbuqi", "susti qari", "sashualo qari" });
-		weatherMap.put("mimartuleba", new String[]{"dasavletidan qari", "aghmosavletidan qari", "dasavlet-chrdiloetidan qari","dasavlet-samxretidan qari", "aghmosavlet-chrdiloetidan qari", "aghmosavlet-samxretidan qari" });
-		weatherMap.put("wvima", new String[]{"jujuna wvima", "susti wvima", "kokispiruli wvima", "elweqit wvima"});	
-		weatherMap.put("tovli", new String[]{"dzlieri tova", "suti tova", "tova"});
+		weatherMap.put(WEATHER, new int[]{SKY, WIND, SEDIMENT});
+		weatherMap.put(SKY,new int[] {SUN, CLOUD, SUN_CLOUD});
+		weatherMap.put(WIND,new int[]{WIND_YES,ZERO }); 
+		weatherMap.put(SEDIMENT,new int[]{RAIN, SNOW, ZERO});
+		weatherMap.put(WIND_YES,new int[]{W_STRENGTH, W_DIRECTION});
+		weatherMap.put(W_STRENGTH, new int[]{WIND_STRONG, WIND_WEAK, WIND_NORM });
+		weatherMap.put(W_DIRECTION, new int[]{WIND_DIR_W, WIND_DIR_E, WIND_DIR_E_S,WIND_DIR_E_N,WIND_DIR_W_N, WIND_DIR_W_S });
+		weatherMap.put(RAIN, new int[]{RAIN_STRANGE, RAIN_WEAK, RAIN_STRONG, RAIN_LIGHT});	
+		weatherMap.put(SNOW, new int[]{SNOW_STRONG, SNOW_WEAK, SNOW_NORM});
 	}
 
 	private void CreateRestrictions(){
 		restrict = new HashMap<>();
-		restrict.put("mze", new String[]{"kokispiruli wvima", "elweqit wvima",  "dzlieri tova", "tova"});
-		restrict.put("kokispiruli wvima", new String[]{"mze"});
-		restrict.put("elweqit wvima", new String[]{"mze"});		
-		restrict.put("tovli", new String[]{""+Calendar.MAY,  ""+Calendar.JUNE,""+Calendar.JULY, ""+Calendar.AUGUST, ""+Calendar.SEPTEMBER, ""+Calendar.OCTOBER });
-		restrict.put("dzlieri tova", new String[]{"mze"});
-		restrict.put("tova", new String[]{"mze"});
+		restrict.put(SUN, new int[]{RAIN_STRONG, RAIN_LIGHT,  SNOW_STRONG, SNOW_NORM});
+		restrict.put(SUN_CLOUD, new int[]{RAIN_STRONG, SNOW_STRONG, SNOW_NORM});
+		restrict.put(RAIN_STRONG, new int[]{SUN});
+		restrict.put(RAIN_LIGHT,new int[]{SUN});		
+		restrict.put(SNOW, new int[]{Calendar.MAY, Calendar.JUNE,Calendar.JULY,Calendar.AUGUST,Calendar.SEPTEMBER, Calendar.OCTOBER });
+		restrict.put(SNOW_STRONG, new int[]{SUN, SUN_CLOUD});
+		restrict.put(SNOW_NORM, new int[]{SUN, SUN_CLOUD});
 	}
 	
 
