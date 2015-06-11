@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+
+
+html, body {	    
+	    background-color: rgb(17, 44, 60); 	
+}
+
+.login {     
+ 	position: absolute;
+ 	top: 50%;
+ 	left: 50%;
+ 	transform: translate(-50%, -50%);  
+}
+
+#warning {color: rgba(255, 255, 54, 0.8);
+text-align: center;}
+
+#welcome{ color: rgba(255, 255, 255, 0.7);
+text-align: center;}
+
+input.form-control{
+	text-align: center;
+	display: block;
+	width: 450;
+	height: 450;
+	border: none;    
+	background: none;
+	border-radius: 0px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+	border-top: 1px solid rgba(255, 255, 255, 0.3);	
+	color: (255, 255, 255, 0.3);
+}
+
