@@ -37,7 +37,7 @@
 				out.println("<h3>მომხმარებლის მონაცემები არასწორია, გთხოვთ, გადაამოწმოთ და თავიდან ცადოთ</h3>");
 			}
 		%>
-		<p id = "warning">ds</p>
+		<p id = "warning">* *</p>
 		<form action="LoginServlet" method="post">
 		<div class="form-group">
 			 <input placeholder="ელფოსტა" type="text"  class="form-control"  value="" id = "email" name = "email">
@@ -48,10 +48,9 @@
 			<br>
 			<input type="submit" class="btn btn-default" value="შესვლა " onclick = " return validateInfo()">
 		</div>
-		</form>
-		
-		<p><a href  = "registration.jsp" > ახალი მომხმარებლის შექმნა </a></p>
-		<p><a href  = "" > სტუმრად შესვლა </a></p>
+		</form>		
+		<p><a href  = "registration.jsp" class = "further" > ახალი მომხმარებლის შექმნა </a></p>
+		<p><a href  = "Homepage.jsp"  class = "further"  > სტუმრად შესვლა </a></p>
 	</div> 
 </body>
 </html>
