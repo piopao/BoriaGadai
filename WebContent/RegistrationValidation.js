@@ -26,7 +26,7 @@ $(document).ready(function(){
 	            	for (var i = 0; i < list.length; i++) {
 	            		list[i].disabled = true;
 	            	}
-	            	document.getElementById("tryagain").innerHTML = "please, try again";
+	            	document.getElementById("tryagain").innerHTML = "თქვენ მიერ შეყვანილი ელ.ფოსტა უკვე რეგისტრირებულია";
 	            }
 	        });
     	}       
@@ -53,7 +53,7 @@ $(document).ready(function(){
 function validateInfo(){
 	var password = document.getElementById("password").value;	
 	if(password.length < 4 || !password.trim()){
-		document.getElementById("warning").innerHTML = "The password should be at least 4 symbols long";
+		document.getElementById("warning").innerHTML = "თქვენი პაროლი უნდა შედგებოდეს მინიმუმ 4 სიმბოლოსგან";
 		return false;
 	}
 	else{

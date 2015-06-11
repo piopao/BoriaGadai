@@ -10,17 +10,12 @@
 </head>
 <body>
 	
-	<p>Email: <input type="text" size="25" value="" id = "email" name = "email"></p>
-	<button id = "check">Check</button><p id = tryagain> </p>	
-	<button id = "change">Change Email</button>
-	<p>Password <input type="text" size="25" value="" class = "restricted" id = "password" name = "password" disabled></p>
+	<p>ელ.ფოსტა: <input type="text" size="25" value="" id = "email" name = "email"></p>
+	<button id = "check">შემოწმება</button><p id = tryagain> </p>	
+	<button id = "change">ელ.ფოსტის შეცვლა</button>
+	<p>პაროლი <input type="text" size="25" value="" class = "restricted" id = "password" name = "password" disabled></p>
 	<p id = "warning"></p>
-	<button class = "restricted"  onclick = " return validateInfo()" disabled>Submit</button>
-	
-	
-	<form action="CheckRegistrationServlet" method="post">
-	<br><br><br><br>
-		<button>bla</button>
-	</form>
+	<button class = "restricted"  onclick = " return validateInfo()" disabled>რეგისტრაცია</button>
+
 </body>
 </html>

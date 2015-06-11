@@ -3,11 +3,11 @@
  */
 
 function validateInfo(){
-	var username = document.getElementById("username").value;
+	var email = document.getElementById("email").value;
 	var password = document.getElementById("password").value;
 	
-	if(username.length === 0 || !username.trim() || password.length < 4  || !password.trim()){
-		document.getElementById("warning").innerHTML = "Please, enter username and password longer than 3 symbols";
+	if(email.length === 0 || !email.trim() || password.length < 4  || !password.trim()){
+		document.getElementById("warning").innerHTML = "გთხოვთ, შეიყვანოთ მომხმარებლის ელ.ფოსტა და მინიმუმ 4 სიმბოლოს შემცველი პაროლი";
 		return false;
 	}
 	else{
