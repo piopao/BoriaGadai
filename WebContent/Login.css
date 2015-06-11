@@ -10,12 +10,13 @@ html, body {
  	top: 50%;
  	left: 50%;
  	transform: translate(-50%, -50%);  
+ 	text-align: center;
 }
 
-#warning {color: rgba(255, 255, 54, 0.8);
+#warning {color: rgba(255, 255, 54, 0.7);
 text-align: center;}
 
-#welcome{ color: rgba(255, 255, 255, 0.7);
+#welcome{ color: rgba(255, 255, 255, 0.8);
 text-align: center;}
 
 input.form-control{
@@ -29,5 +30,10 @@ input.form-control{
 	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 	border-top: 1px solid rgba(255, 255, 255, 0.3);	
 	color: (255, 255, 255, 0.3);
+}
+
+.further { 
+	display: inline-block;
+	color: rgba(255, 255, 255, 0.7);	
 }
 
