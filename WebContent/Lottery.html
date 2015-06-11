@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
 <title>Lottery</title>
-
+  <link rel="stylesheet" type="text/css" href="Lottery.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  
 <script>
 function loadXMLDoc(numbers)
 {
@@ -28,9 +33,6 @@ xmlhttp.onreadystatechange=function()
 }
 </script>
 
-
-
-
 </head>
 <body>
 
@@ -41,9 +43,13 @@ xmlhttp.onreadystatechange=function()
 <h6 id = "5"> - </h6>
 <h6 id = "6"> - </h6>
 <h6 id = "7"> - </h6>
-<br>
 
-<button id="genBut" onclick="GenerateNums()">Get Lucky Ticket</button>
+<div class="container">
+<button id="genBut" onclick="GenerateNums()" type="button" class="btn btn-primary btn-lg">
+<span class="glyphicon glyphicon-star"></span> 
+იღბლიანი ბილეთი</button>
+</div> 
+
 
 <script>
 	function GenerateNums(){
