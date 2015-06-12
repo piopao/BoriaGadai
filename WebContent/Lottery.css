@@ -2,28 +2,48 @@
 
 
 html, body, div, button {
-    background-color: rgb(13, 84, 34);
+    background-color: rgb(13, 50, 34);
 }
 
 #genBut{
 	position: absolute;
  	left: 50%;
- 	margin-top: 50px;
+ 	margin-top: 70px;
  	transform: translate(-50%, -50%);  
  	text-align: center;
+ }
+
+div.numbers{	
+	color: white; 
+	border-top-style: dotted;
+    border-right-style: dotted;
+    border-bottom-style: dotted;
+    border-left-style: dotted;	
+    border-radius: 15px;
+    border-color: rgb(255, 153, 51);
+    border-width: 2.5px;
+  	
 }
 
-#numbers{	
-	color: white;
- 	display: flex;
+div.bigNum{
+	display: flex;
   	justify-content: center;
   	align-items: center;
   	margin-top: 170px;
+}
 
+p.space{
+	margin-top: 170px;
+}
+
+span.glyphicon-asterisk{
+	display: inline-block;
+	margin-left: 20px;
+	margin-right: 20px;
 }
 
 h3{
-	display: inline;
+	display: inline-block;
 	margin-left: 20px;
 	margin-right: 20px;
 }
