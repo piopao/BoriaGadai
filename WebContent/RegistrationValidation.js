@@ -19,7 +19,7 @@ $(document).ready(function(){
 	            	for (var i = 0; i < list.length; i++) {
 	            		list[i].disabled = false;
 	            	}
-	            	document.getElementById("tryagain").innerHTML = "";
+	            	document.getElementById("tryagain").innerHTML = "* *";
 	            }
 	            else{
 	            	var list = document.getElementsByClassName("restricted");
@@ -29,7 +29,7 @@ $(document).ready(function(){
 	            	document.getElementById("tryagain").innerHTML = "თქვენ მიერ შეყვანილი ელ.ფოსტა უკვე რეგისტრირებულია";
 	            }
 	        });
-    	}       
+    	} 
     });
 });
 
@@ -52,8 +52,13 @@ $(document).ready(function(){
 
 function validateInfo(){
 	var password = document.getElementById("password").value;	
+	var checkpassword = document.getElementById("password2").value;
 	if(password.length < 4 || !password.trim()){
 		document.getElementById("warning").innerHTML = "თქვენი პაროლი უნდა შედგებოდეს მინიმუმ 4 სიმბოლოსგან";
+		return false;
+	}
+	if( checkpassword != password){
+		document.getElementById("warning").innerHTML = "თქვენ მიერ შეყვანილი პაროლები ერთმანეთს არ ემთხვევა";
 		return false;
 	}
 	else{

@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-  	<!--   <script src="LoginValidation.js"></script> -->
+  
   	<script>
 	  	function validateInfo(){		
 			var email = document.getElementById("email").value;
@@ -28,7 +28,7 @@
 <body>
 	
 	 <div class ="login">
-	 	<h2 id = "welcome">შებრძანდით,დაბრძანდით</h2>
+	 	<h2 id = "welcome">შებრძანდით, დაბრძანდით</h2>
 		<% 
 			HttpSession sess = request.getSession();
 			String condition = (String)sess.getAttribute("LoginStatus");			
@@ -42,8 +42,7 @@
 		<div class="form-group">
 			 <input placeholder="ელფოსტა" type="text"  class="form-control"  value="" id = "email" name = "email">
 		</div>
-		<div class="form-group">
-			
+		<div class="form-group">			
 			<input placeholder="პაროლი" type="password"  class="form-control"  value="" id = "password" name = "password">
 			<br>
 			<input type="submit" class="btn btn-default" value="შესვლა " onclick = " return validateInfo()">
