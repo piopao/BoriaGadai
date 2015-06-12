@@ -4,19 +4,19 @@ import java.util.Date;
 
 public class Review {
 	private int userID;
-	private String username, text;
+	private String mail, text;
 	private Date date;
 
-	public Review(int userID,String username, String text, Date date){
-		setUsername(username);
+	public Review(int userID,String mail, String text, Date date){
+		setMail(mail);
 		setUserID(userID);
 		setText(text);
 		setDate(date);		
 	}
 	
 	/*setters*/
-	public void setUsername(String username){
-		this.username = username;
+	public void setMail(String mail){
+		this.mail = mail;
 	}
 	
 	public void setUserID(int userID){
@@ -32,8 +32,8 @@ public class Review {
 	}
 	
 	/*getters*/
-	public String getUsername(){
-		return this.username;
+	public String getMail(){
+		return this.mail;
 	}
 	
 	public int getUserID(){
