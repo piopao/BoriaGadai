@@ -31,46 +31,47 @@ xmlhttp.onreadystatechange=function()
 	xmlhttp.open("GET","LotteryHelper.jsp?"+numbers,true);
 	xmlhttp.send();	
 }
+
+function GenerateNums(){
+	var finished = "";
+	var numbers = [];		
+	for(i = 1; i <= 7; i++){
+		var n =  Math.floor((Math.random() * 49) + 1);	
+		while(numbers.indexOf(n) > -1){
+			n =  Math.floor((Math.random() * 49) + 1);	
+		}			
+		numbers[i-1] = n;
+		document.getElementById("" + i).innerHTML = n			
+		if(i == 1) finished = finished + n;
+		else finished = finished + "-" + n;
+	}		
+	document.getElementById("genBut").disabled = true;
+	loadXMLDoc(finished);
+}
 </script>
 
 </head>
+
 <body>
 
-<h6 id = "1"> - </h6>
-<h6 id = "2"> - </h6>
-<h6 id = "3"> - </h6>
-<h6 id = "4"> - </h6>
-<h6 id = "5"> - </h6>
-<h6 id = "6"> - </h6>
-<h6 id = "7"> - </h6>
+<div id = "numbers">
+<h3 id = "1"> - </h3>
+<h3 id = "2"> - </h3>
+<h3 id = "3"> - </h3>
+<h3 id = "4"> - </h3>
+<h3 id = "5"> - </h3>
+<h3 id = "6"> - </h3>
+<h3 id = "7"> - </h3>
+</div>
 
-<div class="container">
+
+<div id = "buttonDiv" class="container">
 <button id="genBut" onclick="GenerateNums()" type="button" class="btn btn-primary btn-lg">
 <span class="glyphicon glyphicon-star"></span> 
 იღბლიანი ბილეთი</button>
 </div> 
 
 
-<script>
-	function GenerateNums(){
-		var finished = "";
-		var numbers = [];		
-		for(i = 1; i <= 7; i++){
-			var n =  Math.floor((Math.random() * 49) + 1);	
-			while(numbers.indexOf(n) > -1){
-				n =  Math.floor((Math.random() * 49) + 1);	
-			}			
-			numbers[i-1] = n;
-			document.getElementById("" + i).innerHTML = n			
-			if(i == 1) finished = finished + n;
-			else finished = finished + "-" + n;
-		}		
-		document.getElementById("genBut").disabled = true;
-		loadXMLDoc(finished);
-	}	
-</script>
-
-<h3 id = response> </h3>
 
 </body>
 </html>
