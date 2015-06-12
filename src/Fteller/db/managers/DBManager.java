@@ -26,50 +26,24 @@ public abstract class DBManager {
 			EXACT, LIKE
 	};
 	
-	/**
-	 * Constructor for DbManager object with provided DataSource object.
-	 * 
-	 * @param Source
-	 *            DataSource object representing connection pool.
-	 */
+	
 	public DBManager(DataSource Source) {
 		this.Source = Source;
 	}
 	
 	
 	
-	/**
-	 * Changes internal DataSource object with the new provided one.
-	 * 
-	 * @param newSource
-	 *            New Source object representing connection pool.
-	 */
+	
 	public void changeDataSource(DataSource newSource) {
 		this.Source = newSource;
 	}
 	
-	/*
-	 * Executes INSERT statement from given table name and values for all
-	 * columns.
-	 * 
-	 * @param tableName The name of the table to be affected.
-	 * 
-	 * @param values The list containing values for all columns.
-	 */
+	
 	protected void executeInsert(String tableName, List<String> values) {
 		executeInsert(tableName, new ArrayList<String>(), values);
 	}
 	
-	/*
-	 * Executes INSERT statement from given table name, column names and values
-	 * for selected column names.
-	 * 
-	 * @param tableName The name of the table to be affected.
-	 * 
-	 * @param columnNames The list containing column names for insertion.
-	 * 
-	 * @param values The list containing values for selected column names.
-	 */
+	
 	protected void executeInsert(String tableName, List<String> columnNames,
 			List<String> values) {
 		try {
@@ -84,22 +58,7 @@ public abstract class DBManager {
 		}
 	}
 	
-	/*
-	 * Executes a very simple (single where condition with exact match) UPDATE
-	 * statement from given table name, column names to be affected, values for
-	 * selected column names and where clause. Default matching type is EXACT
-	 * matching.
-	 * 
-	 * @param tableName The name of the table to be affected.
-	 * 
-	 * @param columns The list containing column names to be updated.
-	 * 
-	 * @param values The list containing values for selected column names.
-	 * 
-	 * @param whereCol Column name for where clause.
-	 * 
-	 * @param whereVal Column value for where clause.
-	 */
+	
 	protected void executeSimpleUpdate(String tableName, List<String> columns,
 			List<String> values, String whereCol, String whereVal) {
 	
@@ -113,22 +72,7 @@ public abstract class DBManager {
 				matchTypes);
 	}
 	
-	/*
-	 * Executes a very simple (single where condition with exact match) UPDATE
-	 * statement from given table name, column names to be affected, values for
-	 * selected column names and where clause. Default matching type is EXACT
-	 * matching.
-	 * 
-	 * @param tableName The name of the table to be affected.
-	 * 
-	 * @param column Column name to be updated.
-	 * 
-	 * @param value Value for selected column names.
-	 * 
-	 * @param whereCol Column name for where clause.
-	 * 
-	 * @param whereVal Column value for where clause.
-	 */
+	
 	protected void executeSimpleUpdate(String tableName, String column,
 			String value, String whereCol, String whereVal) {
 		List<String> columns = new ArrayList<String>();
@@ -145,23 +89,6 @@ public abstract class DBManager {
 				matchTypes);
 	}
 	
-	/*
-	 * Executes UPDATE statement from given table name, column names to be
-	 * affected, values for selected column names and column names, column
-	 * values and match types for where clause.
-	 * 
-	 * @param tableName The name of the table to be affected.
-	 * 
-	 * @param columns The list containing column names to be updated.
-	 * 
-	 * @param values The list containing values for selected column names.
-	 * 
-	 * @param whereCols The list containing column names for where clause.
-	 * 
-	 * @param whereVals The list containing column values for where clause.
-	 * 
-	 * @param matchTypes The list containing match types for where clause.
-	 */
 	protected void executeUpdate(String tableName, List<String> columns,
 			List<String> values, List<String> whereCols,
 			List<String> whereVals, List<MatchType> matchTypes) {
@@ -178,17 +105,7 @@ public abstract class DBManager {
 		}
 	}
 	
-	/*
-	 * Executes a very simple (single where condition with exact match) DELETE
-	 * statement from given table name and where clause. Default matching type
-	 * is EXACT matching.
-	 * 
-	 * @param tableName The name of the table to be affected.
-	 * 
-	 * @param whereCol Column name for where clause.
-	 * 
-	 * @param whereVal Column value for where clause.
-	 */
+	
 	protected void executeSimpleDelete(String tableName, String whereCol,
 			String whereVal) {
 		List<String> whereCols = new ArrayList<String>();
@@ -200,18 +117,7 @@ public abstract class DBManager {
 		executeDelete(tableName, whereCols, whereVals, matchTypes);
 	}
 	
-	/*
-	 * Executes DELETE statement from given table name and column names, column
-	 * values and match types for where clause.
-	 * 
-	 * @param tableName The name of the table to be affected.
-	 * 
-	 * @param whereCols The list containing column names for where clause.
-	 * 
-	 * @param whereVals The list containing column values for where clause.
-	 * 
-	 * @param matchTypes The list containing match types for where clause.
-	 */
+	
 	protected void executeDelete(String tableName, List<String> whereCols,
 			List<String> whereVals, List<MatchType> matchTypes) {
 		try {
@@ -227,10 +133,7 @@ public abstract class DBManager {
 		}
 	}
 	
-	/*
-	 * Generates INSERT query from given table name, column names and values for
-	 * selected column names.
-	 */
+	
 	protected String generateInsertQuery(String tableName,
 			List<String> columnNames, List<String> values) {
 		StringBuilder builder = new StringBuilder("INSERT INTO ");
@@ -251,11 +154,7 @@ public abstract class DBManager {
 		return builder.toString();
 	}
 	
-	/*
-	 * Generates UPDATE query from given table name, column names to be
-	 * affected, values for selected column names and column names, column
-	 * values and match types for where clause.
-	 */
+	
 	protected String generateUpdateQuery(String tableName,
 			List<String> columns, List<String> values, List<String> whereCols,
 			List<String> whereVals, List<MatchType> matchTypes) {
@@ -265,10 +164,7 @@ public abstract class DBManager {
 		return builder.toString();
 	}
 	
-	/*
-	 * Generates simple SELECT query from given table name, column names to be
-	 * retrieved and simple where clause with EXACT match by default.
-	 */
+	
 	protected String generateSimpleSelectQuery(String tableName,
 			List<String> columns, String whereCol, String whereVal) {
 		List<String> whereCols = new ArrayList<String>();
@@ -281,10 +177,7 @@ public abstract class DBManager {
 				matchTypes);
 	}
 	
-	/*
-	 * Generates SELECT query from given table name, column names to be
-	 * retrieved, where clause and match types for where clause.
-	 */
+	
 	protected String generateSelectQuery(String tableName,
 			List<String> columns, List<String> whereCols,
 			List<String> whereVals, List<MatchType> matchTypes) {
@@ -298,10 +191,7 @@ public abstract class DBManager {
 		return builder.toString();
 	}
 	
-	/*
-	 * Generates DELETE query from given table name and column names, column
-	 * values and match types for where clause.
-	 */
+	
 	protected String generateDeleteQuery(String tableName,
 			List<String> whereCols, List<String> whereVals,
 			List<MatchType> matchTypes) {
@@ -311,10 +201,7 @@ public abstract class DBManager {
 		return builder.toString();
 	}
 	
-	/*
-	 * Generates the UPDATE table_name SET field1=new-value1, field2=new-value2,
-	 * ..., fieldn=new-valuen part for the UPDATE query.
-	 */
+	
 	private String generateUpdateSetPart(String tableName,
 			List<String> columns, List<String> values) {
 		StringBuilder builder = new StringBuilder("UPDATE ");
@@ -332,10 +219,7 @@ public abstract class DBManager {
 		return builder.toString();
 	}
 	
-	/*
-	 * Generates a query string representing a sequence of column names in
-	 * (col1, col2, col3, col4, ... , coln) format.
-	 */
+	
 	private String generateColumnsString(List<String> columnNames) {
 		StringBuilder builder = new StringBuilder();
 		if (!columnNames.isEmpty()) {
@@ -350,10 +234,7 @@ public abstract class DBManager {
 		return builder.toString();
 	}
 	
-	/*
-	 * Generates complex WHERE part of the query. Note: it doesn't support
-	 * different conjunctions at the time, only "AND" conjunction (no "OR").
-	 */
+	
 	private String generateComplexWhere(List<String> whereCols,
 			List<String> whereVals, List<MatchType> matchTypes) {
 		StringBuilder builder = new StringBuilder(" WHERE ");

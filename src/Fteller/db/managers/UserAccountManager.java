@@ -1,7 +1,7 @@
 package Fteller.db.managers;
 
 
-//import review_dirName
+
 import authorization.User;
 
 import java.sql.Connection;
@@ -21,12 +21,7 @@ public class UserAccountManager extends DBManager{
 	public static final String ATTRIBUTE_NAME = "user_account_manager";
 
 	
-	/**
-	 * Constructor for UserAccountManager object with provided DataSource object.
-	 * 
-	 * @param Source
-	 *            Source object representing connection pool.
-	 */
+	
 	
 	
 	
@@ -37,19 +32,13 @@ public class UserAccountManager extends DBManager{
 	
 	
 	
-/**
-* checks if email is already used.
-* 
-* @param email
- *            User's unique email address.
-* @return true if email address in not in the database, false otherwise.
-*/
+
 	
 public boolean checkEmail(String email) {
 	try {
 		Connection con = Source.getConnection();
 		String query = generateSimpleSelectQuery("users",
-				new ArrayList<String>(), "email_adress", email);
+				new ArrayList<String>(), "email_address", email);
 		PreparedStatement statement = con.prepareStatement(query);
 		ResultSet result = statement.executeQuery();
 		boolean contains = result.next();
@@ -63,15 +52,7 @@ public boolean checkEmail(String email) {
 	return false;
 }
 
-/**
- * Creates account from given User object.
- * 
-* @param user
- *            User account object.
- * @return true if the account creation is successful, false otherwise,
- *         namely, if any of the mandatory parameters is null or if user account
- *         with the same email already exists.
- */
+
 public boolean createUserAccount(User user) {
 	//password and email are mandatory fields
 	if (user.getHashedPassword() == null
@@ -90,29 +71,46 @@ public boolean createUserAccount(User user) {
 	return true;
 }
 
-/*
- * Fills List object with account data prior to insert into the database.
- */
+
 private void fillWithUserData(List<String> values, User user) {
-	values.add(user.getUsername());
+	
+	values.add(null);
+	
+	
+	if (user.getUsername() != null)
+		values.add(user.getUsername());
+	else
+		values.add(null);
 	values.add(user.getHashedPassword());
 	values.add(user.getEmail());
+	
+	
+	
+	//
 	if (user.getBirthDate() != null)
 		values.add(user.getBirthDate().toString());
 	else
 		values.add(null);
-	values.add(user.getGender());
-	values.add(user.getPictureDirname());
+	//
+	if (user.getGender() != null)
+		values.add(user.getGender());
+	else
+		values.add(null);
+	//
+	if (user.getPictureDirname() != null)
+		values.add(user.getPictureDirname());
+	else
+		values.add(null);
+	
+	//
+	if (user.getInfo() != null)
+		values.add(user.getInfo());
+	else
+		values.add(null);
+
 }
 
-/**
- * Returns User object by given email, assuming it is a unique user account
- * identifier.
- * 
- * @param email
- *            A unique user (account) identifier (ID).
- * @return user object if email was found, null otherwise.
- */
+
 public User getUserAccount(String email) {
 	User user = null;
 	try {
@@ -129,6 +127,8 @@ public User getUserAccount(String email) {
 		 * todo todo todo todo todo todo todo todo
 		 * 
 		 */
+		//TODO: done.
+		user = new User(email);
 		con.close();
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
@@ -137,16 +137,7 @@ public User getUserAccount(String email) {
 	return user;
 }
 
-/**
- * Returns the list of user accounts within the given range.
- * 
- * @param page
- *            The page the user is browsing.
- * @param limit
- *            The limit of results per page.
- * @return The list of users within the given range.
- * @throws SQLException
- */
+
 public List<User> getUserAccounts(int page, int limit) throws SQLException {
 	List<User> userAccounts = new ArrayList<User>();
 	Connection con = Source.getConnection();
@@ -163,11 +154,7 @@ public List<User> getUserAccounts(int page, int limit) throws SQLException {
 	return userAccounts;
 }
 
-/**
- * Returns the number of user accounts in database.
- * 
- * @return The number of user accounts in database.
- */
+
 public int getUserAccountsQuantity() {
 	int result = 0;
 	try {
@@ -185,18 +172,7 @@ public int getUserAccountsQuantity() {
 	return result;
 }
 
-/**
- * Makes an user authentication attempt. Namely, checks if the given user
- * exists, if so, checks whether the password is correct.
- * 
- * @param email
- *            A unique user (account) identifier (ID).
- * @param hashedPassword
- *            Hashed password.
- * @return true if authentication was successful (user exists and password
- *         matches), false if account didn't exist or password was
- *         incorrect.
- */
+
 public boolean authenticateUser(String email, String hashedPassword) {
 	User target = getUserAccount(email);
 	if (target != null)
@@ -204,14 +180,7 @@ public boolean authenticateUser(String email, String hashedPassword) {
 	return false;
 }
 
-/**
- * Checks whether the given account has administrator privileges.
- * 
-* @param user
- *            User account object.
- * @return true if given account has administrator privileges, false
- *         otherwise.
- */
+
 public boolean isAdmin(User user) {
 	try {
 		Connection con = Source.getConnection();
@@ -231,23 +200,12 @@ public boolean isAdmin(User user) {
 	return false;
 }
 
-/**
- * Removes administrator based on given account.
- * 
-* @param user
- *            User account object.
- */
+
 public void removeAdmin(User user) {
 	executeSimpleDelete("admin", "email_address", user.getEmail());
 }
 
-/**
- * Checks whether the given account is banned.
- * 
- * @param user
- *            User account object.
- * @return true if given account is banned, false otherwise.
- */
+
 public boolean isBanned(User user) {
 	try {
 		Connection con = Source.getConnection();
@@ -267,14 +225,7 @@ public boolean isBanned(User user) {
 	return false;
 }
 
-/**
- * Bans given account.
- * 
-* @param user
- *            User account object.
- * @return true if account was successfully banned, false otherwise, namely,
- *         if account was not valid.
- */
+
 public boolean banAccount(User user) {
 	String userEmail = user.getEmail();
 	if (checkEmail(userEmail)) {
@@ -286,51 +237,25 @@ public boolean banAccount(User user) {
 	return false;
 }
 
-/**
- * Removes ban from given account.
- * 
- * @param user
- *            User account object.
- */
+
 public void unbanAccount(User user) {
 	executeSimpleDelete("banned_accounts", "email_address", user.getEmail());
 }
 
-/**
- * Changes user account's password to the new one.
- * 
-* @param user
- *            User account object.
- * @param newHashedPassword
- *            New (updated) hashed password.
- */
+
 public void changeHashedPassword(User user, String newHashedPassword) {
 	executeSimpleUpdate("users", "hashed_password", newHashedPassword,
 			"email_address", user.getEmail());
 }
 
-/**
- * Changes user account's email address to the new one.
- * 
-* @param user
- *            User account object.
- * @param newEmail
- *            New (updated) email address.
- */
+
 public void changeEmail(User user, String newEmail) {
 	executeSimpleUpdate("users", "email_address", newEmail, "email_address",
 			user.getEmail());
 }
 
 
-/**
- * Changes user account's birthdate to the new one.
- * 
- * @param user
- *            User Account object.
- * @param newBirthdate
- *            New (updated) birthdate.
- */
+
 public void changeBirthdate(User user, Date newBirthdate) {
 	String birthday = null;
 	if (newBirthdate != null)
@@ -339,14 +264,7 @@ public void changeBirthdate(User user, Date newBirthdate) {
 			user.getEmail());
 }
 
-/**
- * Changes user account's gender to the new one.
- * 
- * @param user
- *            User Account object.
- * @param newGender
- *            New (updated) gender.
- */
+
 public void changeGender(User user, String newGender) {
 	executeSimpleUpdate("users", "gender", newGender, "email_address",
 			user.getEmail());
@@ -354,30 +272,13 @@ public void changeGender(User user, String newGender) {
 
 
 
-/**
- * Changes user account's avatar filename to the new one.
- * 
- * @param user
- *            User Account object.
- * @param newAvatarName
- */
+
 public void changeAvatarName(User user, String newAvatarName) {
 	executeSimpleUpdate("users", "avatar_filename", newAvatarName,
 			"user_id", user.getUsername());
 }
 
-/**
- * Returns the List of Review objects - all reviews associated with the
- * user.
- * 
- * @param user
- *            User Account object.
- * @param page
- *            The page user is on.
- * @param limit
- *            The limit of number of elements on single page.
- * @return The list of Review objects within the given range.
- */
+
 
 //TODO: add after review class is created. 
 
@@ -416,14 +317,9 @@ public List<Review> getReviews(User user, int page, int limit) {
 	return reviews;
 }
 */
-/**
- * Permanently deletes User account.
- * 
- * @param user
- *            User account object.
- */
+
 public void removeAccount(User user) {
-	executeSimpleDelete("users", "email_adress", user.getEmail());
+	executeSimpleDelete("users", "email_address", user.getEmail());
 }
 
 }

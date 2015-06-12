@@ -31,7 +31,7 @@ public class User {
 	
 	
 
-	private void setHashPassword(String hashPassword){
+	public void setHashPassword(String hashPassword){
 		this.hashPassword = hashPassword;
 	}
 	

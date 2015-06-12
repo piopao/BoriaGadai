@@ -1,8 +1,10 @@
-package authorization;
+package unitTest;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import authorization.Hasher;
 
 public class HasherTest {
 
