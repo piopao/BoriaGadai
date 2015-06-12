@@ -49,4 +49,14 @@
     <servlet-name>RegistrationServlet</servlet-name>
     <url-pattern>/RegistrationServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LotteryServlet</display-name>
+    <servlet-name>LotteryServlet</servlet-name>
+    <servlet-class>lottery.LotteryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LotteryServlet</servlet-name>
+    <url-pattern>/LotteryServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

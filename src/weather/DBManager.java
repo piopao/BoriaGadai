@@ -12,6 +12,7 @@ public class DBManager {
 	public boolean LotteryAdd(String numbers){		
 		return true;		
 	}
+
 	
 	public String GetWeather(ArrayList<Integer> weathVal){
 		String s = "";

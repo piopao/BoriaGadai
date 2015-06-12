@@ -5,23 +5,25 @@ html, body, div, button {
     background-color: rgb(13, 84, 34);
 }
 
-div{
-	text-align: center;
+#genBut{
+	position: absolute;
+ 	left: 50%;
+ 	margin-top: 50px;
+ 	transform: translate(-50%, -50%);  
+ 	text-align: center;
+}
+
+#numbers{	
+	color: white;
+ 	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	margin-top: 170px;
+
 }
 
 h3{
 	display: inline;
-	padding-right: 20px;
-    padding-left: 20px;
-	
-}
-
-#numbers{
-	margin-top: 130px;
-	color: white;
-}
-
-
-#genBut{
-	margin-top: 30px;
+	margin-left: 20px;
+	margin-right: 20px;
 }

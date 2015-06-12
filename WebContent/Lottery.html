@@ -9,44 +9,25 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   
+  
 <script>
-function loadXMLDoc(numbers)
-{
-var xmlhttp;
-if (window.XMLHttpRequest)
-  {// code for IE7+, Firefox, Chrome, Opera, Safari
-  xmlhttp=new XMLHttpRequest();
-  }
-else
-  {// code for IE6, IE5
-  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-xmlhttp.onreadystatechange=function()
-  {
-  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {	  
-	  document.getElementById("response").innerHTML = xmlhttp.responseText;
-    }
-}
-	xmlhttp.open("GET","LotteryHelper.jsp?"+numbers,true);
-	xmlhttp.send();	
-}
-
-function GenerateNums(){
-	var finished = "";
-	var numbers = [];		
-	for(i = 1; i <= 7; i++){
-		var n =  Math.floor((Math.random() * 49) + 1);	
-		while(numbers.indexOf(n) > -1){
-			n =  Math.floor((Math.random() * 49) + 1);	
-		}			
-		numbers[i-1] = n;
-		document.getElementById("" + i).innerHTML = n			
-		if(i == 1) finished = finished + n;
-		else finished = finished + "-" + n;
-	}		
-	document.getElementById("genBut").disabled = true;
-	loadXMLDoc(finished);
+$(document).ready(function(){
+    $("#genBut").click(function(){    	   
+        $.get("LotteryServlet", function(data, status){
+          	loadData(data);           
+         });        
+    });
+});
+</script>
+  
+  
+<script>
+function loadData(data){
+	 var numbers = data.split("-");
+	 var length = numbers.length+1;	
+	 for(i = 1; i<length; i++){
+		 document.getElementById(""+ i).innerHTML = numbers[i-1];
+	 }
 }
 </script>
 
@@ -54,11 +35,12 @@ function GenerateNums(){
 
 <body>
 
+
 <div id = "numbers">
 <h3 id = "1"> - </h3>
 <h3 id = "2"> - </h3>
 <h3 id = "3"> - </h3>
-<h3 id = "4"> - </h3>
+<h3 id = "4" class = "centered"> - </h3>
 <h3 id = "5"> - </h3>
 <h3 id = "6"> - </h3>
 <h3 id = "7"> - </h3>
@@ -66,11 +48,10 @@ function GenerateNums(){
 
 
 <div id = "buttonDiv" class="container">
-<button id="genBut" onclick="GenerateNums()" type="button" class="btn btn-primary btn-lg">
+<button id="genBut" onclick="GenerateNums()" type="button" class="btn btn-warning btn-lg">
 <span class="glyphicon glyphicon-star"></span> 
 იღბლიანი ბილეთი</button>
 </div> 
-
 
 
 </body>
