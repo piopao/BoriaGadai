@@ -1,0 +1,64 @@
+@CHARSET "ISO-8859-1";
+
+body{
+	background-color: rgb(57, 146, 198);
+	background-image: url("./Images/weather1.jpg");
+	
+}
+
+#GetWeatherButton{
+	position: absolute;
+ 	left: 50%;
+ 	margin-top: 60px;
+ 	transform: translate(-50%, -50%);  
+ 	text-align: center;
+ }
+ 
+div.text{text-align: center;
+  font-weight: normal;
+  width: 120px;
+  margin: 5px;
+  }
+  
+div.comb img {
+    display: inline;
+    margin: 5px;
+}
+
+div.comb {
+    margin: 5px;
+    height: auto;
+    width: auto;
+    float: left;
+    text-align: center;
+}
+
+div.dataDiv{
+	border: 2px dotted;
+	border-radius: 5px;
+	border-color: rgb(10, 10, 10);
+	background-color:transparent;
+}
+
+h3.starter{
+	color: rgb(10, 10, 10);
+	margin-left: 60px;
+	margin-right: 60px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+h4.wText{
+	color: rgb(199, 199, 199);
+}
+
+
+div.cover{
+	background-color:transparent;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	margin-top: 130px;
+  	text-align:center;
+}
+

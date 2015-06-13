@@ -3,7 +3,13 @@
 <head>
 <title> Weather Generator </title>
 <meta charset="UTF-8">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="Weather.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  
 <script>
 $(document).ready(function(){
     $("#GetWeatherButton").click(function(){    	   
@@ -19,29 +25,41 @@ $(document).ready(function(){
 
 <script>
 function loadData(data){
+	var parent = document.getElementById("dataLoad");
+	var child = document.getElementById("starter");
+	parent.removeChild(child);
+	
 	  var tokenedIntoPair = data.split("/");
 	  var length = tokenedIntoPair.length;	  
 	  for(i = 0; i<length; i++){
 		 var tokenedTextPic = tokenedIntoPair[i].split("*");
 		 var sublength = tokenedTextPic.lenght;
+		 
 		  var pic = document.createElement("IMG");
 		  pic.setAttribute("src","./Images/" +  tokenedTextPic[1]);
 		  pic.setAttribute("width", "100");
-		  pic.setAttribute("width", "100");
-		  var element = document.getElementById("dataLoad");
-		  element.appendChild(pic);
-		  var para = document.createElement("p");
+		  pic.setAttribute("width", "100");	
+		  pic.setAttribute("class", "wImg");
+		  var text = document.createElement("h4");
+		  text.setAttribute("class", "wText");
 		  var node = document.createTextNode(tokenedTextPic[0]);
-		  para.appendChild(node);
-		  var element = document.getElementById("dataLoad");
-		  element.appendChild(para);
+		  text.appendChild(node);
+		  
+		  var div = document.createElement("div");
+		  div.setAttribute("class", "comb");
+		  div.appendChild(pic);
+		  div.appendChild(text);
+		  document.getElementById("dataLoad").appendChild(div);
 		  		  
 	  }
 }
 </script>
 </head>
 <body>	
-<div id = "dataLoad"></div>
-<button id = "GetWeatherButton">Get Today's Weather</button>
+<div class = "cover">
+<div id = "dataLoad" class = "dataDiv"> <h3 id = "starter" class = "starter"> დღევანდელი ამინდის ადგილი</h3></div>
+</div>
+<button id = "GetWeatherButton" type="button" class="btn btn-success btn-lg">დღეს როგორი დარია?</button>
+
 </body>
 </html>
