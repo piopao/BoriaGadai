@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS users (
 	user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
 	username CHAR(64) NOT NULL ,
 	hashed_password CHAR(64) NOT NULL,
-	email_address VARCHAR(254) NOT NULL,
+	email_address VARCHAR(254) NOT NULL UNIQUE,
 	birthdate DATE,
 	gender CHAR(8),
 	avatar_filename VARCHAR(128),
@@ -39,13 +39,13 @@ CREATE TABLE IF NOT EXISTS quiz_reviews (
 );
 
 CREATE TABLE IF NOT EXISTS admin (
-	user_id INT,
-	FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
+	email VARCHAR(64),
+	FOREIGN KEY (email) REFERENCES users(email_address) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS banned_accounts (
-	user_id INT,
-	FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
+	email VARCHAR(64),
+	FOREIGN KEY (email) REFERENCES users(email_address) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS friend_list (

@@ -13,16 +13,17 @@ public class User {
 	
 	
 	public User(String email){
-		this(email, null, null, null, null, null, null, null);
+		this(null, null, email, null, null, null, null, null, null);
 	}
 	
-	public User(String email, String username, String name, String surname, String picture, String info,  String hashPassword, String gender){
+	public User( String username, String hashPassword, String email, String name, String surname, Date birthdate, String gender, String picture, String info){
 		userStatus = 0;
 		friends = new ArrayList<Integer>();
 		setUsername(username);
 		setName(name);
 		setSurname(surname);
 		setPictureDirname(picture);
+		setBirthDate(birthdate);
 		setInfo(info);
 		setGender(gender);
 		setEmail(email);
@@ -39,7 +40,6 @@ public class User {
 		return hashPassword;
 	}
 	
-	/*email is immutable for the user*/
 	/*email setter/getters*/
 	private void setEmail(String email){
 		this.email = email;

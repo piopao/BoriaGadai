@@ -76,15 +76,13 @@ private void fillWithUserData(List<String> values, User user) {
 	
 	values.add(null);
 	
-	
 	if (user.getUsername() != null)
 		values.add(user.getUsername());
 	else
 		values.add(null);
+	
 	values.add(user.getHashedPassword());
 	values.add(user.getEmail());
-	
-	
 	
 	//
 	if (user.getBirthDate() != null)
@@ -128,7 +126,9 @@ public User getUserAccount(String email) {
 		 * 
 		 */
 		//TODO: done.
-		user = new User(email);
+		if (rs.next()) 
+		user = new User(rs.getString(2),rs.getString(3),rs.getString(4), null, null, rs.getDate(5),rs.getString(6),rs.getString(7),rs.getString(8));
+		
 		con.close();
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
@@ -181,11 +181,11 @@ public boolean authenticateUser(String email, String hashedPassword) {
 }
 
 
-public boolean isAdmin(User user) {
+public boolean isAdmin(String email) {
 	try {
 		Connection con = Source.getConnection();
 		String query = generateSimpleSelectQuery("admin",
-				new ArrayList<String>(), "email_address", user.getEmail());
+				new ArrayList<String>(), "email", email);
 		PreparedStatement statement = con.prepareStatement(query);
 		ResultSet result = statement.executeQuery();
 
@@ -206,11 +206,11 @@ public void removeAdmin(User user) {
 }
 
 
-public boolean isBanned(User user) {
+public boolean isBanned(String email) {
 	try {
 		Connection con = Source.getConnection();
 		String query = generateSimpleSelectQuery("banned_accounts",
-				new ArrayList<String>(), "email_address", user.getEmail());
+				new ArrayList<String>(), "email", email);
 		PreparedStatement statement = con.prepareStatement(query);
 		ResultSet result = statement.executeQuery();
 
@@ -239,7 +239,7 @@ public boolean banAccount(User user) {
 
 
 public void unbanAccount(User user) {
-	executeSimpleDelete("banned_accounts", "email_address", user.getEmail());
+	executeSimpleDelete("banned_accounts", "email", user.getEmail());
 }
 
 

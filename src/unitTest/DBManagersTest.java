@@ -1,6 +1,7 @@
 package unitTest;
 
 import static org.junit.Assert.*;
+import java.sql.Date;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -28,14 +29,79 @@ public class DBManagersTest {
 	
 	
 	@Test
-	public void test1() {
+	public void CreateUserAccountTest() {
+		
 		User testUser = new User("test@test.com");
 		testUser.setHashPassword("testHash");
 		testUser.setUsername("testUser");
+		
+		//creating user account
+		
 		manager.createUserAccount(testUser);
+		
 		assertTrue(manager.checkEmail("test@test.com"));
-		System.out.println(manager.getUserAccountsQuantity());
+		
+		//checking user account info
+		User checkTestUser = manager.getUserAccount(testUser.getEmail());
+		assertEquals(testUser.getHashedPassword(),checkTestUser.getHashedPassword() );
+		assertEquals(testUser.getUsername() ,checkTestUser.getUsername() );
+		assertEquals(testUser.getEmail(),checkTestUser.getEmail() );
+		
+		//removing user account
 		manager.removeAccount(testUser);
+		assertFalse(manager.checkEmail(testUser.getEmail()));
+		
+		
+	}
+	
+	@Test
+	public void AdminTest() {
+		assertTrue(manager.isAdmin("itkem12@freeuni.edu.ge"));
+		assertTrue(manager.isAdmin("ekikn12@freeuni.edu.ge"));
+		assertTrue(manager.isAdmin("mpepa13@freeuni.edu.ge"));
+		assertTrue(manager.isAdmin("nbasi13@freeuni.edu.ge"));
+	}
+	
+	@Test
+	public void banTest() {
+		User dummy = new User("dummy@mail.com");
+		dummy.setHashPassword("dummyhash");
+		dummy.setUsername("dummy");
+		
+		manager.createUserAccount(dummy);
+		assertFalse(manager.isBanned(dummy.getEmail()));
+		
+		//ban account
+		manager.banAccount(dummy);
+		assertTrue(manager.isBanned(dummy.getEmail()));
+		
+		//unban account
+		manager.unbanAccount(dummy);
+		assertFalse(manager.isBanned(dummy.getEmail()));
+		
+		//delete account
+		manager.removeAccount(dummy);
+	}
+	
+	@Test
+	public void testChanges() {
+		User dummy = new User("dummy", "dummy@hash", "dummy@mail.com", null, null, Date.valueOf("1994-06-13"), "Female", null, "i am dummy");
+		manager.createUserAccount(dummy);
+		
+		User temp = manager.getUserAccount(dummy.getEmail());
+		
+		//assert equals before change
+		assertEquals(temp.getUsername()      , dummy.getUsername()      );
+		assertEquals(temp.getHashedPassword(), dummy.getHashedPassword());
+		assertEquals(temp.getEmail()         , dummy.getEmail()         );
+		assertEquals(temp.getGender()        , dummy.getGender()        );
+		assertEquals(temp.getBirthDate()     , dummy.getBirthDate()     );
+		assertEquals(temp.getPictureDirname(), dummy.getPictureDirname());
+		assertEquals(temp.getInfo()          , dummy.getInfo()          );
+		
+		//more test cmmmig y e a
+		
+		
 	}
 	
 	
