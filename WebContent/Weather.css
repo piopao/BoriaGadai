@@ -38,7 +38,7 @@ div.dataDiv{
 	border-radius: 5px;
 	border-color: rgb(220, 220, 220);
 	background-color:transparent;
-	box-shadow: inset 0 0 0 1000px rgba(0,0,0,.15);
+	box-shadow: inset 0 0 0 1000px rgba(0,0,0,.1);
 }
 
 h3.starter{
