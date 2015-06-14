@@ -18,8 +18,6 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS quiz (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
     quiz_name TEXT
-	
-	
 );
 #dir_names for default avatar pictures
 CREATE TABLE IF NOT EXISTS pictures (

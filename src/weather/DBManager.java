@@ -14,7 +14,7 @@ public class DBManager {
 	}
 
 	
-	public String GetWeather(ArrayList<Integer> weathVal){
+	public String GetWeather(ArrayList<String> weathVal){
 		String s = "";
 		for(int i=0; i<weathVal.size(); i++){
 			if(i == weathVal.size() - 1) s+= weathVal.get(i)+ "*" + "rain.png";
