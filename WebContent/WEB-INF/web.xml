@@ -59,4 +59,7 @@
     <servlet-name>LotteryServlet</servlet-name>
     <url-pattern>/LotteryServlet</url-pattern>
   </servlet-mapping>
+  <listener>
+    <listener-class>listener.MyContextListener</listener-class>
+  </listener>
 </web-app>

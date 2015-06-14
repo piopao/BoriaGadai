@@ -1,14 +1,19 @@
 package authorization;
 
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import Fteller.db.managers.UserAccountManager;
+
 
 
 
@@ -39,9 +44,16 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		User current /* = check(String email, String password)*/ = new User("aaa");
+		String hashedPassword = Hasher.generate_hash(password);
+		ServletContext context = getServletContext();
+		//UserAccountManager manager = (UserAccountManager)context.getAttribute("accountManager");
+		//boolean accessGranted = manager.authenticateUser(email,password);
+		User current = null;
+		//if(accessGranted)
+			//current = manager.getUserAccount(email);				
+		current = new User("aaa");
 		HttpSession sess = request.getSession();
-		//sess.setAttribute("user", current);
+		sess.setAttribute("user", current);
 		if(current == null) {				
 			sess.setAttribute("LoginStatus", "TryAgain");
 			RequestDispatcher dispatch =
