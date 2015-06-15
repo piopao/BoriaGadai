@@ -39,10 +39,10 @@
 			<nav id="navigation-bar">
 				<ul>
 					<li class="active"><a href="Homepage.jsp">მთავარი</a></li>
-					<li><form role="search">
+					<li><form role="search" action = "SearchServlet" method = "get">
 							<div>
 								<input type="text" class="form-control" placeholder="შეიყვანეთ მეილი"
-									size="50">
+									size="50" name = "query">
 							</div>
 							<button type="submit">ძებნა</button>
 						</form></li>
