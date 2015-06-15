@@ -39,3 +39,7 @@ input.form-control{
 	color: rgba(255, 255, 255, 0.7);	
 }
 
+#error{
+	color: rgba(255, 255, 225, 0.7);
+	text-align: center;	
+}

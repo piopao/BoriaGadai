@@ -16,7 +16,7 @@
 			var password = document.getElementById("password").value;
 			
 			if(email.length === 0 || !email.trim() || password.length < 4  || !password.trim()){
-				document.getElementById("warning").innerHTML = "გადაამოწმეთ ელ.ფოსტა და პაროლი";
+				document.getElementById("warning").innerHTML = "შეიყვანეთ ელ.ფოსტა და მინ. 4 სიგრძის პაროლი";
 				return false;
 			}
 			else{
@@ -34,7 +34,7 @@
 			String condition = (String)sess.getAttribute("LoginStatus");			
 			if(!(condition == null) && condition.equals("TryAgain")){
 				sess.setAttribute("LoginStatus", null);
-				out.println("<h3>მომხმარებლის მონაცემები არასწორია, გთხოვთ, გადაამოწმოთ და თავიდან ცადოთ</h3>");
+				out.println("<h5 id = \"error\">მომხმარებლის ერთ-ერთი მონაცემი არასწორია</h5>");
 			}
 		%>
 		<p id = "warning">* *</p>
