@@ -46,3 +46,6 @@ build/
 hs_err_pid*
 
 *.psd
+
+
+*DBLogin.java

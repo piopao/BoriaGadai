@@ -46,12 +46,11 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String hashedPassword = Hasher.generate_hash(password);
 		ServletContext context = getServletContext();
-		//UserAccountManager manager = (UserAccountManager)context.getAttribute("accountManager");
-		//boolean accessGranted = manager.authenticateUser(email,password);
+		UserAccountManager manager = (UserAccountManager)context.getAttribute("accountManager");
+		boolean accessGranted = manager.authenticateUser(email,hashedPassword);
 		User current = null;
-		//if(accessGranted)
-			//current = manager.getUserAccount(email);				
-		current = new User("aaa");
+		if(accessGranted)
+			current = manager.getUserAccount(email);				
 		HttpSession sess = request.getSession();
 		sess.setAttribute("user", current);
 		if(current == null) {				

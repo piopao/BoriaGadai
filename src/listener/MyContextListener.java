@@ -5,6 +5,7 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource;
+import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 import DBSettings.DBLogin;
 import Fteller.db.managers.UserAccountManager;
@@ -34,13 +35,13 @@ public class MyContextListener implements ServletContextListener {
      */
     public void contextInitialized(ServletContextEvent arg0)  { 
     	ServletContext context = arg0.getServletContext();
-    	/*MysqlConnectionPoolDataSource dataSource = new MysqlConnectionPoolDataSource();
-		dataSource.setURL("jdbc:mysql://localhost:3306/db?characterEncoding=UTF-8");
+    	MysqlConnectionPoolDataSource dataSource = new MysqlConnectionPoolDataSource();	    	
+    	dataSource.setURL("jdbc:mysql://localhost:3306/db?characterEncoding=UTF-8");
 		dataSource.setUser(DBLogin.USERNAME); // use your mysql username
 		dataSource.setPassword(DBLogin.PASSWORD); // use your mysql password
     	UserAccountManager accManager = new UserAccountManager(dataSource);
-    	context.setAttribute("accountManager", accManager);*/
-    	System.out.println("alalalala");
+    	context.setAttribute("accountManager", accManager);
+    	
     }
 	
 }
