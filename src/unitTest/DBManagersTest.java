@@ -33,14 +33,16 @@ public class DBManagersTest {
 		
 		User testUser = new User("test@test.com");
 		testUser.setHashPassword("testHash");
-		testUser.setUsername("testUser");
 		
 		//creating user account
 		
-		manager.createUserAccount(testUser);
+		assertFalse(manager.checkEmail("test@test.com"));
+
+		assertTrue(manager.createUserAccount(testUser));
 		
 		assertTrue(manager.checkEmail("test@test.com"));
 		
+
 		//checking user account info
 		User checkTestUser = manager.getUserAccount(testUser.getEmail());
 		assertEquals(testUser.getHashedPassword(),checkTestUser.getHashedPassword() );

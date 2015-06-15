@@ -7,7 +7,7 @@ USE db;
 
 CREATE TABLE IF NOT EXISTS users (
 	user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
-	username CHAR(64) NOT NULL ,
+	username CHAR(64) ,
 	hashed_password CHAR(64) NOT NULL,
 	email_address VARCHAR(254) NOT NULL UNIQUE,
 	birthdate DATE,
