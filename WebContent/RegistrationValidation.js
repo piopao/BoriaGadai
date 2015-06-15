@@ -9,10 +9,10 @@ $(document).ready(function(){
     	if(!(email.length === 0 || !email.trim())){
 	        $.post("CheckRegistrationServlet",
 	        {
-	          name: document.getElementById("email").value
+	          mail: email
 	        },
 	        function(data,status){
-	            if(data.length > 0){  
+	            if(data.length == 0){  
 	            	document.getElementById("email").disabled = true;
 	            	document.getElementById("check").disabled = true;
 	            	var list = document.getElementsByClassName("restricted");
@@ -36,6 +36,7 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $("#change").click(function(){
+    	document.getElementById("tryagain").innerHTML = "* *";
     	var disabled = $(document.getElementById("email")).is(':disabled');
     	if(disabled){
     		document.getElementById("email").disabled = false;

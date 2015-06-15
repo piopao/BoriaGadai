@@ -32,8 +32,9 @@ public class RegistrationServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-	      System.out.println("ageraa");
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		
 	}
 
 }
