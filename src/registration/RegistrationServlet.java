@@ -39,10 +39,13 @@ public class RegistrationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email = request.getParameter("email");
-		String password = request.getParameter("password2");
+		String password = request.getParameter("password");
 		String hashedPassword = Hasher.generate_hash(password);
 		User newbie = new User(email);
 		newbie.setHashPassword(hashedPassword);
+		newbie.setUsername(request.getParameter("username"));
+		newbie.setName(request.getParameter("name"));
+		newbie.setSurname(request.getParameter("surname"));
 		ServletContext context = getServletContext();
 		UserAccountManager manager = (UserAccountManager)context.getAttribute("accountManager");		
 		boolean success = manager.createUserAccount(newbie);

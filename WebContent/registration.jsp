@@ -19,7 +19,7 @@
 		<p id = tryagain>* *</p>
 		<form action = "RegistrationServlet" method = "post">
 			<div class = "form-group">			
-				<input class="form-control" type="text" placeholder = "ელ.ფოსტა:"  size="25" value="" id = "email" name = "email">		
+				<input class="form-control" type="text" placeholder = "ელ.ფოსტა"  size="25" value="" id = "email" name = "email">		
 			</div>	
 			<div class = "form-group">	
 				<div class="btn-group">
@@ -31,6 +31,11 @@
 				<input  type="password" placeholder = "პაროლი"  value="" class = "form-control"  id = "password" name = "password" >
 				<input  type="password" placeholder = "გაიმეორეთ პაროლი"  value="" class = "form-control" id = "password2" name = "password2" >
 				<p id = "warning"></p>
+			</div>
+			<div class = "form-group">
+				<input class="form-control" type="text" placeholder = "მომხმარებელი"  size="25" value="" id = "username" name = "username">
+				<input class="form-control" type="text" placeholder = "სახელი"  size="25" value="" id = "name" name = "name">	
+				<input class="form-control" type="text" placeholder = "გვარი"  size="25" value="" id = "surname" name = "surname">		
 			</div>
 			<div class = "form-group">
 				<button class = "restricted btn btn-default"  onclick = " return validateInfo()" disabled>რეგისტრაცია</button>
