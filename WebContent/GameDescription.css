@@ -1,0 +1,95 @@
+@CHARSET "ISO-8859-1";
+
+body{
+	background-color: white;
+}
+
+div.box {
+	margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    width: 400px;
+    float: left;
+    text-align: center;    
+	border-top-style: solid;
+	border-width: 1px;
+}
+
+div.textbox {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 500px;
+    overflow-w: auto;
+    float: left;    
+	border-top-style: solid;
+	border-width: 1px;
+}
+
+p.text{
+	font-size: 100%;
+}
+
+div.stars img{
+	display: inline;
+	width: 20px;
+	height: 20px;
+}
+
+div.name{
+	margin: 10px;
+	text-align: center;
+}
+
+h5.date{
+	color: gray;
+}
+
+div.review{
+	 float: left;    
+}
+
+div.review{
+	width: 950px;
+}
+
+div.reviewComb{
+	margin-top: 30px;
+	height: 300px;
+	width: 960px;
+	overflow-y: scroll;
+}
+
+div.cover{
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	margin-top: 130px;
+  	text-align:center;
+}
+
+h1.gameName{
+	text-align: center;
+	margin-top: 50px;
+}
+
+#gameButt{
+	position: absolute;
+ 	left: 50%;
+ 	margin-top: 60px;
+ 	transform: translate(-50%, -50%);  
+ 	text-align: center;
+}
+
+div.gameText{
+	border: 1px dotted;
+	width: 800px;
+}
+
+div.gameTextCover{
+	background-color:transparent;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	margin-top: 30px;
+  	text-align:center;	  
+}
