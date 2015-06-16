@@ -42,7 +42,7 @@ for(int i=revArr.size()-1; i>=0; i--){
 	printing+= " </div>"; //stars daixura
 	printing+= "<h5 class = date> " + rev.getDate() + "</h5>"; 	
 	printing+= " </div> "; //box daixura	
-	printing+= "<div class = textbox> <p class = revText>" + rev.getReviewText() + "</p>	 </div>";	
+	printing+= "<div class = textbox> <p class = revText>" + rev.getText() + "</p>	 </div>";	
 	printing+= " </div>";//review daixura
 }
 printing+= "</div> </div>";

@@ -1,5 +1,8 @@
 package review;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import authorization.User;
 
 public class Review {
@@ -8,12 +11,12 @@ public class Review {
 	private String gameName, text, date;
 	private int stars;
 		
-	public Review(User user, String gameName, String text, int stars, String date){
+	public Review(User user, String gameName, String text, int stars, Date date){
 		this.user = user;
 		this.gameName = gameName;
 		this.text = text;
 		this.stars = stars;
-		this.date = date;
+		this.date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
 	}
 	
 	public String getDate(){
@@ -32,7 +35,7 @@ public class Review {
 		return gameName;
 	}
 	
-	public String getReviewText(){
+	public String getText(){
 		return text;
 	}
 	
