@@ -115,7 +115,14 @@ public class User {
 	
 	public ArrayList<Integer> getFriends(){
 		return friends;
-	}		
+	}
+	
+	public boolean hasFriend(String email){
+		for(int i=0; i<friends.size(); i++){
+			if(friends.get(i).equals(email)) return true;
+		}
+		return false;
+	}
 	
 	
 	/*id setter/getters*/
