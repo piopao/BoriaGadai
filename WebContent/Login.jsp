@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-  
+  <script src="ExternalLogin.js"></script>
   	<script>
 	  	function validateInfo(){		
 			var email = document.getElementById("email").value;
@@ -46,6 +46,8 @@
 			<input placeholder="პაროლი" type="password"  class="form-control"  value="" id = "password" name = "password">
 			<br>
 			<input type="submit" class="btn btn-default" value="შესვლა " onclick = " return validateInfo()">
+			<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+			<div id="status"></div>
 		</div>
 		</form>		
 		<p><a href  = "registration.jsp" class = "further" > ახალი მომხმარებლის შექმნა </a></p>
