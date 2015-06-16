@@ -2,7 +2,8 @@
 
 
 html, body, div, button {
-    background-color: rgb(13, 50, 34);
+    background-color: rgb(1, 26, 6);
+   
 }
 
 #genBut{
@@ -11,7 +12,6 @@ html, body, div, button {
  	margin-top: 70px;
  	transform: translate(-50%, -50%);  
  	text-align: center;
-
  }
 
 div.numbers{	
@@ -23,7 +23,7 @@ div.numbers{
     border-radius: 15px;
     border-color: rgb(255, 153, 51);
     border-width: 2.5px;
-  	
+  	background-color:transparent;  	
 }
 
 div.bigNum{
@@ -31,10 +31,12 @@ div.bigNum{
   	justify-content: center;
   	align-items: center;
   	margin-top: 170px;
+  	color:transparent;
 }
 
 p.space{
 	margin-top: 170px;
+	background-color:transparent;
 }
 
 span.glyphicon-asterisk{
@@ -47,4 +49,5 @@ h3{
 	display: inline-block;
 	margin-left: 20px;
 	margin-right: 20px;
+	background-color:transparent;
 }

@@ -18,6 +18,6 @@ public class DBManager {
 					"ტუტრუცანა", "ვარკუტა ", 3, "05 06 07"));
 		}
 		
-		return new GameDiscription("ზილინა", "ზილინასნაირი კაი თამაში მისდღემჩი არ შეგვხვედრია ჩემიი გოგონა და არც შეგხვდება", "./Images/sky1.jpg", rev, "Lottery.html");		
+		return new GameDiscription("ზილინა", "ზილინასნაირი კაი თამაში მისდღემჩი არ შეგვხვედრია ჩემიი გოგონა და არც შეგხვდება", "./Images/sky1.jpg", rev, "Weather.html");		
 	}
 }

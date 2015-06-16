@@ -1,9 +1,7 @@
 @CHARSET "ISO-8859-1";
 
 body{
-	background-color: rgb(57, 146, 198);
-	background-image: url("./Images/sky1.jpg");
-	
+	background-image: url("./Images/weather.jpg");
 }
 
 #GetWeatherButton{
