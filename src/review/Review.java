@@ -27,7 +27,7 @@ public class Review {
 		return user.getName() + " " + user.getSurname();
 	}
 	
-	public int getUserId(){
+	public int getUserID(){
 		return user.getId();
 	}
 	

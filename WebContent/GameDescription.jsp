@@ -31,7 +31,7 @@ for(int i=revArr.size()-1; i>=0; i--){
 	Review rev = revArr.get(i);
 	printing+= "<div class = review> ";
 	printing+= "<div class = box> ";
-	printing+= "<div class=name ><a class=\"userId\" href="+ "\"Temp.html?userId=" + rev.getUserId() +"\">" + rev.getUserFullName() + "</a></div> ";
+	printing+= "<div class=name ><a class=\"userId\" href="+ "\"Temp.html?userId=" + rev.getUserID() +"\">" + rev.getUserFullName() + "</a></div> ";
 	int stars = rev.getStars();
 	printing += "<div class = stars> ";
 	for(int k=0; k<stars; k++){
