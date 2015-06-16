@@ -9,12 +9,12 @@ public class DBManager {
 			
 	}
 		
-	public boolean LotteryAdd(String numbers){		
+	public boolean lotteryAdd(int userID ,String numbers){		
 		return true;		
 	}
 
 	
-	public String GetWeather(ArrayList<String> weathVal){
+	public String getAndSaveWeather(int userID,ArrayList<String> weathVal){
 		String s = "";
 		for(int i=0; i<weathVal.size(); i++){
 			if(i == weathVal.size() - 1) s+= weathVal.get(i)+ "*" + "rain.png";
@@ -23,11 +23,7 @@ public class DBManager {
 		return s;
 	}
 	
-	public String TodaysWeather(int userId){
+	public String getTodaysWeather(int userID){
 		return "";
-	}
-	
-	public String WeatherInfo(){
-		return null;
 	}
 }

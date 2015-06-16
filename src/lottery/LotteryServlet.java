@@ -59,7 +59,7 @@ public class LotteryServlet extends HttpServlet {
     		else fin+="-"+numbers[i];
     	}
     	
-    	if(!db.LotteryAdd(fin)){
+    	if(!db.lotteryAdd(-1,fin)){
     		fin = "Error";
     	};
     	return fin;

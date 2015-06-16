@@ -1,8 +1,9 @@
 @CHARSET "ISO-8859-1";
 
 body{
-	background-color: white;
+	background-image: url("./Images/gameDescription3.jpg");
 }
+
 
 div.box {
 	margin-top: 30px;
@@ -10,7 +11,8 @@ div.box {
     margin-left: 20px;
     width: 400px;
     float: left;
-    text-align: center;    
+    text-align: center; 
+    border-color: rgb(220, 220, 220);   
 	border-top-style: solid;
 	border-width: 1px;
 }
@@ -21,12 +23,15 @@ div.textbox {
     width: 500px;
     overflow-w: auto;
     float: left;    
+    border-color: rgb(200, 200, 200);
 	border-top-style: solid;
 	border-width: 1px;
 }
 
-p.text{
+p.revText{
+	margin-top: 10px;
 	font-size: 100%;
+	color: rgb(237, 237, 237);
 }
 
 div.stars img{
@@ -41,7 +46,7 @@ div.name{
 }
 
 h5.date{
-	color: gray;
+	color: rgb(220, 220, 220);
 }
 
 div.review{
@@ -49,14 +54,30 @@ div.review{
 }
 
 div.review{
-	width: 950px;
+	width: 960px;	
 }
 
 div.reviewComb{
-	margin-top: 30px;
+	margin-top: 50px;
 	height: 300px;
-	width: 960px;
+	width: 980px;
 	overflow-y: scroll;
+	margin-bottom: 30px;
+}
+
+.reviewComb::-webkit-scrollbar {
+    width: 12px;
+}
+
+.reviewComb::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(220,220,220,0.4); 
+    border-radius: 2px;
+}
+
+.reviewComb::-webkit-scrollbar-thumb {
+	color: rgb(220, 220, 220);
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(220,220,220,0.8); 
 }
 
 div.cover{
@@ -67,9 +88,12 @@ div.cover{
   	text-align:center;
 }
 
+
+
 h1.gameName{
 	text-align: center;
 	margin-top: 50px;
+	color: rgb(237, 237, 237);
 }
 
 #gameButt{
@@ -82,7 +106,10 @@ h1.gameName{
 
 div.gameText{
 	border: 1px dotted;
-	width: 800px;
+	border-radius: 5px;
+	border-color: rgb(220, 220, 220);
+	max-width: 800px;
+	height: auto;
 }
 
 div.gameTextCover{
@@ -93,3 +120,19 @@ div.gameTextCover{
   	margin-top: 30px;
   	text-align:center;	  
 }
+
+h4.gameText{
+	color: rgb(220, 220, 220);
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+a.userId:link {
+    color: rgb(220, 220, 220);
+}
+
+a.userId:visited {
+    color: rgb(220, 220, 220);
+}
+
+

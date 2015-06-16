@@ -73,7 +73,7 @@ public class WeatherServlet extends HttpServlet {
 	//Main weather generator method
 	public String GenerateWeather(){
 		rand = new Random();
-		String allreadyGenerated = db.TodaysWeather(userId);
+		String allreadyGenerated = db.getTodaysWeather(userId);
 		if(allreadyGenerated.length() != 0){
 			return allreadyGenerated;
 		}
@@ -86,7 +86,7 @@ public class WeatherServlet extends HttpServlet {
 		generated.add(GenerateTemperature());
 		generated.remove(0);
 		WeatherForDataBase();
-		return db.GetWeather(wForDB);
+		return db.getAndSaveWeather(-1,wForDB);
 	}
 	
 	private void WeatherForDataBase(){
@@ -95,43 +95,6 @@ public class WeatherServlet extends HttpServlet {
 		wForDB.add(""+generated.get(2) +generated.get(3));
 		wForDB.add(""+ generated.get(4));
 	}
-	
-	//Recursively generates values of weather
-/*	private boolean GenerateRec(int key){
-		if(key==ZERO) return true;
-		if(restrict.containsKey(key)){
-			int[] restrictions = restrict.get(key);
-			for(int i=0; i< restrictions.length; i++){
-				if(finalWeather.contains(restrictions[i])) return false;
-			}				
-		}
-		if(!weatherMap.containsKey(key)){			
-			finalWeather.add(key);
-			return true;
-		}
-		
-		int[] values = weatherMap.get(key);
-		boolean opposites = false;
-	
-		for(int i=0; i<values.length; i++){
-			if(!weatherMap.containsKey(values[i])) opposites = true;
-		}
-		if(opposites){
-			int n = rand.nextInt(values.length);
-			while(!GenerateRec(values[n])){
-				n = rand.nextInt(values.length);
-			}
-		}
-		else{
-			for(int i=0; i<values.length; i++){				
-				GenerateRec(values[i]);
-			}
-		}
-		
-		return true;
-		
-	}*/
-	
 
 	//Recursively generates values of weather
 	private boolean GenerateRec(int key){
@@ -185,19 +148,6 @@ public class WeatherServlet extends HttpServlet {
 		return -1;
 		
 	}	
-/*	private void CreateWeatherValues(){
-		weatherMap = new HashMap<>();
-		weatherMap.put(WEATHER, new int[]{SKY, WIND, SEDIMENT});
-		weatherMap.put(SKY,new int[] {SUN, CLOUD, SUN_CLOUD});
-		weatherMap.put(WIND,new int[]{WIND_YES,ZERO }); 
-		weatherMap.put(SEDIMENT,new int[]{RAIN, SNOW, ZERO});
-		weatherMap.put(WIND_YES,new int[]{W_STRENGTH, W_DIRECTION});
-		weatherMap.put(W_STRENGTH, new int[]{WIND_STRONG, WIND_WEAK, WIND_NORM });
-		weatherMap.put(W_DIRECTION, new int[]{WIND_DIR_W, WIND_DIR_E, WIND_DIR_E_S,WIND_DIR_E_N,WIND_DIR_W_N, WIND_DIR_W_S });
-		weatherMap.put(RAIN, new int[]{RAIN_STRANGE, RAIN_WEAK, RAIN_STRONG, RAIN_LIGHT});	
-		weatherMap.put(SNOW, new int[]{SNOW_STRONG, SNOW_WEAK, SNOW_NORM});
-	} 
- */
 	private void CreateRestrictions(){
 		restrict = new HashMap<>();
 		restrict.put(SUN, new int[]{RAIN_STRONG, RAIN_LIGHT,  SNOW_STRONG, SNOW_NORM});
