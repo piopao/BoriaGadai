@@ -11,9 +11,10 @@
 	    body{
 		background-color: #0e1e2f;
 		}	
-		img { height: 600px; width: 600px;
+		img { height: 500px; width: 500px;
 			position: absolute;
-			top: 70px;
+			margin-top: 10%;
+			left: 20px;
 		}		
 		h4 {
 		 color: white;		  		
