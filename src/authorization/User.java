@@ -117,9 +117,9 @@ public class User {
 		return friends;
 	}
 	
-	public boolean hasFriend(String email){
+	public boolean hasFriend(int id){
 		for(int i=0; i<friends.size(); i++){
-			if(friends.get(i).equals(email)) return true;
+			if(friends.get(i) == id) return true;
 		}
 		return false;
 	}

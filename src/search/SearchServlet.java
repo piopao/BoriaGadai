@@ -44,7 +44,7 @@ public class SearchServlet extends HttpServlet {
 			User searched = manager.getUserAccount(query);
 			HttpSession sess = request.getSession();
 			sess.setAttribute("searchedUser", searched);
-			if(((User)sess.getAttribute("user")).hasFriend(query)) 
+			if(((User)sess.getAttribute("user")).hasFriend(searched.getId())) 
 				sess.setAttribute("isFriend", true);
 			else sess.setAttribute("isFriend", false);
 			RequestDispatcher dispatch =
