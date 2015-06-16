@@ -11,8 +11,9 @@
     // Full docs on the response object can be found in the documentation
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
-      // Logged into your app and Facebook.
-      testAPI();
+      // Logged into your app and Facebook.    	
+     // testAPI();
+      
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
@@ -73,12 +74,23 @@
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {
-	    console.log('Welcome!  Fetching your information.... ');
+	    //console.log('Welcome!  Fetching your information.... ');
 	    FB.api('/me', function(response) {
-	      console.log('Successful login for: ' + response.name);
-	      document.getElementById('status').innerHTML =
-	        'Thanks for logging in, ' + response.name + '!';
-	      console.log(response);
+	     // console.log('Successful login for: ' + response.name);
+	      //document.getElementById('status').innerHTML =
+	        //'Thanks for logging in, ' + response.name + '!';
+	    	 $.post("ExternalLoginServlet",
+	    		        {
+	    		          mail: response.email,
+	    		          name: response.name,
+	    		          surname: response.surname, 
+	    		          gender: response.gender
+	    		        },
+	    		        function(data,status){
+	    		        	window.location = data;
+	    		        });
+	    	// alert("a");
+	     // console.log(response);
 	    });
 	  }
 

@@ -46,7 +46,7 @@
 			<input placeholder="პაროლი" type="password"  class="form-control"  value="" id = "password" name = "password">
 			<br>
 			<input type="submit" class="btn btn-default" value="შესვლა " onclick = " return validateInfo()">
-			<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+			<fb:login-button scope="public_profile,email" onlogin="checkLoginState(); "></fb:login-button>
 			<div id="status"></div>
 		</div>
 		</form>		

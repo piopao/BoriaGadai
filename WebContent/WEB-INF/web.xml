@@ -72,4 +72,14 @@
     <servlet-name>SearchServlet</servlet-name>
     <url-pattern>/SearchServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ExternalLoginServlet</display-name>
+    <servlet-name>ExternalLoginServlet</servlet-name>
+    <servlet-class>authorization.ExternalLoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ExternalLoginServlet</servlet-name>
+    <url-pattern>/ExternalLoginServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
