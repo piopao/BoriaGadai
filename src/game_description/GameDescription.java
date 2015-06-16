@@ -1,14 +1,14 @@
-package game_discription;
+package game_description;
 
 import java.util.ArrayList;
 
 import review.Review;
 
-public class GameDiscription {
+public class GameDescription {
 	private String text, image, name, gameLink;
 	private ArrayList<Review> rev;
 	
-	public GameDiscription(String name, String text, String image, ArrayList<Review> rev, String gameLink){
+	public GameDescription(String name, String text, String image, String gameLink, ArrayList<Review> rev){
 		this.name = name;
 		this.text = text;
 		this.image = image;

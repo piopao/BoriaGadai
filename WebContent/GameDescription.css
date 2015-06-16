@@ -108,7 +108,7 @@ div.gameText{
 	border: 1px dotted;
 	border-radius: 5px;
 	border-color: rgb(220, 220, 220);
-	width: 800px;
+	max-width: 800px;
 	height: auto;
 }
 
@@ -123,6 +123,8 @@ div.gameTextCover{
 
 h4.gameText{
 	color: rgb(220, 220, 220);
+	margin-left: 20px;
+	margin-right: 20px;
 }
 
 a.userId:link {

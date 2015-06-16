@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ page import="java.util.List" %>
- <%@ page import="game_discription.GameDiscription" %>
- <%@ page import="game_discription.DBManager" %>
+ <%@ page import="game_description.GameDescription" %>
+ <%@ page import="game_description.DBManager" %>
  <%@ page import="review.Review" %>
  <%@ page import="java.util.ArrayList" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -20,7 +20,7 @@
 <% 
 String gameParameter = request.getParameter("gameName");
 DBManager db = new DBManager();
-GameDiscription gd = db.getGameDiscription(gameParameter);
+GameDescription gd = db.getGameDescription(gameParameter);
 ArrayList<Review> revArr = gd.getReviews();
 String printing = "";
 out.println("<h1 class = gameName>" + gd.getGameName() + "</h1>");
