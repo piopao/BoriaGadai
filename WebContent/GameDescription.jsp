@@ -27,7 +27,7 @@ out.println("<h1 class = gameName>" + gd.getGameName() + "</h1>");
 out.println(" <div class=gameTextCover> <div class = gameText> <h4 class = gameText>" + gd.getDiscription() + "</h4> </div> </div>");
 out.println("<a id= \"gameButt\" href= \""+ gd.getGameLink() +"\" class=\"btn btn-success  btn-lg\" role=\"button\">ვიმკითხაოთ</a>");
 printing += "<div class = cover> <div class = reviewComb> ";
-for(int i=0; i<revArr.size(); i++){
+for(int i=revArr.size()-1; i>=0; i--){
 	Review rev = revArr.get(i);
 	printing+= "<div class = review> ";
 	printing+= "<div class = box> ";

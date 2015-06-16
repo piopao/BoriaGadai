@@ -4,6 +4,7 @@ body{
 	background-image: url("./Images/gameDescription3.jpg");
 }
 
+
 div.box {
 	margin-top: 30px;
     margin-bottom: 30px;
@@ -64,6 +65,21 @@ div.reviewComb{
 	margin-bottom: 30px;
 }
 
+.reviewComb::-webkit-scrollbar {
+    width: 12px;
+}
+
+.reviewComb::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(220,220,220,0.4); 
+    border-radius: 2px;
+}
+
+.reviewComb::-webkit-scrollbar-thumb {
+	color: rgb(220, 220, 220);
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(220,220,220,0.8); 
+}
+
 div.cover{
 	display: flex;
   	justify-content: center;
@@ -71,6 +87,8 @@ div.cover{
   	margin-top: 130px;
   	text-align:center;
 }
+
+
 
 h1.gameName{
 	text-align: center;
@@ -114,4 +132,5 @@ a.userId:link {
 a.userId:visited {
     color: rgb(220, 220, 220);
 }
+
 
