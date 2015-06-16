@@ -55,9 +55,9 @@ public boolean checkEmail(String email) {
 
 public boolean createUserAccount(User user) {
 	//password and email are mandatory fields
-	if (user.getHashedPassword() == null
+	/*if (user.getHashedPassword() == null
 			|| user.getEmail() == null)
-		return false;             
+		return false; */            
 
 	if (checkEmail(user.getEmail()))
 		return false;

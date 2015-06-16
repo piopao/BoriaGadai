@@ -2,11 +2,16 @@ package authorization;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.StringTokenizer;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import Fteller.db.managers.UserAccountManager;
 
 /**
  * Servlet implementation class ExternalLoginServlet
@@ -33,6 +38,27 @@ public class ExternalLoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String email = request.getParameter("email");
+		String fullname =  request.getParameter("name");
+		StringTokenizer st = new StringTokenizer(fullname);
+		String name = "";
+		String surname = "";
+	    if(st.hasMoreTokens()) name = st.nextToken();
+	    if(st.hasMoreTokens()) surname = st.nextToken();
+		String gender = request.getParameter("gender");
+		User temp = new User(email);
+		temp.setName(name);
+		temp.setSurname(surname);
+		temp.setGender(gender);
+		ServletContext context = getServletContext();
+		UserAccountManager manager = (UserAccountManager)context.getAttribute("accountManager");
+		boolean existingAccount = manager.checkEmail(email);
+		if(!existingAccount)
+			manager.createUserAccount(temp);
+		temp = manager.getUserAccount(email);
+		HttpSession sess = request.getSession();
+		sess.setAttribute("user", temp);
+		System.out.println(temp.getName());
 		PrintWriter out = response.getWriter();
 		out.print("Homepage.jsp");
 	}

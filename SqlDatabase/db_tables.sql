@@ -8,7 +8,7 @@ USE db;
 CREATE TABLE IF NOT EXISTS users (
 	user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
 	username CHAR(64) ,
-	hashed_password CHAR(64) NOT NULL,
+	hashed_password CHAR(64),
 	email_address VARCHAR(254) NOT NULL UNIQUE,
 	birthdate DATE,
 	gender CHAR(8),

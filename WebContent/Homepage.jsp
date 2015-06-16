@@ -5,7 +5,7 @@
 <html>
 <head>
 <script type='text/javascript' src="Homepage.js"></script>
-
+<script src="ExternalLogin.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta charset="utf-8">
 
@@ -13,11 +13,13 @@
 </head>
 <body class="homepage">
 
+
 	<%
 		User currentUser = null;
 		String status = "loggedout";
 		if (session.getAttribute("user") != null) {
 			currentUser = (User) session.getAttribute("user");
+			System.out.println(currentUser);
 			status = "loggedin";
 		}
 	%>
@@ -91,6 +93,9 @@ function user(){
 			if(status == "loggedout") {
 				document.getElementById("myForm").action = "Login.jsp";
 			} else {
+				FB.logout(function(response){
+				    console.log(response);
+				});
 			<%currentUser = null;
 			session.setAttribute("user", null);
 			session.setAttribute("logStatus", "loggedout");%>
