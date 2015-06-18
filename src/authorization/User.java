@@ -13,7 +13,7 @@ public class User {
 	
 	
 	public User(String email){
-		this(null, null, email, null, null, null, null, null, null);
+		this(null, null,  null, null, email, null, null, null, null);
 	}
 	
 	public User( String username, String hashPassword, String email, String name, String surname, Date birthdate, String gender, String picture, String info){

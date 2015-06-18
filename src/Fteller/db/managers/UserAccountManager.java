@@ -55,9 +55,8 @@ public boolean checkEmail(String email) {
 
 public boolean createUserAccount(User user) {
 	//password and email are mandatory fields
-	/*if (user.getHashedPassword() == null
-			|| user.getEmail() == null)
-		return false; */            
+	if (user.getEmail() == null)
+		return false;           
 
 	if (checkEmail(user.getEmail()))
 		return false;
@@ -81,7 +80,24 @@ private void fillWithUserData(List<String> values, User user) {
 	else
 		values.add(null);
 	
-	values.add(user.getHashedPassword());
+	//
+	if (user.getName() != null)
+		values.add(user.getName());
+	else
+		values.add(null);
+	
+	//
+	if (user.getSurname() != null)
+		values.add(user.getSurname());
+	else
+		values.add(null);
+	
+	//
+	if (user.getHashedPassword() != null)
+		values.add(user.getHashedPassword());
+	else
+		values.add(null);
+	
 	values.add(user.getEmail());
 	
 	//
@@ -127,7 +143,7 @@ public User getUserAccount(String email) {
 		 */
 		//TODO: done.
 		if (rs.next()) 
-		user = new User(rs.getString(2),rs.getString(3),rs.getString(4), null, null, rs.getDate(5),rs.getString(6),rs.getString(7),rs.getString(8));
+		user = new User(rs.getString(2),rs.getString(3),rs.getString(4), rs.getString(5),rs.getString(6), rs.getDate(7),rs.getString(8),rs.getString(9),rs.getString(10));
 		
 		con.close();
 	} catch (SQLException e) {

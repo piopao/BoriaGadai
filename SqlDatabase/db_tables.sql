@@ -8,6 +8,8 @@ USE db;
 CREATE TABLE IF NOT EXISTS users (
 	user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
 	username CHAR(64) ,
+    user_name CHAR(64) ,
+    user_surname CHAR(64) ,
 	hashed_password CHAR(64),
 	email_address VARCHAR(254) NOT NULL UNIQUE,
 	birthdate DATE,
@@ -72,7 +74,7 @@ CREATE TABLE IF NOT EXISTS quiz_predictions (
 );
 
 
-#taror cards designs.
+#tarot cards designs.
 CREATE TABLE IF NOT EXISTS cards (
 	card_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
 	designA char(128),
@@ -87,3 +89,43 @@ CREATE TABLE IF NOT EXISTS fortune_card (
 	FOREIGN KEY (card_id) REFERENCES cards(card_id) ON DELETE CASCADE
 	
 );
+
+CREATE TABLE IF NOT EXISTS image_table (
+	image_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
+    image_dir VARCHAR(32)
+);
+
+CREATE TABLE IF NOT EXISTS game_table (
+	game_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
+    game_name VARCHAR(32),
+	game_description VARCHAR(512),
+    image_id INT,
+    game_url VARCHAR(32),
+    FOREIGN KEY (image_id) REFERENCES image_table(image_id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE IF NOT EXISTS weather_table (
+	weather_id INT PRIMARY KEY UNIQUE,
+    weather_text_one VARCHAR(64),
+    weather_text_two VARCHAR(64),
+	image_id_one INT,
+    image_id_two INT,
+	FOREIGN KEY (image_id_one) REFERENCES image_table(image_id) ON DELETE CASCADE,
+	FOREIGN KEY (image_id_two) REFERENCES image_table(image_id) ON DELETE CASCADE
+
+);
+
+
+
+
+CREATE TABLE IF NOT EXISTS weather_history (
+	user_email VARCHAR(64),
+    text_one VARCHAR(64),
+    text_two VARCHAR(64),
+	save_date DATE,
+    FOREIGN KEY (user_email) REFERENCES users(email_address) ON DELETE CASCADE,
+    FOREIGN KEY (text_one) REFERENCES weather_table(weather_text_one) ON DELETE CASCADE
+    #FOREIGN KEY (text_two) REFERENCES weather_table(weather_text_two) ON DELETE CASCADE
+);
+
