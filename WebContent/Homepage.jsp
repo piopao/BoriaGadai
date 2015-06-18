@@ -90,9 +90,9 @@ function user(){
 			if(status == "loggedout") {
 				document.getElementById("myForm").action = "Login.jsp";
 			} else {
-		//		FB.logout(function(response){
-			//	    console.log(response);
-				//});
+				FB.logout(function(response){
+				    console.log(response);
+				});
 			<%currentUser = null;
 			session.setAttribute("user", null);
 			session.setAttribute("logStatus", "loggedout");%>
