@@ -87,13 +87,15 @@ public class DBManagersTest {
 	
 	@Test
 	public void testChanges() {
-		User dummy = new User("dummy", "dummy@hash", "dummy@mail.com", null, null, Date.valueOf("1994-06-13"), "Female", null, "i am dummy");
+		User dummy = new User("dummy", "dummy", "dummson", "dummy@hash", "dummy@mail.com", Date.valueOf("1994-06-13"), "Female", null, "i am dummy");
 		manager.createUserAccount(dummy);
 		
 		User temp = manager.getUserAccount(dummy.getEmail());
 		
 		//assert equals before change
 		assertEquals(temp.getUsername()      , dummy.getUsername()      );
+		assertEquals(temp.getName()          , dummy.getName()          );
+		assertEquals(temp.getSurname()       , dummy.getSurname()       );
 		assertEquals(temp.getHashedPassword(), dummy.getHashedPassword());
 		assertEquals(temp.getEmail()         , dummy.getEmail()         );
 		assertEquals(temp.getGender()        , dummy.getGender()        );

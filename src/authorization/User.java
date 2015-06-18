@@ -16,7 +16,7 @@ public class User {
 		this(null, null,  null, null, email, null, null, null, null);
 	}
 	
-	public User( String username, String hashPassword, String email, String name, String surname, Date birthdate, String gender, String picture, String info){
+	public User( String username, String name, String surname, String hashPassword, String email, Date birthdate, String gender, String picture, String info){
 		userStatus = 0;
 		friends = new ArrayList<Integer>();
 		setUsername(username);
