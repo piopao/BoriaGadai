@@ -1,0 +1,24 @@
+#profilePic {
+	width: 150px;
+	height: "150px";
+	padding: 1px;
+	border: 1px solid #021a40;
+	
+}
+
+.table-hover{
+	font-size: 8pt;
+}
+
+.main-nav {
+	position: relative;
+	width: 100%;
+	top: 0;
+}
+
+
+#about-me {
+	padding: 1px;
+	width: 300px;
+	border: 1px solid #021a40;
+}

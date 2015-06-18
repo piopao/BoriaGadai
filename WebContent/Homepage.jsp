@@ -4,27 +4,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type='text/javascript' src="Homepage.js"></script>
-<script src="ExternalLogin.js"></script>
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta charset="utf-8">
 
-<title>Profile</title>
+<title>Home</title>
 </head>
-<body class="homepage">
-
-
+<body>
 	<%
 		User currentUser = null;
 		String status = "loggedout";
 		if (session.getAttribute("user") != null) {
 			currentUser = (User) session.getAttribute("user");
-			System.out.println(currentUser);
 			status = "loggedin";
 		}
 	%>
-
-
 
 	<!-- Header -->
 	<div id="header">
@@ -39,40 +34,41 @@
 
 			<!-- Nav -->
 			<nav id="navigation-bar">
-				<ul>
-					<li class="active"><a href="Homepage.jsp">მთავარი</a></li>
-					<li><form role="search" action = "SearchServlet" method = "get">
-							<div>
-								<input type="text" class="form-control" placeholder="შეიყვანეთ მეილი"
-									size="50" name = "query">
-							</div>
-							<button type="submit">ძებნა</button>
-						</form></li>
-				</ul>
-				<ul>
-					<li><a id="user" href="" onclick="user()"><span
-							class="glyphicon glyphicon-user"></span> <%
-								if (currentUser == null)
-									out.print("სტუმარი");
-								else
-									out.print(currentUser.getName() + " "
-											+ currentUser.getSurname());
-							%></a></li>
-					<li>
-						<form id="myForm" action="">
-							<button id="logBut" type="submit" onclick="login()"
-								class="btn btn-link btn-lg">
-								<span class="glyphicon glyphicon-log-in"></span>
-								<%
-									if (currentUser == null)
-										out.print("შესვლა");
-									else
-										out.print("გამოსვლა");
-								%>
-							</button>
-						</form>
-					</li>
-				</ul>
+				<div>
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="Homepage.jsp">მთავარი</a></li>
+						<li><form role="search" class="navbar-form navbar-left">
+								<div class="form-group">
+									<input type="text" class="form-control"
+										placeholder="შეიყვანეთ მეილი" size="50">
+								</div>
+								<button type="submit">ძებნა</button>
+							</form></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a id="user" href="#" onclick="user()"><span
+								class="glyphicon glyphicon-user"></span> <%
+								 	if (currentUser == null)
+								 		out.print("სტუმარი");
+								 	else
+								 		out.print(currentUser.getEmail());
+						%> </a></li>
+						<li>
+							<form id="myForm" action="">
+								<button id="logBut" type="submit" onclick="login()"
+									class="btn btn-link btn-lg">
+									<span class="glyphicon glyphicon-log-in"></span>
+									<%
+										if (currentUser == null)
+											out.print("შესვლა");
+										else
+											out.print("გამოსვლა");
+									%>
+								</button>
+							</form>
+						</li>
+					</ul>
+				</div>
 			</nav>
 		</div>
 	</div>
@@ -83,7 +79,7 @@ function user(){
 	if(status == "loggedout")
 		document.getElementById("user").href = "#";
 	else
-		document.getElementById("user").href = "Login.jsp";
+		document.getElementById("user").href = "Profilepage.jsp";
 }
 </script>
 
@@ -103,7 +99,6 @@ function user(){
 			}
 		}
 	</script>
-
 
 
 	<div>
@@ -136,3 +131,4 @@ function user(){
 
 </body>
 </html>
+
