@@ -11,7 +11,6 @@
       login();
     }
   }
-
   // This function is called when someone finishes with the Login
   // Button.  See the onlogin handler attached to it in the sample
   // code below.
@@ -64,7 +63,8 @@
 	    		        {
 	    		          email: response.email,
 	    		          name: response.name,
-	    		          gender: response.gender
+	    		          gender: response.gender,
+	    		          login: "facebook"
 	    		        },
 	    		        function(data,status){
 	    		        	window.location = data;
@@ -72,3 +72,21 @@
 	    });
 	  }
 
+  
+  function onSignIn(googleUser) {
+	  var profile = googleUser.getBasicProfile();
+	  
+	  console.log('ID: ' + profile.getId()); 
+	  console.log('Name: ' + profile.getName());
+	  console.log('Image URL: ' + profile.getImageUrl());
+	  console.log('Email: ' + profile.getEmail());
+	  $.post("ExternalLoginServlet",
+		        {
+		          email: profile.getEmail(),
+		          name: profile.getName(),
+		          login: "gmail"
+		        },
+		        function(data,status){
+		        	window.location = data;
+		        });
+  }

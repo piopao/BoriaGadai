@@ -54,11 +54,11 @@ public class ExternalLoginServlet extends HttpServlet {
 		UserAccountManager manager = (UserAccountManager)context.getAttribute("accountManager");
 		boolean existingAccount = manager.checkEmail(email);
 		if(!existingAccount)
-			manager.createUserAccount(temp);
+			 manager.createUserAccount(temp);
 		temp = manager.getUserAccount(email);
 		HttpSession sess = request.getSession();
 		sess.setAttribute("user", temp);
-		System.out.println(temp.getName());
+		sess.setAttribute("login", request.getParameter("login"));
 		PrintWriter out = response.getWriter();
 		out.print("Homepage.jsp");
 	}

@@ -9,7 +9,10 @@
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-  <script src="ExternalLogin.js"></script>
+  	<script src="ExternalLogin.js"></script>
+  	<script src="https://apis.google.com/js/platform.js" async defer></script>
+  	<meta name="google-signin-client_id"
+	 content="360066525699-udo2lm0hrdvgd8uconqsg9l54dnbgrdh.apps.googleusercontent.com">	
   	<script>
 	  	function validateInfo(){		
 			var email = document.getElementById("email").value;
@@ -45,6 +48,7 @@
 		<div class="form-group">			
 			<input placeholder="პაროლი" type="password"  class="form-control"  value="" id = "password" name = "password">
 			<br>
+			<div class="g-signin2" data-onsuccess="onSignIn"></div>
 			<input type="submit" class="btn btn-default" value="შესვლა " onclick = " return validateInfo()">
 			<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
 			<div id="status"></div>
