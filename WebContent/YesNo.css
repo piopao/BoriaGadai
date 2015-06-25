@@ -1,0 +1,76 @@
+@CHARSET "ISO-8859-1";
+
+body{
+	background-image: url("./Images/kiara.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+input.form-control{
+	text-align: center;
+	display: block;
+	width: 450;
+	height: 450;
+	border: none;    
+	background: none;
+	border-radius: 0px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+	border-top: 1px solid rgba(255, 255, 255, 0.3);	
+	color: white;
+	
+}
+
+.chy {
+  width: 30px;
+  height: 30px;
+  margin: 20px auto;
+  border-radius: 50%; 
+  }
+
+.chy:nth-child(1){
+  background-color: #c6711c;
+  animation-name: example;
+  -webkit-transition: width 1s;
+   -moz-transition: width 1s;
+   -webkit-transition: height 1s;
+   -moz-transition: height 1s;
+}
+
+.chy:nth-child(2){
+  background-color: #55001c;
+  animation-name: example;
+   -webkit-transition: width 1s;
+   -moz-transition: width 1s;
+   -webkit-transition: height 1s;
+   -moz-transition: height 1s;
+}
+.chy:nth-child(3){
+  background-color: #001c38;
+  animation-name: example;
+   -webkit-transition: width 1s;
+   -moz-transition: width 1s;
+   -webkit-transition: height 1s;
+   -moz-transition: height 1s;
+}
+
+.chy:nth-child(4){
+  background-color: #aac6c6;
+  animation-name: example;
+   -webkit-transition: width 1s;
+   -moz-transition: width 1s;
+   -webkit-transition: height 1s;
+   -moz-transition: height 1s;
+}
+
+.ragaca{
+	width: 10px;
+  height: 10px;
+  margin: 5px auto;
+  border-radius: 50%; 
+  background-color: white;
+}
+
+.chy:hover{
+	width:50px;
+	height: 50px;
+}
