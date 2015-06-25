@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="Homepage.css">
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -102,24 +102,24 @@ function user(){
 	</script>
 
 
-	<div>
+	<div class="container fortune-tellings">
 		<h2>Fortune Telling</h2>
 		<p>You can either predict your future, find out you lucky numbers
 			or even see you lucky weather for today ^^</p>
-		<div>
-			<div>
+		<div class="row">
+			<div class="col-md-4">
 				<a href="Lottery.html"> Get Your Lucky Numbers For The Lottery
 					Ticket <img src="./Images/cloud.png" alt="Lottery Ticket"
 					style="width: 150px; height: 150px">
 				</a>
 			</div>
-			<div>
+			<div class="col-md-4">
 				<a href="TarotPrediction.jsp"> Predict your future by Tarot card
 					reading <img src="./Images/rain.png" alt="Tarot Reading"
 					style="width: 150px; height: 160px">
 				</a>
 			</div>
-			<div>
+			<div class="col-md-4">
 				<a href="Weather.html"> Find out your lucky weather for today! <img
 					src="./Images/sun.jpg" alt="weather forecast"
 					style="width: 150px; height: 160px">
@@ -129,6 +129,25 @@ function user(){
 	</div>
 
 
+		<div class="col-xs-1 pos-right">
+			<table class="table table-hover">
+				<tbody>
+					<tr>
+						<td><a href="#">megobari1</a></td>
+					</tr>
+					<tr>
+						<td><a href="#">megobari2</a></td>
+					</tr>
+					<tr>
+						<td><a href="#">megobari3</a></td>
+					</tr>
+					<tr>
+						<td><a href="#">megobari4</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
 
 </body>
 </html>
