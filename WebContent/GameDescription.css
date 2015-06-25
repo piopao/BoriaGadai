@@ -2,6 +2,9 @@
 
 body{
 	background-image: url("./Images/gameDescription3.jpg");
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	background-attachment: fixed;
 }
 
 
@@ -58,7 +61,7 @@ div.review{
 }
 
 div.reviewComb{
-	margin-top: 50px;
+	margin-top: 150px;
 	height: 300px;
 	width: 980px;
 	overflow-y: scroll;

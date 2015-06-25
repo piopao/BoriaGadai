@@ -22,6 +22,25 @@ $(document).ready(function(){
 });
 </script>
 
+<script>
+
+
+$(document).ready(function(){
+    $("#AddReview").click(function(){
+        $.post("ReviewsServlet",
+        {
+          gameName: "Weather",
+          stars: "5",
+          text: "მაგარია"
+          
+        },
+        function(data,status){
+            alert("Data: " + data + "\nStatus: " + status);
+        });
+    });
+});
+</script>
+
 
 <script>
 function loadData(data){
@@ -56,10 +75,14 @@ function loadData(data){
 </script>
 </head>
 <body>	
+
 <div class = "cover">
 <div id = "dataLoad" class = "dataDiv"> <h3 id = "starter" class = "starter"> დღევანდელი ამინდის ადგილი</h3></div>
 </div>
 <button id = "GetWeatherButton" type="button" class="btn btn-success btn-lg">დღეს როგორი დარია?</button>
 
+<div class = review>
+<button id = "AddReview" type="button" class="btn btn-success btn-lg">დაამატე კომენტარი</button>
+</div>
 </body>
 </html>

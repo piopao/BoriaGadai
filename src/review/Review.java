@@ -17,6 +17,27 @@ public class Review {
 		this.text = text;
 		this.stars = stars;
 		this.date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+		
+	}
+	
+	public void setDate(Date date){
+		this.date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+	}
+	
+	public void setUser(User user){
+		this.user = user;
+	}
+	
+	public void setGameName(String gameName){
+		this.gameName = gameName;
+	}
+	
+	public void setText(String text){
+		this.text = text;
+	}
+	
+	public void setStars(int stars){
+		this.stars = stars;
 	}
 	
 	public String getDate(){
