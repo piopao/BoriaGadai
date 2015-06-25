@@ -1,4 +1,4 @@
-#profilePic {
+#profilePic{
 	width: 150px;
 	height: "150px";
 	padding: 1px;
@@ -10,15 +10,30 @@
 	font-size: 8pt;
 }
 
-.main-nav {
-	position: relative;
-	width: 100%;
-	top: 0;
+.pos-right{
+    top: 30px;
+    right: 5px;
+    color: red;
 }
 
+.main-nav{
+
+}
+
+.row-pos{
+	position: relative;
+}
 
 #about-me {
 	padding: 1px;
-	width: 300px;
+	width: 500px;
 	border: 1px solid #021a40;
+    margin-left: 0px;
+    height: 104px;
+    width: 404px;
+    margin-top: 10px;
+	
 }
+
+
+
