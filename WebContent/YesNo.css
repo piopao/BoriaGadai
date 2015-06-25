@@ -16,8 +16,33 @@ input.form-control{
 	border-radius: 0px;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 	border-top: 1px solid rgba(255, 255, 255, 0.3);	
-	color: white;
+	color: rgba(225,225,225, 0.9);
 	
+}
+
+.answer{
+	text-align: center;
+	display: block;
+	width: 450;
+	height: 450;
+	border: none; 
+	
+}
+
+#answer1{
+	margin-top: 50px;
+	font-size: 30px;
+	color: rgba(225,225,225, 0.5);
+}
+
+#answer2{
+	font-size: 60px;
+	color: rgba(225,225,225, 0.7);
+}
+
+#answer3{
+	font-size: 90px;
+	color: rgba(225,225,225, 0.9);
 }
 
 .chy {
@@ -67,7 +92,7 @@ input.form-control{
   height: 10px;
   margin: 5px auto;
   border-radius: 50%; 
-  background-color: white;
+  background-color: transparent;
 }
 
 .chy:hover{
