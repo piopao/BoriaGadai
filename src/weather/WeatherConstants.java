@@ -5,7 +5,6 @@ public final class WeatherConstants {
 	public WeatherConstants(){
 		
 	}
-	
 	 public static final int ZERO = 0;
 	 public static final int WEATHER = 100;
 	 public static final int SKY = 201;
@@ -13,12 +12,11 @@ public final class WeatherConstants {
 	 public static final int SEDIMENT = 203;
 	 public static final int SUN = 301;
 	 public static final int CLOUD = 302;
-	 public static final int SUN_CLOUD = 303;
-	 public static final int WIND_YES = 401;	
-	 public static final int RAIN = 402;
-	 public static final int SNOW = 403;
-	 public static final int W_STRENGTH = 404;
-	 public static final int W_DIRECTION = 405;
+	 public static final int SUN_CLOUD = 303;	
+	 public static final int RAIN = 401;
+	 public static final int SNOW = 402;
+	 public static final int W_STRENGTH = 403;
+	 public static final int W_DIRECTION = 404;
 	 public static final int WIND_WEAK = 501;
 	 public static final int WIND_NORM = 502;
 	 public static final int WIND_STRONG = 503;

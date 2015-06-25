@@ -82,4 +82,24 @@
     <servlet-name>ExternalLoginServlet</servlet-name>
     <url-pattern>/ExternalLoginServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReviewServlet</display-name>
+    <servlet-name>ReviewServlet</servlet-name>
+    <servlet-class>review.ReviewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReviewServlet</servlet-name>
+    <url-pattern>/ReviewServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReviewsServlet</display-name>
+    <servlet-name>ReviewsServlet</servlet-name>
+    <servlet-class>review.ReviewsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReviewsServlet</servlet-name>
+    <url-pattern>/ReviewsServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

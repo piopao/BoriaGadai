@@ -23,7 +23,7 @@ public class DBManager {
 		return s;
 	}
 	
-	public String getTodaysWeather(int userID){
+	public String checkTodaysWeather(int userID){
 		return "";
 	}
 }

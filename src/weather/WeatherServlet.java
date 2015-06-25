@@ -73,7 +73,7 @@ public class WeatherServlet extends HttpServlet {
 	//Main weather generator method
 	public String GenerateWeather(){
 		rand = new Random();
-		String allreadyGenerated = db.getTodaysWeather(userId);
+		String allreadyGenerated = db.checkTodaysWeather(userId);
 		if(allreadyGenerated.length() != 0){
 			return allreadyGenerated;
 		}
@@ -150,10 +150,11 @@ public class WeatherServlet extends HttpServlet {
 	}	
 	private void CreateRestrictions(){
 		restrict = new HashMap<>();
-		restrict.put(SUN, new int[]{RAIN_STRONG, RAIN_LIGHT,  SNOW_STRONG, SNOW_NORM});
+		restrict.put(SUN, new int[]{RAIN_STRONG,RAIN_WEAK, RAIN_LIGHT,  SNOW_STRONG, SNOW_NORM});
 		restrict.put(SUN_CLOUD, new int[]{RAIN_STRONG, SNOW_STRONG, SNOW_NORM});
 		restrict.put(RAIN_STRONG, new int[]{SUN});
-		restrict.put(RAIN_LIGHT,new int[]{SUN});		
+		restrict.put(RAIN_LIGHT,new int[]{SUN});	
+		restrict.put(RAIN_WEAK,new int[]{SUN});	
 		restrict.put(SNOW, new int[]{Calendar.MAY, Calendar.JUNE,Calendar.JULY,Calendar.AUGUST,Calendar.SEPTEMBER, Calendar.OCTOBER });
 		restrict.put(SNOW_STRONG, new int[]{SUN, SUN_CLOUD});
 		restrict.put(SNOW_NORM, new int[]{SUN, SUN_CLOUD});
