@@ -2,6 +2,8 @@
 
 body{
 	background-image: url("./Images/weather.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
 
 #GetWeatherButton{
@@ -14,7 +16,8 @@ body{
  
 
  
-div.text{text-align: center;
+div.text{
+  text-align: center;
   font-weight: normal;
   width: 120px;
   margin: 5px;
@@ -63,12 +66,57 @@ div.cover{
   	text-align:center;
 }
 
-div.review{
+
+img.scroll{
+	position: absolute;
+	transform: translate(-50%, -50%); 
+	top: 85%;
+	width: 30px;
+	height: 20px;
+}
+
+div.scroll{
 	background-color:transparent;
 	display: flex;
   	justify-content: center;
   	align-items: center;
-  	margin-top: 180px;
   	text-align:center;
 }
+
+div.review{
+  	display:block;
+  	position: absolute;
+  	top: 130%;
+  	margin-bottom: 150px;
+  	text-align: center;
+  	transform: translate(-50%, -50%);  
+}
+
+div.reviewCover{
+	background-color:transparent;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	text-align:center;
+}
+
+
+#AddReview{
+	margin-top: 30px;
+} 
+#starField{
+	display: none;
+}
+
+#comment{
+	width: 600px;
+	height: 150px;
+}
+
+img.star{
+	width: 30px;
+	height: 20px;
+	margin-bottom: 30px;
+}
+
 

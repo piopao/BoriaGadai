@@ -16,6 +16,7 @@ $(document).ready(function(){
         $.get("WeatherServlet", function(data, status){                	
           	loadData(data);           
           	document.getElementById("GetWeatherButton").disabled = true;
+          	document.getElementById("AddReview").disabled = false;
         });
         
     });
@@ -29,9 +30,9 @@ $(document).ready(function(){
     $("#AddReview").click(function(){
         $.post("ReviewsServlet",
         {
-          gameName: "Weather",
-          stars: "5",
-          text: "მაგარია"
+          gameName: "weather",
+          stars: document.getElementById("starField").value, 
+          text: document.getElementById("comment").value, 
           
         },
         function(data,status){
@@ -72,6 +73,64 @@ function loadData(data){
 		  		  
 	  }
 }
+
+function starClick(x){
+	var fullID = x.id;
+	var stringID  = fullID.charAt(1);
+	var id = parseInt(stringID);
+	document.getElementById("starField").value = id;
+	onemouseStar(document.getElementById(("i")+id));
+}
+
+function onmouseStar(x){
+	var fullID = x.id;
+	var stringID  = fullID.charAt(1);
+	var id = parseInt(stringID);
+	for(i = 1; i<=id; i++){
+		 var image = document.getElementById("i" + i);
+		 image.src = "./Images/star-full.png";
+	}
+	
+	for(i = id + 1; i<=5; i++){
+		 var image = document.getElementById("i" + i);
+		 image.src = "./Images/star-empty.png";
+	}
+}
+
+
+function outmouseDiv(){
+	var stringID = document.getElementById("starField").value;
+	var id = parseInt(stringID);
+	if(id == 0){
+		for(i = 1; i<=5; i++){
+			 var image = document.getElementById("i" + i);
+			 image.src = "./Images/star-empty.png";
+		}
+	}
+	else onmouseStar(document.getElementById(("i")+id));
+}
+
+function scrollDownWindow(){
+    	 $(window.opera ? 'html' : 'html, body').animate({
+    		    scrollTop: $(document).height()
+   		}, 1000);    
+ 
+	document.getElementById("scroll").onclick = scrollUpWindow;
+}
+
+function scrollUpWindow(){
+
+	$(window.opera ? 'html' : 'html, body').animate({
+	    		    scrollTop: 0
+	    		}, 1000);    
+	 
+	document.getElementById("scroll").onclick = scrollDownWindow;
+}
+
+
+
+  
+
 </script>
 </head>
 <body>	
@@ -81,8 +140,22 @@ function loadData(data){
 </div>
 <button id = "GetWeatherButton" type="button" class="btn btn-success btn-lg">დღეს როგორი დარია?</button>
 
+<div class =  scroll>
+ <img id = scroll onclick = "scrollDownWindow()" class = scroll src="./Images/scroll-down.png">
+</div>
+<div class= reviewCover>
 <div class = review>
-<button id = "AddReview" type="button" class="btn btn-success btn-lg">დაამატე კომენტარი</button>
+<div class=starCover onmouseout=outmouseDiv()>
+<img id =i1 onclick="starClick(this)" onmouseover="onmouseStar(this)" onmouseout="outmouseStar(this)" class = star src="./Images/star-empty.png" > 
+<img id =i2 onclick="starClick(this)" onmouseover="onmouseStar(this)" onmouseout="outmouseStar(this)"  class = star src="./Images/star-empty.png" > 
+<img id =i3 onclick="starClick(this)" onmouseover="onmouseStar(this)" onmouseout="outmouseStar(this)"  class = star src="./Images/star-empty.png" > 
+<img id =i4 onclick="starClick(this)" onmouseover="onmouseStar(this)" onmouseout="outmouseStar(this)"  class = star src="./Images/star-empty.png" > 
+<img id =i5 onclick="starClick(this)" onmouseover="onmouseStar(this)" onmouseout="outmouseStar(this)"  class = star src="./Images/star-empty.png" > 
+</div>
+<input  id = starField name="lname" value = 0 ><br>
+<textarea class="form-control" rows="5" id="comment"></textarea>
+<button id = "AddReview" type="button"  disabled class="btn btn-success btn-lg">დაამატე კომენტარი</button>
+</div>
 </div>
 </body>
 </html>

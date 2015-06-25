@@ -37,8 +37,7 @@ public class ReviewsServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//int stars =  Integer.parseInt((String)request.getAttribute("stars"));
 		//Review rv = new Review(null, (String)request.getAttribute("gameName"), (String)request.getAttribute("text"), stars, new Date());
-		String queryString = URLDecoder.decode(request.getParameter("text"), "UTF-8");
-		System.out.print(queryString+request.getParameter("stars") + "--" + request.getParameter("text") + "--" +  request.getParameter("gameName"));
+		System.out.print(request.getParameter("stars") + "--" + request.getParameter("text") + "--" +  request.getParameter("gameName"));
 		//aq db-shi damateba
 	}
 
