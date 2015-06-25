@@ -13,6 +13,8 @@
   	<script src="https://apis.google.com/js/platform.js" async defer></script>
   	<meta name="google-signin-client_id"
 	 content="360066525699-udo2lm0hrdvgd8uconqsg9l54dnbgrdh.apps.googleusercontent.com">	
+	 <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+	 
   	<script>
 	  	function validateInfo(){		
 			var email = document.getElementById("email").value;
@@ -46,14 +48,15 @@
 			 <input placeholder="ელფოსტა" type="text"  class="form-control"  value="" id = "email" name = "email">
 		</div>
 		<div class="form-group">			
-			<input placeholder="პაროლი" type="password"  class="form-control"  value="" id = "password" name = "password">
-			<br>
-			<div class="g-signin2" data-onsuccess="onSignIn"></div>
-			<input type="submit" class="btn btn-default" value="შესვლა " onclick = " return validateInfo()">
-			<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
-			<div id="status"></div>
+			<input placeholder="პაროლი" type="password"  class="form-control"  value="" id = "password" name = "password"><br>
+			<input type="submit" class="btn btn-default" value="შესვლა " onclick = " return validateInfo()">			
 		</div>
-		</form>		
+		</form>	
+		<div class="form-group">
+			<fb:login-button scope="public_profile,email" data-size = large onlogin="checkLoginState();"></fb:login-button>
+		</div>
+		<div class="g-signin2" data-size = "small" data-onsuccess="onSignIn"></div>
+			
 		<p><a href  = "registration.jsp" class = "further" > ახალი მომხმარებლის შექმნა </a></p>
 		<p><a href  = "Homepage.jsp"  class = "further"  > სტუმრად შესვლა </a></p>
 	</div> 
