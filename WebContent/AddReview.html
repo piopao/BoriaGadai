@@ -54,7 +54,7 @@ function scrollDownWindow(){
    	}, 1000);    
  
 	document.getElementById("scroll").onclick = scrollUpWindow;
-	 var image = document.getElementById("#scroll");
+	 var image = document.getElementById("scroll");
 	 image.src = "./Images/scroll-up.png";
 }
 
@@ -87,10 +87,10 @@ $(document).ready(function(){
 });
 
 function loop() {
-    $("#scroll").animate({'top': '85%'}, {
+    $("#scroll").animate({'top': '80%'}, {
         duration: 600, 
         complete: function() {
-            $("#scroll").animate({'top': '90%'}, {
+            $("#scroll").animate({'top': '85%'}, {
                 duration: 600, 
                 complete: loop});
         }});
