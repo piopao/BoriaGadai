@@ -11,7 +11,7 @@
 <meta charset="utf-8">
 <meta name="google-signin-client_id"
 	 content="360066525699-udo2lm0hrdvgd8uconqsg9l54dnbgrdh.apps.googleusercontent.com">
-
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 <title>Home</title>
 </head>
 <body>
@@ -85,19 +85,19 @@ function user(){
 		document.getElementById("user").href = "Profilepage.jsp";
 }
 </script>
-	<script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
-	<script>function onLoad() {
-      gapi.load('auth2', function() {
-        gapi.auth2.init();
-      });
-    }</script>
-      
+	
+	
+	<!-- google signout code -->
+	
+    <div id="divCheckbox" style="display: none;"><div class="g-signin2" data-onsuccess="onSignIn"></div></div>
 	<script>function signOut() {
 	    var auth2 = gapi.auth2.getAuthInstance();
 	    auth2.signOut().then(function () {
-	      console.log('User signed out.');
 	    });
 	  }</script>
+	
+	<!--  end of google signout code -->
+	  
 	<script>
 		function login() {
 			var status = '<%=status%>';
