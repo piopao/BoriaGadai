@@ -43,7 +43,11 @@ input.form-control{
 	text-align: center;	
 }
 
-.g-signin2{
-	margin-left: auto;
-	margin-rigth: auto;
+
+#wrap{
+	background-color:transparent;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	text-align:center;
 }

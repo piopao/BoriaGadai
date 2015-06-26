@@ -55,10 +55,11 @@
 		<div class="form-group">
 			<fb:login-button scope="public_profile,email" data-size = large onlogin="checkLoginState();"></fb:login-button>
 		</div>
-		<div class="g-signin2" data-size = "small" data-onsuccess="onSignIn"></div>
-			
+		<div id = "wrap"><div class="g-signin2" data-size = "small" data-onsuccess="onSignIn"></div></div>
+		<div class = "form-group">	
 		<p><a href  = "registration.jsp" class = "further" > ახალი მომხმარებლის შექმნა </a></p>
 		<p><a href  = "Homepage.jsp"  class = "further"  > სტუმრად შესვლა </a></p>
+		</div>
 	</div> 
 </body>
 </html>
