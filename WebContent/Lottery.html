@@ -16,6 +16,7 @@ $(document).ready(function(){
         $.get("LotteryServlet", function(data, status){
           	loadData(data); 
           	document.getElementById("genBut").value = "მიიღე ახალი ბილეთი";
+        	document.getElementById("AddReview").disabled = false;
          });        
     });
 });
@@ -28,62 +29,7 @@ function loadData(data){
 	 var length = numbers.length+1;	
 	 for(i = 1; i<length; i++){
 		 document.getElementById(""+ i).innerHTML = numbers[i-1];
-	 }
-	
-}
-
-
-function starClick(x){
-	var fullID = x.id;
-	var stringID  = fullID.charAt(1);
-	var id = parseInt(stringID);
-	document.getElementById("starField").value = id;
-	onemouseStar(document.getElementById(("i")+id));
-}
-
-function onmouseStar(x){
-	var fullID = x.id;
-	var stringID  = fullID.charAt(1);
-	var id = parseInt(stringID);
-	for(i = 1; i<=id; i++){
-		 var image = document.getElementById("i" + i);
-		 image.src = "./Images/star-full.png";
-	}
-	
-	for(i = id + 1; i<=5; i++){
-		 var image = document.getElementById("i" + i);
-		 image.src = "./Images/star-empty.png";
-	}
-}
-
-
-function outmouseDiv(){
-	var stringID = document.getElementById("starField").value;
-	var id = parseInt(stringID);
-	if(id == 0){
-		for(i = 1; i<=5; i++){
-			 var image = document.getElementById("i" + i);
-			 image.src = "./Images/star-empty.png";
-		}
-	}
-	else onmouseStar(document.getElementById(("i")+id));
-}
-
-function scrollDownWindow(){
-    	 $(window.opera ? 'html' : 'html, body').animate({
-    		    scrollTop: $(document).height()
-   		}, 1000);    
- 
-	document.getElementById("scroll").onclick = scrollUpWindow;
-}
-
-function scrollUpWindow(){
-
-	$(window.opera ? 'html' : 'html, body').animate({
-	    		    scrollTop: 0
-	    		}, 1000);    
-	 
-	document.getElementById("scroll").onclick = scrollDownWindow;
+	 }	
 }
 </script>
 
@@ -104,7 +50,6 @@ function scrollUpWindow(){
 </div>
 </div>
 
-
 <div id = "buttonDiv" class="container">
 <button id="genBut" onclick="GenerateNums()" type="button" class="btn btn-warning btn-lg" >
 <span class="glyphicon glyphicon-star"></span> 
@@ -115,24 +60,19 @@ function scrollUpWindow(){
 <p class = "space"></p>
 
 
-
-
 <div class =  scroll>
  <img id = scroll onclick = "scrollDownWindow()" class = scroll src="./Images/scroll-down.png">
 </div>
-<div class= reviewCover>
-<div class = review>
-<div class=starCover onmouseout=outmouseDiv()>
-<img id =i1 onclick="starClick(this)" onmouseover="onmouseStar(this)" onmouseout="outmouseStar(this)" class = star src="./Images/star-empty.png" > 
-<img id =i2 onclick="starClick(this)" onmouseover="onmouseStar(this)" onmouseout="outmouseStar(this)"  class = star src="./Images/star-empty.png" > 
-<img id =i3 onclick="starClick(this)" onmouseover="onmouseStar(this)" onmouseout="outmouseStar(this)"  class = star src="./Images/star-empty.png" > 
-<img id =i4 onclick="starClick(this)" onmouseover="onmouseStar(this)" onmouseout="outmouseStar(this)"  class = star src="./Images/star-empty.png" > 
-<img id =i5 onclick="starClick(this)" onmouseover="onmouseStar(this)" onmouseout="outmouseStar(this)"  class = star src="./Images/star-empty.png" > 
+
+<div id = reviewCover class= reviewCover >
 </div>
-<input  id = starField name="lname" value = 0 ><br>
-<textarea class="form-control" rows="5" id="comment"></textarea>
-<button id = "AddReview" type="button"  disabled class="btn btn-success btn-lg">დაამატე კომენტარი</button>
-</div>
-</div>
+
+<script> 
+ $(function(){
+   $("#reviewCover").load("AddReview.html"); 
+});
+</script>
+
+
 </body>
 </html>
