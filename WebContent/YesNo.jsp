@@ -49,5 +49,19 @@
 	<p class = "answer" id = "answer1"></p>
 	<p class = "answer"  id = "answer2"></p>
 	<p class = "answer"  id = "answer3"></p>
+	
+	
+<div class =  scroll>
+ <img id = scroll onclick = "scrollDownWindow()" class = scroll src="./Images/scroll-down.png">
+</div>
+
+<div id = reviewCover class= reviewCover >
+</div>
+
+<script> 
+ $(function(){
+   $("#reviewCover").load("AddReview.html"); 
+});
+</script>
 </body>
 </html>

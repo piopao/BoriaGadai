@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<script src="ExternalLogin.js"></script>
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -91,6 +91,7 @@ function user(){
         gapi.auth2.init();
       });
     }</script>
+      
 	<script>function signOut() {
 	    var auth2 = gapi.auth2.getAuthInstance();
 	    auth2.signOut().then(function () {
@@ -103,10 +104,8 @@ function user(){
 			if(status == "loggedout") {
 				document.getElementById("myForm").action = "Login.jsp";
 			} else {
-				signOut();
-				//FB.logout(function(response){
-				 //   console.log(response);
-				//});
+				//signOut();
+				FB.logout();
 			<%currentUser = null;
 			session.setAttribute("user", null);
 			session.setAttribute("logStatus", "loggedout");%>

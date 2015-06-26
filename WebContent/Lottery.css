@@ -12,6 +12,7 @@ html, body, div, button {
  	margin-top: 70px;
  	transform: translate(-50%, -50%);  
  	text-align: center;
+ 	background-color:transparent; 
  }
 
 div.numbers{	

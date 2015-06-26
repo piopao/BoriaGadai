@@ -1,8 +1,10 @@
 @CHARSET "ISO-8859-1";
-
+@import url("AddReview.css");
 body{
 	background-image: url("./Images/kiara.jpg");
 	background-size: 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
 
 input.form-control{
