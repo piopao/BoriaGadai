@@ -12,6 +12,9 @@ html, body, div, button {
  	margin-top: 70px;
  	transform: translate(-50%, -50%);  
  	text-align: center;
+ }
+ 
+ div.buttonDiv{
  	background-color:transparent; 
  }
 
