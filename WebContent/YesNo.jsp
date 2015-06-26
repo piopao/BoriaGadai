@@ -32,8 +32,7 @@
 	    if(e.which == 13) {
 	        generate();
 	    }
-	});
-	
+	});	
 
 	</script>
 </head>

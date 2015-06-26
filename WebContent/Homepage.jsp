@@ -4,11 +4,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="Homepage.css">
+
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta charset="utf-8">
+<meta name="google-signin-client_id"
+	 content="360066525699-udo2lm0hrdvgd8uconqsg9l54dnbgrdh.apps.googleusercontent.com">
 
 <title>Home</title>
 </head>
@@ -83,13 +85,25 @@ function user(){
 		document.getElementById("user").href = "Profilepage.jsp";
 }
 </script>
-
+	<script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+	<script>function onLoad() {
+      gapi.load('auth2', function() {
+        gapi.auth2.init();
+      });
+    }</script>
+	<script>function signOut() {
+	    var auth2 = gapi.auth2.getAuthInstance();
+	    auth2.signOut().then(function () {
+	      console.log('User signed out.');
+	    });
+	  }</script>
 	<script>
 		function login() {
 			var status = '<%=status%>';
 			if(status == "loggedout") {
 				document.getElementById("myForm").action = "Login.jsp";
 			} else {
+				signOut();
 				//FB.logout(function(response){
 				 //   console.log(response);
 				//});

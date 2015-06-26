@@ -58,7 +58,8 @@ public class ExternalLoginServlet extends HttpServlet {
 		temp = manager.getUserAccount(email);
 		HttpSession sess = request.getSession();
 		sess.setAttribute("user", temp);
-		sess.setAttribute("login", request.getParameter("login"));
+		String login = request.getParameter("login");
+		sess.setAttribute("login", login);
 		PrintWriter out = response.getWriter();
 		out.print("Homepage.jsp");
 	}
