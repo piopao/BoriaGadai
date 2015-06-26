@@ -42,3 +42,8 @@ input.form-control{
 	color: rgba(255, 255, 225, 0.7);
 	text-align: center;	
 }
+
+.g-signin2{
+	margin-left: auto;
+	margin-rigth: auto;
+}

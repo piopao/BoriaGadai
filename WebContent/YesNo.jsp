@@ -16,16 +16,25 @@
 		var s1 = "კი!";
 		var s2 = "ნტ, არა";
 		if(dd%2 ==0) { s1 = "ნტ, არა"; s2 = "კი!"}
-		if(question.length % 2 == 0){
-			document.getElementById("answer1").innerHTML = s1;
-			document.getElementById("answer2").innerHTML = s1;
-			document.getElementById("answer3").innerHTML = s1;
-		}else{
-			document.getElementById("answer1").innerHTML = s2;
-			document.getElementById("answer2").innerHTML = s2;
-			document.getElementById("answer3").innerHTML = s2;				
-		}
+		if(question.length != 0){
+			if(question.length % 2 == 0){
+				document.getElementById("answer1").innerHTML = s1;
+				document.getElementById("answer2").innerHTML = s1;
+				document.getElementById("answer3").innerHTML = s1;
+			}else{
+				document.getElementById("answer1").innerHTML = s2;
+				document.getElementById("answer2").innerHTML = s2;
+				document.getElementById("answer3").innerHTML = s2;				
+			}}
 		return true; }
+	
+	$(document).keypress(function(e) {
+	    if(e.which == 13) {
+	        generate();
+	    }
+	});
+	
+
 	</script>
 </head>
 <body>
