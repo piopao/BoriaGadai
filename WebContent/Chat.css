@@ -1,0 +1,33 @@
+@CHARSET "UTF-8";
+
+body{
+	background-image: url("./Images/chatwallpaper.jpg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+.chat{
+	/*background-color: #237475;*/
+	width: 600px;
+	height: 500px;
+	margin-top:10%;
+	overflow-y: scroll;
+	text-align: center;
+}
+
+#teller{
+	height: 80px;
+	width: 80px;
+	
+}
+
+.outer{
+	position:absolute;
+	margin-left: 40%;
+	border: dotted 2px white;
+	width: 85px;
+	height: 85px;
+	border-radius: 50%;
+}
+
