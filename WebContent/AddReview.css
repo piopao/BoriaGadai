@@ -3,9 +3,7 @@
 img.scroll{
 	position: absolute;
 	transform: translate(-50%, -50%); 
-	top: 85%;
-	width: 30px;
-	height: 20px;
+	top: 80%;
 }
 
 div.scroll{
@@ -19,7 +17,7 @@ div.scroll{
 div.review{
   	display:block;
   	position: absolute;
-  	top: 110%;
+  	top: 125%;
   	margin-bottom: 200px;
   	text-align: center;
   	transform: translate(-50%, -50%);  

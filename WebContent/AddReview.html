@@ -49,20 +49,24 @@ function outmouseDiv(){
 }
 
 function scrollDownWindow(){
-    	 $(window.opera ? 'html' : 'html, body').animate({
-    		    scrollTop: $(document).height()
-   		}, 1000);    
+     $(window.opera ? 'html' : 'html, body').animate({
+    	    scrollTop: $(document).height()
+   	}, 1000);    
  
 	document.getElementById("scroll").onclick = scrollUpWindow;
+	 var image = document.getElementById("scroll");
+	 image.src = "./Images/scroll-up.png";
 }
 
 function scrollUpWindow(){
 
 	$(window.opera ? 'html' : 'html, body').animate({
 	    		    scrollTop: 0
-	    		}, 1000);    
+	  }, 1000);    
 	 
 	document.getElementById("scroll").onclick = scrollDownWindow;
+	 var image = document.getElementById("#scroll");
+	 image.src = "./Images/scroll-down.png";
 }
 </script>
 
@@ -81,4 +85,15 @@ $(document).ready(function(){
         });
     });
 });
+
+function loop() {
+    $("#scroll").animate({'top': '80%'}, {
+        duration: 600, 
+        complete: function() {
+            $("#scroll").animate({'top': '85%'}, {
+                duration: 600, 
+                complete: loop});
+        }});
+}
+loop();
 </script>

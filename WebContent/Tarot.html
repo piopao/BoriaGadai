@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Insert title here</title>
+<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="Tarot.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  <script>
+  $(document).ready(function(){
+      $("#AddReview").click(function(){
+          $.post("TarotServlet",
+          {
+            gameName: "weather",
+            stars: "dzu", 
+            text: "ku",             
+          },
+          function(data,status){
+              alert("Data: " + data + "\nStatus: " + status);
+          });
+      });
+  });
+  </script>
+  
+</head>
+<body>
+<button id = "AddReview" type="button"  class="btn btn-success btn-lg"></button>
+<div class = decks id = decks>xxxxxx</div>
+<script>
+</script>
+</body>
+</html>

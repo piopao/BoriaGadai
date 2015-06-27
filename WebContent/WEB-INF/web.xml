@@ -102,4 +102,14 @@
     <servlet-name>ReviewsServlet</servlet-name>
     <url-pattern>/ReviewsServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Tarot</display-name>
+    <servlet-name>Tarot</servlet-name>
+    <servlet-class>Games.Tarot</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Tarot</servlet-name>
+    <url-pattern>/Tarot</url-pattern>
+  </servlet-mapping>
 </web-app>

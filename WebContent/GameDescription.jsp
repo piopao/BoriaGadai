@@ -4,7 +4,9 @@
  <%@ page import="game_description.GameDescription" %>
  <%@ page import="game_description.DBManager" %>
  <%@ page import="review.Review" %>
+ <%@ page import="authorization.User" %>
  <%@ page import="java.util.ArrayList" %>
+ 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,16 +21,17 @@
 </head>
 <% 
 String gameParameter = request.getParameter("gameName");
+String gameLink = request.getParameter("gameLink");
 HttpSession sess = request.getSession();
-String user = (String)sess.getAttribute("user");
+User user = (User)sess.getAttribute("user");
 DBManager db = new DBManager();
 GameDescription gd = db.getGameDescription(gameParameter);
 ArrayList<Review> revArr = gd.getReviews();
 String printing = "";
 out.println("<h1 class = gameName>" + gd.getGameName() + "</h1>");
 out.println(" <div class=gameTextCover> <div class = gameText> <h4 class = gameText>" + gd.getDiscription() + "</h4> </div> </div>");
-if(user != null) out.println("<a id= \"gameButt\" href= \""+ gd.getGameLink() +"\" class=\"btn btn-success  btn-lg\" role=\"button\">ვიმკითხაოთ</a>");
-else  out.println("<a id= \"gameButt\" href= \""+ gd.getGameLink() +"\" class=\"btn btn-success  btn-lg disabled\" role=\"button\">ვიმკითხაოთ</a>");
+/*if(user != null) */out.println("<a id= \"gameButt\" href= \""+ gameLink +"\" class=\"btn btn-success  btn-lg\" role=\"button\">ვიმკითხაოთ</a>");
+//else  out.println("<a id= \"gameButt\" href= \""+ gameLink +"\" class=\"btn btn-success  btn-lg disabled\" role=\"button\">ვიმკითხაოთ</a>");
 printing += "<div class = cover> <div class = reviewComb> ";
 for(int i=revArr.size()-1; i>=0; i--){
 	Review rev = revArr.get(i);
