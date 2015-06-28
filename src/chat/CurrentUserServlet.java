@@ -40,7 +40,9 @@ public class CurrentUserServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession sess = request.getSession();
 		User user = (User) sess.getAttribute("user");
-		String email = user.getEmail();
+		String email = "ablaba";
+		if(user != null)
+		 email = user.getEmail();
 		PrintWriter out = response.getWriter();
 		out.print(email);	
 	}

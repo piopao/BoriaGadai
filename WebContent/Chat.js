@@ -7,17 +7,11 @@ function myTimer() {
     document.getElementById("demo").innerHTML = t;
 }
 
-var dglumc = setInterval(function(){ checkNewMessages() }, 1000);
-
-function checkNewMessages() {
-	
-}
-
 
 
 function sendMessage(){
-	 $.post("checkUserServlet",
-		        {},
+	 $.post("CurrentUserServlet",
+		        { },
 		        function(data,status){
 		        	alert("a");
 		        	var textfield = document.getElementById("message");
