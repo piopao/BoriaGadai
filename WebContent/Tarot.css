@@ -2,10 +2,10 @@
 @import url("AddReview.css");
 
 body{
-	/*background-image: url("./Images/tarot.jpg");
+	background-image: url("./Images/tarot.jpg");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	 background-position: center center;*/  
+	background-position: center center;  
 }
 
 div.decks img{

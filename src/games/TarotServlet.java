@@ -39,6 +39,7 @@ public class TarotServlet extends HttpServlet {
 			LoadDeck(out);
 		}
 		else if(request.getParameter("mission").equals("new prediction")){
+			System.out.print(request.getParameter("deckIndex"));
 			NewPrediction(out);
 		}
 		out.close();
@@ -46,21 +47,20 @@ public class TarotServlet extends HttpServlet {
 
 	private void LoadDeck(PrintWriter out){
 		for(int i=1; i<=DECK_NUM; i++){
-			 out.println("<img id = deckPic class = deckPic onclick = \"choseDeck(this)\" class = scroll src=\"./Images/Decks/" + i+
+			 out.println("<img id = deck" + i + " class = deckPic onclick = \"choseDeck(this)\" class = scroll src=\"./Images/Decks/" + i+
 					 ".jpg\">");			 
 		}
 		out.println("<h3 id = deckText class = deckText> აირჩიეთ დასტა </h3>");
-		out.println("<p id = deckIndex style = \"display:none;\"></p>");
 	}
 	
 	private void NewPrediction(PrintWriter out){
 		out.println("<div id=prediction class= prediction>");
-		out.println("<img id=predPicMain class=predPicMain onclick = \"newPrediction()\" class = scroll src=\"./Images/Decks/1.jpg\">");
-		out.println("<img class=predElem style = \"display:none;\" onclick = \"choseDeck(this)\" class = scroll src=\"./Images/Decks/1.jpg\">");
-		out.println("<img class=predElem style = \"display:none;\" onclick = \"choseDeck(this)\" class = scroll src=\"./Images/Decks/1.jpg\">");
-		out.println("<img class=predElem style = \"display:none;\" onclick = \"choseDeck(this)\" class = scroll src=\"./Images/Decks/1.jpg\">");
-		out.println("<img class=predElem style = \"display:none;\" onclick = \"choseDeck(this)\" class = scroll src=\"./Images/Decks/1.jpg\">");
-		out.println("<h5 class = predText id = predText> აქ უნდა იყოს მკითხაობის ტექსტი </ჰ5>" );
+		out.println("<img class=predPicMain onclick = \"showPrediction()\" src=\"./Images/Decks/1.jpg\">");
+		out.println("<img class=predElem  style=\"display:none;\" src=\"./Images/Decks/3.jpg\">");
+		out.println("<img class=predElem style=\"display:none;\" src=\"./Images/Decks/4.jpg\">");
+		out.println("<img class=predElem style=\"display:none;\" src=\"./Images/Decks/1.jpg\">");
+		out.println("<img class=predElem style=\"display:none;\" src=\"./Images/Decks/2.jpg\">");
+		out.println("<h5 class=predText id=predText style=\"display:none;\" > აქ უნდა იყოს მკითხაობის ტექსტი </h5>" );
 		out.println("</div>");
 	}
 }
