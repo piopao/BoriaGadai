@@ -112,4 +112,14 @@
     <servlet-name>Tarot</servlet-name>
     <url-pattern>/Tarot</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>checkChatRequests</display-name>
+    <servlet-name>checkChatRequests</servlet-name>
+    <servlet-class>chat.checkChatRequests</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>checkChatRequests</servlet-name>
+    <url-pattern>/checkChatRequests</url-pattern>
+  </servlet-mapping>
 </web-app>
