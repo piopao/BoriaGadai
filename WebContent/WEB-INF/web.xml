@@ -132,4 +132,34 @@
     <servlet-name>addChatRequest</servlet-name>
     <url-pattern>/addChatRequest</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>checkRequestStatus</display-name>
+    <servlet-name>checkRequestStatus</servlet-name>
+    <servlet-class>chat.checkRequestStatus</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>checkRequestStatus</servlet-name>
+    <url-pattern>/checkRequestStatus</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>deleteChatRequest</display-name>
+    <servlet-name>deleteChatRequest</servlet-name>
+    <servlet-class>chat.deleteChatRequest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>deleteChatRequest</servlet-name>
+    <url-pattern>/deleteChatRequest</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>changeRequestStatus</display-name>
+    <servlet-name>changeRequestStatus</servlet-name>
+    <servlet-class>chat.changeRequestStatus</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>changeRequestStatus</servlet-name>
+    <url-pattern>/changeRequestStatus</url-pattern>
+  </servlet-mapping>
 </web-app>
