@@ -39,7 +39,6 @@ public class checkChatRequests extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("aeaafesgtrdb");
 		HttpSession sess = request.getSession();
 		User temp = (User) sess.getAttribute("user");
 		ServletContext context = getServletContext();

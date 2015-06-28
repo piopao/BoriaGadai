@@ -2,10 +2,10 @@
  * 
  */
 
-var myVar = setInterval(function(){ checkRequest() }, 8000);
+var ju = setInterval(function(){ checkRequest() }, 5000);
 
 function checkRequest() {
-	 $.post("CheckRegistrationServlet",
+	 $.post("checkChatRequests",
 		        {},
 		        function(data,status){
 		        	if(data.length  == 0 ){
