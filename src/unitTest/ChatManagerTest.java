@@ -41,7 +41,7 @@ private static UserAccountManager Account_Manager;
 		
 		Chat_Manager.addChatRequest(initUser.getEmail(), receiverUser.getEmail());
 		String from = Chat_Manager.checkChatRequest("receiverUser");
-		//System.out.println(from);
+		System.out.println(from);
 		assertEquals(from, "initUsers");
 		assertEquals(0,Chat_Manager.checkRequestStatus(initUser.getEmail()));
 

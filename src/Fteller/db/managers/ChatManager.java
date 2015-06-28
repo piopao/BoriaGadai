@@ -31,7 +31,7 @@ public class ChatManager extends DBManager {
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 			if(result.next())
-				initEmail = result.getString(2);
+				initEmail = result.getString(1);
 			con.close();
 
 			return initEmail;
