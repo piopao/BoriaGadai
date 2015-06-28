@@ -53,21 +53,21 @@ function scrollDownWindow(){
     	    scrollTop: $(document).height()
    	}, 1000);    
  
-	document.getElementById("scroll").onclick = scrollUpWindow;
 	 var image = document.getElementById("scroll");
-	 image.src = "./Images/scroll-up.png";
+	 $("#scroll").remove();
+	// document.getElementById("scroll").onclick = scrollUpWindow;
 }
 
-function scrollUpWindow(){
+/*function scrollUpWindow(){
 
 	$(window.opera ? 'html' : 'html, body').animate({
 	    		    scrollTop: 0
 	  }, 1000);    
 	 
-	document.getElementById("scroll").onclick = scrollDownWindow;
 	 var image = document.getElementById("#scroll");
 	 image.src = "./Images/scroll-down.png";
-}
+	 document.getElementById("scroll").onclick = scrollDownWindow;
+}*/
 </script>
 
 <script>
