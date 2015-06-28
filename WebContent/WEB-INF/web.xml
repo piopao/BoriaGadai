@@ -192,4 +192,14 @@
     <servlet-name>CurrentUserServlet</servlet-name>
     <url-pattern>/CurrentUserServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>checkMessagesServlet</display-name>
+    <servlet-name>checkMessagesServlet</servlet-name>
+    <servlet-class>chat.checkMessagesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>checkMessagesServlet</servlet-name>
+    <url-pattern>/checkMessagesServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

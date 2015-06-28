@@ -7,6 +7,24 @@ function myTimer() {
     document.getElementById("demo").innerHTML = t;
 }
 
+var ch = setInterval(function(){ checkMes() }, 4000);
+
+function checkMes(){
+		 $.post("checkMessagesServlet",
+				 { },			        
+			      function(data,status){
+				   	var textfield = document.getElementById("message");
+				   	var textdiv = document.getElementById("textarea");
+				  	var paragraph = document.createElement("p");
+				  	var node = document.createTextNode(data + ": " + textfield.value);
+				   	paragraph.appendChild(node);
+				   	textdiv.appendChild(paragraph);
+				   	return true;  			        	      	
+		 });	
+}
+
+
+
 $(document).keypress(function(e) {
     if(e.which == 13) {
         sendMessage();
