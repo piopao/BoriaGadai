@@ -15,29 +15,31 @@ import authorization.User;
 
 public class ChatManager extends DBManager {
 
-	public static final String ATTRIBUTE_NAME = "chat_manager";
+	public static final String ATTRIBUTE_NAME = "ChatManager";
 
 	
 	public ChatManager(DataSource Source) {
 		super(Source);
 	}
 	
-	public boolean checkChatRequest(String email){
+	public String checkChatRequest(String email){
+		String initEmail =null;
 		try {
 			Connection con = Source.getConnection();
 			String query = generateSimpleSelectQuery("chat_requests",
 					new ArrayList<String>(), "reciver_user_email", email);
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
-			boolean contains = result.next();
+			if(result.next())
+				initEmail = result.getString(3);
 			con.close();
 
-			return contains;
+			return initEmail;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return false;
+		return initEmail;
 			
 	}
 	

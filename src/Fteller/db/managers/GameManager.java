@@ -15,7 +15,7 @@ import authorization.User;
 
 public class GameManager extends DBManager {
 
-	public static final String ATTRIBUTE_NAME = "weather_manager";
+	public static final String ATTRIBUTE_NAME = "GameManager";
 
 	
 	public GameManager(DataSource Source) {
