@@ -122,4 +122,14 @@
     <servlet-name>checkChatRequests</servlet-name>
     <url-pattern>/checkChatRequests</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>addChatRequest</display-name>
+    <servlet-name>addChatRequest</servlet-name>
+    <servlet-class>chat.addChatRequest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addChatRequest</servlet-name>
+    <url-pattern>/addChatRequest</url-pattern>
+  </servlet-mapping>
 </web-app>

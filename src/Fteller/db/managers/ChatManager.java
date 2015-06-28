@@ -15,7 +15,7 @@ import authorization.User;
 
 public class ChatManager extends DBManager {
 
-	public static final String ATTRIBUTE_NAME = "ChatManager";
+	public static final String ATTRIBUTE_NAME = "chatManager";
 
 	
 	public ChatManager(DataSource Source) {
