@@ -8,12 +8,15 @@ function checkRequest() {
 	 $.post("checkChatRequests",
 		        {},
 		        function(data,status){
-		        	if(data.length  == 0 ){
-		        		alert("length0");
-		        	}
-		        	else{
-		        		alert("length9");
-		        	}
-		        	
+		        	if(data.length  != 0 ){
+		        		 if (confirm("Press a button!") == true) {
+		        			 	window.location = "Chat.html";
+		        			 	$.post("changeRequestStatus", { "status" : 1 }, function(data,status){}
+		        		        );
+		        		    } else {
+		        		        $.post("changeRequestStatus", { "status" : -1 }, function(data,status){}
+		        		        );
+		        		    }
+		        	}		        	
 		        });
 }
