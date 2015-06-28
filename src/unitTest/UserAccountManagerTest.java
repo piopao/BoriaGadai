@@ -12,7 +12,7 @@ import authorization.User;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource;
 
-public class DBManagersTest {
+public class UserAccountManagerTest {
 	private static UserAccountManager manager;
 	
 	@BeforeClass
