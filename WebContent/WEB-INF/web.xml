@@ -162,4 +162,27 @@
     <servlet-name>changeRequestStatus</servlet-name>
     <url-pattern>/changeRequestStatus</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <description></description>
+    <display-name>LogoutServlet</display-name>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>authorization.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/LogoutServlet</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <description></description>
+    <display-name>CheckUserServlet</display-name>
+    <servlet-name>CheckUserServlet</servlet-name>
+    <servlet-class>User.CheckUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckUserServlet</servlet-name>
+    <url-pattern>/CheckUserServlet</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
+
