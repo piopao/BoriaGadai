@@ -66,20 +66,23 @@ private static UserAccountManager Account_Manager;
 	public void addNewMessageTest() {
 		User initUser = new User("initUser");
 		User receiverUser = new User("receiverUser");
-		Account_Manager.createUserAccount(initUser);
-		Account_Manager.createUserAccount(receiverUser);
+		
 
 		
 		Chat_Manager.addNewChatMessage(initUser.getEmail(), receiverUser.getEmail(), "HEcgdfgdfglllo worlD");
-		//Account_Manager.removeAccount(initUser);
-		//Account_Manager.removeAccount(receiverUser);
+		
 
 	}
 	
 	@Test
 	public void checkNewMessageTest() {
+		User initUser = new User("initUser");
+		User receiverUser = new User("receiverUser");
 		
-	System.out.println(Chat_Manager.checkNewMessages("receiverUser"));
+		System.out.println(Chat_Manager.checkNewMessages("receiverUser"));
+	
+		Account_Manager.removeAccount(initUser);
+		Account_Manager.removeAccount(receiverUser);
 	}
 	
 	

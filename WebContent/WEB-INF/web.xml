@@ -202,4 +202,14 @@
     <servlet-name>checkMessagesServlet</servlet-name>
     <url-pattern>/checkMessagesServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>addNewChatMessage</display-name>
+    <servlet-name>addNewChatMessage</servlet-name>
+    <servlet-class>chat.addNewChatMessage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addNewChatMessage</servlet-name>
+    <url-pattern>/addNewChatMessage</url-pattern>
+  </servlet-mapping>
 </web-app>
