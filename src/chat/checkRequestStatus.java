@@ -41,7 +41,7 @@ public class checkRequestStatus extends HttpServlet {
 		HttpSession sess = request.getSession();
 		User temp = (User) sess.getAttribute("user");
 		ServletContext context = getServletContext();
-		ChatManager chatManager = (ChatManager)context.getAttribute("ChatManager");
+		ChatManager chatManager = (ChatManager)context.getAttribute("chatManager");
 		
 		if(temp!=null){
 			int status = chatManager.checkRequestStatus(temp.getEmail());
