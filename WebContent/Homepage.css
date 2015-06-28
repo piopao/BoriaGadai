@@ -1,0 +1,22 @@
+.popularUsers {
+	position: absolute;
+	left: 900px;
+	top: 0;
+	rigt: 0;
+	margin-top: 170px;
+}
+
+.table-hover {
+	width: 300px;
+	height: 160px;
+}
+
+.fortune-tellings {
+	width: 730px;
+	margin-left: 20px;
+}
+
+.pop-users {
+	font-size: large;
+	width: 300px;
+}
