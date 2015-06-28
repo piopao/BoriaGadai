@@ -27,11 +27,11 @@ public class ChatManager extends DBManager {
 		try {
 			Connection con = Source.getConnection();
 			String query = generateSimpleSelectQuery("chat_requests",
-					new ArrayList<String>(), "reciver_user_email", email);
+					new ArrayList<String>(), "receiver_user_email", email);
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 			if(result.next())
-				initEmail = result.getString(3);
+				initEmail = result.getString(2);
 			con.close();
 
 			return initEmail;
@@ -48,22 +48,19 @@ public class ChatManager extends DBManager {
 	
 	
 	
-	public boolean addChatRequest(String initEmail, String receiverEmail){
+	public void addChatRequest(String initEmail, String receiverEmail){
 		try {
 			Connection con = Source.getConnection();
-			String query = "insert into chat_requests values (\"" + initEmail + "\", "
-			+ receiverEmail + "\", 0);";
+			String query = "insert into chat_requests values (\"" + initEmail + "\", \""
+			+ receiverEmail + "\", 0)";
 			PreparedStatement statement = con.prepareStatement(query);
-			ResultSet result = statement.executeQuery();
-			boolean contains = result.next();
+			int result = statement.executeUpdate();
 			con.close();
 
-			return contains;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return false;
 			
 	}
 	
@@ -93,8 +90,7 @@ public class ChatManager extends DBManager {
 	public void changeRequestStatus (String email, int status){
 		try {
 			Connection con = Source.getConnection();
-			String query = "update chat_requests set status = "+status +"where receiver_user_email=\"" +email+"\"";
-	
+			String query = "update chat_requests set request_status = "+status +" where receiver_user_email=\"" +email+"\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			int result = statement.executeUpdate();
 			
@@ -114,7 +110,7 @@ public class ChatManager extends DBManager {
 			Connection con = Source.getConnection();
 			String deleteQuery = "delete from chat_requests where init_user_email=\""+ email+"\"";
 			PreparedStatement deleteStatement = con.prepareStatement(deleteQuery);
-			ResultSet deleteResult = deleteStatement.executeQuery();	
+			int deleteResult = deleteStatement.executeUpdate();	
 			
 			con.close();
 		} catch (SQLException e) {

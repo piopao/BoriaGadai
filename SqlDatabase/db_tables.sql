@@ -132,12 +132,12 @@ CREATE TABLE IF NOT EXISTS lottary_history (
 	
 );
 
-CREATE TABLE IF NOT EXISTS char_requests(
+CREATE TABLE IF NOT EXISTS chat_requests(
 	init_user_email VARCHAR(64),
     receiver_user_email VARCHAR(64),
     request_status INT,
     FOREIGN KEY (init_user_email) REFERENCES users(email_address) ON DELETE CASCADE,
-    FOREIGN KEY (reciver_user_email) REFERENCES users(email_address) ON DELETE CASCADE
+    FOREIGN KEY (receiver_user_email) REFERENCES users(email_address) ON DELETE CASCADE
     
 );
 

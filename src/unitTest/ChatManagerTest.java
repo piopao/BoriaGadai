@@ -32,9 +32,39 @@ private static UserAccountManager Account_Manager;
 	}
 	
 	@Test
-	public void CreateUserAccountTest() {
-	
+	public void addChatrequestTest() {
+		User initUser = new User("initUser");
+		User receiverUser = new User("receiverUser");
+		Account_Manager.createUserAccount(initUser);
+		Account_Manager.createUserAccount(receiverUser);
+
+		
+		Chat_Manager.addChatRequest(initUser.getEmail(), receiverUser.getEmail());
+		String from = Chat_Manager.checkChatRequest("receiverUser");
+		//System.out.println(from);
+		assertEquals(from, "initUsers");
+		assertEquals(0,Chat_Manager.checkRequestStatus(initUser.getEmail()));
+
 	}
+	
+	
+	@Test
+	public void changeRequestStatus() {
+		Chat_Manager.changeRequestStatus("receiverUser", 1);
+		assertEquals(1,Chat_Manager.checkRequestStatus("initUser"));
+		
+		Chat_Manager.changeRequestStatus("receiverUser", -1);
+		assertEquals(-1,Chat_Manager.checkRequestStatus("initUser"));
+		Chat_Manager.deleteChatRequest("initUser");
+		User initUser = new User("initUser");
+		User receiverUser = new User("receiverUser");
+		Account_Manager.removeAccount(initUser);
+		Account_Manager.removeAccount(receiverUser);
+		
+	}
+	
+	
+	
 	
 	
 }
