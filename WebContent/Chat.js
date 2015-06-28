@@ -7,13 +7,21 @@ function myTimer() {
     document.getElementById("demo").innerHTML = t;
 }
 
+$(document).keypress(function(e) {
+    if(e.which == 13) {
+        sendMessage();
+    }
+});	
 
+window.setInterval(function() {
+	  var elem = document.getElementById('textarea');
+	  elem.scrollTop = elem.scrollHeight;
+	}, 5000);
 
 function sendMessage(){
 	 $.post("CurrentUserServlet",
 		        { },
 		        function(data,status){
-		        	alert("a");
 		        	var textfield = document.getElementById("message");
 		        	var textdiv = document.getElementById("textarea");
 		        	var paragraph = document.createElement("p");
