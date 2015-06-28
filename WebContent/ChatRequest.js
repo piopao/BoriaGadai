@@ -1,12 +1,12 @@
 /**
  * 
  */
-
 var ju = setInterval(function(){ checkRequest() }, 5000);
 
 function checkRequest() {
-	 $.post("checkChatRequests",
-		        {},
+	alert("f")
+	 $.post("CheckRegistrationServlet",
+		        {email:"durdom"},
 		        function(data,status){
 		        	if(data.length  != 0 ){
 		        		 if (confirm("Press a button!") == true) {

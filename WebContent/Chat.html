@@ -3,12 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>მკითხაობა</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="Chat.css">
 	<script src="Chat.js"></script>
-	<script src="ChatRequest.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	
+	
 </head>
 <body>
 <div class="container">
@@ -16,10 +17,11 @@
 		<div class="col-md-6">
 			<div class = "chat">
 				<div class = "outer"><img id = "teller" src="./Images/mo.gif" ></div>	
-				<div class =  "textarea">
+				<div class =  "textarea" id = "textarea">
 					
 				</div>
-				<button  type="button" class = "btn btn-default" id = "send" >გაგზავნა</button>
+				<input class="form-control" type="text" size="25" value="" id = "message" name = "message">	
+				<button  type="button" class = "btn btn-default" id = "send" onclick = "return sendMessage()" >გაგზავნა</button>
 		</div>		
 	</div>
 	<div class="col-md-6">aloaloalsfmcejvtre</div>

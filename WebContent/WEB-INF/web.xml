@@ -162,7 +162,7 @@
     <servlet-name>changeRequestStatus</servlet-name>
     <url-pattern>/changeRequestStatus</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <description></description>
     <display-name>LogoutServlet</display-name>
     <servlet-name>LogoutServlet</servlet-name>
@@ -172,8 +172,7 @@
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/LogoutServlet</url-pattern>
   </servlet-mapping>
-  
-   <servlet>
+  <servlet>
     <description></description>
     <display-name>CheckUserServlet</display-name>
     <servlet-name>CheckUserServlet</servlet-name>
@@ -183,6 +182,14 @@
     <servlet-name>CheckUserServlet</servlet-name>
     <url-pattern>/CheckUserServlet</url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+    <description></description>
+    <display-name>CurrentUserServlet</display-name>
+    <servlet-name>CurrentUserServlet</servlet-name>
+    <servlet-class>chat.CurrentUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CurrentUserServlet</servlet-name>
+    <url-pattern>/CurrentUserServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
-
