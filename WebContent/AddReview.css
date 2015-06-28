@@ -3,7 +3,8 @@
 img.scroll{
 	position: absolute;
 	transform: translate(-50%, -50%); 
-	top: 80%;
+	top: 90%;
+	
 }
 
 div.scroll{
@@ -12,6 +13,7 @@ div.scroll{
   	justify-content: center;
   	align-items: center;
   	text-align:center;
+  	
 }
 
 div.review{
@@ -19,8 +21,7 @@ div.review{
   	position: absolute;
   	top: 125%;
   	margin-bottom: 200px;
-  	text-align: center;
-  	transform: translate(-50%, -50%);  
+   	transform: translate(-50%, -50%);  
 }
 
 div.reviewCover{
@@ -49,3 +50,4 @@ img.star{
 	height: 20px;
 	margin-bottom: 30px;
 }
+

@@ -212,4 +212,14 @@
     <servlet-name>addNewChatMessage</servlet-name>
     <url-pattern>/addNewChatMessage</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TarotServlet</display-name>
+    <servlet-name>TarotServlet</servlet-name>
+    <servlet-class>games.TarotServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TarotServlet</servlet-name>
+    <url-pattern>/TarotServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
