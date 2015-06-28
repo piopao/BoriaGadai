@@ -31,7 +31,10 @@ private static UserAccountManager Account_Manager;
 		Account_Manager = new UserAccountManager(dataSource);
 	}
 	
+	@Test
+	public void CreateUserAccountTest() {
 	
+	}
 	
 	
 }

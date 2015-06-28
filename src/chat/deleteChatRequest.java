@@ -43,7 +43,8 @@ public class deleteChatRequest extends HttpServlet {
 		ServletContext context = getServletContext();
 		ChatManager chatManager = (ChatManager)context.getAttribute("ChatManager");
 		
-		chatManager.deleteChatRequest(temp.getEmail());
+		if(temp!=null)
+			chatManager.deleteChatRequest(temp.getEmail());
 		
 	}
 

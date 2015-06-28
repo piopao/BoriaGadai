@@ -44,9 +44,12 @@ public class checkChatRequests extends HttpServlet {
 		ServletContext context = getServletContext();
 		ChatManager chatManager = (ChatManager)context.getAttribute("ChatManager");
 		
-		String initEmail = chatManager.checkChatRequest(temp.getEmail());
-		PrintWriter out = response.getWriter();
-		 out.print(initEmail);
+		
+		if(temp!=null){
+			String initEmail = chatManager.checkChatRequest(temp.getEmail());
+			PrintWriter out = response.getWriter();
+			out.print(initEmail);
+		}
 		
 	}
 
