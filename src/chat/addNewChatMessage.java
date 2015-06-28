@@ -39,11 +39,12 @@ public class addNewChatMessage extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession sess = request.getSession();
 		User temp = (User) sess.getAttribute("user");
+		String text = (String) sess.getAttribute("text");
 		ServletContext context = getServletContext();
 		String receiverEmail = (String) request.getAttribute("mail");
 		ChatManager chatManager = (ChatManager)context.getAttribute("chatManager");
 		if(temp!=null && receiverEmail!=null){
-			//chatManager.addNewChatMessage(initEmail, receiverEmail, text);
+			chatManager.addNewChatMessage(temp.getEmail(), receiverEmail, text);
 		}
 	}
 	

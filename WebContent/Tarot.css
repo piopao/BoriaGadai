@@ -1,1 +1,103 @@
 @CHARSET "ISO-8859-1";
+@import url("AddReview.css");
+
+body{
+	/*background-image: url("./Images/tarot.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	 background-position: center center;*/  
+}
+
+div.decks img{
+	width: 100px;
+	height:auto;
+	margin: 10px;
+}
+
+div.decks{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline;
+  text-align: center;  
+  
+ }
+
+div.deckWrap{
+	border: 1px solid;
+	 border-color: rgb(200, 200, 200);
+	text-align: center;
+	margin-left: 20%;
+	margin-right: 20%;
+	margin-top: 30px;
+	box-shadow: inset 0 0 0 1000px rgba(0,0,0,.3); 	
+}
+
+
+
+div.prediction{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline;
+  text-align: center;  
+ }
+
+div.predictionCover{
+	border: 1px solid;
+	border-color: gray;
+	text-align: center;
+	margin-left: 20%;
+	margin-right: 20%;
+	margin-top: 30px;
+	overflow-y: scroll;
+	height: 500px;
+	box-shadow: inset 0 0 0 1000px rgba(0,0,0,.3); 	
+}
+
+.predictionCover::-webkit-scrollbar {
+    width: 12px;
+}
+
+.predictionCover::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(220,220,220,0.4); 
+    border-radius: 2px;
+}
+
+.predictionCover::-webkit-scrollbar-thumb {
+	color: rgb(220, 220, 220);
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(220,220,220,0.8); 
+}
+
+img.predElem{
+	margin: 30px;
+	margin-bottom: 10px;
+	width: 90px;
+	height:auto;
+}
+img.predPicMain{
+	margin: 30px;
+	margin-bottom: 10px;
+	width: 90px;
+	height:auto;
+}
+
+.predText{
+	margin-bottom: 30px;
+	color: rgb(230, 230, 230);
+}
+
+
+h3.finished{
+	margin: 50px;
+	color: rgb(230, 230, 230);
+}
+
+#deckText{
+	color: rgb(230, 230, 230);
+}
+
+
+
+

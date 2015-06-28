@@ -1,8 +1,8 @@
+
 <!DOCTYPE html>
 <html>
 <head>
 <title>Insert title here</title>
-<meta charset="ISO-8859-1">
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="Tarot.css">
   <meta charset="UTF-8">
@@ -11,27 +11,138 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-  <script>
-  $(document).ready(function(){
-      $("#AddReview").click(function(){
-          $.post("TarotServlet",
-          {
-            gameName: "weather",
-            stars: "dzu", 
-            text: "ku",             
-          },
-          function(data,status){
-              alert("Data: " + data + "\nStatus: " + status);
+ <script>
+
+ function loadDecks(){
+         $.post("TarotServlet",
+         {
+           mission: "deckLoad",             
+         },
+         function(data,status){
+             document.getElementById("decks").innerHTML = data;
+             $(".deckPic").fadeIn(2500);
           });
-      });
-  });
-  </script>
+};
+ 
+function newPrediction(){	
+	var predNum = document.getElementById("predNum").innerHTML;
+	var intNum = parseInt(predNum);
+	if(intNum > 0){
+	document.getElementById("predNum").innerHTML = intNum -1;
+    $.post("TarotServlet",
+    {
+      mission: "new prediction",  
+      deckIndex: document.getElementById("deckIndex").innerHTML,
+    },
+    function(data,status){  
+    	$("#predictionCover").append(data);
+    	$(".predPicMain").fadeIn(5000);
+     });
+	}
+	else{
+		finished();
+	}
+};
+
+function finished(){
+	$("#predictionCover").append("<div class = finished> <h3 class = finished> მესამე თვალი გადაიღალა </h3> </div>");
+}
+
+
+var hideMainPic = function () {
+	  var r = $.Deferred();
+	  $(".predPicMain").fadeOut(2500);
+	  setTimeout(function () {
+	     r.resolve();
+	  }, 2500);
+	  return r;
+};
+
+var remove = function(){
+	$(".predPicMain").remove();
+}
+
+var removeMainPic= function () {
+	  var r = $.Deferred();
+	  hideMainPic().done(remove);	 
+	  setTimeout(function () {
+	     r.resolve();
+	  }, 2500);
+	  return r;
+};
+
+var fadeInElems = function () {
+	  var r = $.Deferred();
+	  $(".predElem").fadeIn(5000);
+	  $(".predText").fadeIn(5000);
+	  setTimeout(function () {
+	     r.resolve();
+	  }, 70000);
+	  return r;
+};
+
+
+var showPredElems = function () {
+	fadeInElems().done(newPrediction());
+};
+
+function showPrediction(){
+	removeMainPic().done(showPredElems);
+}
+ </script>
+ 
+ <script type="text/javascript">
+ function randomPredNum(){
+	 var x =  Math.floor((Math.random() * 10) + 1);
+	 document.getElementById("predNum").innerHTML  = x;
+ }
+ 
+ function choseDeck(x){
+	 var fullID = x.id;
+	 var stringID  = fullID.charAt(4);
+	 document.getElementById("deckIndex").innerHTML = stringID;
+	 choseDeck = undefined;
+	 $(".deckWrap").fadeOut(2500);
+	 $(".predictionCover").fadeIn(2500);
+	 newPrediction();
+ }
+ 
+ 
+ </script>
   
 </head>
+
 <body>
-<button id = "AddReview" type="button"  class="btn btn-success btn-lg"></button>
-<div class = decks id = decks>xxxxxx</div>
+<p id = predNum ></p>
+<script> randomPredNum();</script>
+
+<div class= deckWrap>
+<div class = decks id = decks>
+</div>
+</div>
+<div class = predictionCover style = "display:none;" id = predictionCover></div>
 <script>
+loadDecks();
 </script>
+
+
+
+
+<div class =  scroll>
+ <img id = scroll onclick = "scrollDownWindow()" class = scroll src="./Images/scroll-down.png">
+</div>
+<div id = reviewCover class= reviewCover >
+</div>
+<script> 
+ $(function(){
+   $("#reviewCover").load("AddReview.html"); 
+});
+
+</script>
+
 </body>
 </html>
+
+
+
+
