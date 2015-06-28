@@ -43,7 +43,7 @@ public class MyContextListener implements ServletContextListener {
 		dataSource.setPassword(DBLogin.PASSWORD); // use your mysql password
     	UserAccountManager accManager = new UserAccountManager(dataSource);
     	ChatManager chatManager = new ChatManager(dataSource);
-    	context.setAttribute(accManager.ATTRIBUTE_NAME, accManager);
+    	context.setAttribute("accountManager", accManager);
     	context.setAttribute(chatManager.ATTRIBUTE_NAME, chatManager);
 
     	
