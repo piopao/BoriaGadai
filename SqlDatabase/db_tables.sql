@@ -107,13 +107,8 @@ CREATE TABLE IF NOT EXISTS game_table (
 
 CREATE TABLE IF NOT EXISTS weather_table (
 	weather_id INT PRIMARY KEY UNIQUE,
-    weather_text_one VARCHAR(64) not null unique,
-    weather_text_two VARCHAR(64) not null unique,
-	image_id_one INT,
-    image_id_two INT,
-	FOREIGN KEY (image_id_one) REFERENCES image_table(image_id) ON DELETE CASCADE,
-	FOREIGN KEY (image_id_two) REFERENCES image_table(image_id) ON DELETE CASCADE
-
+    weather_text VARCHAR(64) NOT NULL UNIQUE,
+	image_dir VARCHAR(64)
 );
 
 
@@ -121,11 +116,19 @@ CREATE TABLE IF NOT EXISTS weather_table (
 
 CREATE TABLE IF NOT EXISTS weather_history (
 	user_email VARCHAR(64),
-    text_one VARCHAR(64),
-    text_two VARCHAR(64),
-	save_date DATE,
+    text_weather VARCHAR(64),
+	save_date VARCHAR(32),
 	FOREIGN KEY (user_email) REFERENCES users(email_address) ON DELETE CASCADE,
-	FOREIGN KEY (text_one) REFERENCES weather_table(weather_text_one) ON DELETE CASCADE,
-	FOREIGN KEY (text_two) REFERENCES weather_table(weather_text_two) ON DELETE CASCADE
+	FOREIGN KEY (text_weather) REFERENCES weather_table(weather_text) ON DELETE CASCADE
+	
+);
+
+
+CREATE TABLE IF NOT EXISTS lottary_history (
+	user_email VARCHAR(64),
+    numbers VARCHAR(64),
+	
+	FOREIGN KEY (user_email) REFERENCES users(email_address) ON DELETE CASCADE
+	
 );
 

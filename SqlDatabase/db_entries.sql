@@ -9,4 +9,8 @@ insert into admin values ("ekikn12@freeuni.edu.ge");
 insert into admin values ("mpepa13@freeuni.edu.ge");
 insert into admin values ("nbasi13@freeuni.edu.ge");
 
+insert into weather_table values ("300", "test", null);
+insert into weather_table values ("301", "test", null);
+insert into weather_table values ("302", "test", null);
+
 
