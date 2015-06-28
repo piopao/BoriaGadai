@@ -177,7 +177,7 @@
     <description></description>
     <display-name>CheckUserServlet</display-name>
     <servlet-name>CheckUserServlet</servlet-name>
-    <servlet-class>User.CheckUserServlet</servlet-class>
+    <servlet-class>checkUser.CheckUserServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>CheckUserServlet</servlet-name>
