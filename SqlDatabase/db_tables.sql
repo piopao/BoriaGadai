@@ -141,3 +141,13 @@ CREATE TABLE IF NOT EXISTS chat_requests(
     
 );
 
+CREATE TABLE IF NOT EXISTS new_chat_messages(
+	init_user_email VARCHAR(64),
+    receiver_user_email VARCHAR(64),
+    text_message VARCHAR(64),
+    FOREIGN KEY (init_user_email) REFERENCES users(email_address) ON DELETE CASCADE,
+    FOREIGN KEY (receiver_user_email) REFERENCES users(email_address) ON DELETE CASCADE
+
+);
+
+

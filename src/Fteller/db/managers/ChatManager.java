@@ -117,12 +117,72 @@ public class ChatManager extends DBManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
-		
-		
 	}
 	
+	public String checkNewMessages(String email){
+		String message = null;
+		try {
+			Connection con = Source.getConnection();
+			String query = "select * from new_chat_messages where receiver_user_email=\""+ email+"\"";
+			PreparedStatement statement = con.prepareStatement(query);
+			ResultSet result = statement.executeQuery();
+			if(result.next());
+				message = result.getString(1);
+				//message += 
+				message +=": " +result.getString(3);
+				
+				
+				String queryDelete = "delete from new_chat_messages where receiver_user_email =  \""+email+ "\"";
+				PreparedStatement statementDelete = con.prepareStatement(queryDelete);
+				int resultDelete = statementDelete.executeUpdate();
+				
+			con.close();
+			
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return message;
+			
+	}
+	
+	
+	
+	public void addNewChatMessage(String initEmail, String receiverEmail, String text){
+		try {
+			Connection con = Source.getConnection();
+			String queryCheck = "select * from new_chat_messages where init_user_email=\""+ initEmail+"\";";		
+			PreparedStatement statementCheck = con.prepareStatement(queryCheck);
+			ResultSet resultCheck = statementCheck.executeQuery();
+			
+			
+			if(resultCheck.next()){
+				String oldMessage = resultCheck.getString(3);
+				oldMessage += text;
+				String queryUpdate = "UPDATE new_chat_messages SET text_message=\""+ oldMessage + 
+						" \" where init_user_email= \"" + initEmail+ "\"";
+				
+				PreparedStatement statementUpdate = con.prepareStatement(queryUpdate);
+				int resultUpdate = statementUpdate.executeUpdate();
+			}
+			else{
+				String query = "insert into new_chat_messages values (\"" + initEmail + "\", \""
+				+ receiverEmail + "\", \""+text+"\")";
+				PreparedStatement statement = con.prepareStatement(query);
+				int result = statement.executeUpdate();
+			}
+			
+			
+			con.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			
+	}
 	
 	
 }
