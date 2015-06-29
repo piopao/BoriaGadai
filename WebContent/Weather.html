@@ -41,15 +41,18 @@ function loadData(data){
 		  pic.setAttribute("width", "100");
 		  pic.setAttribute("width", "100");	
 		  pic.setAttribute("class", "wImg");
+		  var textDiv = document.createElement("div");
+		  textDiv.setAttribute("class", "textDiv");
 		  var text = document.createElement("h4");
 		  text.setAttribute("class", "wText");
 		  var node = document.createTextNode(tokenedTextPic[0]);
 		  text.appendChild(node);
+		  textDiv.appendChild(text);
 		  
 		  var div = document.createElement("div");
 		  div.setAttribute("class", "comb");
 		  div.appendChild(pic);
-		  div.appendChild(text);
+		  div.appendChild(textDiv);
 		  document.getElementById("dataLoad").appendChild(div);
 		  		  
 	  }

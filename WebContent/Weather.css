@@ -26,6 +26,8 @@ div.text{
 div.comb img {
     display: inline;
     margin: 5px;
+    width: 100px;
+    height: 100px;
 }
 
 div.comb {
@@ -34,6 +36,12 @@ div.comb {
     width: auto;
     float: left;
     text-align: center;
+}
+
+div.textDiv{
+	width: 100px;
+	margin: 30px;
+	margin-top: 20px;
 }
 
 div.dataDiv{
@@ -54,6 +62,7 @@ h3.starter{
 
 h4.wText{
 	color: rgb(237, 237, 237);
+	 text-align: left;
 }
 
 
