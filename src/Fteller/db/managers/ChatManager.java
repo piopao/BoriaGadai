@@ -23,7 +23,7 @@ public class ChatManager extends DBManager {
 	}
 	
 	public String checkChatRequest(String email){
-		String initEmail =null;
+		String initEmail = "";
 		try {
 			Connection con = Source.getConnection();
 			String query = generateSimpleSelectQuery("chat_requests",
