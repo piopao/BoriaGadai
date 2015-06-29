@@ -141,13 +141,13 @@ public class ChatManager extends DBManager {
 				message = result.getString(1);
 				//message += 
 				message +=": " +result.getString(3);
-			}
+			
 				
 				
 				String queryDelete = "delete from new_chat_messages where receiver_user_email =  \""+email+ "\"";
 				PreparedStatement statementDelete = con.prepareStatement(queryDelete);
 				int resultDelete = statementDelete.executeUpdate();
-				
+			}
 			con.close();
 			
 
