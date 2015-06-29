@@ -49,17 +49,17 @@ CREATE TABLE IF NOT EXISTS banned_accounts (
 );
 
 CREATE TABLE IF NOT EXISTS friend_list (
-	userA_id INT,
-    userB_id INT,
-	FOREIGN KEY (userA_id) REFERENCES users(user_id) ON DELETE CASCADE,
-	FOREIGN KEY (userB_id) REFERENCES users(user_id) ON DELETE CASCADE
+	user_emailA VARCHAR(64),
+    user_emailB VARCHAR(76),
+	FOREIGN KEY (user_emailA) REFERENCES users(email_address) ON DELETE CASCADE,
+	FOREIGN KEY (user_emailB) REFERENCES users(email_address) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS pending_friend_list (
-	userA_id INT,
-    userB_id INT,
-	FOREIGN KEY (userA_id) REFERENCES users(user_id) ON DELETE CASCADE,
-	FOREIGN KEY (userB_id) REFERENCES users(user_id) ON DELETE CASCADE
+	user_emailA VARCHAR(64),
+    user_emailB VARCHAR(76),
+	FOREIGN KEY (user_emailA) REFERENCES users(email_address) ON DELETE CASCADE,
+	FOREIGN KEY (user_emailB) REFERENCES users(email_address) ON DELETE CASCADE
 );
 
 

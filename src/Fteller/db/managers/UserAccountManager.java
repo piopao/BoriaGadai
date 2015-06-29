@@ -314,6 +314,13 @@ public void changeAvatarName(User user, String newAvatarName) {
 			"user_id", user.getUsername());
 }
 
+public void checkPendingFriends(){
+	
+	
+	
+	
+}
+
 
 
 //TODO: add after review class is created. 
