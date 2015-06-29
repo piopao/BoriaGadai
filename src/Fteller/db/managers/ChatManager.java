@@ -104,6 +104,7 @@ public class ChatManager extends DBManager {
 			String query = "update chat_requests set request_status = \""+status +"\" where receiver_user_email=\"" +email+"\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			int result = statement.executeUpdate();
+			System.out.println("update chat_requests set request_status = \""+status +"\" where receiver_user_email=\"" +email+"\"");
 			
 			con.close();
 			
@@ -149,7 +150,7 @@ public class ChatManager extends DBManager {
 				int resultDelete = statementDelete.executeUpdate();
 			}
 			con.close();
-			
+		System.out.println("checknewmessages");	
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
