@@ -48,14 +48,13 @@ function sendMessage(){
 		        	var node = document.createTextNode(data + ": " + textfield.value);
 		        	paragraph.appendChild(node);
 		        	textdiv.appendChild(paragraph);
-		        	document.getElementById("message").value = " ";
-		        	return true;       	
+		        		
 	 });	
-	 
 	 $.post("addNewChatMessage", { text: document.getElementById("textarea").value 
 		 }, function(data,status){
 		 
 		 });
+	 document.getElementById("message").value = " ";     
 }
 
 
