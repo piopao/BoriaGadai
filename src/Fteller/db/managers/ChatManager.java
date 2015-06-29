@@ -98,10 +98,10 @@ public class ChatManager extends DBManager {
 			
 	}
 	
-	public void changeRequestStatus (String email, int status){
+	public void changeRequestStatus (String email, String status){
 		try {
 			Connection con = Source.getConnection();
-			String query = "update chat_requests set request_status = "+status +" where receiver_user_email=\"" +email+"\"";
+			String query = "update chat_requests set request_status = \""+status +"\" where receiver_user_email=\"" +email+"\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			int result = statement.executeUpdate();
 			

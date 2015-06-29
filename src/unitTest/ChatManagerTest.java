@@ -50,10 +50,10 @@ private static UserAccountManager Account_Manager;
 	
 	@Test
 	public void changeRequestStatus() {
-		Chat_Manager.changeRequestStatus("receiverUser", 1);
+		Chat_Manager.changeRequestStatus("receiverUser", "1");
 		assertEquals(1,Chat_Manager.checkRequestStatus("initUser"));
 		
-		Chat_Manager.changeRequestStatus("receiverUser", -1);
+		Chat_Manager.changeRequestStatus("receiverUser", "-1");
 		assertEquals(-1,Chat_Manager.checkRequestStatus("initUser"));
 		Chat_Manager.deleteChatRequest("initUser");
 		User initUser = new User("initUser");

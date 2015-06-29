@@ -42,7 +42,7 @@ public class changeRequestStatus extends HttpServlet {
 		User temp = (User) sess.getAttribute("user");
 		ServletContext context = getServletContext();
 		ChatManager chatManager = (ChatManager)context.getAttribute("chatManager");
-		int status = (int) sess.getAttribute("status");
+		String status = (String) sess.getAttribute("status");
 		
 		if(temp!=null)
 			chatManager.changeRequestStatus(temp.getEmail(), status);
