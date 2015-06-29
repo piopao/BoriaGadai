@@ -120,7 +120,7 @@ public class ChatManager extends DBManager {
 	public void deleteChatRequest(String email){
 		try{
 			Connection con = Source.getConnection();
-			String deleteQuery = "delete from chat_requests where init_user_email=\""+ email+"\"";
+			String deleteQuery = "delete from chat_requests where receiver_user_email=\""+ email+"\"";
 			PreparedStatement deleteStatement = con.prepareStatement(deleteQuery);
 			int deleteResult = deleteStatement.executeUpdate();	
 			
