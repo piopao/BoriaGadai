@@ -8,13 +8,15 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Random;
 
-import javax.servlet.ServletException;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException; 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import weather.DBManager;
+import authorization.User;
+import Fteller.db.managers.GameManager;	
 import weather.WeatherServlet;
 import static weather.WeatherConstants.*;
 /**
@@ -23,8 +25,8 @@ import static weather.WeatherConstants.*;
 @WebServlet("/WeatherGenerator")
 public class WeatherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private int userId;
-	private DBManager db;
+	private User user;
+	private GameManager db;
 	private HashMap<Integer, int[]> weatherMap;
 	private HashMap<Integer, int[]> restrict;
 	private ArrayList<Integer> generated;
@@ -38,20 +40,26 @@ public class WeatherServlet extends HttpServlet {
      */
     public WeatherServlet() {
         super();
-        this.userId = 4;
-		db = new DBManager();
-		date = new Date();
+       	date = new Date();
 		cal = Calendar.getInstance();
 		cal.setTime(date);
 		CreateWeatherValues();
 		CreateRestrictions();
+    }
+    
+    public static void main(String[] args){
+    	WeatherServlet w = new WeatherServlet();
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ServletContext context = getServletContext();
+	    GameManager manager = (GameManager)context.getAttribute("GameManager");
+	     System.out.print(manager);
 		response.setCharacterEncoding("UTF-8");
+		user =(User)request.getSession().getAttribute("user");
 		PrintWriter out = response.getWriter();
 		out.println(GenerateWeather());
 		out.close();
@@ -64,16 +72,11 @@ public class WeatherServlet extends HttpServlet {
 
 	}
 	
-	public static void main(String[] args){
-		WeatherServlet w = new WeatherServlet();
-		for (int i=0; i<30; i++)
-		System.out.print(w.GenerateWeather() + "\n");
-	}
 	
 	//Main weather generator method
 	public String GenerateWeather(){
 		rand = new Random();
-		String allreadyGenerated = db.checkTodaysWeather(userId);
+		String allreadyGenerated = db.checkTodaysWeather(user);
 		if(allreadyGenerated.length() != 0){
 			return allreadyGenerated;
 		}
@@ -86,7 +89,7 @@ public class WeatherServlet extends HttpServlet {
 		generated.add(GenerateTemperature());
 		generated.remove(0);
 		WeatherForDataBase();
-		return db.getAndSaveWeather(-1,wForDB);
+		return db.getAndSaveWeather(null,wForDB);
 	}
 	
 	private void WeatherForDataBase(){
