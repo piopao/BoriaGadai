@@ -54,8 +54,6 @@ $(document).ready(function(){
 function validateInfo(){
 	
 	var password = document.getElementById("password").value;	
-	alert(password);
-	alert(document.getElementById("email").value);
 	var checkpassword = document.getElementById("password2").value;
 	if(password.length < 4 || !password.trim()){
 		document.getElementById("warning").innerHTML = "თქვენი პაროლი უნდა შედგებოდეს მინიმუმ 4 სიმბოლოსგან";
