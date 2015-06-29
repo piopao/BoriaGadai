@@ -48,9 +48,19 @@ public class ChatManager extends DBManager {
 	
 	
 	
-	public void addChatRequest(String initEmail, String receiverEmail){
+	public boolean addChatRequest(String initEmail, String receiverEmail){
 		try {
 			Connection con = Source.getConnection();
+			
+			
+			String queryCheck = generateSimpleSelectQuery("chat_requests",
+					new ArrayList<String>(), "init_user_email", initEmail);
+			PreparedStatement statementCheck = con.prepareStatement(queryCheck);
+			ResultSet resultCheck = statementCheck.executeQuery();
+			if(resultCheck.next())
+				return false;
+			
+			
 			String query = "insert into chat_requests values (\"" + initEmail + "\", \""
 			+ receiverEmail + "\", 0)";
 			PreparedStatement statement = con.prepareStatement(query);
@@ -61,6 +71,7 @@ public class ChatManager extends DBManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return true;
 			
 	}
 	
