@@ -42,7 +42,6 @@ public class CheckUserServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		HttpSession sess = request.getSession();
 		String user = "";
-		System.out.println("olaaaaaaaaa");
 		User currentUser = (User) sess.getAttribute("user");
 		if (currentUser == null) {
 			user = "სტუმარი";
