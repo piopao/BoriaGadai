@@ -15,10 +15,10 @@ public class DBManager {
 	public GameDescription getGameDescription(String gameName){
 		ArrayList<Review> rev = new ArrayList<Review>();
 		for(int i=0; i<10; i++){
-			rev.add(new Review(new User("ting", null, "meko@gmail.com", "ვერა", "ქობალია", null, null, null, null), 
-					"თხუნელა ბაყაყი", "ვაი ", 3, new Date()));
+			rev.add(new Review(new User("ting", null, "meko@gmail.com", "áƒ•áƒ”áƒ áƒ�", "áƒ¥áƒ�áƒ‘áƒ�áƒšáƒ˜áƒ�", null, null, null, null), 
+					"áƒ—áƒ®áƒ£áƒœáƒ”áƒšáƒ� áƒ‘áƒ�áƒ§áƒ�áƒ§áƒ˜", "áƒ•áƒ�áƒ˜Â ", 3,4, new Date()));
 		}
 		
-		return new GameDescription("ზილინა", "ზილინა ძალიან კარგი თამაშშია, ყველას გისურვებთ რომ ითამაშოთ", "./Images/sky1.jpg", "Weather.html", rev);		
+		return new GameDescription("áƒ–áƒ˜áƒšáƒ˜áƒœáƒ�", "áƒ–áƒ˜áƒšáƒ˜áƒœáƒ� áƒ«áƒ�áƒšáƒ˜áƒ�áƒœ áƒ™áƒ�áƒ áƒ’áƒ˜ áƒ—áƒ�áƒ›áƒ�áƒ¨áƒ¨áƒ˜áƒ�, áƒ§áƒ•áƒ”áƒšáƒ�áƒ¡ áƒ’áƒ˜áƒ¡áƒ£áƒ áƒ•áƒ”áƒ‘áƒ— áƒ áƒ�áƒ› áƒ˜áƒ—áƒ�áƒ›áƒ�áƒ¨áƒ�áƒ—", "./Images/sky1.jpg", "Weather.html", rev);		
 	}
 }

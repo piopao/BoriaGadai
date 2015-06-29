@@ -155,7 +155,7 @@ public class WeatherServlet extends HttpServlet {
 	}	
 	private void CreateRestrictions(){
 		restrict = new HashMap<>();
-		restrict.put(SUN, new int[]{RAIN_STRONG,RAIN_WEAK, RAIN_LIGHT,  SNOW_STRONG, SNOW_NORM});
+		restrict.put(SUN, new int[]{RAIN_WEAK ,RAIN_STRONG,RAIN_WEAK, RAIN_LIGHT,  SNOW_STRONG, SNOW_NORM, SNOW_WEAK});
 		restrict.put(SUN_CLOUD, new int[]{RAIN_STRONG, SNOW_STRONG, SNOW_NORM});
 		restrict.put(RAIN_STRONG, new int[]{SUN});
 		restrict.put(RAIN_LIGHT,new int[]{SUN});	

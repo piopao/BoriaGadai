@@ -9,15 +9,15 @@ public class Review {
 	
 	private User user;
 	private String gameName, text, date;
-	private int stars;
+	private int stars, reviewID;
 		
-	public Review(User user, String gameName, String text, int stars, Date date){
+	public Review(User user, String gameName, String text, int stars, int reviewID , Date date){
 		this.user = user;
 		this.gameName = gameName;
 		this.text = text;
 		this.stars = stars;
-		this.date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-		
+		this.reviewID = reviewID;
+		this.date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());		
 	}
 	
 	public void setDate(Date date){
