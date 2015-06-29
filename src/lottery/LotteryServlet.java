@@ -4,11 +4,14 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Random;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import authorization.User;
+import Fteller.db.managers.GameManager;
 import weather.DBManager;
 
 /**
@@ -16,16 +19,16 @@ import weather.DBManager;
  */
 public class LotteryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private DBManager db;
+    private GameManager db;
     private static final int NUMBERS_NUM = 7;
     private Random rand;
     private int[] numbers;
+    private User user;
     /**
      * @see HttpServlet#HttpServlet()
      */
     public LotteryServlet() {
         super();
-        db = new DBManager();
         rand = new Random();
         // TODO Auto-generated constructor stub
     }
@@ -56,12 +59,10 @@ public class LotteryServlet extends HttpServlet {
     	String fin = "";
     	for(int i=0; i<NUMBERS_NUM; i++){
     		if(i == 0) fin+= numbers[i];
-    		else fin+="-"+numbers[i];
-    	}
-    	
-    	if(!db.lotteryAdd(-1,fin)){
-    		fin = "Error";
-    	};
+    		else fin+=" "+numbers[i];
+    	}    	
+    	User user = new User("pepanashvili.meko@gmail.com"); ///////wasashleli
+    	db.lotteryAdd(user,fin);    	
     	return fin;
     }
     
@@ -69,6 +70,10 @@ public class LotteryServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ServletContext context = getServletContext();
+	    db = (GameManager)context.getAttribute("GameManager");
+	    response.setCharacterEncoding("UTF-8");
+	    user =(User)request.getSession().getAttribute("user");
 		rand = new Random();
 		PrintWriter out = response.getWriter();
 		out.println(GenerateNumbers());

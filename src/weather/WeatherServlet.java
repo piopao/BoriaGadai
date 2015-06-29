@@ -56,9 +56,8 @@ public class WeatherServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ServletContext context = getServletContext();
-	    GameManager manager = (GameManager)context.getAttribute("GameManager");
-	    System.out.print(manager);
-		response.setCharacterEncoding("UTF-8");
+	    db = (GameManager)context.getAttribute("GameManager");
+	    response.setCharacterEncoding("UTF-8");
 		user =(User)request.getSession().getAttribute("user");
 		PrintWriter out = response.getWriter();
 		out.println(GenerateWeather());
@@ -76,9 +75,11 @@ public class WeatherServlet extends HttpServlet {
 	//Main weather generator method
 	public String GenerateWeather(){
 		rand = new Random();
-		String allreadyGenerated = db.checkTodaysWeather(user);
-		if(allreadyGenerated != null){
+		String allreadyGenerated = "";//db.checkTodaysWeather(user);
+		
+		if(!allreadyGenerated.equals("")){
 			return allreadyGenerated;
+			
 		}
 		generated = new ArrayList<Integer>();
 		int month = cal.get(Calendar.MONTH);
@@ -89,6 +90,7 @@ public class WeatherServlet extends HttpServlet {
 		generated.add(GenerateTemperature());
 		generated.remove(0);
 		WeatherForDataBase();
+		user = new User("mpepa13@freeuni.edu.ge"); //wasashleli
 		return db.getAndSaveWeather(user,wForDB);
 	}
 	

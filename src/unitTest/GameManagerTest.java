@@ -56,7 +56,7 @@ private static UserAccountManager Account_Manager;
 		Date today = new Date();
 		String temp = Integer.toString(today.getMonth()) + "-" +Integer.toString(today.getDate());
 		//System.out.println(ga);
-		//System.out.println(Game_Manager.checkTodaysWeather(dummy));
+		System.out.println(Game_Manager.checkTodaysWeather(dummy));
 	
 	}
 	
