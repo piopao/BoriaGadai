@@ -65,7 +65,7 @@
 		<table>
 			<tr>
 				<td><h3>პირადი ინფორმაცია</h3></td>
-				<td><a id="edit-info" href="#" onclick="editInfo()"><span
+				<td><a id="edit-info-but" href="#" onclick="editInfo()"><span
 						class="glyphicon glyphicon-edit"></span> Edit </a></td>
 			</tr>
 		</table>
@@ -123,10 +123,10 @@
 				<label class="col-xs-5 control-label">პაროლი:</label>
 				<button id="edit-password" class="col-xs-7 controls"
 					onclick="ChangePassword()">შეცვალე პაროლი</button>
-				<input id="passwordOld" type="password" class="col-xs-7 controls"
+				<input id="passwordOld" class="col-xs-7 controls"
 					placeholder="ძველი პაროლი"></input>
 				<p id="error1">თქვენს მიერ შეყვანილი პაროლი არ არის სწორი</p>
-				<input id="passwordNew" type="password" class="col-xs-7 controls"
+				<input id="passwordNew" class="col-xs-7 controls"
 					placeholder="ახალი პაროლი"></input>
 				<p id="error2">თქვენი პაროლი უნდა შედგებოდეს მინიმუმ 4
 					სიმბოლოსგან</p>
@@ -147,11 +147,10 @@
 			<input id="edit-info" type="text"></input>
 		</div>
 		<div class="input-row">
-			<a id="updateInfoForm" href="#" class="text-center">
-				<button id="infoChange" onclick="SaveChanges()"
+			<a id="updateInfoForm" href="#"></a>
+			<button id="infoChange" onclick="SaveChanges()"
 					class="btn btn-success btn-lg text-center">შეინახე
 					ცვლილებები</button>
-			</a>
 		</div>
 	</div>
 

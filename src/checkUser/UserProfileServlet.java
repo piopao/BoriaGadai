@@ -59,7 +59,6 @@ public class UserProfileServlet extends HttpServlet {
 			info += "/profilePic/" + user.getPictureDirname();
 		if (user.getInfo() != "")
 			info += "/info/" + user.getInfo();
-		info = "username/ninuca/name/nino/surname/basilaia/email/áƒ¡áƒ¢áƒ£áƒ›áƒ�áƒ áƒ˜/profilePic/cloud.png";
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
 		out.print(info);

@@ -2,6 +2,10 @@ package checkUser;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -48,10 +52,17 @@ public class UpdateInfo extends HttpServlet {
 		String surname = request.getParameter("surname");
 		String passwordOld = request.getParameter("passwordOld");
 		String passwordNew = request.getParameter("passwordNew");
-		// Date birthdate = (Date) request.getParameter("birthdate");
+		String birthdate = request.getParameter("birthdate");
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy"); 
+		Date date = null;
+		try {
+			date = (Date) df.parse(birthdate);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		String gender = request.getParameter("gender");
 		String info = request.getParameter("info");
-
+		System.out.println("sworia");
 		HttpSession sess = request.getSession();
 		User user = (User) sess.getAttribute("user");
 		ServletContext context = getServletContext();
@@ -68,7 +79,7 @@ public class UpdateInfo extends HttpServlet {
 					String hashedPasswordNew = Hasher
 							.generate_hash(passwordNew);
 					user.setUsername(username);
-					// user.setBirthDate(birthdate);
+					user.setBirthDate(date);
 					user.setGender(gender);
 					user.setHashPassword(hashedPasswordNew);
 					user.setInfo(info);
@@ -80,6 +91,13 @@ public class UpdateInfo extends HttpServlet {
 			} else {
 				errorMessage = "invalidPass";
 			}
+		} else {
+			user.setUsername(username);
+			user.setBirthDate(date);
+			user.setGender(gender);
+			user.setInfo(info);
+			user.setName(name);
+			user.setSurname(surname);
 		}
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();

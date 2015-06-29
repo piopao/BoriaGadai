@@ -70,6 +70,8 @@
 }
 
 #passwordNew {
+	margin-top: 25px;
+	margin-bottom: 10px;
 	visibility: hidden;
 	position: relative;
 	left: 170px;
@@ -77,11 +79,17 @@
 
 #error1 {
 	visibility: hidden;
+	position: absolute;
+	font-size: smaller;
+	margin-top: 30px;
+	margin-left: 10px;
 }
 
 #error2 {
-	visibility: hidden
+	visibility: hidden;
 	position: absolute;
 	margin-top: 25px;
 	margin-left: 5px;
+	font-size: smaller;
+	margin-top: 80px;
 }

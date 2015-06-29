@@ -21,11 +21,11 @@ function loadInfo(data) {
 function guestOrUser() {
 	var user = document.getElementById("user").innerHTML;
 	var profileUser = document.getElementById("email").innerHTML;
-	document.getElementById("edit-info").style.visibility = "hidden";
-	document.getElementById("edit-info").setAttribute("disabled", "true");
+	document.getElementById("edit-info-but").style.visibility = "hidden";
+	document.getElementById("edit-info-but").setAttribute("disabled", "true");
 	if (user == profileUser) {
-		document.getElementById("edit-info").style.visibility = "visible";
-		document.getElementById("edit-info").setAttribute("disabled", "false");
+		document.getElementById("edit-info-but").style.visibility = "visible";
+		document.getElementById("edit-info-but").setAttribute("disabled", "false");
 		userRightSideInfo();
 	} else if (user == "ადმინი") {
 		if (friend() == true) {
@@ -53,27 +53,27 @@ function userRightSideInfo() {
 
 function visitorRightSideInfo() {
 	document.getElementById("messages").innerHTML = "გაუგზავნე მკითხაობის მოთხოვნა";
-	document.getElementById("edit-info").setAttribute("disabled", "true");
+	document.getElementById("messages").setAttribute("disabled", "true");
 	document.getElementById("friending").innerHTML = "დამეგობრების მოთხოვნა";
-	document.getElementById("edit-info").setAttribute("disabled", "true");
+	document.getElementById("friending").setAttribute("disabled", "true");
 }
 
 function guestRightSideInfo() {
 	document.getElementById("messages").innerHTML = "გაუგზავნე მკითხაობის მოთხოვნა";
 	document.getElementById("messages").href = "#";
 	document.getElementById("friending").innerHTML = "დამეგობრების მოთხოვნა";
-	document.getElementById("edit-info").setAttribute("disabled", "false");
+	document.getElementById("friending").setAttribute("disabled", "false");
 }
 
 function friendRightSideInfo() {
 	document.getElementById("messages").innerHTML = "გაუგზავნე მკითხაობის მოთხოვნა";
 	document.getElementById("messages").href = "#";
 	document.getElementById("friending").innerHTML = "განმეგობრება";
-	document.getElementById("edit-info").setAttribute("disabled", "false");
+	document.getElementById("friending").setAttribute("disabled", "false");
 }
 
 function editInfo() {
-	if (document.getElementById("edit-info").getAttribute("disabled") == "false") {
+	if (document.getElementById("edit-info-but").getAttribute("disabled") == "false") {
 		hideShowInfo();
 	}
 }
@@ -105,20 +105,22 @@ function SaveChanges() {
 	var editName = document.getElementById("edit-name").value;
 	var editSurname = document.getElementById("edit-surname").value;
 	if(document.getElementById("edit-password").getAttribute("clicked") == "true"){
-		var editPasswordOld = document.getElementById("edit-passwordOld").value;
-		var editPasswordNew = document.getElementById("edit-passwordNew").value;
+		document.getElementById("edit-password").setAttribute("clicked", "false");
+		var editPasswordOld = document.getElementById("passwordOld").value;
+		var editPasswordNew = document.getElementById("passwordNew").value;
+		alert(editPasswordOld + " " + editPasswordNew);
 	}else{
 		var editPasswordOld = "";
 		var editPasswordNew = "";
 	}
 	var editBirthdate = document.getElementById("edit-birthdate").value;
 	if (document.getElementById('male').checked) {
-		var editGender = "male";
+		var editGender = "Male";
 	} else {
-		var editGender = "female";
+		var editGender = "Female";
 	}
 	var editInfo = document.getElementById("edit-info").value;
-	
+
 	$.post('UpdateInfo', {
 		username : editUsername,
 		name : editName,
@@ -136,8 +138,8 @@ function SaveChanges() {
 		}else{
 			var user = document.getElementById("user").innerHTML;
 			var action = "Profilepage.jsp?name=" + user;
-			alert(action);
-			document.getElementById("updateInfoForm").href = "Homepage.jsp";
+			document.getElementById("updateInfoForm").href = action;
+			document.getElementById("updateInfoForm").click();
 		}
 	});
 }
