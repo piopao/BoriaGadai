@@ -1,1 +1,15 @@
 @CHARSET "ISO-8859-1";
+
+#query{
+	background-color: transparent;
+}
+
+a{
+	color: rgb(237, 237, 237);
+}
+
+
+img.home{
+	width: 30px;
+	height: auto;
+}

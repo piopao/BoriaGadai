@@ -1,4 +1,4 @@
-@import url("AddReview.css");
+@import url("NavigationBar.css");
 .popularUsers {
 	position: absolute;
 	left: 900px;
@@ -20,4 +20,8 @@
 .pop-users {
 	font-size: large;
 	width: 300px;
+}
+
+body{
+	background-color: gray;
 }
