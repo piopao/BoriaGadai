@@ -52,7 +52,7 @@ for(int i=revArr.size()-1; i>=0; i--){
 	printing+= "<h5 class = date> " + rev.getDate() + "</h5>"; 	
 	if(user != null){
 	printing+= "<button "; 
-	if(user.getUserStatus() != 1) printing+= " style = \"display:none;\"";
+	if(user.getUserStatus() != 1) printing+= " style = \"display:none;\" ";
 	printing+= "id=" + rev.getRevID() +" onclick=\"deleteRev(this)\" type=\"button\" class=\"btn btn-success btn-xs\">წაშალე კომენტარი </button>";
 	}
 	printing+= " </div> "; //box daixura	
