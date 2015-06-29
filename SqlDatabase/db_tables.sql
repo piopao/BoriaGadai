@@ -17,10 +17,7 @@ CREATE TABLE IF NOT EXISTS users (
 	avatar_filename VARCHAR(128),
 	info TEXT
 );
-CREATE TABLE IF NOT EXISTS quiz (
-	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
-    quiz_name TEXT
-);
+
 #dir_names for default avatar pictures
 CREATE TABLE IF NOT EXISTS pictures (
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
@@ -34,10 +31,9 @@ CREATE TABLE IF NOT EXISTS quiz_reviews (
 	review_date DATETIME,
     game_name varchar(64),
 	user_email VARCHAR(64),
-	quiz_id INT,
-    FOREIGN KEY (game_name) REFERENCES game_table(game_name) ON DELETE CASCADE,
-	FOREIGN KEY (user_email) REFERENCES users(email_address) ON DELETE CASCADE,
-	FOREIGN KEY (quiz_id) REFERENCES quiz(id) ON DELETE CASCADE
+   # FOREIGN KEY (game_name) REFERENCES game_table(game_name) ON DELETE CASCADE,
+	FOREIGN KEY (user_email) REFERENCES users(email_address) ON DELETE CASCADE
+	
 	
 );
 
@@ -66,15 +62,7 @@ CREATE TABLE IF NOT EXISTS pending_friend_list (
 );
 
 
-#quiz prediction history for users.
-CREATE TABLE IF NOT EXISTS quiz_predictions (
-	prediction_text TEXT CHARACTER SET utf8,
-	prediction_date DATETIME,
-    user_id INT,
-    quiz_id INT,
-	FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
-	FOREIGN KEY (quiz_id) REFERENCES quiz(id) ON DELETE CASCADE
-);
+
 
 
 #tarot cards designs.
