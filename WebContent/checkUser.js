@@ -12,7 +12,7 @@ $(document).ready(function() {
 			document.getElementById("user").innerHTML = data;
 		} else {
 			document.getElementById("user").innerHTML = data;
-			document.getElementById("user").href = "Profilepage.jsp?email=" + data;
+			document.getElementById("user").href = "Profilepage.jsp?profile=" + data;
 			document.getElementById("logBut").innerHTML = "გამოსვლა";
 		}
 	});

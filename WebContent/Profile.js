@@ -137,7 +137,7 @@ function SaveChanges() {
 			document.getElementById("error1").style.visibility = "visible";
 		}else{
 			var user = document.getElementById("user").innerHTML;
-			var action = "Profilepage.jsp?name=" + user;
+			var action = "Profilepage.jsp?profile=" + user;
 			document.getElementById("updateInfoForm").href = action;
 			document.getElementById("updateInfoForm").click();
 		}

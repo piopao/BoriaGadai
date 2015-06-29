@@ -17,6 +17,7 @@ public final class WeatherConstants {
 	 public static final int SNOW = 402;
 	 public static final int W_STRENGTH = 403;
 	 public static final int W_DIRECTION = 404;
+	 //Wind
 	 public static final int WIND_WEAK = 501;
 	 public static final int WIND_NORM = 502;
 	 public static final int WIND_STRONG = 503;
@@ -26,6 +27,7 @@ public final class WeatherConstants {
 	 public static final int WIND_DIR_W_S = 507;
 	 public static final int WIND_DIR_E_N = 508;
 	 public static final int WIND_DIR_E_S = 509;
+	 //Rain
 	 public static final int RAIN_WEAK = 510;
 	 public static final int RAIN_STRANGE = 511;
 	 public static final int RAIN_STRONG = 512;

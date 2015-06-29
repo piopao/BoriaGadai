@@ -259,6 +259,16 @@ public void unbanAccount(User user) {
 }
 
 
+public void changeUserName(User user, String newUserName) {
+	executeSimpleUpdate("users", "username", newUserName,
+			"email_address", user.getEmail());
+}
+
+public void changeInfo(User user, String newInfo) {
+	executeSimpleUpdate("users", "info", newInfo,
+			"email_address", user.getEmail());
+}
+
 public void changeHashedPassword(User user, String newHashedPassword) {
 	executeSimpleUpdate("users", "hashed_password", newHashedPassword,
 			"email_address", user.getEmail());

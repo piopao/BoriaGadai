@@ -62,12 +62,10 @@ public class UpdateInfo extends HttpServlet {
 		}
 		String gender = request.getParameter("gender");
 		String info = request.getParameter("info");
-		System.out.println("sworia");
 		HttpSession sess = request.getSession();
 		User user = (User) sess.getAttribute("user");
 		ServletContext context = getServletContext();
-		UserAccountManager manager = (UserAccountManager) context
-				.getAttribute("accountManager");
+		UserAccountManager manager = (UserAccountManager) context.getAttribute("accountManager");
 
 		String errorMessage = "success";
 		if (passwordOld != "") {
@@ -76,15 +74,14 @@ public class UpdateInfo extends HttpServlet {
 					hashedPassword);
 			if (validPassword) {
 				if (passwordNew.length() > 4) {
-					String hashedPasswordNew = Hasher
-							.generate_hash(passwordNew);
-					user.setUsername(username);
-					user.setBirthDate(date);
-					user.setGender(gender);
-					user.setHashPassword(hashedPasswordNew);
-					user.setInfo(info);
-					user.setName(name);
-					user.setSurname(surname);
+					String hashedPasswordNew = Hasher.generate_hash(passwordNew);
+					manager.changeFirstName(user, name);
+					manager.changeLastName(user, surname);
+					manager.changeHashedPassword(user, hashedPasswordNew);
+					manager.changeBirthdate(user, date);
+					manager.changeGender(user, gender);
+				//	manager.changeInfo(user, info);
+				//	manager.changeUserName(user, username);
 				} else {
 					errorMessage = "shortPass";
 				}
@@ -92,12 +89,12 @@ public class UpdateInfo extends HttpServlet {
 				errorMessage = "invalidPass";
 			}
 		} else {
-			user.setUsername(username);
-			user.setBirthDate(date);
-			user.setGender(gender);
-			user.setInfo(info);
-			user.setName(name);
-			user.setSurname(surname);
+			manager.changeFirstName(user, name);
+			manager.changeLastName(user, surname);
+			manager.changeBirthdate(user, date);
+			manager.changeGender(user, gender);
+		//	manager.changeInfo(user, info);
+		//	manager.changeUserName(user, username);
 		}
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();

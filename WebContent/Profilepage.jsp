@@ -25,6 +25,14 @@
 			$("#Navigation-bar").load("NavigationBar.html");
 		});
 	</script>
+	
+	<script type="text/javascript">
+	<%
+	HttpSession sess = request.getSession();
+	String profile = request.getParameter("profile");
+	sess.setAttribute("profile", profile);
+	%>
+	</script>
 
 	<div class="col-sm-3 text-center" id="rightside-info">
 		<div>
