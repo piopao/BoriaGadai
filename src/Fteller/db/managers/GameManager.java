@@ -11,6 +11,7 @@ import java.util.Date;
 
 import javax.sql.DataSource;
 
+import review.Review;
 import authorization.User;
 
 public class GameManager extends DBManager {
@@ -85,7 +86,7 @@ public class GameManager extends DBManager {
 					//System.out.println(resultTwo.getString(3));
 
 				
-					weatherPredicition += "მოსალოდნელი ტემპრეტურაა: " +weatherVal.get(2)+ " გრადუსი" + "*" + "temp.png";
+					weatherPredicition += "áƒ›áƒ�áƒ¡áƒ�áƒšáƒ�áƒ“áƒœáƒ”áƒšáƒ˜ áƒ¢áƒ”áƒ›áƒžáƒ áƒ”áƒ¢áƒ£áƒ áƒ�áƒ�: " +weatherVal.get(2)+ " áƒ’áƒ áƒ�áƒ“áƒ£áƒ¡áƒ˜" + "*" + "temp.png";
 
 				
 				
@@ -159,9 +160,20 @@ public String getLuckyNumbers(User user) {
 	
 	public GameDescription getGameDescription(String gameName){
 		GameDescription retVal = null ;
+		ArrayList<Review> reviews = new ArrayList<Review>();
+		int number = 0;
 		try {
 			Connection con = Source.getConnection();
 		
+			
+			String queryCount = "select  count (*) from quiz_reviews where game name = \"" + gameName + "\"";
+				PreparedStatement statementCount = con.prepareStatement(queryCount);
+				ResultSet resultCount = statementCount.executeQuery();
+				if(resultCount.next())
+					number = resultCount.getInt(1);
+			
+			
+			
 			String query = generateSimpleSelectQuery("game_table",
 				new ArrayList<String>(), "game_name", gameName);
 			PreparedStatement statement = con.prepareStatement(query);

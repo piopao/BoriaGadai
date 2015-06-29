@@ -28,12 +28,15 @@ CREATE TABLE IF NOT EXISTS pictures (
 );
 
 CREATE TABLE IF NOT EXISTS quiz_reviews (
+	review_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
 	review_text TEXT CHARACTER SET utf8,
 	review_rating INT,
 	review_date DATETIME,
-	user_id INT,
+    game_name varchar(64),
+	user_email VARCHAR(64),
 	quiz_id INT,
-	FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (game_name) REFERENCES game_table(game_name) ON DELETE CASCADE,
+	FOREIGN KEY (user_email) REFERENCES users(email_address) ON DELETE CASCADE,
 	FOREIGN KEY (quiz_id) REFERENCES quiz(id) ON DELETE CASCADE
 	
 );
@@ -97,7 +100,7 @@ CREATE TABLE IF NOT EXISTS image_table (
 
 CREATE TABLE IF NOT EXISTS game_table (
 	game_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
-    game_name VARCHAR(32),
+    game_name VARCHAR(32) NOT NULL UNIQUE,
 	game_description VARCHAR(512),
     image_id INT,
     game_url VARCHAR(32),
