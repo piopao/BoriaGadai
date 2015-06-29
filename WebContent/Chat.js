@@ -50,9 +50,8 @@ function sendMessage(){
 		        	textdiv.appendChild(paragraph);
 		        		
 	 });	
-	 $.post("addNewChatMessage", { text: document.getElementById("textarea").value 
+	 $.post("addNewChatMessage", { text: document.getElementById("message").value 
 		 }, function(data,status){
-		 
 		 });
 	 document.getElementById("message").value = " ";     
 }
