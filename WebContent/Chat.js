@@ -41,19 +41,23 @@ window.setInterval(function() {
 function sendMessage(){
 	 $.post("CurrentUserServlet",
 		        {  },
-		        function(data,status){
-		        	var textfield = document.getElementById("message");
+		        function(data,status){		        	
 		        	var textdiv = document.getElementById("textarea");
-		        	var paragraph = document.createElement("p");
-		        	var node = document.createTextNode(data + ": " + textfield.value);
+		        	var paragraph = document.createElement("p");		        	
+		        	var node = document.createTextNode(data + ": " + document.getElementById("message").value);
 		        	paragraph.appendChild(node);
 		        	textdiv.appendChild(paragraph);
+		        	$.post("addNewChatMessage", { text: document.getElementById("message").value 
+		   		 }, function(data,status){
+		   		 });
+		   	 document.getElementById("message").value = " "; 
+		        	
 		        		
 	 });	
-	 $.post("addNewChatMessage", { text: document.getElementById("message").value 
+	 /*$.post("addNewChatMessage", { text: document.getElementById("message").value 
 		 }, function(data,status){
 		 });
-	 document.getElementById("message").value = " ";     
+	 document.getElementById("message").value = " ";     */
 }
 
 
