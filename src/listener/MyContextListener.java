@@ -9,6 +9,7 @@ import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 import DBSettings.DBLogin;
 import Fteller.db.managers.ChatManager;
+import Fteller.db.managers.GameManager;
 import Fteller.db.managers.UserAccountManager;
 
 /**
@@ -43,6 +44,8 @@ public class MyContextListener implements ServletContextListener {
 		dataSource.setPassword(DBLogin.PASSWORD); // use your mysql password
     	UserAccountManager accManager = new UserAccountManager(dataSource);
     	ChatManager chatManager = new ChatManager(dataSource);
+    	GameManager game = new GameManager(dataSource);
+    	context.setAttribute(game.ATTRIBUTE_NAME, game);
     	context.setAttribute("accountManager", accManager);
     	context.setAttribute(chatManager.ATTRIBUTE_NAME, chatManager);
 
