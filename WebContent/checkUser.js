@@ -20,7 +20,6 @@ $(document).ready(function() {
 
 
 window.fbAsyncInit = function() {
-	alert("a");
 	  FB.init({
 	    appId      : '967250553331245',
 	    cookie     : true,  // enable cookies to allow the server to access 

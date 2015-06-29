@@ -73,7 +73,7 @@ input.form-control{
 }
 
 #cards img{	
-	border: dotted 2px white;
+	border: dotted 2px rgba(255, 255, 255, 0.3);
 	height: 200px;
 	width: 120px;
 	margin-left: 70px;
