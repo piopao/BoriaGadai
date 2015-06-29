@@ -95,7 +95,7 @@ public class GameManager extends DBManager {
 				//updating weather_history table/
 				Date today = new Date();
 				String temp = Integer.toString(today.getMonth()) + "-" +Integer.toString(today.getDate());
-				
+				System.out.println("INSERT INTO weather_history VALUES (\"" + user.getEmail() + "\", \"" + weatherPredicition + "\", " + temp + ");");
 				String queryFour = "INSERT INTO weather_history VALUES (\"" + user.getEmail() + "\", \"" + weatherPredicition + "\", " + temp + ");";
 				PreparedStatement statementFour = con.prepareStatement(queryFour);
 				int resultFour = statementFour.executeUpdate();

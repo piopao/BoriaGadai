@@ -10,9 +10,9 @@ insert into admin values ("mpepa13@freeuni.edu.ge");
 insert into admin values ("nbasi13@freeuni.edu.ge");
 
 
-insert into weather_table values ("501504", "დაუბერავს სუსტი ქარი დასავლეთიდან", "wind.png");
-insert into weather_table values ("501505", "დაუბერავს სუსტი ქარი აღმოსავლეთიდან", "wind.png");
-insert into weather_table values ("501506", "დაუბერავს სუსტი ქარი ჩრდილო-დასავლეთიდან", "wind.png");
+insert into weather_table values ("501504", "hsdhfsdfjsdjfsd", "wind.png");
+insert into weather_table values ("501505", "skdfkdskf", "wind.png");
+insert into weather_table values ("501506", "sdkfkdshfdkhhksii", "wind.png");
 insert into weather_table values ("501507", "დაუბერავს სუსტი ქარი სამხრეთ-დასავლეთიდან", "wind.png");
 insert into weather_table values ("501508", "დაუბერავს სუსტი ქარი აღმოსავლეთ-ჩრდილოეთიდან", "wind.png");
 insert into weather_table values ("501509", "დაუბერავს სუსტი ქარი აღმოსავლეთ-სამხრეთიდან", "wind.png");
