@@ -47,7 +47,8 @@ public class LogoutServlet extends HttpServlet {
 		if(context.getAttribute(email) != null) {
 		     context.removeAttribute(email);
 		}
-		sess.invalidate();
+		sess.setAttribute("user", null);
+		sess.setAttribute("login", null);
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
 		out.print(res);
