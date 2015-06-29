@@ -47,7 +47,7 @@
 						class="glyphicon glyphicon-envelope"></span></td>
 				</tr>
 				<tr>
-					<td><a id="friending" href="#"></a></td>
+					<td><a id="friending" href="#" onclick="fRequest()"></a></td>
 					<td><span id="friendingLogo" class="glyphicon glyphicon-globe"></span></td>
 				</tr>
 				<tr>

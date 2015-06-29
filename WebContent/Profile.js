@@ -169,7 +169,8 @@ function SaveChanges() {
 }
 
 function ftRequest(){
-	if (document.getElementById("messages").getAttribute("disabled") == "false"){
+	var buttonEnabled = document.getElementById("messages").getAttribute("disabled");
+	if (buttonEnabled == "false"){
 		var email1 = document.getElementById("user").innerHTML;
 		var email2 = document.getElementById("email").innerHTML;
 		$.post("sendChatRequest", {
@@ -178,9 +179,42 @@ function ftRequest(){
 		}, function(data){
 			if (data == "true"){
 				alert("მოთხოვნა გაგზავნილია");
+				document.getElementById("messages").href = "Chat.html";
+				document.getElementById("messages").click();
 			}else{
 				alert("მოთხოვნა უკვე გაგზავნილია");
 			}
 		});
+	}
+}
+
+function fRequest(){
+	var buttonEnabled = document.getElementById("friending").getAttribute("disabled");
+	var buttonText = document.getElementById("friending").innerHTML;
+	if(buttonEnabled == "true"){
+		if(buttonText == "დამეგობრება"){
+			$.post("sendFriendRequest", {
+				sender : email1,
+				getter : email2,
+				action : buttonText
+			}, function(data){
+				if (data == "true"){
+					alert("მოთხოვნა გაგზავნილია");
+				}else{
+					alert("მოთხოვნა უკვე გაგზავნილია");
+				}
+			});
+		} else if (buttonText == "განმეგობრება"){
+			$.post("sendFriendRequest", {
+				sender : email1,
+				getter : email2,
+				action : buttonText
+			}, function(data){
+				if (data == "true"){
+					alert("მოთხოვნა გაგზავნილია");
+					document.getElementById("friending").innerHTML = "დამეგობრება";
+				}
+			});
+		}
 	}
 }

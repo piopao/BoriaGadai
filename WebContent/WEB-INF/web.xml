@@ -262,4 +262,14 @@
     <servlet-name>sendChatRequest</servlet-name>
     <url-pattern>/sendChatRequest</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>sendFriendRequest</display-name>
+    <servlet-name>sendFriendRequest</servlet-name>
+    <servlet-class>friend.sendFriendRequest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>sendFriendRequest</servlet-name>
+    <url-pattern>/sendFriendRequest</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -339,7 +339,7 @@ public String checkPendingFriendRequests(String email){
 	
 }
 
-public boolean addChatRequest(String initEmail, String receiverEmail){
+public boolean sendFriendRequest(String initEmail, String receiverEmail){
 	try {
 		Connection con = Source.getConnection();
 		
