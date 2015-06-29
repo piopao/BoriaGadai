@@ -1,6 +1,7 @@
 package unitTest;
 
 import static org.junit.Assert.*;
+
 import java.sql.Date;
 
 import org.junit.BeforeClass;
@@ -8,6 +9,7 @@ import org.junit.Test;
 
 import DBSettings.DBLogin;
 import Fteller.db.managers.UserAccountManager;
+import authorization.Hasher;
 import authorization.User;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource;
@@ -104,6 +106,17 @@ public class UserAccountManagerTest {
 		assertEquals(temp.getInfo()          , dummy.getInfo()          );
 		
 		//more test cmmmig y e a
+		Hasher hsh = new Hasher();
+		manager.changeGender(dummy, "Male");
+		manager.changeBirthdate(dummy, Date.valueOf("1997-23-4"));
+		manager.changeAvatarName(dummy, "newAvatar");
+		manager.changeHashedPassword(dummy, hsh.generate_hash("testpassword"));
+		manager.changeEmail(dummy, "newEmail");
+		manager.changeLastName(dummy, "newLastName");
+		manager.changeFirstName(dummy, "new first name");
+		
+		
+		
 		
 		
 	}
