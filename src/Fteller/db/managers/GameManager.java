@@ -28,7 +28,7 @@ public class GameManager extends DBManager {
 	
 	
 	public String checkTodaysWeather(User user) {
-		String text = null;
+		String text = "";
 		Date today = new Date();
 		String temp = Integer.toString(today.getMonth()) + "-" +Integer.toString(today.getDate());
 			try {
