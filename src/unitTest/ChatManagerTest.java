@@ -43,7 +43,7 @@ private static UserAccountManager Account_Manager;
 		String from = Chat_Manager.checkChatRequest("receiverUser");
 		//System.out.println(from);
 		assertEquals(from, "initUser");
-		assertEquals(0,Chat_Manager.checkRequestStatus(initUser.getEmail()));
+		assertEquals("0",Chat_Manager.checkRequestStatus(initUser.getEmail()));
 
 	}
 	
@@ -51,10 +51,12 @@ private static UserAccountManager Account_Manager;
 	@Test
 	public void changeRequestStatus() {
 		Chat_Manager.changeRequestStatus("receiverUser", "1");
-		assertEquals(1,Chat_Manager.checkRequestStatus("initUser"));
+		assertEquals("1",Chat_Manager.checkRequestStatus("initUser"));
+		System.out.println(Chat_Manager.checkRequestStatus("initUser"));
 		
 		Chat_Manager.changeRequestStatus("receiverUser", "-1");
-		assertEquals(-1,Chat_Manager.checkRequestStatus("initUser"));
+		System.out.println(Chat_Manager.checkRequestStatus("initUser"));
+		assertEquals("-1",Chat_Manager.checkRequestStatus("initUser"));
 		Chat_Manager.deleteChatRequest("initUser");
 		User initUser = new User("initUser");
 		User receiverUser = new User("receiverUser");
@@ -64,8 +66,8 @@ private static UserAccountManager Account_Manager;
 	
 	@Test
 	public void addNewMessageTest() {
-		User initUser = new User("initUser");
-		User receiverUser = new User("receiverUser");
+		User initUser = new User("itkem12@freeuni.edu.ge");
+		User receiverUser = new User("ekikn12@freeuni.edu.ge");
 		
 
 		
