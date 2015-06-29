@@ -16,13 +16,13 @@ import authorization.User;
 /**
  * Servlet implementation class CheckPandingRequests
  */
-public class CheckPandingRequests extends HttpServlet {
+public class CheckPendingRequests extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CheckPandingRequests() {
+    public CheckPendingRequests() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -46,7 +46,7 @@ public class CheckPandingRequests extends HttpServlet {
 		if(user != null){
 			String initEmail = "true";
 			System.out.println(initEmail);
-//			String initEmail = chatManager.checkPandingFriendRequests(user.getEmail());
+//			String initEmail = chatManager.checkPendingFriendRequests(user.getEmail());
 			PrintWriter out = response.getWriter();
 			out.print(initEmail);
 		}

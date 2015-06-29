@@ -4,7 +4,7 @@ function myTimer() {
 	var email1 = document.getElementById("user").innerHTML;
 	var email2 = document.getElementById("email").innerHTML;
 	if (email1 == email2){
-		 $.post("CheckPandingRequests", function(data){
+		 $.post("CheckPendingRequests", function(data){
 			 if(data == "true"){
 				 document.getElementById("friendingLogo").className  = "glyphicon glyphicon-flag";
 			 }
