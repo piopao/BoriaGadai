@@ -31,8 +31,8 @@ String printing = "";
 //Printing Description
 out.println("<h1 class = gameName>" + gd.getGameName() + "</h1>");
 out.println(" <div class=gameTextCover> <div class = gameText> <h4 class = gameText>" + gd.getDiscription() + "</h4> </div> </div>");
-/*if(user != null)*/ out.println("<a id= \"gameButt\" href= \""+ gameLink +"\" class=\"btn btn-success  btn-lg\" role=\"button\">ვიმკითხაოთ</a>");
-//else  out.println("<a id= \"gameButt\" href= \""+ gameLink +"\" class=\"btn btn-success  btn-lg disabled\" role=\"button\">ვიმკითხაოთ</a>");
+if(user != null) out.println("<a id= \"gameButt\" href= \""+ gameLink +"\" class=\"btn btn-success  btn-lg\" role=\"button\">ვიმკითხაოთ</a>");
+else  out.println("<a id= \"gameButt\" href= \""+ gameLink +"\" class=\"btn btn-success  btn-lg disabled\" role=\"button\">ვიმკითხაოთ</a>");
 printing += "<div class = cover> <div class = reviewComb> ";
 
 //Printing Reviews
@@ -50,6 +50,9 @@ for(int i=revArr.size()-1; i>=0; i--){
 		printing+= "<img src=\"./Images/star-empty.png\" > ";	}	
 	printing+= " </div>"; //stars daixura
 	printing+= "<h5 class = date> " + rev.getDate() + "</h5>"; 	
+	printing+= "<button "; 
+	if(user!=null && user.getUserStatus() != 1) printing+= " style = \" display:none;\"";
+	printing+= "id=" + rev.getRevID() +" onclick=\"deleteRev(this)\" type=\"button\" class=\"btn btn-success btn-xs\">წაშალე კომენტარი </button>";
 	printing+= " </div> "; //box daixura	
 	printing+= "<div class = textbox> <p class = revText>" + rev.getText() + "</p>	 </div>";	
 	printing+= " </div>";//review daixura
@@ -58,6 +61,18 @@ printing+= "</div> </div>";
 out.println(printing); 
 %>
 
+<script>
+function deleteRev(x){
+        $.post("ReviewsServlet",
+        {
+          mission: "review delete",
+          reviewID: x.id,
+        },
+        function(data,status){
+        	location.reload();
+        });
+};
+</script>
 
 
 </body>

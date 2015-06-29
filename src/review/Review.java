@@ -63,4 +63,8 @@ public class Review {
 	public int getStars(){
 		return stars;
 	}
+	
+	public int getRevID(){
+		return reviewID;
+	}
 }
