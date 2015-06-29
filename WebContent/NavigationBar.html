@@ -14,13 +14,13 @@
 			<nav id="navigation-bar">
 				<div>
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="Homepage.jsp">მთავარი</a></li>
+						<li class="active"><a href="Homepage.jsp"> <img class = home src="./Images/home_w.png"></a></li>
 						<li><form role="search" class="navbar-form navbar-left" action="SearchServlet" method="get">
 								<div class="form-group">
 									<input id="query" name="query" type="text" class="form-control"
-										placeholder="შეიყვანეთ მეილი" size="50"></input>
+										placeholder="შეიყვანეთ მეილი" size="70"></input>
 								</div>
-								<button type="submit">ძებნა</button>
+								<button type="submit" class="btn btn-warning btn-sm">ძებნა</button>
 							</form></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
@@ -29,7 +29,7 @@
 						<li>
 							<form id="myForm" action="">
 								<button id="logBut" type="submit" onclick="login()"
-									class="btn btn-link btn-lg">
+									class="btn btn-warning btn-sm">
 								</button>
 							</form>
 						</li>
