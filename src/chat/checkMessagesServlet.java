@@ -44,7 +44,6 @@ public class checkMessagesServlet extends HttpServlet {
 		User temp = (User) sess.getAttribute("user");
 		ServletContext context = getServletContext();
 		ChatManager chatManager = (ChatManager)context.getAttribute("chatManager");
-		int status = (int) sess.getAttribute("status");
 		
 		if(temp!=null)
 			message = chatManager.checkNewMessages(temp.getEmail());

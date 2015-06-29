@@ -2,7 +2,7 @@
  * 
  */
 
-var ju = setInterval(function(){ checkRequest() }, 5000);
+var ju = setInterval(function(){ checkRequest() }, 2000);
 
 function checkRequest() {
 	 $.post("checkChatRequests",
@@ -11,7 +11,6 @@ function checkRequest() {
 		        	if(data.length  != 0 ){
 		        		 if (confirm("Press a button!") == true) {
 		        			 	window.location = "Chat.html";
-		        			 	alert("bochka")
 		        			 	$.post("changeRequestStatus", { "status" : 1 }, function(data,status){}
 		        		        );
 		        		    } else {

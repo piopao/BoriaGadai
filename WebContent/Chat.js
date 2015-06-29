@@ -7,7 +7,7 @@ function myTimer() {
     document.getElementById("demo").innerHTML = t;
 }
 
-//var ch = setInterval(function(){ checkMes() }, 2000);
+var ch = setInterval(function(){ checkMes() }, 2000);
 
 function checkMes(){
 		 $.post("checkMessagesServlet",

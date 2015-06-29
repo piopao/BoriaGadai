@@ -4,7 +4,7 @@
 
 
 $(document).ready(function() {
-	$.post('CheckUserServlet', function(data) {
+	$.post('CheckUserServlet', {}, function(data) {
 		if (data == "სტუმარი") {
 			document.getElementById("logBut").innerHTML = "შესვლა";
 			document.getElementById("user").innerHTML = data;
