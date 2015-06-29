@@ -11,10 +11,10 @@ function checkRequest() {
 		        	if(data.length  != 0 ){
 		        		 if (confirm("áƒ£áƒ›áƒ™áƒ˜áƒ—áƒ®áƒ�áƒ•áƒ”áƒ”áƒ‘?") == true) {
 		        			 	window.location = "Chat.html";
-		        			 	$.post("changeRequestStatus", { "status" : "1" }, function(data,status){}
+		        			 	$.post("changeRequestStatus", {}, function(data,status){}
 		        		        );
 		        		    } else {
-		        		        $.post("changeRequestStatus", { "status" : "-1" }, function(data,status){}
+		        		        $.post("changeRequestStatus", {}, function(data,status){}
 		        		        );
 		        		    }
 		        	}		        	
