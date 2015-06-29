@@ -270,6 +270,16 @@ public void changeEmail(User user, String newEmail) {
 			user.getEmail());
 }
 
+public void changeLastName(User user, String newLastName) {
+	executeSimpleUpdate("users", "user_surname", newLastName, "email_address",
+			user.getEmail());
+}
+
+public void changeFirstName(User user, String newFirstName) {
+	executeSimpleUpdate("users", "user_name", newFirstName, "email_address",
+			user.getEmail());
+}
+
 
 
 public void changeBirthdate(User user, Date newBirthdate) {

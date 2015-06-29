@@ -151,3 +151,17 @@ CREATE TABLE IF NOT EXISTS new_chat_messages(
 );
 
 
+CREATE TABLE IF NOT EXISTS fortune_texts(
+	text_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
+    fortune_text VARCHAR(128)
+	
+	
+);
+
+
+CREATE TABLE IF NOT EXISTS fortune_histroy (
+	user_email VARCHAR(64),
+    fortune_text VARCHAR(128),
+	FOREIGN KEY (user_email) REFERENCES users(email_address) ON DELETE CASCADE
+	
+);

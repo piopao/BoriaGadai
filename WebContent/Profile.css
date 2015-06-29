@@ -1,39 +1,95 @@
-#profilePic{
+#profilePic {
 	width: 150px;
 	height: "150px";
 	padding: 1px;
 	border: 1px solid #021a40;
-	
 }
 
-.table-hover{
+#editable-info {
+	height: 100%;
+	width: 50%;
+	left: 310px;
+	top: 180px;
+	position: absolute;
+}
+
+#uneditable-info {
+	margin-left: 300px
+}
+
+.input-row {
+	width: 80%;
+	padding-top: 20px;
+	margin-left: 20px;
+}
+
+.table-hover {
 	font-size: 8pt;
 }
 
-.pos-right{
-    top: 30px;
-    right: 5px;
-    color: red;
-}
-
-.main-nav{
-
-}
-
-.row-pos{
+.row-pos {
 	position: relative;
+	width: 850px;
+	height: 200px;
 }
 
 #about-me {
 	padding: 1px;
 	width: 500px;
 	border: 1px solid #021a40;
-    margin-left: 0px;
-    height: 104px;
-    width: 404px;
-    margin-top: 10px;
-	
+	margin-left: 0px;
+	height: 104px;
+	width: 404px;
+	margin-top: 10px;
 }
 
+.gender {
+	display: flex;
+}
 
+#edit-info {
+	width: 500px;
+	height: 100px;
+	margin-left: 10px;
+}
 
+#personal-info {
+	padding-left: 25%;
+}
+
+#infoChange {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#passwordOld {
+	visibility: hidden;
+	position: absolute;
+	left: 185px;
+	width: 230px;
+}
+
+#passwordNew {
+	margin-top: 25px;
+	margin-bottom: 10px;
+	visibility: hidden;
+	position: relative;
+	left: 170px;
+}
+
+#error1 {
+	visibility: hidden;
+	position: absolute;
+	font-size: smaller;
+	margin-top: 30px;
+	margin-left: 10px;
+}
+
+#error2 {
+	visibility: hidden;
+	position: absolute;
+	margin-top: 25px;
+	margin-left: 5px;
+	font-size: smaller;
+	margin-top: 80px;
+}
