@@ -48,4 +48,4 @@ hs_err_pid*
 *.psd
 
 
-*DBLogin.java
+/DBLogin.java
