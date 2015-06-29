@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="ExternalLogin.js"></script>
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
