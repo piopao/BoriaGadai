@@ -32,7 +32,7 @@ String printing = "";
 out.println("<h1 class = gameName>" + gd.getGameName() + "</h1>");
 out.println(" <div class=gameTextCover> <div class = gameText> <h4 class = gameText>" + gd.getDiscription() + "</h4> </div> </div>");
 if(user != null) out.println("<a id= \"gameButt\" href= \""+ gameLink +"\" class=\"btn btn-success  btn-lg\" role=\"button\">ვიმკითხაოთ</a>");
-else  out.println("<a id= \"gameButt\" href= \""+ gameLink +"\" class=\"btn btn-success  btn-lg disabled\" role=\"button\">ვიმკითხაოთ</a>");
+else out.println("<a id= \"gameButt\" href= \""+ gameLink +"\" class=\"btn btn-success  btn-lg disabled\" role=\"button\">ვიმკითხაოთ</a>");
 printing += "<div class = cover> <div class = reviewComb> ";
 
 //Printing Reviews
@@ -40,7 +40,7 @@ for(int i=revArr.size()-1; i>=0; i--){
 	Review rev = revArr.get(i);
 	printing+= "<div class = review> ";
 	printing+= "<div class = box> ";
-	printing+= "<div class=name ><a class=\"userId\" href="+ "\"Temp.html?userId=" + rev.getUserID() +"\">" + rev.getUserFullName() + "</a></div> ";
+	printing+= "<div class=name ><a class=\"userId\" href="+ "\"Profilepage.jsp?profile=" + rev.getUser().getEmail() +"\">" + rev.getUser().getEmail() + "</a></div> ";
 	int stars = rev.getStars();
 	printing += "<div class = stars> ";
 	for(int k=0; k<stars; k++){
@@ -50,9 +50,11 @@ for(int i=revArr.size()-1; i>=0; i--){
 		printing+= "<img src=\"./Images/star-empty.png\" > ";	}	
 	printing+= " </div>"; //stars daixura
 	printing+= "<h5 class = date> " + rev.getDate() + "</h5>"; 	
+	if(user != null){
 	printing+= "<button "; 
-	if(user!=null && user.getUserStatus() != 1) printing+= " style = \" display:none;\"";
+	if(user.getUserStatus() != 1) printing+= " style = \"display:none;\"";
 	printing+= "id=" + rev.getRevID() +" onclick=\"deleteRev(this)\" type=\"button\" class=\"btn btn-success btn-xs\">წაშალე კომენტარი </button>";
+	}
 	printing+= " </div> "; //box daixura	
 	printing+= "<div class = textbox> <p class = revText>" + rev.getText() + "</p>	 </div>";	
 	printing+= " </div>";//review daixura

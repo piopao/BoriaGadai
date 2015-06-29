@@ -48,8 +48,8 @@ public class Review {
 		return user.getName() + " " + user.getSurname();
 	}
 	
-	public int getUserID(){
-		return user.getId();
+	public User getUser(){
+		return user;
 	}
 	
 	public String getGameName(){
