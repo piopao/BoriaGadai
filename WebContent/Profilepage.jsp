@@ -42,12 +42,12 @@
 		<table class="table table-striped table-hover">
 			<tbody>
 				<tr>
-					<td><a id="messages" href="#">მესიჯები</a></td>
+					<td><a id="messages" href="#" onclick="ftRequest()"></a></td>
 					<td style="width: 30%;"><span
 						class="glyphicon glyphicon-envelope"></span></td>
 				</tr>
 				<tr>
-					<td><a id="friending" href="#">ნოტიფიკაციები</a></td>
+					<td><a id="friending" href="#"></a></td>
 					<td><span id="friendingLogo" class="glyphicon glyphicon-globe"></span></td>
 				</tr>
 				<tr>

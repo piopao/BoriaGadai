@@ -25,7 +25,6 @@ function loadInfo(data) {
 		if (dataTokens[index] == "profilePic") {
 			var pic = "./avatars/" + dataTokens[++index];
 			document.getElementById("profilePic").src = pic;
-			alert(pic);
 		} else if(dataTokens[index] == "email"){
 			document.getElementById(dataTokens[index] + "-div").style.visibility = 'visible';
 			document.getElementById("email").innerHTML = dataTokens[++index];
@@ -41,11 +40,7 @@ function loadInfo(data) {
 function guestOrUser() {
 	var user = document.getElementById("user").innerHTML;
 	var profileUser = document.getElementById("email").innerHTML;
-	document.getElementById("edit-info-but").style.visibility = "hidden";
-	document.getElementById("edit-info-but").setAttribute("disabled", "true");
 	if (user == profileUser) {
-		document.getElementById("edit-info-but").style.visibility = "visible";
-		document.getElementById("edit-info-but").setAttribute("disabled", "false");
 		userRightSideInfo();
 	} else if (user == "ადმინი") {
 		if (friend() == true) {
@@ -56,7 +51,7 @@ function guestOrUser() {
 	} else if (user == "სტუმარი") {
 		guestRightSideInfo();
 	} else {
-		if (friend() == true) {
+		if (true) {
 			friendRightSideInfo();
 		} else {
 			guestRightSideInfo();
@@ -65,6 +60,8 @@ function guestOrUser() {
 }
 
 function userRightSideInfo() {
+	document.getElementById("edit-info-but").style.visibility = "visible";
+	document.getElementById("edit-info-but").setAttribute("disabled", "false");
 	document.getElementById("messages").innerHTML = "მკითხაობის მოთხოვნები";
 	document.getElementById("messages").href = "#";
 	document.getElementById("friending").innerHTML = "დამეგობრების მოთხოვნები";
@@ -72,21 +69,29 @@ function userRightSideInfo() {
 }
 
 function visitorRightSideInfo() {
-	document.getElementById("messages").innerHTML = "გაუგზავნე მკითხაობის მოთხოვნა";
+	document.getElementById("edit-info-but").style.visibility = "hidden";
+	document.getElementById("edit-info-but").setAttribute("disabled", "true");
+	document.getElementById("messages").innerHTML = "მიმკითხავე";
 	document.getElementById("messages").setAttribute("disabled", "true");
 	document.getElementById("friending").innerHTML = "დამეგობრების მოთხოვნა";
 	document.getElementById("friending").setAttribute("disabled", "true");
 }
 
 function guestRightSideInfo() {
-	document.getElementById("messages").innerHTML = "გაუგზავნე მკითხაობის მოთხოვნა";
+	document.getElementById("edit-info-but").style.visibility = "hidden";
+	document.getElementById("edit-info-but").setAttribute("disabled", "true");
+	document.getElementById("messages").innerHTML = "მიმკითხავე";
+	document.getElementById("messages").setAttribute("disabled", "false");
 	document.getElementById("messages").href = "#";
-	document.getElementById("friending").innerHTML = "დამეგობრების მოთხოვნა";
+	document.getElementById("friending").innerHTML = "დამეგობრება";
 	document.getElementById("friending").setAttribute("disabled", "false");
 }
 
 function friendRightSideInfo() {
-	document.getElementById("messages").innerHTML = "გაუგზავნე მკითხაობის მოთხოვნა";
+	document.getElementById("edit-info-but").style.visibility = "hidden";
+	document.getElementById("edit-info-but").setAttribute("disabled", "true");
+	document.getElementById("messages").innerHTML = "მიმკითხავე";
+	document.getElementById("messages").setAttribute("disabled", "false");
 	document.getElementById("messages").href = "#";
 	document.getElementById("friending").innerHTML = "განმეგობრება";
 	document.getElementById("friending").setAttribute("disabled", "false");
@@ -128,7 +133,6 @@ function SaveChanges() {
 		document.getElementById("edit-password").setAttribute("clicked", "false");
 		var editPasswordOld = document.getElementById("passwordOld").value;
 		var editPasswordNew = document.getElementById("passwordNew").value;
-		alert(editPasswordOld + " " + editPasswordNew);
 	}else{
 		var editPasswordOld = "";
 		var editPasswordNew = "";
@@ -162,4 +166,21 @@ function SaveChanges() {
 			document.getElementById("updateInfoForm").click();
 		}
 	});
+}
+
+function ftRequest(){
+	if (document.getElementById("messages").getAttribute("disabled") == "false"){
+		var email1 = document.getElementById("user").innerHTML;
+		var email2 = document.getElementById("email").innerHTML;
+		$.post("sendChatRequest", {
+			sender : email1,
+			getter : email2
+		}, function(data){
+			if (data == "true"){
+				alert("მოთხოვნა გაგზავნილია");
+			}else{
+				alert("მოთხოვნა უკვე გაგზავნილია");
+			}
+		});
+	}
 }

@@ -80,8 +80,8 @@ public class UpdateInfo extends HttpServlet {
 					manager.changeHashedPassword(user, hashedPasswordNew);
 					manager.changeBirthdate(user, date);
 					manager.changeGender(user, gender);
-				//	manager.changeInfo(user, info);
-				//	manager.changeUserName(user, username);
+					manager.changeInfo(user, info);
+					manager.changeUserName(user, username);
 				} else {
 					errorMessage = "shortPass";
 				}
@@ -93,8 +93,8 @@ public class UpdateInfo extends HttpServlet {
 			manager.changeLastName(user, surname);
 			manager.changeBirthdate(user, date);
 			manager.changeGender(user, gender);
-		//	manager.changeInfo(user, info);
-		//	manager.changeUserName(user, username);
+			manager.changeInfo(user, info);
+			manager.changeUserName(user, username);
 		}
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();

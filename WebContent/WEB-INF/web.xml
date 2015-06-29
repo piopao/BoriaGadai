@@ -252,4 +252,14 @@
     <servlet-name>CheckPandingRequests</servlet-name>
     <url-pattern>/CheckPandingRequests</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>sendChatRequest</display-name>
+    <servlet-name>sendChatRequest</servlet-name>
+    <servlet-class>chat.sendChatRequest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>sendChatRequest</servlet-name>
+    <url-pattern>/sendChatRequest</url-pattern>
+  </servlet-mapping>
 </web-app>
