@@ -85,13 +85,7 @@ public class GameManager extends DBManager {
 					//System.out.println(resultTwo.getString(3));
 
 				
-				String queryThree = generateSimpleSelectQuery("weather_table",
-						new ArrayList<String>(), "weather_id", weatherVal.get(2));
-
-				PreparedStatement statementThree = con.prepareStatement(queryThree);
-				ResultSet resultThree = statementThree.executeQuery();
-				if(resultThree.next())
-					weatherPredicition += resultThree.getString(2)+"*" + resultThree.getString(3);
+					weatherPredicition += "მოსალოდნელი ტემპერატურა: " +weatherVal.get(2)+"*" + "temp.png";
 
 				
 				
