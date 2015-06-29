@@ -85,7 +85,7 @@ public class GameManager extends DBManager {
 					//System.out.println(resultTwo.getString(3));
 
 				
-					weatherPredicition += "მოსალოდნელი ტემპერატურა: " +weatherVal.get(2)+"*" + "temp.png";
+					weatherPredicition += "მოსალოდნელი ტემპრეტურაა: " +weatherVal.get(2)+ " გრადუსი" + "*" + "temp.png";
 
 				
 				
