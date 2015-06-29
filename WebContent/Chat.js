@@ -38,6 +38,7 @@ window.setInterval(function() {
 	  elem.scrollTop = elem.scrollHeight;
 	}, 1000);
 
+
 function sendMessage(){
 	 $.post("CurrentUserServlet",
 		        { },
