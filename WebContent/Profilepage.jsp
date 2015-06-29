@@ -37,6 +37,7 @@
 	<div class="col-sm-3 text-center" id="rightside-info">
 		<div>
 			<img alt="Profile picture" id="profilePic" src="" >
+			<a id="chang-pic-but" href="#">შეცვალე ფოტო</a>
 		</div>
 		<p id="underPicName"></p>
 		<table class="table table-striped table-hover">
