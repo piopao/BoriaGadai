@@ -40,7 +40,8 @@ public class CheckUserServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		HttpSession sess = request.getSession();
+		HttpSession sess = request.getSession(false);
+		if(sess == null) sess = request.getSession(true);
 		String user = "";
 		User currentUser = (User) sess.getAttribute("user");
 		if (currentUser == null) {
