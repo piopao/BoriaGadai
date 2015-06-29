@@ -179,8 +179,7 @@ function ftRequest(){
 		}, function(data){
 			if (data == "true"){
 				alert("მოთხოვნა გაგზავნილია");
-				document.getElementById("messages").href = "Chat.html";
-				document.getElementById("messages").click();
+				window.location = "Chat.html";
 			}else{
 				alert("მოთხოვნა უკვე გაგზავნილია");
 			}
