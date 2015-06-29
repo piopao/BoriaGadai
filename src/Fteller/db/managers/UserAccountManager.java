@@ -314,11 +314,62 @@ public void changeAvatarName(User user, String newAvatarName) {
 			"user_id", user.getUsername());
 }
 
-public void checkPendingFriends(){
+public String checkPendingFriendRequests(String email){
+	
+	String initEmail =null;
+	try {
+		Connection con = Source.getConnection();
+		String query = generateSimpleSelectQuery("pending_friend_list",
+				new ArrayList<String>(), "user_emailB", email);
+		PreparedStatement statement = con.prepareStatement(query);
+		ResultSet result = statement.executeQuery();
+		if(result.next())
+			initEmail = result.getString(1);
+		con.close();
+
+		return initEmail;
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return initEmail;
 	
 	
 	
 	
+}
+
+public boolean addChatRequest(String initEmail, String receiverEmail){
+	try {
+		Connection con = Source.getConnection();
+		
+		String queryCheck = generateSimpleSelectQuery("pending_friend_list",
+				new ArrayList<String>(), "user_emailA", initEmail);
+		PreparedStatement statementCheck = con.prepareStatement(queryCheck);
+		ResultSet resultCheck = statementCheck.executeQuery();
+		if(resultCheck.next())
+			return false;		
+		
+		
+		
+		
+		
+		
+		String query = "insert into pending_friend_list values (\"" + initEmail + "\", \""
+		+ receiverEmail + "\")";
+		PreparedStatement statement = con.prepareStatement(query);
+		int result = statement.executeUpdate();
+		con.close();
+
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		
+	}
+	
+	return true;
+
+		
 }
 
 
