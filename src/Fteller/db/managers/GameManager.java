@@ -32,6 +32,7 @@ public class GameManager extends DBManager {
 		Date today = new Date();
 		String temp = Integer.toString(today.getMonth()) + "-" +Integer.toString(today.getDate());
 			try {
+			
 				Connection con = Source.getConnection();
 				String query = generateSimpleSelectQuery("weather_history",
 						new ArrayList<String>(), "email_address", user.getEmail());
@@ -41,7 +42,7 @@ public class GameManager extends DBManager {
 				
 				if (result.next()){
 					String historyDate = result.getString(3);
-				
+				System.out.println(temp + " "+ historyDate);
 					if(temp.equals(historyDate))
 						text = result.getString(2);			
 				}
