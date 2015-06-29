@@ -55,7 +55,8 @@ private static UserAccountManager Account_Manager;
 		Game_Manager.getAndSaveWeather(dummy, weatherVal);
 		Date today = new Date();
 		String temp = Integer.toString(today.getMonth()) + "-" +Integer.toString(today.getDate());
-		//System.out.println(temp);
+		//System.out.println(ga);
+		//System.out.println(Game_Manager.checkTodaysWeather(dummy));
 	
 	}
 	

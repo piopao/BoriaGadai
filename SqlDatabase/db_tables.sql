@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS game_table (
 
 CREATE TABLE IF NOT EXISTS weather_table (
 	weather_id INT PRIMARY KEY UNIQUE,
-    weather_text VARCHAR(64) NOT NULL UNIQUE,
+    weather_text VARCHAR(128) NOT NULL UNIQUE,
 	image_dir VARCHAR(64)
 );
 
@@ -116,10 +116,9 @@ CREATE TABLE IF NOT EXISTS weather_table (
 
 CREATE TABLE IF NOT EXISTS weather_history (
 	user_email VARCHAR(64),
-    text_weather VARCHAR(64),
-	save_date VARCHAR(32),
-	FOREIGN KEY (user_email) REFERENCES users(email_address) ON DELETE CASCADE,
-	FOREIGN KEY (text_weather) REFERENCES weather_table(weather_text) ON DELETE CASCADE
+    text_weather VARCHAR(256),
+	save_date VARCHAR(64),
+	FOREIGN KEY (user_email) REFERENCES users(email_address) ON DELETE CASCADE
 	
 );
 

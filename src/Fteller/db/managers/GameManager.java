@@ -35,14 +35,13 @@ public class GameManager extends DBManager {
 			
 				Connection con = Source.getConnection();
 				String query = generateSimpleSelectQuery("weather_history",
-						new ArrayList<String>(), "email_address", user.getEmail());
+						new ArrayList<String>(), "user_email", user.getEmail());
 				PreparedStatement statement = con.prepareStatement(query);
 				ResultSet result = statement.executeQuery();
 				
 				
 				if (result.next()){
 					String historyDate = result.getString(3);
-				System.out.println(temp + " "+ historyDate);
 					if(temp.equals(historyDate))
 						text = result.getString(2);			
 				}
@@ -70,6 +69,7 @@ public class GameManager extends DBManager {
 				Connection con = Source.getConnection();
 				String query = generateSimpleSelectQuery("weather_table",
 						new ArrayList<String>(), "weather_id", weatherVal.get(0));
+				//System.out.println(weatherVal.get(0));
 				PreparedStatement statement = con.prepareStatement(query);
 				ResultSet result = statement.executeQuery();
 				if(result.next())
@@ -77,26 +77,29 @@ public class GameManager extends DBManager {
 				
 				String queryTwo = generateSimpleSelectQuery("weather_table",
 						new ArrayList<String>(), "weather_id", weatherVal.get(1));
+
 				PreparedStatement statementTwo = con.prepareStatement(queryTwo);
 				ResultSet resultTwo = statementTwo.executeQuery();
-				if(result.next())
+				if(resultTwo.next())
 					weatherPredicition += resultTwo.getString(2)+"*" + resultTwo.getString(3)+"/";
+					//System.out.println(resultTwo.getString(3));
+
 				
 				String queryThree = generateSimpleSelectQuery("weather_table",
 						new ArrayList<String>(), "weather_id", weatherVal.get(2));
+
 				PreparedStatement statementThree = con.prepareStatement(queryThree);
 				ResultSet resultThree = statementThree.executeQuery();
-				if(result.next())
+				if(resultThree.next())
 					weatherPredicition += resultThree.getString(2)+"*" + resultThree.getString(3);
-				
+
 				
 				
 				
 				//updating weather_history table/
 				Date today = new Date();
 				String temp = Integer.toString(today.getMonth()) + "-" +Integer.toString(today.getDate());
-				System.out.println("INSERT INTO weather_history VALUES (\"" + user.getEmail() + "\", \"" + weatherPredicition + "\", " + temp + ");");
-				String queryFour = "INSERT INTO weather_history VALUES (\"" + user.getEmail() + "\", \"" + weatherPredicition + "\", " + temp + ");";
+				String queryFour = "INSERT INTO weather_history VALUES (\"" + user.getEmail() + "\", \"" + weatherPredicition + "\", \"" + temp + "\");";
 				PreparedStatement statementFour = con.prepareStatement(queryFour);
 				int resultFour = statementFour.executeUpdate();
 				
