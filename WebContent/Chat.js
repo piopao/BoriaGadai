@@ -40,7 +40,7 @@ window.setInterval(function() {
 
 function sendMessage(){
 	 $.post("CurrentUserServlet",
-		        { text: document.getElementById("textarea").value },
+		        {  },
 		        function(data,status){
 		        	var textfield = document.getElementById("message");
 		        	var textdiv = document.getElementById("textarea");
@@ -51,6 +51,11 @@ function sendMessage(){
 		        	document.getElementById("message").value = " ";
 		        	return true;       	
 	 });	
+	 
+	 $.post("addNewChatMessage", { text: document.getElementById("textarea").value 
+		 }, function(data,status){
+		 
+		 });
 }
 
 
