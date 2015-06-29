@@ -64,3 +64,21 @@ input.form-control{
 	border-radius: 50%;
 }
 
+
+#cards{
+	text-align: center;
+	width: 600px;
+	height: 600px;
+	
+}
+
+#cards img{	
+	border: dotted 2px white;
+	height: 200px;
+	width: 120px;
+	margin-left: 70px;
+	margin-top:15%;
+	
+}
+
+
