@@ -41,7 +41,7 @@ public class addNewChatMessage extends HttpServlet {
 		User temp = (User) sess.getAttribute("user");
 		String text = (String)request.getParameter("text");
 		ServletContext context = getServletContext();
-		String receiverEmail = (String) request.getAttribute("mail");
+		String receiverEmail = (String) sess.getAttribute("chatter");
 		ChatManager chatManager = (ChatManager)context.getAttribute("chatManager");
 		if(temp!=null && receiverEmail!=null){
 			chatManager.addNewChatMessage(temp.getEmail(), receiverEmail, text);

@@ -179,7 +179,7 @@ function ftRequest(){
 		}, function(data){
 			if (data == "true"){
 				alert("მოთხოვნა გაგზავნილია");
-				window.location = "Chat.html";
+				window.location = "Chat.jsp?chatter="+email2;
 			}else{
 				alert("მოთხოვნა უკვე გაგზავნილია");
 			}

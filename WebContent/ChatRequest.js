@@ -9,8 +9,8 @@ function checkRequest() {
 		        {},
 		        function(data,status){
 		        	if(data.length  != 0 ){
-		        		 if (confirm("áƒ£áƒ›áƒ™áƒ˜áƒ—áƒ®áƒ�áƒ•áƒ”áƒ”áƒ‘?") == true) {
-		        			 	window.location = "Chat.html?chatter=" +data;
+		        		 if (confirm("უმკითხავებ?") == true) {
+		        			 	window.location = "Chat.jsp?chatter=" +data;
 		        			 	$.post("changeRequestStatus", {}, function(data,status){}
 		        		        );
 		        		    } else {
