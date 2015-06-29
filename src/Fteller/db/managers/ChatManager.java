@@ -62,7 +62,7 @@ public class ChatManager extends DBManager {
 			
 			
 			String query = "insert into chat_requests values (\"" + initEmail + "\", \""
-			+ receiverEmail + "\", 0)";
+			+ receiverEmail + "\", \"0\")";
 			PreparedStatement statement = con.prepareStatement(query);
 			int result = statement.executeUpdate();
 			con.close();
@@ -75,15 +75,15 @@ public class ChatManager extends DBManager {
 			
 	}
 	
-	public int checkRequestStatus(String email){
-		int status = 0;
+	public String checkRequestStatus(String email){
+		String status = "0";
 		try {
 			Connection con = Source.getConnection();
 			String query = "select request_status from chat_requests where init_user_email=\""+ email+"\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 			if(result.next());
-				status = result.getInt(1);
+				status = result.getString(1);
 				
 			
 			
