@@ -9,12 +9,12 @@ function checkRequest() {
 		        {},
 		        function(data,status){
 		        	if(data.length  != 0 ){
-		        		 if (confirm("Press a button!") == true) {
+		        		 if (confirm("უმკითხავეებ?") == true) {
 		        			 	window.location = "Chat.html";
-		        			 	$.post("changeRequestStatus", { "status" : 1 }, function(data,status){}
+		        			 	$.post("changeRequestStatus", { "status" : "1" }, function(data,status){}
 		        		        );
 		        		    } else {
-		        		        $.post("changeRequestStatus", { "status" : -1 }, function(data,status){}
+		        		        $.post("changeRequestStatus", { "status" : "-1" }, function(data,status){}
 		        		        );
 		        		    }
 		        	}		        	
