@@ -222,4 +222,24 @@
     <servlet-name>TarotServlet</servlet-name>
     <url-pattern>/TarotServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateInfo</display-name>
+    <servlet-name>UpdateInfo</servlet-name>
+    <servlet-class>checkUser.UpdateInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateInfo</servlet-name>
+    <url-pattern>/UpdateInfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UserProfileServlet</display-name>
+    <servlet-name>UserProfileServlet</servlet-name>
+    <servlet-class>checkUser.UserProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserProfileServlet</servlet-name>
+    <url-pattern>/UserProfileServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
