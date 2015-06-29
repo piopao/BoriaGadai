@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	$.post('UserProfile', function(data) {
+	$.post('UserProfileServlet', function(data) {
 		loadInfo(data);
 		guestOrUser();
 	});
