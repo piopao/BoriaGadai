@@ -1,4 +1,4 @@
-package authorization;
+package chat;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,16 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Fteller.db.managers.ChatManager;
+import authorization.User;
+
 /**
- * Servlet implementation class LogoutServlet
+ * Servlet implementation class CheckPandingRequests
  */
-public class LogoutServlet extends HttpServlet {
+public class CheckPandingRequests extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LogoutServlet() {
+    public CheckPandingRequests() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,22 +39,18 @@ public class LogoutServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession sess = request.getSession();
-		ServletContext context = getServletContext();
 		User user = (User) sess.getAttribute("user");
-		String res = "";
-		if(sess.getAttribute("login") == "Gmail"){
-			res = "gmail";
-		} else if (sess.getAttribute("login") == "Facebook")
-			res = "facebook";
-		String email = user.getEmail();
-		if(context.getAttribute(email) != null) {
-		     context.removeAttribute(email);
+		ServletContext context = getServletContext();
+		ChatManager chatManager = (ChatManager)context.getAttribute("chatManager");
+		System.out.println("servletshi var");
+		if(user != null){
+			String initEmail = "true";
+			System.out.println(initEmail);
+//			String initEmail = chatManager.checkPandingFriendRequests(user.getEmail());
+			PrintWriter out = response.getWriter();
+			out.print(initEmail);
 		}
-		sess.invalidate();
-		response.setCharacterEncoding("UTF-8");
-		PrintWriter out = response.getWriter();
-		out.print(res);
-		out.close();
+		
 	}
 
 }

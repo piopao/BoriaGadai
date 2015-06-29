@@ -38,7 +38,7 @@
 		<div>
 			<img src="" alt="Profile picture" id="profilePic">
 		</div>
-		<h2>Nino Basilaia</h2>
+		<h2 id="underPicName"></h2>
 		<table class="table table-striped table-hover">
 			<tbody>
 				<tr>
@@ -48,7 +48,7 @@
 				</tr>
 				<tr>
 					<td><a id="friending" href="#">ნოტიფიკაციები</a></td>
-					<td><span class="glyphicon glyphicon-globe"></span></td>
+					<td><span id="friendingLogo" class="glyphicon glyphicon-globe"></span></td>
 				</tr>
 				<tr>
 					<td><a href="#">რეიტინგი</a></td>

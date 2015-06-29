@@ -1,3 +1,17 @@
+var myVar = setInterval(function(){ myTimer() }, 1000);
+
+function myTimer() {
+	var email1 = document.getElementById("user").innerHTML;
+	var email2 = document.getElementById("email").innerHTML;
+	if (email1 == email2){
+		 $.post("CheckPandingRequests", function(data){
+			 if(data == "true"){
+				 document.getElementById("friendingLogo").className  = "glyphicon glyphicon-flag";
+			 }
+		 });
+	}
+}
+
 $(document).ready(function() {
 	$.post('UserProfileServlet', function(data) {
 		loadInfo(data);
@@ -11,7 +25,9 @@ function loadInfo(data) {
 		if (dataTokens[index] == "profilePic") {
 			document.getElementById(dataTokens[index]).src = "./Images/"
 					+ dataTokens[++index];
-		} else {
+		} else if(dataTokens[index] == "email"){
+			document.getElementById("underPicName").innerHTML = dataTokens[++index];
+		}else{
 			document.getElementById(dataTokens[index] + "-div").style.visibility = 'visible';
 			document.getElementById(dataTokens[index]).innerHTML = dataTokens[++index];
 		}

@@ -242,4 +242,14 @@
     <servlet-name>UserProfileServlet</servlet-name>
     <url-pattern>/UserProfileServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CheckPandingRequests</display-name>
+    <servlet-name>CheckPandingRequests</servlet-name>
+    <servlet-class>chat.CheckPandingRequests</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckPandingRequests</servlet-name>
+    <url-pattern>/CheckPandingRequests</url-pattern>
+  </servlet-mapping>
 </web-app>

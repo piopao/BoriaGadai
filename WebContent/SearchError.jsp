@@ -39,6 +39,13 @@
 	<title>Search Error</title>
 </head>
 <body>	
+	<div id="Navigation-bar"></div>
+
+	<script>
+		$(function() {
+			$("#Navigation-bar").load("NavigationBar.html");
+		});
+	</script>
 	<img src="./Images/maimun.jpg" >
 	<div class = "error">
 		<div class = "circle"></div>

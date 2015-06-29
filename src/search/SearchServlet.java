@@ -32,23 +32,18 @@ public class SearchServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String query = request.getParameter("query");
+		String email = request.getParameter("query");
 		ServletContext context = getServletContext();
 		UserAccountManager manager = (UserAccountManager)context.getAttribute("accountManager");
-		boolean isValid = manager.checkEmail(query);
+		System.out.println(email);
+		boolean isValid = manager.checkEmail(email);
 		if(!isValid){
 			RequestDispatcher dispatch =
 					request.getRequestDispatcher("SearchError.jsp");
 			dispatch.forward(request, response);
 		}else{
-			User searched = manager.getUserAccount(query);
-			HttpSession sess = request.getSession();
-			sess.setAttribute("searchedUser", searched);
-			if(((User)sess.getAttribute("user")).hasFriend(searched.getId())) 
-				sess.setAttribute("isFriend", true);
-			else sess.setAttribute("isFriend", false);
 			RequestDispatcher dispatch =
-					request.getRequestDispatcher("SearchedUser.jsp");
+					request.getRequestDispatcher("Profilepage.jsp?profile=" + email);
 			dispatch.forward(request, response);
 		}
 	}
