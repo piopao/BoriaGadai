@@ -35,7 +35,6 @@ public class SearchServlet extends HttpServlet {
 		String email = request.getParameter("query");
 		ServletContext context = getServletContext();
 		UserAccountManager manager = (UserAccountManager)context.getAttribute("accountManager");
-		System.out.println(email);
 		boolean isValid = manager.checkEmail(email);
 		if(!isValid){
 			RequestDispatcher dispatch =
