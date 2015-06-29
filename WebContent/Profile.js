@@ -23,10 +23,14 @@ function loadInfo(data) {
 	var dataTokens = data.split("/");
 	for (var index = 0; index < dataTokens.length; index++) {
 		if (dataTokens[index] == "profilePic") {
-			document.getElementById(dataTokens[index]).src = "./Images/"
-					+ dataTokens[++index];
+			var pic = "./avatars/" + dataTokens[++index];
+			document.getElementById("profilePic").src = pic;
+			alert(pic);
 		} else if(dataTokens[index] == "email"){
-			document.getElementById("underPicName").innerHTML = dataTokens[++index];
+			document.getElementById(dataTokens[index] + "-div").style.visibility = 'visible';
+			document.getElementById("email").innerHTML = dataTokens[++index];
+			document.getElementById("underPicName").innerHTML = dataTokens[index];
+			
 		}else{
 			document.getElementById(dataTokens[index] + "-div").style.visibility = 'visible';
 			document.getElementById(dataTokens[index]).innerHTML = dataTokens[++index];

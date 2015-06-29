@@ -36,9 +36,9 @@
 
 	<div class="col-sm-3 text-center" id="rightside-info">
 		<div>
-			<img src="" alt="Profile picture" id="profilePic">
+			<img alt="Profile picture" id="profilePic" src="" >
 		</div>
-		<h2 id="underPicName"></h2>
+		<p id="underPicName"></p>
 		<table class="table table-striped table-hover">
 			<tbody>
 				<tr>
