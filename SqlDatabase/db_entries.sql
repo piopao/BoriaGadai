@@ -3,6 +3,10 @@ insert into users values(null, "Gustav", "Vano", "Tkemaladze", "4181eecbd7a755d1
 insert into users values(null, "plopao", "Elene", "Kiknadze", "4181eecbd7a755d19fdf73887c54837cbecf63fd", "ekikn12@freeuni.edu.ge", '1994-07-29', "Female", "profilePic1", "i luv pankaces" ,0, 0);
 insert into users values(null, "Meri Pepanashvili", "Meri", "Pepanashvili", "4181eecbd7a755d19fdf73887c54837cbecf63fd", "mpepa13@freeuni.edu.ge", '1995-02-23', "Female", "profilePic1", "i luv pankaces", 0, 0);
 insert into users values(null, "nino", "Nino", "Basilaia", "4181eecbd7a755d19fdf73887c54837cbecf63fd", "nbasi13@freeuni.edu.ge", '1995-06-03', "Female", "profilePic1", "i luv pankaces", 0, 0);
+insert into users values(null, "rakhdakh", "Giorgi", "Giglemiani", "4181eecbd7a755d19fdf73887c54837cbecf63fd", "ggigl11@freeuni.edu.ge", '1993-12-04', "Male", "profilePic1", "i luv doto", 0, 0);
+
+insert into banned_accounts values ("ggigl11@freeuni.edu.ge");
+
 
 insert into admin values ("itkem12@freeuni.edu.ge");
 insert into admin values ("ekikn12@freeuni.edu.ge");

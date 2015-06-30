@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS users (
 	gender CHAR(8),
 	avatar_filename VARCHAR(128)  CHARACTER SET utf8 COLLATE utf8_unicode_ci,
 	info TEXT,
-    rating int,
+    rating double,
     users int
 );
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS game_table (
     image_name varchar(64) not null unique,
     game_url VARCHAR(64),
     FOREIGN KEY (image_name) REFERENCES image_table(image_dir) ON DELETE CASCADE,
-    rating int,
+    rating double,
     users int
 );
 
