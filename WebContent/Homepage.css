@@ -1,7 +1,8 @@
 @import url("NavigationBar.css");
 
 body{
-	background-color: gray;
+	background-image: url("./Images/homepageback.jpg");
+	background-size: 100%;
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-attachment: fixed;
@@ -36,7 +37,7 @@ body{
 	border-width: 1px;
 	width: 1000px;
 	height: 700px;
-	box-shadow: inset 0 0 0 1000px rgba(0,0,0,.1); 
+	box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2); 
 	
 }
 
