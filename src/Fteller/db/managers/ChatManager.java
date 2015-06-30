@@ -199,28 +199,55 @@ public class ChatManager extends DBManager {
 		
 	}
 		
-		public String getRandomTarotCard(){
-			String dirName = "";
-			Random rd = new Random();
-			int x = rd.nextInt(77);
-			x = x+1;
+	public String getRandomTarotCard(){
+		String dirName = "";
+		Random rd = new Random();
+		int x = rd.nextInt(77);
+		x = x+1;
 			
-			try {
-			Connection con = Source.getConnection();;
+		try {
+			Connection con = Source.getConnection();
 			String query = "select * from tarot where tarot_id =" + x;
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 			if(result.next())
 				dirName = result.getString(2);
 			 
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-				
-			return dirName;
-			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+				
+		return dirName;
+		
+	}
+	
+	public String addPlayedCard(String initEmail, String receiverEmail, String text){
+		try {
+			Connection con = Source.getConnection();;
+			String query = "insert into played_tarot_cards values (\"" + initEmail + "\", \""
+				+ receiverEmail + "\", \""+text+"\")";
+				PreparedStatement statement = con.prepareStatement(query);
+				int result = statement.executeUpdate();
+			
+			
+			
+			con.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
+		
+		
+	}
+	
+	
+	
+	
+		
 		
 		
 		

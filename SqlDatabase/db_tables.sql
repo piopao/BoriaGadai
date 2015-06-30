@@ -148,6 +148,15 @@ CREATE TABLE IF NOT EXISTS tarot(
     dir_name VARCHAR(128)
 );
 
+CREATE TABLE IF NOT EXISTS played_tarot_cards(
+
+	init_user_email VARCHAR(64),
+    receiver_user_email VARCHAR(64),
+    played_card VARCHAR(64),
+    FOREIGN KEY (init_user_email) REFERENCES users(email_address) ON DELETE CASCADE,
+    FOREIGN KEY (receiver_user_email) REFERENCES users(email_address) ON DELETE CASCADE
+)
+
 
 
 CREATE TABLE IF NOT EXISTS fortune_histroy (
