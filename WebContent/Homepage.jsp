@@ -52,7 +52,7 @@
 				<a class = predLink href="GameDescription.jsp?gameName=cookie&gameLink=Cookie.html">
 				<img id=p1 class = predPic src="./Images/cookie-icon.png"  onmouseover="onmousePic(this)" onmouseout="outmousePic(this)">
 				</a>
-				<a class = predLink href="GameDescription.jsp?gameName=weather&gameLink=Weather.htm"> 
+				<a class = predLink href="GameDescription.jsp?gameName=weather&gameLink=Weather.html"> 
 				 <img id=p2 class = predPic src="./Images/weather-icon.png" onmouseover="onmousePic(this)" onmouseout="outmousePic(this)">
 				</a>
 				<a class = predLink href="GameDescription.jsp?gameName=yesno&gameLink=YesNo.jsp"> 

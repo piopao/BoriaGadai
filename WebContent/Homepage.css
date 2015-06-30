@@ -1,4 +1,12 @@
 @import url("NavigationBar.css");
+
+body{
+	background-color: gray;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+}
+
 .popularUsers {
 	position: absolute;
 	right: -150px;
@@ -28,6 +36,7 @@
 	border-width: 1px;
 	width: 1000px;
 	height: 700px;
+	box-shadow: inset 0 0 0 1000px rgba(0,0,0,.1); 
 	
 }
 
@@ -48,9 +57,7 @@
 	width: 200px;
 }
 
-body{
-	background-color: gray;
-}
+
 
 .predPic{	
 	display: inline;
