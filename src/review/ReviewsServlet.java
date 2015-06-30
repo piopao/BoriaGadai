@@ -52,6 +52,10 @@ public class ReviewsServlet extends HttpServlet {
 		else if (request.getParameter("mission").equals("review add")){
 			HttpSession sess = request.getSession();
 			User user = (User)sess.getAttribute("user");
+			System.out.print(user.getEmail()+ "\n");
+			System.out.print(request.getParameter("gameName")+ "\n");
+			System.out.print(request.getParameter("text")+ "\n");
+			System.out.print(request.getParameter("stars")+ "\n");
 			db.addReview(new Review(user.getEmail(), request.getParameter("gameName"), request.getParameter("text"),  Integer.parseInt(request.getParameter("stars")),
 						-1, null));
 		}
