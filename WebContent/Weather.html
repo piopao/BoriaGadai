@@ -45,7 +45,8 @@ function loadData(data){
 		  textDiv.setAttribute("class", "textDiv");
 		  var text = document.createElement("h4");
 		  text.setAttribute("class", "wText");
-		  var node = document.createTextNode(tokenedTextPic[0]);
+		  if(i == 2)  var node = document.createTextNode("მოსალოდნელი ტემპერატურაა " + tokenedTextPic[0] + "°C გრადუსი.");
+		  else var node = document.createTextNode(tokenedTextPic[0]);
 		  text.appendChild(node);
 		  textDiv.appendChild(text);
 		  

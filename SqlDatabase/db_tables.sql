@@ -184,8 +184,7 @@ CREATE TABLE IF NOT EXISTS tarot_person(
 
 CREATE TABLE IF NOT EXISTS tarot_adj(
 	text_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
-    text_adj TEXT  CHARACTER SET utf8 COLLATE utf8_unicode_ci,
-    pic_dirname TEXT
+    text_adj TEXT  CHARACTER SET utf8 COLLATE utf8_unicode_ci   
 );
 CREATE TABLE IF NOT EXISTS tarot_verb(
 	text_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,

@@ -33,7 +33,7 @@ ArrayList<Review> revArr = gd.getReviews();
 String printing = "";
 
 //Printing Description
-out.println(" <img id=gamePic class = gamePic src=\"./Images/" +gd.getImage() +"\">");
+out.println(" <div class=gamePicCover> <div class = gamePic>  <img id=gamePic class = gamePic src=\"./Images/" +gd.getImage() +"\"> </div> </div>");
 out.println(" <div class=gameTextCover> <div class = gameText> <h4 class = gameText>" + gd.getDiscription() + "</h4> </div> </div>");
 if(user != null) out.println("<a id= \"gameButt\" href= \""+ gameLink +"\" class=\"btn btn-success  btn-lg\" role=\"button\">ვიმკითხაოთ</a>");
 else out.println("<a id= \"gameButt\" href= \""+ gameLink +"\" class=\"btn btn-success  btn-lg disabled\" role=\"button\">ვიმკითხაოთ</a>");

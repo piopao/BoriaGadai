@@ -25,14 +25,22 @@
                                 <div class =  "textarea" id = "textarea">
                                        
                                 </div>
-                                <input class="form-control" type="text" size="15" value="" id = "message" name = "message">    
-                </div>         
+                                <input class="form-control" type="text" size="15" value="" id = "message" name = "message">   
+                                 <% 
+									String stat = request.getParameter("status");
+        							if(stat != null && stat.equals("teller")){
+	                                out.println("<input type=\"submit\" class=\"btn btn-primary\" value=\"დასრულება\" id = \"end\" onclick = \"return endGame()\">");	
+	        						} else if(stat != null && stat.equals("client")){
+	        							out.println("<input type=\"submit\" class=\"btn btn-primary\" value=\"დასრულება\" id = \"end\" onclick = \"return endGameClient()\">");	
+	        						}
+                                %>
+                </div> 
+                       
         </div>
         <div class="col-md-6">
         	<p id="clock"></p>
         	<div id ="cards">
         		<% 
-					String stat = request.getParameter("status");
         			if(stat != null && stat.equals("teller")){
 	        			out.println("<div><img id = \"1\" src=\"./Images/Decks/tarot deck chat/back2.jpg\" onclick = \"return flip1(this.src)\">");
 	        			out.println("<img id = \"2\" src=\"./Images/Decks/tarot deck chat/back2.jpg\" onclick = \"return flip2(this.src)\">");
@@ -45,7 +53,7 @@
 	        			out.println("<img id = \"4\" src=\"./Images/Decks/tarot deck chat/back2.jpg\">");
         			}
 				%>     	
-        	</div>       
+        	</div>    
         </div>                       
   </div>
 </div>

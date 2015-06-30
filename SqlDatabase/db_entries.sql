@@ -164,4 +164,25 @@ insert into weather_table values ("302522", "მოსალოდნელი�
 insert into weather_table values ("303522", "მოსალოდნელია თან ღრუბლიანი, თან მზიანი დღე ძლიერი თოვლით", "cloud-sun-snow.png");
 
 
-
+/*Taros Imagebi*/
+insert into image_table (image_dir) values("deda.jpg");
+insert into image_table (image_dir) values("mama.jpg");
+insert into image_table (image_dir) values("dzma.jpg");
+insert into image_table (image_dir) values("da.jpg");
+insert into image_table (image_dir) values("bebia.jpg");
+insert into image_table (image_dir) values("babua.jpg");
+insert into image_table (image_dir) values("megobari.jpg");
+insert into image_table (image_dir) values("sheyvarebuli.jpg");
+insert into image_table (image_dir) values("natesavi.jpg");
+insert into image_table (image_dir) values("mezobeli.jpg");
+insert into image_table (image_dir) values("kurseli.jpg");
+insert into image_table (image_dir) values("tanamshromeli.jpg");
+insert into image_table (image_dir) values(".jpg");
+insert into image_table (image_dir) values(".jpg");
+insert into image_table (image_dir) values(".jpg");
+insert into image_table (image_dir) values(".jpg");
+insert into image_table (image_dir) values(".jpg");
+insert into image_table (image_dir) values(".jpg");
+insert into image_table (image_dir) values(".jpg");
+insert into image_table (image_dir) values(".jpg");
+insert into image_table (image_dir) values(".jpg");
