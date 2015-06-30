@@ -3,8 +3,10 @@
 @import url("AddReview.css");
 
 body {
-	background-image: url("./Images/back2.png");
+	background-image: url("./Images/cookie-background.jpg");
 	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 100%;
 }
 
 .row {
@@ -14,9 +16,6 @@ body {
 	margin-top: 20xp;
 }
 
-.cookie {
-	width: 230px;
-}
 
 .zoom_img img {
 	margin: 50px;
@@ -40,14 +39,15 @@ body {
 	font-size: 3em;
 	letter-spacing: .2em;
 	line-height: 1.1em;
-	margin: 0px;
+	margin: 0px;	
 	text-transform: uppercase;
 }
 
 .cookies {
 	text-align: center;
 	padding-top: 3%;
-	margin-top: 30px;
+	width: auto;
+	height: auto;
 }
 
 #cookieFortune {
@@ -68,4 +68,34 @@ body {
 #cookie-fortune-img {
 	height: 270px;
 	width: inherit;
+}
+
+img.coPic{
+	width: 100px;
+	height: auto;
+}
+
+
+#a1{
+	position: absolute;
+	bottom: 0%;
+	left: 0%;
+}
+
+#a2{
+	position: absolute;
+	bottom: 35%;
+	left: 35%;
+}
+
+#a3{
+	position: absolute;
+	bottom: 15%;
+	right: 2%;
+}
+
+#a4{
+	position: absolute;
+	bottom: 45%;
+	right: 0.5%;
 }
