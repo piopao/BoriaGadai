@@ -3,8 +3,6 @@ package review;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import authorization.User;
-
 public class Review {
 	
 	private String user;
