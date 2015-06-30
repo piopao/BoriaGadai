@@ -47,20 +47,10 @@ function guestOrUser() {
 	document.getElementById("change-pic-but").style.visibility = "hidden";
 	if (user == profileUser) {
 		userRightSideInfo();
-	} else if (user == "ადმინი") {
-		if (isFriend() == true) {
-			friendRightSideInfo();
-		} else {
-			guestRightSideInfo();
-		}
 	} else if (user == "სტუმარი") {
 		guestRightSideInfo();
 	} else {
-		if (isFriend()) {
-			friendRightSideInfo();
-		} else {
-			guestRightSideInfo();
-		}
+		isFriend();
 	}
 }
 
@@ -70,10 +60,11 @@ function isFriend() {
 		"visitedUser" : visitedUser
 	}, function(data) {
 		if (data == "true") {
-			return true;
+			friendRightSideInfo();
+		} else {
+			guestRightSideInfo();
 		}
 	});
-	return false;
 }
 
 function userRightSideInfo() {
@@ -84,7 +75,7 @@ function userRightSideInfo() {
 	document.getElementById("messages").innerHTML = "მკითხაობის მოთხოვნები";
 	document.getElementById("messages").href = "#";
 	document.getElementById("friending").innerHTML = "დამეგობრების მოთხოვნები";
-	document.getElementById("friending").href = "#";
+	document.getElementById("friending").href = "FriendRequest.jsp";
 }
 
 function visitorRightSideInfo() {
@@ -210,7 +201,7 @@ function ftRequest() {
 				var newLocation = "Chat.jsp?status=client&chatter=" + email2;
 				window.location = newLocation;
 			} else {
-				alert("მოთხოვნა უკვე გაგზავნილია");
+				alert("მომხმარებელი არ არის სისტემაში შემოსული");
 			}
 		});
 	}
@@ -242,7 +233,7 @@ function fRequest() {
 							{
 								sender : email1,
 								getter : email2,
-								action : unfriend
+								action : "unfriend"
 							},
 							function(data) {
 								if (data == "true") {

@@ -50,7 +50,7 @@ public class sendFriendRequest extends HttpServlet {
 				res = "false";
 			}
 		} else if (action.equals("unfriend")) {
-		//	manager.removeFriend(sender, getter);
+			manager.deleteFriend(getter, sender);
 			res = "true";
 		}
 		response.setCharacterEncoding("UTF-8");

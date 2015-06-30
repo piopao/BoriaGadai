@@ -19,38 +19,45 @@ import authorization.User;
  */
 public class checkChatRequests extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public checkChatRequests() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public checkChatRequests() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		HttpSession sess = request.getSession();
 		User temp = (User) sess.getAttribute("user");
 		ServletContext context = getServletContext();
-		ChatManager chatManager = (ChatManager)context.getAttribute("chatManager");
-		
-		
-		if(temp!=null){
-			String initEmail = chatManager.checkChatRequest(temp.getEmail());
-			PrintWriter out = response.getWriter();
-			out.print(initEmail);
+		ChatManager chatManager = (ChatManager) context
+				.getAttribute("chatManager");
+
+		if (temp != null) {
+			if ((int) context.getAttribute(temp.getEmail()) == 1) {
+				String initEmail = chatManager
+						.checkChatRequest(temp.getEmail());
+				PrintWriter out = response.getWriter();
+				out.print(initEmail);
+			}
 		}
-		
+
 	}
 
 }
