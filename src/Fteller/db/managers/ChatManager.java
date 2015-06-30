@@ -257,7 +257,7 @@ public class ChatManager extends DBManager {
 				played_card +=result.getString(3);
 			
 			
-				String queryDelete = "delete from played_tarot_crads where played_card =  \""+played_card+ "\"";
+				String queryDelete = "delete from played_tarot_cards where played_card =  \""+played_card+ "\"";
 				PreparedStatement statementDelete = con.prepareStatement(queryDelete);
 				int resultDelete = statementDelete.executeUpdate();
 			}
@@ -271,14 +271,7 @@ public class ChatManager extends DBManager {
 		
 		return played_card;
 			
-	}
-	
-	
-	
-	
-		
-		
-		
+	}	
 		
 			
 	
