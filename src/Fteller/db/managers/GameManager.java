@@ -166,7 +166,7 @@ public String getLuckyNumbers(User user) {
 			Connection con = Source.getConnection();
 		
 			
-			String queryCount = "select  count (*) from quiz_reviews where game name = \"" + gameName + "\"";
+			String queryCount = "select  count(*) from quiz_reviews where game name = \"" + gameName + "\"";
 				PreparedStatement statementCount = con.prepareStatement(queryCount);
 				ResultSet resultCount = statementCount.executeQuery();
 				if(resultCount.next())

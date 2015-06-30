@@ -128,7 +128,7 @@ public class UserAccountManagerTest {
 		assertEquals(temp.getInfo()          , "newInfo"         				);
 		
 		
-		manager.checkPendingFriendRequests(dummy.getEmail());
+		//manager.checkPendingFriendRequests(dummy.getEmail());
 		manager.removeAccount(dummy);
 		
 		
