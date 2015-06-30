@@ -292,4 +292,14 @@
     <servlet-name>GenerateCardServlet</servlet-name>
     <url-pattern>/GenerateCardServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ChangeProfilePicture</display-name>
+    <servlet-name>ChangeProfilePicture</servlet-name>
+    <servlet-class>checkUser.ChangeProfilePicture</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ChangeProfilePicture</servlet-name>
+    <url-pattern>/ChangeProfilePicture</url-pattern>
+  </servlet-mapping>
 </web-app>
