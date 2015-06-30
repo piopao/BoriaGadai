@@ -13,7 +13,7 @@ function checkMes(){
 		 $.post("checkMessagesServlet",
 				 { },			        
 			      function(data,status){
-					if(data.length != 0){
+					if(data != null && data.length != 0){
 					   	var textdiv = document.getElementById("textarea");
 					  	var paragraph = document.createElement("p");
 					  	var node = document.createTextNode(data);
