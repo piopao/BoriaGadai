@@ -111,9 +111,23 @@ public class UserAccountManagerTest {
 		manager.changeBirthdate(dummy, Date.valueOf("1997-23-4"));
 		manager.changeAvatarName(dummy, "newAvatar");
 		manager.changeHashedPassword(dummy, hsh.generate_hash("testpassword"));
-		manager.changeEmail(dummy, "newEmail");
 		manager.changeLastName(dummy, "newLastName");
 		manager.changeFirstName(dummy, "new first name");
+		manager.changeUserName(dummy, "dummy-dummmy-051");
+		manager.changeInfo(dummy, "newInfo");
+		
+		
+		temp = manager.getUserAccount(dummy.getEmail());
+		assertEquals(temp.getUsername()      , "dummy-dummmy-051"      			);
+		assertEquals(temp.getName()          , "new first name"          		);
+		assertEquals(temp.getSurname()       , "newLastName"      				);
+		assertEquals(temp.getHashedPassword(), hsh.generate_hash("testpassword"));
+		assertEquals(temp.getGender()        , "Male"       					);
+		assertEquals(temp.getBirthDate()     , Date.valueOf("1997-23-4")        );
+		assertEquals(temp.getPictureDirname(), "newAvatar"						);
+		assertEquals(temp.getInfo()          , "newInfo"         				);
+		
+		manager.removeAccount(dummy);
 		
 		
 		

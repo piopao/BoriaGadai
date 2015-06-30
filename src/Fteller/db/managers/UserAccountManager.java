@@ -281,6 +281,7 @@ public void changeEmail(User user, String newEmail) {
 }
 
 public void changeLastName(User user, String newLastName) {
+	System.out.println(user.getEmail());
 	executeSimpleUpdate("users", "user_surname", newLastName, "email_address",
 			user.getEmail());
 }
@@ -314,17 +315,27 @@ public void changeAvatarName(User user, String newAvatarName) {
 			"user_id", user.getUsername());
 }
 
-public String checkPendingFriendRequests(String email){
+public ArrayList<String> checkPendingFriendRequests(String email){
 	
-	String initEmail =null;
+	ArrayList<String> initEmail =null;
+	int number = 0;
+	
 	try {
 		Connection con = Source.getConnection();
+		
+		String queryCount = "select  count (*) from pending_friend_list where user_emailB = \"" + email + "\"";
+		PreparedStatement statementCount = con.prepareStatement(queryCount);
+		ResultSet resultCount = statementCount.executeQuery();
+		if(resultCount.next())
+			number = resultCount.getInt(1);
+		System.out.println(number);
+		
 		String query = generateSimpleSelectQuery("pending_friend_list",
 				new ArrayList<String>(), "user_emailB", email);
 		PreparedStatement statement = con.prepareStatement(query);
 		ResultSet result = statement.executeQuery();
 		if(result.next())
-			initEmail = result.getString(1);
+			initEmail.add(result.getString(1));
 		con.close();
 
 		return initEmail;
