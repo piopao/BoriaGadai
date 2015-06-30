@@ -302,4 +302,24 @@
     <servlet-name>ChangeProfilePicture</servlet-name>
     <url-pattern>/ChangeProfilePicture</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>checkTarotServlet</display-name>
+    <servlet-name>checkTarotServlet</servlet-name>
+    <servlet-class>chat.checkTarotServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>checkTarotServlet</servlet-name>
+    <url-pattern>/checkTarotServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>sendTarotServlet</display-name>
+    <servlet-name>sendTarotServlet</servlet-name>
+    <servlet-class>chat.sendTarotServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>sendTarotServlet</servlet-name>
+    <url-pattern>/sendTarotServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

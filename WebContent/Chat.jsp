@@ -33,7 +33,7 @@
         	<div id ="cards">
         		<% 
 					String stat = request.getParameter("status");
-        			if(stat != null && stat.equals("teller")){
+        			if(/*stat != null && stat.equals("teller")*/ true){
 	        			out.println("<div><img id = \"1\" src=\"./Images/Decks/tarot deck chat/back2.jpg\" onclick = \"return flip1(this.src)\">");
 	        			out.println("<img id = \"2\" src=\"./Images/Decks/tarot deck chat/back2.jpg\" onclick = \"return flip2(this.src)\">");
 	        			out.println("<div><img id = \"3\" src=\"./Images/Decks/tarot deck chat/back2.jpg\" onclick = \"return flip3(this.src)\">");
