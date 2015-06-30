@@ -17,37 +17,42 @@ import Fteller.db.managers.UserAccountManager;
  */
 public class sendChatRequest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public sendChatRequest() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public sendChatRequest() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		ServletContext context = getServletContext();
-		ChatManager chatManager = (ChatManager) context.getAttribute("chatManager");
-		
+		ChatManager chatManager = (ChatManager) context
+				.getAttribute("chatManager");
+
 		String getter = (String) request.getParameter("getter");
 		String sender = (String) request.getParameter("sender");
-		boolean sent = chatManager.addChatRequest(sender, getter);
+
 		String res = "";
-		if (sent){
-			if((int)context.getAttribute(getter) == 1){
-				res = "true";
-			}
+
+		if ((int) context.getAttribute(getter) == 1) {
+			res = "true";
+
 		} else {
 			res = "false";
 		}
