@@ -29,9 +29,6 @@ ServletContext context = getServletContext();
 GameManager db = (GameManager)context.getAttribute("GameManager");
 GameDescription gd = db.getGameDescription(gameParameter);
 UserAccountManager userManager = (UserAccountManager)context.getAttribute("accountManager");
-
-System.out.print(db == null);
-System.out.print(gd == null);
 ArrayList<Review> revArr = gd.getReviews();
 String printing = "";
 
