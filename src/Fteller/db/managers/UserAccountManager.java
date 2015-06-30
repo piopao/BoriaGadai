@@ -406,7 +406,7 @@ public void declineFriendRequest(String initEmail, String receiverEmail){
 }
 
 
-public boolean areFriens(String initEmail, String receiverEmail){
+public boolean areFriends(String initEmail, String receiverEmail){
 	try {
 		Connection con = Source.getConnection();
 		String queryCheck = "select from friend_list where user_emailA = \""+initEmail + "\"";
@@ -429,6 +429,35 @@ public boolean areFriens(String initEmail, String receiverEmail){
 		
 	}		
 	return false;
+}
+
+
+@SuppressWarnings("null")
+public ArrayList<String> getFriends(String email){
+	
+	ArrayList<String> initEmail =null;
+	
+	try {
+		Connection con = Source.getConnection();
+		
+		String query = generateSimpleSelectQuery("friend_list",
+				new ArrayList<String>(), "user_emailA", email);
+		PreparedStatement statement = con.prepareStatement(query);
+		ResultSet result = statement.executeQuery();
+		while(result.next())
+			initEmail.add(result.getString(1));
+		con.close();
+
+		return initEmail;
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return initEmail;
+	
+	
+	
+	
 }
 
 
