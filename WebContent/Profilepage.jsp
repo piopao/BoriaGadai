@@ -33,6 +33,8 @@
 	sess.setAttribute("profile", profile);
 	%>
 	</script>
+	
+	<p id="isFriend"></p>
 
 	<div class="col-sm-3 text-center" id="rightside-info">
 		<div>

@@ -1,27 +1,27 @@
-package chat;
+package friend;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import Fteller.db.managers.ChatManager;
+import authorization.User;
 import Fteller.db.managers.UserAccountManager;
 
 /**
- * Servlet implementation class sendChatRequest
+ * Servlet implementation class accRejFriendRequest
  */
-public class sendChatRequest extends HttpServlet {
+public class accRejFriendRequest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public sendChatRequest() {
+    public accRejFriendRequest() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,24 +37,21 @@ public class sendChatRequest extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ServletContext context = getServletContext();
-		ChatManager chatManager = (ChatManager) context.getAttribute("chatManager");
+		String action = request.getParameter("action");
+		String email = request.getParameter("request");
+		HttpSession sess = request.getSession();
+		User user = (User) sess.getAttribute("user");
 		
-		String getter = (String) request.getParameter("getter");
-		String sender = (String) request.getParameter("sender");
-		boolean sent = chatManager.addChatRequest(sender, getter);
-		String res = "";
-		if (sent){
-			if((int)context.getAttribute(getter) == 1){
-				res = "true";
+		ServletContext context = getServletContext();
+		UserAccountManager manager = (UserAccountManager) context.getAttribute("accountManager");
+		
+		if(user != null){
+			if(action.equals("accept")){
+				manager.acceptFriendRequest(email, user.getEmail());
+			}else if(action.equals("reject")){
+				manager.declineFriendRequest(email, user.getEmail());
 			}
-		} else {
-			res = "false";
 		}
-		response.setCharacterEncoding("UTF-8");
-		PrintWriter out = response.getWriter();
-		out.print(res);
-		out.close();
 	}
 
 }

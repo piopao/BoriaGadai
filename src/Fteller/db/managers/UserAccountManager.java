@@ -368,7 +368,7 @@ public void acceptFriendRequest(String initEmail, String receiverEmail){
 		Connection con = Source.getConnection();
 		String queryCheck = "delete from pending_friend_list where user_emailA = \""+initEmail + "\"";
 		PreparedStatement statementCheck = con.prepareStatement(queryCheck);
-		ResultSet resultCheck = statementCheck.executeQuery();	
+		int resultCheck = statementCheck.executeUpdate();	
 		
 		
 		String query = "insert into friend_list values (\"" + initEmail + "\", \""
@@ -394,7 +394,7 @@ public void declineFriendRequest(String initEmail, String receiverEmail){
 		Connection con = Source.getConnection();
 		String queryCheck = "delete from pending_friend_list where user_emailA = \""+initEmail + "\"";
 		PreparedStatement statementCheck = con.prepareStatement(queryCheck);
-		ResultSet resultCheck = statementCheck.executeQuery();
+		int resultCheck = statementCheck.executeUpdate();
 		con.close();
 
 	} catch (SQLException e) {
