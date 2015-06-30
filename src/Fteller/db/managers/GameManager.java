@@ -181,7 +181,7 @@ public String getLuckyNumbers(User user) {
 			ResultSet result = statement.executeQuery();
 		
 			if (result.next())
-			retVal = new GameDescription(result.getString(2), result.getString(3), result.getString(4), result.getString(5), reviews);
+				retVal = new GameDescription(result.getString(2), result.getString(3), result.getString(4), result.getString(5), reviews);
 			
 			con.close();
 		} catch (SQLException e) {

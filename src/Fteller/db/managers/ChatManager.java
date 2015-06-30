@@ -245,6 +245,37 @@ public class ChatManager extends DBManager {
 	}
 	
 	
+	public String checkPlayedCard(String email){
+		String message = "";
+		try {
+			Connection con = Source.getConnection();
+			String query = "select * from new_chat_messages where receiver_user_email=\""+ email+"\"";
+			PreparedStatement statement = con.prepareStatement(query);
+			ResultSet result = statement.executeQuery();
+			if(result.next()){
+				message = result.getString(1);
+				//message += 
+				message +=": " +result.getString(3);
+			
+				
+				
+				String queryDelete = "delete from new_chat_messages where receiver_user_email =  \""+email+ "\"";
+				PreparedStatement statementDelete = con.prepareStatement(queryDelete);
+				int resultDelete = statementDelete.executeUpdate();
+			}
+			con.close();
+		System.out.println("checknewmessages");	
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return message;
+			
+	}
+	
+	
 	
 	
 		
