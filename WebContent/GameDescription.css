@@ -91,12 +91,22 @@ div.cover{
   	text-align:center;
 }
 
+div.gamePic{
+  	text-align:center;
+  	background-color: red;
+}
 
+div.gamePicCover{
+	background-color: red;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	text-align:center;
+}
 
-h1.gameName{
+img.gamePic{
 	text-align: center;
 	margin-top: 50px;
-	color: rgb(237, 237, 237);
 }
 
 #gameButt{

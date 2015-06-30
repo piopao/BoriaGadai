@@ -1,26 +1,29 @@
-package friend;
+package checkUser;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import authorization.User;
 import Fteller.db.managers.UserAccountManager;
 
 /**
- * Servlet implementation class sendFriendRequest
+ * Servlet implementation class CheckPendingFRequests
  */
-public class sendFriendRequest extends HttpServlet {
+public class CheckPendingFRequests extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public sendFriendRequest() {
+    public CheckPendingFRequests() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,22 +39,17 @@ public class sendFriendRequest extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String sender = request.getParameter("sender");
-		String getter = request.getParameter("getter");
-		String action = request.getParameter("action");
+		HttpSession sess = request.getSession();
+		User user = (User) sess.getAttribute("user");
 		ServletContext context = getServletContext();
 		UserAccountManager manager = (UserAccountManager) context.getAttribute("accountManager");
-
-		String res = "";
-		if (action.equals("befriend")) {
-			if (manager.sendFriendRequest(sender, getter)){
+		
+		String res = "false";
+		if(user != null){
+			ArrayList<String> requests = manager.checkPendingFriendRequests(user.getEmail());
+			if(requests.size() > 0){
 				res = "true";
-			}else{
-				res = "false";
 			}
-		} else if (action.equals("unfriend")) {
-		//	manager.removeFriend(sender, getter);
-			res = "true";
 		}
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();

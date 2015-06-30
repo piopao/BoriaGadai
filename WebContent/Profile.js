@@ -1,14 +1,19 @@
-var myVar = setInterval(function(){ myTimer() }, 1000);
+var myVar = setInterval(function() {
+	myTimer()
+}, 1000);
 
 function myTimer() {
 	var email1 = document.getElementById("user").innerHTML;
 	var email2 = document.getElementById("email").innerHTML;
-	if (email1 == email2){
-		 $.post("CheckPendingRequests", function(data){
-			 if(data == "true"){
-				 document.getElementById("friendingLogo").className  = "glyphicon glyphicon-flag";
-			 }
-		 });
+	if (email1 == email2) {
+		$
+				.post(
+						"CheckPendingFRequests",
+						function(data) {
+							if (data == "true") {
+								document.getElementById("friendingLogo").className = "glyphicon glyphicon-flag";
+							}
+						});
 	}
 }
 
@@ -25,11 +30,11 @@ function loadInfo(data) {
 		if (dataTokens[index] == "profilePic") {
 			var pic = "./avatars/" + dataTokens[++index];
 			document.getElementById("profilePic").src = pic;
-		} else if(dataTokens[index] == "email"){
+		} else if (dataTokens[index] == "email") {
 			document.getElementById(dataTokens[index] + "-div").style.visibility = 'visible';
 			document.getElementById("email").innerHTML = dataTokens[++index];
 			document.getElementById("underPicName").innerHTML = dataTokens[index];
-		}else{
+		} else {
 			document.getElementById(dataTokens[index] + "-div").style.visibility = 'visible';
 			document.getElementById(dataTokens[index]).innerHTML = dataTokens[++index];
 		}
@@ -43,7 +48,7 @@ function guestOrUser() {
 	if (user == profileUser) {
 		userRightSideInfo();
 	} else if (user == "ადმინი") {
-		if (friend() == true) {
+		if (isFriend() == true) {
 			friendRightSideInfo();
 		} else {
 			guestRightSideInfo();
@@ -51,12 +56,24 @@ function guestOrUser() {
 	} else if (user == "სტუმარი") {
 		guestRightSideInfo();
 	} else {
-		if (true) {
+		if (isFriend()) {
 			friendRightSideInfo();
 		} else {
 			guestRightSideInfo();
 		}
 	}
+}
+
+function isFriend() {
+	var visitedUser = document.getElementById("email").innerHTML;
+	$.post("isFriendServlet", {
+		"visitedUser" : visitedUser
+	}, function(data) {
+		if (data == "true") {
+			return true;
+		}
+	});
+	return false;
 }
 
 function userRightSideInfo() {
@@ -108,19 +125,25 @@ function editInfo() {
 function hideShowInfo() {
 	document.getElementById("editable-info").style.visibility = "visible";
 	document.getElementById("uneditable-info").style.visibility = "hidden";
-	document.getElementById("edit-username").value = document.getElementById("username").innerHTML;
-	document.getElementById("edit-name").value = document.getElementById("name").innerHTML;
-	document.getElementById("edit-surname").value = document.getElementById("surname").innerHTML;
-	document.getElementById("edit-email").innerHTML = document.getElementById("email").innerHTML;
-	document.getElementById("edit-info").value = document.getElementById("info").innerHTML;
-	document.getElementById("edit-birthdate").value = document.getElementById("birthdate").innerHTML;
+	document.getElementById("edit-username").value = document
+			.getElementById("username").innerHTML;
+	document.getElementById("edit-name").value = document
+			.getElementById("name").innerHTML;
+	document.getElementById("edit-surname").value = document
+			.getElementById("surname").innerHTML;
+	document.getElementById("edit-email").innerHTML = document
+			.getElementById("email").innerHTML;
+	document.getElementById("edit-info").value = document
+			.getElementById("info").innerHTML;
+	document.getElementById("edit-birthdate").value = document
+			.getElementById("birthdate").innerHTML;
 	var list = document.getElementsByClassName("info-row");
 	for (var i = 0; i < list.length; i++) {
 		list[i].style.visibility = "hidden";
 	}
 }
 
-function ChangePassword(){
+function ChangePassword() {
 	document.getElementById("edit-password").setAttribute("clicked", "true");
 	document.getElementById("edit-password").style.visibility = "hidden";
 	document.getElementById("passwordOld").style.visibility = "visible";
@@ -131,11 +154,12 @@ function SaveChanges() {
 	var editUsername = document.getElementById("edit-username").value;
 	var editName = document.getElementById("edit-name").value;
 	var editSurname = document.getElementById("edit-surname").value;
-	if(document.getElementById("edit-password").getAttribute("clicked") == "true"){
-		document.getElementById("edit-password").setAttribute("clicked", "false");
+	if (document.getElementById("edit-password").getAttribute("clicked") == "true") {
+		document.getElementById("edit-password").setAttribute("clicked",
+				"false");
 		var editPasswordOld = document.getElementById("passwordOld").value;
 		var editPasswordNew = document.getElementById("passwordNew").value;
-	}else{
+	} else {
 		var editPasswordOld = "";
 		var editPasswordNew = "";
 	}
@@ -157,11 +181,12 @@ function SaveChanges() {
 		gender : editGender,
 		info : editInfo
 	}, function(data) {
-		if(data == "shortPass"){
+		if (data == "shortPass") {
 			document.getElementById("error2").style.visibility = "visible";
-		}if(data == "invalidPass"){
+		}
+		if (data == "invalidPass") {
 			document.getElementById("error1").style.visibility = "visible";
-		}else{
+		} else {
 			var user = document.getElementById("user").innerHTML;
 			var action = "Profilepage.jsp?profile=" + user;
 			document.getElementById("updateInfoForm").href = action;
@@ -170,53 +195,61 @@ function SaveChanges() {
 	});
 }
 
-function ftRequest(){
-	var buttonEnabled = document.getElementById("messages").getAttribute("disabled");
-	if (buttonEnabled == "false"){
+function ftRequest() {
+	var buttonEnabled = document.getElementById("messages").getAttribute(
+			"disabled");
+	if (buttonEnabled == "false") {
 		var email1 = document.getElementById("user").innerHTML;
 		var email2 = document.getElementById("email").innerHTML;
 		$.post("sendChatRequest", {
 			sender : email1,
 			getter : email2
-		}, function(data){
-			if (data == "true"){
+		}, function(data) {
+			if (data == "true") {
 				alert("მოთხოვნა გაგზავნილია");
-				var newLocation = "Chat.jsp?status=client&chatter="+email2;
+				var newLocation = "Chat.jsp?status=client&chatter=" + email2;
 				window.location = newLocation;
-			}else{
+			} else {
 				alert("მოთხოვნა უკვე გაგზავნილია");
 			}
 		});
 	}
 }
 
-function fRequest(){
-	var buttonEnabled = document.getElementById("friending").getAttribute("disabled");
+function fRequest() {
+	var buttonEnabled = document.getElementById("friending").getAttribute(
+			"disabled");
 	var buttonText = document.getElementById("friending").innerHTML;
-	if(buttonEnabled == "true"){
-		if(buttonText == "დამეგობრება"){
+	if (buttonEnabled == "false") {
+		var email1 = document.getElementById("user").innerHTML;
+		var email2 = document.getElementById("email").innerHTML;
+		if (buttonText == "დამეგობრება") {
 			$.post("sendFriendRequest", {
 				sender : email1,
 				getter : email2,
-				action : buttonText
-			}, function(data){
-				if (data == "true"){
+				action : "befriend"
+			}, function(data) {
+				if (data == "true") {
 					alert("მოთხოვნა გაგზავნილია");
-				}else{
+				} else {
 					alert("მოთხოვნა უკვე გაგზავნილია");
 				}
 			});
-		} else if (buttonText == "განმეგობრება"){
-			$.post("sendFriendRequest", {
-				sender : email1,
-				getter : email2,
-				action : buttonText
-			}, function(data){
-				if (data == "true"){
-					alert("მოთხოვნა გაგზავნილია");
-					document.getElementById("friending").innerHTML = "დამეგობრება";
-				}
-			});
+		} else if (buttonText == "განმეგობრება") {
+			$
+					.post(
+							"sendFriendRequest",
+							{
+								sender : email1,
+								getter : email2,
+								action : unfriend
+							},
+							function(data) {
+								if (data == "true") {
+									alert("მოთხოვნა გაგზავნილია");
+									document.getElementById("friending").innerHTML = "დამეგობრება";
+								}
+							});
 		}
 	}
 }
