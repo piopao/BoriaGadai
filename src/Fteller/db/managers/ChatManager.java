@@ -300,6 +300,5 @@ public class ChatManager extends DBManager {
 		}
 
 	}
-	
 
 }
