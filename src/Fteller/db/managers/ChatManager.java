@@ -18,12 +18,11 @@ public class ChatManager extends DBManager {
 
 	public static final String ATTRIBUTE_NAME = "chatManager";
 
-	
 	public ChatManager(DataSource Source) {
 		super(Source);
 	}
-	
-	public String checkChatRequest(String email){
+
+	public String checkChatRequest(String email) {
 		String initEmail = "";
 		try {
 			Connection con = Source.getConnection();
@@ -31,7 +30,7 @@ public class ChatManager extends DBManager {
 					new ArrayList<String>(), "receiver_user_email", email);
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
-			if(result.next())
+			if (result.next())
 				initEmail = result.getString(1);
 			con.close();
 
@@ -41,29 +40,22 @@ public class ChatManager extends DBManager {
 			e.printStackTrace();
 		}
 		return initEmail;
-			
+
 	}
-	
-	
-	
-	
-	
-	
-	public boolean addChatRequest(String initEmail, String receiverEmail){
+
+	public boolean addChatRequest(String initEmail, String receiverEmail) {
 		try {
 			Connection con = Source.getConnection();
-			
-			
+
 			String queryCheck = generateSimpleSelectQuery("chat_requests",
 					new ArrayList<String>(), "init_user_email", initEmail);
 			PreparedStatement statementCheck = con.prepareStatement(queryCheck);
 			ResultSet resultCheck = statementCheck.executeQuery();
-			if(resultCheck.next())
+			if (resultCheck.next())
 				return false;
-			
-			
-			String query = "insert into chat_requests values (\"" + initEmail + "\", \""
-			+ receiverEmail + "\", \"0\")";
+
+			String query = "insert into chat_requests values (\"" + initEmail
+					+ "\", \"" + receiverEmail + "\", \"0\")";
 			PreparedStatement statement = con.prepareStatement(query);
 			int result = statement.executeUpdate();
 			con.close();
@@ -73,208 +65,241 @@ public class ChatManager extends DBManager {
 			e.printStackTrace();
 		}
 		return true;
-			
+
 	}
-	
-	public String checkRequestStatus(String email){
+
+	public String checkRequestStatus(String email) {
 		String status = "0";
 		try {
 			Connection con = Source.getConnection();
-			String query = "select request_status from chat_requests where init_user_email=\""+ email+"\"";
+			String query = "select request_status from chat_requests where init_user_email=\""
+					+ email + "\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
-			if(result.next());
-				status = result.getString(1);
-				
-			
-			
+			if (result.next())
+				;
+			status = result.getString(1);
+
 			con.close();
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return status;
-			
+
 	}
-	
-	public void changeRequestStatus (String email, String status){
+
+	public void changeRequestStatus(String email, String status) {
 		try {
 			Connection con = Source.getConnection();
-			String query = "update chat_requests set request_status = \""+status +"\" where receiver_user_email=\"" +email+"\"";
+			String query = "update chat_requests set request_status = \""
+					+ status + "\" where receiver_user_email=\"" + email + "\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			int result = statement.executeUpdate();
-			System.out.println("update chat_requests set request_status = \""+status +"\" where receiver_user_email=\"" +email+"\"");
-			
+			System.out
+					.println("update chat_requests set request_status = \""
+							+ status + "\" where receiver_user_email=\""
+							+ email + "\"");
+
 			con.close();
-			
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
+
 	}
 
-	
-	public void deleteChatRequest(String email){
-		try{
+	public void deleteChatRequest(String email) {
+		try {
 			Connection con = Source.getConnection();
-			String deleteQuery = "delete from chat_requests where receiver_user_email=\""+ email+"\"";
-			PreparedStatement deleteStatement = con.prepareStatement(deleteQuery);
-			int deleteResult = deleteStatement.executeUpdate();	
-			
+			String deleteQuery = "delete from chat_requests where receiver_user_email=\""
+					+ email + "\"";
+			PreparedStatement deleteStatement = con
+					.prepareStatement(deleteQuery);
+			int deleteResult = deleteStatement.executeUpdate();
+
 			con.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
-	public String checkNewMessages(String email){
+
+	public String checkNewMessages(String email) {
 		String message = "";
 		try {
 			Connection con = Source.getConnection();
-			String query = "select * from new_chat_messages where receiver_user_email=\""+ email+"\"";
+			String query = "select * from new_chat_messages where receiver_user_email=\""
+					+ email + "\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
-			if(result.next()){
+			if (result.next()) {
 				message = result.getString(1);
-				//message += 
-				message +=": " +result.getString(3);
-			
-				
-				
-				String queryDelete = "delete from new_chat_messages where receiver_user_email =  \""+email+ "\"";
-				PreparedStatement statementDelete = con.prepareStatement(queryDelete);
+				// message +=
+				message += ": " + result.getString(3);
+
+				String queryDelete = "delete from new_chat_messages where receiver_user_email =  \""
+						+ email + "\"";
+				PreparedStatement statementDelete = con
+						.prepareStatement(queryDelete);
 				int resultDelete = statementDelete.executeUpdate();
 			}
 			con.close();
-		//sSystem.out.println("checknewmessages");	
+			// sSystem.out.println("checknewmessages");
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return message;
-			
+
 	}
-	
-	
-	
-	public void addNewChatMessage(String initEmail, String receiverEmail, String text){
+
+	public void addNewChatMessage(String initEmail, String receiverEmail,
+			String text) {
 		try {
 			Connection con = Source.getConnection();
-			String queryCheck = "select * from new_chat_messages where init_user_email=\""+ initEmail+"\";";		
+			String queryCheck = "select * from new_chat_messages where init_user_email=\""
+					+ initEmail + "\";";
 			PreparedStatement statementCheck = con.prepareStatement(queryCheck);
 			ResultSet resultCheck = statementCheck.executeQuery();
-			
-			
-			if(resultCheck.next()){
+
+			if (resultCheck.next()) {
 				String oldMessage = resultCheck.getString(3);
 				oldMessage += text;
-				String queryUpdate = "UPDATE new_chat_messages SET text_message=\""+ oldMessage + 
-						" \" where init_user_email= \"" + initEmail+ "\"";
-				
-				PreparedStatement statementUpdate = con.prepareStatement(queryUpdate);
+				String queryUpdate = "UPDATE new_chat_messages SET text_message=\""
+						+ oldMessage
+						+ " \" where init_user_email= \""
+						+ initEmail + "\"";
+
+				PreparedStatement statementUpdate = con
+						.prepareStatement(queryUpdate);
 				int resultUpdate = statementUpdate.executeUpdate();
-			}
-			else{
-				String query = "insert into new_chat_messages values (\"" + initEmail + "\", \""
-				+ receiverEmail + "\", \""+text+"\")";
+			} else {
+				String query = "insert into new_chat_messages values (\""
+						+ initEmail + "\", \"" + receiverEmail + "\", \""
+						+ text + "\")";
 				PreparedStatement statement = con.prepareStatement(query);
 				int result = statement.executeUpdate();
 			}
-			
-			
+
 			con.close();
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+
 	}
-		
-	public String getRandomTarotCard(){
+
+	public String getRandomTarotCard() {
 		String dirName = "";
 		Random rd = new Random();
 		int x = rd.nextInt(77);
-		x = x+1;
-			
+		x = x + 1;
+
 		try {
 			Connection con = Source.getConnection();
 			String query = "select * from tarot where tarot_id =" + x;
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
-			if(result.next())
+			if (result.next())
 				dirName = result.getString(2);
-			 
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-				
+
 		return dirName;
-		
+
 	}
-	
-	public String addPlayedCard(String initEmail, String receiverEmail, String text){
+
+	public String addPlayedCard(String initEmail, String receiverEmail,
+			String text) {
 		try {
-			Connection con = Source.getConnection();;
-			String query = "insert into played_tarot_cards values (\"" + initEmail + "\", \""
-				+ receiverEmail + "\", \""+text+"\")";
-				PreparedStatement statement = con.prepareStatement(query);
-				int result = statement.executeUpdate();
-			
-			
-			
+			Connection con = Source.getConnection();
+			;
+			String query = "insert into played_tarot_cards values (\""
+					+ initEmail + "\", \"" + receiverEmail + "\", \"" + text
+					+ "\")";
+			PreparedStatement statement = con.prepareStatement(query);
+			int result = statement.executeUpdate();
+
 			con.close();
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return null;
-		
-		
+
 	}
-	
-	
-	public String checkPlayedCard(String receiver){
+
+	public String checkPlayedCard(String receiver) {
 		String played_card = "";
 		try {
 			Connection con = Source.getConnection();
-			String query = "select * from played_tarot_cards where receiver_user_email=\""+ receiver+"\"";
+			String query = "select * from played_tarot_cards where receiver_user_email=\""
+					+ receiver + "\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
-			if(result.next()){
-	
-				played_card +=result.getString(3);
-			
-			
-				String queryDelete = "delete from played_tarot_cards where played_card =  \""+played_card+ "\"";
-				PreparedStatement statementDelete = con.prepareStatement(queryDelete);
+			if (result.next()) {
+
+				played_card += result.getString(3);
+
+				String queryDelete = "delete from played_tarot_cards where played_card =  \""
+						+ played_card + "\"";
+				PreparedStatement statementDelete = con
+						.prepareStatement(queryDelete);
 				int resultDelete = statementDelete.executeUpdate();
 			}
 			con.close();
-		//System.out.println("checknewmessages");	
+			// System.out.println("checknewmessages");
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return played_card;
-			
-	}	
-		
-			
+
+	}
+
+	public void addUserRating(String email, int rate) {
+		double prevRating = 0.0;
+		double newRating = 0.0;
+		try {
+			Connection con = Source.getConnection();
+			String query = "select rating, users from users where email_address=\""
+					+ email + "\"";
+			PreparedStatement statement = con.prepareStatement(query);
+			ResultSet result = statement.executeQuery();
+			if (result.next()) {
+				prevRating = result.getDouble(1) * result.getInt(2);
+				newRating = (prevRating + rate) / (result.getInt(2) + 1);
+
+				String queryUpdate = "update users set rating = " + newRating
+						+ ", users = " + (result.getInt(2) + 1)
+						+ "where email_address = \"" + email + "\"";
+				PreparedStatement statementUpdate = con
+						.prepareStatement(queryUpdate);
+				int resultUpate = statementUpdate.executeUpdate();
+			}
+			con.close();
+			// System.out.println("checknewmessages");
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
 	
-	
-	
+
 }

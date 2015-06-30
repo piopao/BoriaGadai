@@ -15,7 +15,9 @@ CREATE TABLE IF NOT EXISTS users (
 	birthdate DATE,
 	gender CHAR(8),
 	avatar_filename VARCHAR(128)  CHARACTER SET utf8 COLLATE utf8_unicode_ci,
-	info TEXT
+	info TEXT,
+    rating int,
+    users int
 );
 
 CREATE TABLE IF NOT EXISTS image_table (
@@ -29,7 +31,9 @@ CREATE TABLE IF NOT EXISTS game_table (
 	game_description TEXT  CHARACTER SET utf8 COLLATE utf8_unicode_ci,
     image_name varchar(64) not null unique,
     game_url VARCHAR(64),
-    FOREIGN KEY (image_name) REFERENCES image_table(image_dir) ON DELETE CASCADE
+    FOREIGN KEY (image_name) REFERENCES image_table(image_dir) ON DELETE CASCADE,
+    rating int,
+    users int
 );
 
 CREATE TABLE IF NOT EXISTS quiz_reviews (

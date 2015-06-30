@@ -218,7 +218,61 @@ public String getLuckyNumbers(User user) {
 		}
 	}
 	
-public void deleteReview (int id){
+	
+	
+	
+	public void addGamerRating(String name, int rate) {
+		double prevRating = 0.0;
+		double newRating = 0.0;
+		try {
+			Connection con = Source.getConnection();
+			String query = "select rating, users from game_table where game_name=\""
+					+ name + "\"";
+			PreparedStatement statement = con.prepareStatement(query);
+			ResultSet result = statement.executeQuery();
+			if (result.next()) {
+				prevRating = result.getDouble(1) * result.getInt(2);
+				newRating = (prevRating + rate) / (result.getInt(2) + 1);
+	
+				String queryUpdate = "update game_table set rating = " + newRating
+						+ ", users = " + (result.getInt(2) + 1)
+						+ "where game_name = \"" + name + "\"";
+				PreparedStatement statementUpdate = con
+						.prepareStatement(queryUpdate);
+				int resultUpate = statementUpdate.executeUpdate();
+			}
+			con.close();
+			// System.out.println("checknewmessages");
+	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public double getReviewRating(String name){
+		double rating =0.0;
+		try {
+			Connection con = Source.getConnection();
+			String query = "select rating from game_table where game_name=\""
+					+ name + "\"";
+			PreparedStatement statement = con.prepareStatement(query);
+			ResultSet result = statement.executeQuery();
+			if (result.next()) 
+				rating = result.getDouble(1);
+				
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return rating;
+	}
+	
+	
+	
+	
+	public void deleteReview (int id){
 		
 		try {
 			Connection con = Source.getConnection();

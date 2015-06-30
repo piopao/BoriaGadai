@@ -65,7 +65,33 @@ public boolean createUserAccount(User user) {
 	List<String> insertValues = new ArrayList<String>();
 	fillWithUserData(insertValues, user);
 	// registering account
-	executeInsert("users", insertValues);
+	
+	try {
+		Connection con = Source.getConnection();
+		/*String query = "INSERT INTO users VALUES ("+insertValues.get(0)+", \""+ insertValues.get(1) +"\", \""
+		+ insertValues.get(2)+"\", \""+ insertValues.get(3)+"\", \""+ insertValues.get(4)+"\", \""+ insertValues.get(5)+"\", "+ insertValues.get(6)
+		+", \""+ insertValues.get(7)+"\", \""+ insertValues.get(8)+"\", \""+ insertValues.get(9)+"\", 0, 0)";*/
+		
+		String query = "INSERT INTO users VALUES (";
+		if (!insertValues.isEmpty()) {
+			for (int i = 0; i < insertValues.size(); ++i) {
+				if (insertValues.get(i) != null)
+					query = query +"\"" + insertValues.get(i) + "\"";
+				else
+					query = query +"null";
+					query = query +", ";
+			}
+		}
+		query= query +"0, 0);";
+		PreparedStatement statement = con.prepareStatement(query);
+		int result = statement.executeUpdate();
+
+		con.close();
+
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 
 	return true;
 }
@@ -478,6 +504,58 @@ public void deleteFriend(String initEmail, String receiverEmail){
 		
 	}		
 }
+
+public double getUserRating(String email){
+	double rating =0.0;
+	try {
+		Connection con = Source.getConnection();
+		String query = "select rating from users where email_address=\""
+				+ email + "\"";
+		PreparedStatement statement = con.prepareStatement(query);
+		ResultSet result = statement.executeQuery();
+		if (result.next()) 
+			rating = result.getDouble(1);
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	return rating;
+}
+
+
+public ArrayList<String> getPopularFortuneTellers(int limit){
+	ArrayList<String> users = new ArrayList<String>();
+	
+	
+	//select rating from users order by rating desc limit 20
+	
+	try {
+		Connection con = Source.getConnection();
+		String query = "select email_address from users order by rating desc limit "+limit; 
+		PreparedStatement statement = con.prepareStatement(query);
+		ResultSet result = statement.executeQuery();
+		while(result.next()) 
+			users.add(result.getString(1));
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	return users;
+	
+	
+}
+
+
+
+
+
+
+
+
 public void removeAccount(User user) {
 	executeSimpleDelete("users", "email_address", user.getEmail());
 }
