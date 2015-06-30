@@ -16,6 +16,7 @@
 <input  id = starField name="lname" value = 0 ><br>
 <textarea class="form-control" rows="5" id="comment"></textarea> 
 <button id = "AddReview" type="button"  disabled class="btn btn-success btn-lg">დატოვე კომენტარი</button>
+
 </div>
 
 
@@ -85,12 +86,12 @@ $(document).ready(function(){
         $.post("ReviewsServlet",
         {
           mission: "review add",
-          gameName: document.getElementById("gameName").value,
+          gameName: document.getElementById("gameName").innerHTML,
           stars: document.getElementById("starField").value, 
           text: document.getElementById("comment").value,           
         },
         function(data,status){
-            alert("Data: " + data + "\nStatus: " + status);
+            alert(document.getElementById("gameName").innerHTML);
         });
     });
 });
