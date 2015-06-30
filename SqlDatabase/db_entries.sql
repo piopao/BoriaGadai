@@ -90,11 +90,7 @@ insert into tarot (dir_name) values ("77.jpg");
 
 select * from tarot;
 
-#insert into game_table values(null , "ამინდი", "გაიგე დღეს რა ამინდი გელის111211!!1", 'სურათის აიდი აქ', url);
-#insert into game_table values(null , "amindi", "გაიგე დღეს რა ამინდი გელის111211!!1", 'სურათის აიდი აქ', url);
-#insert into game_table values(null , "amindi", "გაიგე დღეს რა ამინდი გელის111211!!1", 'სურათის აიდი აქ', url);
-#insert into game_table values(null , "amindi", "გაიგე დღეს რა ამინდი გელის111211!!1", 'სურათის აიდი აქ', url);
-#insert into game_table values(null , "amindi", "გაიგე დღეს რა ამინდი გელის111211!!1", 'სურათის აიდი აქ', url); 
+ 
 
 insert into image_table(image_dir) values( "tarot-icon.png");
 insert into image_table (image_dir) values( "lottery-icon.png");
@@ -102,6 +98,13 @@ insert into image_table  (image_dir)values("weather-icon.png");
 insert into image_table (image_dir) values("yesno-icon.png");
 insert into image_table (image_dir) values("cookie-icon.png");
 select * from image_table;
+
+insert into game_table values(null , "lottery",  "გამოგელია ფული, ცადე იღბლიანი ლატარიის ბილეთი.", "lottery-icon.png", "Lottery.html");
+insert into game_table values(null , "weather",  "არ იცი რა ჩაიცვა? ნახე იწვიმებს თუ არა ხვალ.", "weather-icon.png", "Weather.html");
+insert into game_table values(null , "tarot",  "ტარო ტატარო ტარო ტატარო", "tarot-icon.png", "Tarot.html");
+insert into game_table values(null , "yesno",  "კი თუ არა, თუ კი, თუ არა?", "yesno-icon.png", "YesNo.jsp");
+insert into game_table values(null , "fortunecookie","ასეთი გემრიელი და თან იღბლიანი ნამცხვარი არასდროს ყოფილა", "cookie-icon.png", "FortuneCookie.jsp");
+select * from game_table;
 
 insert into weather_table values ("501504", "დაუბერავს სუსტი ქარი დასავლეთიდან", "wind.png");
 insert into weather_table values ("501505", "დაუბერავს სუსტი ქარი აღმოსავლეთიდან", "wind.png");

@@ -162,26 +162,23 @@ public String getLuckyNumbers(User user) {
 		GameDescription retVal = null ;
 		Review rev = null;
 		ArrayList<Review> reviews = new ArrayList<Review>();
-
 		try {
 			Connection con = Source.getConnection();
 				
-				String querySelect = "select  *  from quiz_reviews where game name = \"" + gameName + "\"";
+				String querySelect = "select  *  from quiz_reviews where game_name = \"" + gameName + "\"";
 				PreparedStatement statementSelect = con.prepareStatement(querySelect);
 				ResultSet resultSelect = statementSelect.executeQuery();
 				while(resultSelect.next()){
+					System.out.print("kaka kuku \n ");
 						rev = new Review (resultSelect.getString(6), resultSelect.getString(5), resultSelect.getString(2), resultSelect.getInt(3), resultSelect.getInt(1), resultSelect.getDate(4));
 						reviews.add(rev);
-				}
-			
-				
-			String query = generateSimpleSelectQuery("game_table",
-				new ArrayList<String>(), "game_name", gameName);
+				}	
+			String query =	"select * from game_table where game_name = \""+ gameName +"\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 		
 			if (result.next())
-				retVal = new GameDescription(result.getString(2), result.getString(3), result.getString(4), result.getString(5), reviews);
+			retVal = new GameDescription(result.getString(2), result.getString(3), result.getString(4), result.getString(5), reviews);
 			
 			con.close();
 		} catch (SQLException e) {
