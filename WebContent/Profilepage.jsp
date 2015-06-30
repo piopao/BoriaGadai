@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.*, authorization.User"%>
+ <%@ page import="Fteller.db.managers.UserAccountManager" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,6 +69,23 @@
 					<td><a href="#">წინასწარმეტყველებანი</a></td>
 					<td><span class="glyphicon glyphicon-user"></span></td>
 				</tr>
+				<%
+					User user = (User) sess.getAttribute("user");
+					ServletContext context = getServletContext();
+					UserAccountManager manager = (UserAccountManager)context.getAttribute("accountManager");
+					User profileUser = manager.getUserAccount(profile);
+					if (user.getUserStatus() == 1) {
+						if(!user.getEmail().equals(profile) && profileUser.getUserStatus() != 1){
+							out.print("<tr><td><a id=\"block-but\" href=\"#\" onclick=\"blockUser()\">");
+							if(manager.isBanned(profile)) {
+								out.print("ახსენი ბლოკი");
+							} else {
+								out.print("დაბლოკე");
+							}
+							out.print("</a></td><td><span class=\"glyphicon glyphicon-ban-circle\"></span></td></tr>");
+						}					
+					}
+				%>
 			</tbody>
 		</table>
 	</div>

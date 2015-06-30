@@ -244,3 +244,20 @@ function fRequest() {
 		}
 	}
 }
+
+function blockUser() {
+	var action = document.getElementById("block-but").innerHTML;
+	if (action == "დაბლოკე") {
+		$.post("BlockUser", {
+			action : "block"
+		}, function() {
+			document.getElementById("block-but").innerHTML = "ახსენი ბლოკი";
+		});
+	} else if (action == "ახსენი ბლოკი") {
+		$.post("BlockUser", {
+			action : "unblock"
+		}, function() {
+			document.getElementById("block-but").innerHTML = "დაბლოკე";
+		});
+	}
+}
