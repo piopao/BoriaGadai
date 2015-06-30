@@ -282,4 +282,14 @@
     <servlet-name>FortuneCookieServlet</servlet-name>
     <url-pattern>/FortuneCookieServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GenerateCardServlet</display-name>
+    <servlet-name>GenerateCardServlet</servlet-name>
+    <servlet-class>chat.GenerateCardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GenerateCardServlet</servlet-name>
+    <url-pattern>/GenerateCardServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

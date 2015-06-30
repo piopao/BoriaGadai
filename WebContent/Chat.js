@@ -52,24 +52,39 @@ function sendMessage(){
 		   	 document.getElementById("message").value = " "; 
 		        	
 		        		
-	 });	
-	 /*$.post("addNewChatMessage", { text: document.getElementById("message").value 
-		 }, function(data,status){
-		 });
-	 document.getElementById("message").value = " ";     */
+	 });
 }
 
-
-
-
+/*	*/
 
 function flip1(_src){
 	var tokenedIntoPair =  _src.split("/");
 	var length = tokenedIntoPair.length;
 	var backsrc = tokenedIntoPair[length-1];
+	
 	if(backsrc == "back2.jpg"){
-		document.getElementById("1").src="./Images/Decks/tarot deck chat/2.jpg";
+		var src2 = document.getElementById("2").src;
+		var tokens2 = src2.split("/");
+		var src2card = tokens2[tokens2.length - 1];
+		
+		var src3 = document.getElementById("3").src;
+		var tokens3 = src3.split("/");
+		var src3card = tokens3[tokens3.length - 1];
+		
+		var src4 = document.getElementById("4").src;
+		var tokens4 = src4.split("/");
+		var src4card = tokens4[tokens4.length - 1];
+		
+		$.post("GenerateCardServlet", { 
+			card1 : src2,
+			card2 : src3,
+			card3 : src4
+			}, function(data,status){
+		       document.getElementById("1").src="./Images/Decks/tarot deck chat/"+data;
+		    }
+		);		
 	}else{
+		
 		document.getElementById("1").src="./Images/Decks/tarot deck chat/back2.jpg";
 	}
 	return true;
@@ -78,10 +93,29 @@ function flip1(_src){
 function flip2(_src){
 	var tokenedIntoPair =  _src.split("/");
 	var length = tokenedIntoPair.length;
-	var backsrc = tokenedIntoPair[length-1];
+	var backsrc = tokenedIntoPair[length-1];	
+	
 	if(backsrc == "back2.jpg"){
-		document.getElementById("2").src="./Images/Decks/tarot deck chat/32.jpg";
-	}else{
+		var src1 = document.getElementById("1").src;
+		var tokens1 = src1.split("/");
+		var src1card = tokens1[tokens1.length - 1];
+		
+		var src3 = document.getElementById("3").src;
+		var tokens3 = src3.split("/");
+		var src3card = tokens3[tokens3.length - 1];
+		
+		var src4 = document.getElementById("4").src;
+		var tokens4 = src4.split("/");
+		var src4card = tokens4[tokens4.length - 1];
+		$.post("GenerateCardServlet", { 
+			card1 : src1,
+			card2 : src3,
+			card3 : src4
+			}, function(data,status){
+		       document.getElementById("2").src="./Images/Decks/tarot deck chat/"+data;
+		    }
+		);	
+	}else{		
 		document.getElementById("2").src="./Images/Decks/tarot deck chat/back2.jpg";
 	}
 	return true;
@@ -91,9 +125,29 @@ function flip3(_src){
 	var tokenedIntoPair =  _src.split("/");
 	var length = tokenedIntoPair.length;
 	var backsrc = tokenedIntoPair[length-1];
+	
 	if(backsrc == "back2.jpg"){
-		document.getElementById("3").src="./Images/Decks/tarot deck chat/4.jpg";
-	}else{
+		var src1 = document.getElementById("1").src;
+		var tokens1 = src1.split("/");
+		var src1card = tokens1[tokens1.length - 1];
+		
+		var src2 = document.getElementById("2").src;
+		var tokens2 = src2.split("/");
+		var src2card = tokens2[tokens2.length - 1];	
+		
+		var src4 = document.getElementById("4").src;
+		var tokens4 = src4.split("/");
+		var src4card = tokens4[tokens4.length - 1];
+		$.post("GenerateCardServlet", { 
+			card1 : src2,
+			card2 : src1,
+			card3 : src4
+			}, function(data,status){
+		       document.getElementById("3").src="./Images/Decks/tarot deck chat/"+data;
+		    }
+		);	
+		
+	}else{		
 		document.getElementById("3").src="./Images/Decks/tarot deck chat/back2.jpg";
 	}
 	return true;
@@ -104,9 +158,29 @@ function flip4(_src){
 	var tokenedIntoPair =  _src.split("/");
 	var length = tokenedIntoPair.length;
 	var backsrc = tokenedIntoPair[length-1];
+	
 	if(backsrc == "back2.jpg"){
-		document.getElementById("4").src="./Images/Decks/tarot deck chat/65.jpg";
+		var src1 = document.getElementById("1").src;
+		var tokens1 = src1.split("/");
+		var src1card = tokens1[tokens1.length - 1];
+		
+		var src2 = document.getElementById("2").src;
+		var tokens2 = src2.split("/");
+		var src2card = tokens2[tokens2.length - 1];
+		
+		var src3 = document.getElementById("3").src;
+		var tokens3 = src3.split("/");
+		var src3card = tokens3[tokens3.length - 1];
+		$.post("GenerateCardServlet", { 
+			card1 : src2,
+			card2 : src3,
+			card3 : src1
+			}, function(data,status){
+		       document.getElementById("4").src="./Images/Decks/tarot deck chat/"+data;
+		    }
+		);	
 	}else{
+		
 		document.getElementById("4").src="./Images/Decks/tarot deck chat/back2.jpg";
 	}
 	return true;
