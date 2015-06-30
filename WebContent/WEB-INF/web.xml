@@ -272,4 +272,14 @@
     <servlet-name>CurrentUserServlet</servlet-name>
     <url-pattern>/CurrentUserServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FortuneCookieServlet</display-name>
+    <servlet-name>FortuneCookieServlet</servlet-name>
+    <servlet-class>fortuneCookie.FortuneCookieServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FortuneCookieServlet</servlet-name>
+    <url-pattern>/FortuneCookieServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
