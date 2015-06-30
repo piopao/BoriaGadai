@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 import javax.sql.DataSource;
 
@@ -194,8 +195,37 @@ public class ChatManager extends DBManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-			
+		
+		
 	}
+		
+		public String getRandomTarotCard(){
+			String dirName = "";
+			Random rd = new Random();
+			int x = rd.nextInt(77);
+			x = x+1;
+			
+			try {
+			Connection con = Source.getConnection();;
+			String query = "select * from tarot where tarot_id =" + x;
+			PreparedStatement statement = con.prepareStatement(query);
+			ResultSet result = statement.executeQuery();
+			if(result.next())
+				dirName = result.getString(2);
+			 
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+				
+			return dirName;
+			
+		}
+		
+		
+		
+			
+	
 	
 	
 }

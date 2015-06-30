@@ -195,6 +195,43 @@ public String getLuckyNumbers(User user) {
 	}	
 	
 	
+	public void addReview (Review rev){
+		
+		try {
+			Connection con = Source.getConnection();
+			String query = "INSERT INTO quiz_reviews VALUES (null, \"" + rev.getText() + "\", "+
+			  rev.getStars()   +", \"" + rev.getDate() + "\", \""+  rev.getGameName()+"\", \"" + rev.getUser() +"\");";
+	
+			PreparedStatement statement = con.prepareStatement(query);
+			int result = statement.executeUpdate();
+			
+			con.close();
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+public void deleteReview (int id){
+		
+		try {
+			Connection con = Source.getConnection();
+			String query = "delete from quiz_reviews where review_id = " + id;
+	
+			PreparedStatement statement = con.prepareStatement(query);
+			int result = statement.executeUpdate();
+			
+			con.close();
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	
 	
 	
