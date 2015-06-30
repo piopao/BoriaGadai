@@ -7,14 +7,14 @@ USE db;
 
 CREATE TABLE IF NOT EXISTS users (
 	user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
-	username CHAR(64) ,
-    user_name CHAR(64) ,
-    user_surname CHAR(64) ,
+	username CHAR(64)  CHARACTER SET utf8 COLLATE utf8_unicode_ci ,
+    user_name CHAR(64)  CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+    user_surname CHAR(64)  CHARACTER SET utf8 COLLATE utf8_unicode_ci,
 	hashed_password CHAR(64),
 	email_address VARCHAR(254) NOT NULL UNIQUE,
 	birthdate DATE,
 	gender CHAR(8),
-	avatar_filename VARCHAR(128),
+	avatar_filename VARCHAR(128)  CHARACTER SET utf8 COLLATE utf8_unicode_ci,
 	info TEXT
 );
 
@@ -25,8 +25,8 @@ CREATE TABLE IF NOT EXISTS image_table (
 
 CREATE TABLE IF NOT EXISTS game_table (
 	game_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
-    game_name VARCHAR(32) NOT NULL UNIQUE,
-	game_description VARCHAR(512),
+    game_name VARCHAR(32)  CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL UNIQUE ,
+	game_description TEXT  CHARACTER SET utf8 COLLATE utf8_unicode_ci,
     image_name varchar(32) not null unique,
     game_url VARCHAR(32),
     FOREIGN KEY (image_name) REFERENCES image_table(image_dir) ON DELETE CASCADE
@@ -34,10 +34,10 @@ CREATE TABLE IF NOT EXISTS game_table (
 
 CREATE TABLE IF NOT EXISTS quiz_reviews (
 	review_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
-	review_text TEXT CHARACTER SET utf8,
+	review_text TEXT  CHARACTER SET utf8 COLLATE utf8_unicode_ci,
 	review_rating INT,
 	review_date DATETIME,
-    game_name varchar(32),
+    game_name varchar(32)  CHARACTER SET utf8 COLLATE utf8_unicode_ci,
 	user_email VARCHAR(64),
 	FOREIGN KEY (game_name) REFERENCES game_table(game_name) ON DELETE CASCADE,
 	FOREIGN KEY (user_email) REFERENCES users(email_address) ON DELETE CASCADE
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS cards (
 
 --
 CREATE TABLE IF NOT EXISTS fortune_card (
-	prediction_text TEXT CHARACTER SET utf8,
+	prediction_text TEXT  CHARACTER SET utf8 COLLATE utf8_unicode_ci,
     card_id INT,
 	FOREIGN KEY (card_id) REFERENCES cards(card_id) ON DELETE CASCADE
 	
@@ -94,7 +94,7 @@ CREATE TABLE IF NOT EXISTS fortune_card (
 
 CREATE TABLE IF NOT EXISTS weather_table (
 	weather_id INT PRIMARY KEY UNIQUE,
-    weather_text VARCHAR(128) NOT NULL UNIQUE,
+    weather_text VARCHAR(128)  CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL UNIQUE,
 	image_dir VARCHAR(64)
 );
 
@@ -103,7 +103,7 @@ CREATE TABLE IF NOT EXISTS weather_table (
 
 CREATE TABLE IF NOT EXISTS weather_history (
 	user_email VARCHAR(64),
-    text_weather VARCHAR(256),
+    text_weather VARCHAR(256)  CHARACTER SET utf8 COLLATE utf8_unicode_ci,
 	save_date VARCHAR(64),
 	FOREIGN KEY (user_email) REFERENCES users(email_address) ON DELETE CASCADE
 	
@@ -130,7 +130,7 @@ CREATE TABLE IF NOT EXISTS chat_requests(
 CREATE TABLE IF NOT EXISTS new_chat_messages(
 	init_user_email VARCHAR(64),
     receiver_user_email VARCHAR(64),
-    text_message VARCHAR(512),
+    text_message TEXT  CHARACTER SET utf8 COLLATE utf8_unicode_ci,
     FOREIGN KEY (init_user_email) REFERENCES users(email_address) ON DELETE CASCADE,
     FOREIGN KEY (receiver_user_email) REFERENCES users(email_address) ON DELETE CASCADE
 
@@ -161,7 +161,7 @@ CREATE TABLE IF NOT EXISTS played_tarot_cards(
 
 CREATE TABLE IF NOT EXISTS fortune_histroy (
 	user_email VARCHAR(64),
-    fortune_text VARCHAR(128),
+    fortune_text TEXT  CHARACTER SET utf8 COLLATE utf8_unicode_ci,
 	FOREIGN KEY (user_email) REFERENCES users(email_address) ON DELETE CASCADE
 	
 );
