@@ -3,6 +3,7 @@
  <%@ page import="java.util.List" %>
  <%@ page import="game_description.GameDescription" %>
  <%@ page import="Fteller.db.managers.GameManager" %>
+ <%@ page import="Fteller.db.managers.UserAccountManager" %>
  <%@ page import="review.Review" %>
  <%@ page import="authorization.User" %>
  <%@ page import="java.util.ArrayList" %>
@@ -27,7 +28,7 @@ User user = (User)sess.getAttribute("user");
 ServletContext context = getServletContext();
 GameManager db = (GameManager)context.getAttribute("GameManager");
 GameDescription gd = db.getGameDescription(gameParameter);
-UserAccountManager userManager = (GameManager)context.getAttribute("accountManager");
+UserAccountManager userManager = (UserAccountManager)context.getAttribute("accountManager");
 ArrayList<Review> revArr = gd.getReviews();
 String printing = "";
 //Printing Description
@@ -42,7 +43,7 @@ for(int i=revArr.size()-1; i>=0; i--){
 	Review rev = revArr.get(i);
 	printing+= "<div class = review> ";
 	printing+= "<div class = box> ";
-	printing+= "<div class=name ><a class=\"userId\" href="+ "\"Profilepage.jsp?profile=" + rev.getUser().getUser() +"\">" + rev.getUser() + "</a></div> ";
+	printing+= "<div class=name ><a class=\"userId\" href="+ "\"Profilepage.jsp?profile=" + rev.getUser() +"\">" + rev.getUser() + "</a></div> ";
 	int stars = rev.getStars();
 	printing += "<div class = stars> ";
 	for(int k=0; k<stars; k++){
