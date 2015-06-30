@@ -342,4 +342,7 @@
     <servlet-name>accRejFriendRequest</servlet-name>
     <url-pattern>/accRejFriendRequest</url-pattern>
   </servlet-mapping>
+  <listener>
+    <listener-class>listener.MySessionListener</listener-class>
+  </listener>
 </web-app>
