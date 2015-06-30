@@ -9,18 +9,21 @@ insert into admin values ("ekikn12@freeuni.edu.ge");
 insert into admin values ("mpepa13@freeuni.edu.ge");
 insert into admin values ("nbasi13@freeuni.edu.ge");
 
-insert into game_table values(null , "ამინდი", "გაიგე დღეს რა ამინდი გელის111211!!1", 'სურათის აიდი აქ', url);
-insert into game_table values(null , "amindi", "გაიგე დღეს რა ამინდი გელის111211!!1", 'სურათის აიდი აქ', url);
-insert into game_table values(null , "amindi", "გაიგე დღეს რა ამინდი გელის111211!!1", 'სურათის აიდი აქ', url);
-insert into game_table values(null , "amindi", "გაიგე დღეს რა ამინდი გელის111211!!1", 'სურათის აიდი აქ', url);
-insert into game_table values(null , "amindi", "გაიგე დღეს რა ამინდი გელის111211!!1", 'სურათის აიდი აქ', url); 
-
 insert into image_table(image_dir) values( "tarot-icon.png");
 insert into image_table (image_dir) values( "lottery-icon.png");
 insert into image_table  (image_dir)values("weather-icon.png");
 insert into image_table (image_dir) values("yesno-icon.png");
 insert into image_table (image_dir) values("cookie-icon.png");
 select * from image_table;
+
+insert into game_table values(null , "ამინდი", "გაინტერესებს, გარეთ გასვლისას ქოლგის წაღება დაგჭირდება თუ არა? გაღელვებს, რომ ღია ცის ქვეშ დაგეგმილი კონცერტი შეიძლება ამინდმა ჩაშალოს? გინდა გაიგო, საღამოს შეძლებ თუ არა წვიმის ყურებით დატკბობას? მაშინ გადადი და გაიგე რას გიმზადებს ცა უახლოეს მომავალში.", 3, "Weather.html");
+insert into game_table values(null , "ლატარია", "მოგაკლდა ფული? გინდა იღლბლიანი ლატარიის ბილეთის ნომრები გაიგო? მაშინ თამაში ლატარია ზუსტად შენთვისაა შექმნილი", 2, "Lottery.html");
+insert into game_table values(null , "კი თუ არა", "გაქვს კითხვები და გაინტერესებს მარტივი პასუხები? კი? თუ.. არა?.. თუ კი, გადადი თამაშზე.", 4, "YesNo.jsp");
+insert into game_table values(null , "იღბლიანი ნამცხვარი", "ნამცხარი ასეთი იღბლიანი და თან ასეთი გემრიელი არასდროს ყოფილა", 5 , "FortuneCookie.jsp");
+insert into game_table values(null , "ტარო", "არაჩვეულებრივი მკითხავი ტარო, ტარო ტატარო.. ", 1, "Tarot.html"); 
+select * from game_table; 
+
+
 
 insert into weather_table values ("501504", "დაუბერავს სუსტი ქარი დასავლეთიდან", "wind.png");
 insert into weather_table values ("501505", "დაუბერავს სუსტი ქარი აღმოსავლეთიდან", "wind.png");
