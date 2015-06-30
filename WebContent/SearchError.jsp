@@ -8,12 +8,13 @@
  	 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<style type="text/css">
+		@import url("NavigationBar.css");
 	    body{
 		background-color: #0e1e2f;
 		}	
 		img { height: 500px; width: 500px;
 			position: absolute;
-			margin-top: 10%;
+			margin-top: 5%;
 			left: 20px;
 		}		
 		h4 {
