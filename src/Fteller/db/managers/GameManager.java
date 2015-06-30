@@ -86,7 +86,7 @@ public class GameManager extends DBManager {
 					//System.out.println(resultTwo.getString(3));
 
 				
-					weatherPredicition += "Ã¡Æ’â€ºÃ¡Æ’ï¿½Ã¡Æ’Â¡Ã¡Æ’ï¿½Ã¡Æ’Å¡Ã¡Æ’ï¿½Ã¡Æ’â€œÃ¡Æ’Å“Ã¡Æ’â€�Ã¡Æ’Å¡Ã¡Æ’Ëœ Ã¡Æ’Â¢Ã¡Æ’â€�Ã¡Æ’â€ºÃ¡Æ’Å¾Ã¡Æ’Â Ã¡Æ’â€�Ã¡Æ’Â¢Ã¡Æ’Â£Ã¡Æ’Â Ã¡Æ’ï¿½Ã¡Æ’ï¿½: " +weatherVal.get(2)+ " Ã¡Æ’â€™Ã¡Æ’Â Ã¡Æ’ï¿½Ã¡Æ’â€œÃ¡Æ’Â£Ã¡Æ’Â¡Ã¡Æ’Ëœ" + "*" + "temp.png";
+				weatherPredicition +=weatherVal.get(2)+"*" + "temp.png";
 
 				
 				
