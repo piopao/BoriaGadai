@@ -9,13 +9,13 @@ public class Review {
 	private String gameName, text, date;
 	private int stars, reviewID;
 		
-	public Review(String user, String gameName, String text, int stars, int reviewID , Date date){
+	public Review(String user, String gameName, String text, int stars, int reviewID , String date){
 		this.user = user;
 		this.gameName = gameName;
 		this.text = text;
 		this.stars = stars;
 		this.reviewID = reviewID;
-		this.date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());		
+		this.date = date;		
 	}
 	
 	public void setDate(Date date){

@@ -170,7 +170,7 @@ public String getLuckyNumbers(User user) {
 				PreparedStatement statementSelect = con.prepareStatement(querySelect);
 				ResultSet resultSelect = statementSelect.executeQuery();
 				while(resultSelect.next()){
-						rev = new Review (resultSelect.getString(6), resultSelect.getString(5), resultSelect.getString(2), resultSelect.getInt(3), resultSelect.getInt(1), resultSelect.getDate(4));
+						rev = new Review (resultSelect.getString(6), resultSelect.getString(5), resultSelect.getString(2), resultSelect.getInt(3), resultSelect.getInt(1), resultSelect.getString(4));
 						reviews.add(rev);
 				}
 			
