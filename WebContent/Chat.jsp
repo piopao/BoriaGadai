@@ -29,7 +29,7 @@
                 </div>         
         </div>
         <div class="col-md-6">
-        	 <p id="clock"></p>
+        	<p id="clock"></p>
         	<div id ="cards">
         		<% 
 					String stat = request.getParameter("status");

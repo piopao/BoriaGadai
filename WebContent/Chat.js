@@ -13,7 +13,8 @@ function checkMes(){
 		 $.post("checkMessagesServlet",
 				 { },			        
 			      function(data,status){
-					if(data != null && data.length != 0){
+					if(data  && data != "null" && data.length != 0){
+						alert(data);
 					   	var textdiv = document.getElementById("textarea");
 					  	var paragraph = document.createElement("p");
 					  	var node = document.createTextNode(data);
@@ -204,7 +205,7 @@ function checkTarot(){
 		
 		}, 
 		function(data,status){
-			if(data != null || data.length != 0){
+			if(data  && data != "null" || data.length != 0){
 				var tokens = data.split(" ");
 				 document.getElementById(tokens[0]).src = "./Images/Decks/tarot deck chat/" + tokens[1];
 				}
