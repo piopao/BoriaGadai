@@ -14,7 +14,6 @@ function checkMes(){
 				 { },			        
 			      function(data,status){
 					if(data  && data != "null" && data.length != 0){
-						alert(data);
 					   	var textdiv = document.getElementById("textarea");
 					  	var paragraph = document.createElement("p");
 					  	var node = document.createTextNode(data);
@@ -214,6 +213,17 @@ function checkTarot(){
 	}
 	
 
+function endGame(){
+	 document.getElementById("message").value = "FORTUNE-TELLER HAS DISCONNECTED";
+	 sendMessage();	 
+	 window.location = "Homepage.jsp";
+	 return true;
+}
 	
-
+function endGameClient(){
+	 document.getElementById("message").value = "CLIENT HAS DISCONNECTED";
+	 sendMessage();	 
+	 window.location = "Homepage.jsp";
+	 return true;
+}
 
