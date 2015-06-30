@@ -49,9 +49,17 @@ public class LoginServlet extends HttpServlet {
 		UserAccountManager manager = (UserAccountManager)context.getAttribute("accountManager");
 		boolean accessGranted = manager.authenticateUser(email,hashedPassword);
 		User current = null;
-		if(accessGranted)
-			current = manager.getUserAccount(email);				
+		if(accessGranted){
+			current = manager.getUserAccount(email);	
+			boolean isadmin = manager.isAdmin(email);
+			if(isadmin){
+				current.setUserStatus(1);
+			}else {
+				current.setUserStatus(0);
+			}		
+		}
 		HttpSession sess = request.getSession();
+		
 		sess.setAttribute("user", current);
 		if(current == null) {				
 			sess.setAttribute("LoginStatus", "TryAgain");

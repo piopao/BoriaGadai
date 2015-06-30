@@ -56,6 +56,12 @@ public class ExternalLoginServlet extends HttpServlet {
 		if(!existingAccount)
 			 manager.createUserAccount(temp);
 		temp = manager.getUserAccount(email);
+		boolean isadmin = manager.isAdmin(email);
+		if(isadmin){
+			temp.setUserStatus(1);
+		}else {
+			temp.setUserStatus(0);
+		}
 		HttpSession sess = request.getSession();
 		sess.setAttribute("user", temp);
 		if(temp != null)context.setAttribute(temp.getEmail(), 1);

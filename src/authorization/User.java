@@ -32,6 +32,7 @@ public class User {
 	
 	
 
+
 	public void setHashPassword(String hashPassword){
 		this.hashPassword = hashPassword;
 	}
