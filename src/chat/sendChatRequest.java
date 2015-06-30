@@ -49,7 +49,7 @@ public class sendChatRequest extends HttpServlet {
 		String sender = (String) request.getParameter("sender");
 		String res = "";
 
-		if ((int) context.getAttribute(getter) == 1) {
+		if (context.getAttribute(getter).equals("1")) {
 			chatManager.addChatRequest(sender, getter);
 			res = "true";
 
