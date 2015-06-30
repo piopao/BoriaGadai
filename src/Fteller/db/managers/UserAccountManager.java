@@ -311,13 +311,12 @@ public void changeAvatarName(User user, String newAvatarName) {
 
 public ArrayList<String> checkPendingFriendRequests(String email){
 	
-	ArrayList<String> initEmail =null;
+ArrayList<String> initEmail = new ArrayList<String>();
 	
 	try {
 		Connection con = Source.getConnection();
 		
-		String query = generateSimpleSelectQuery("pending_friend_list",
-				new ArrayList<String>(), "user_emailB", email);
+		String query = "select * from pending_friend_list where user_emailB = \"" + email +"\"";
 		PreparedStatement statement = con.prepareStatement(query);
 		ResultSet result = statement.executeQuery();
 		while(result.next())
