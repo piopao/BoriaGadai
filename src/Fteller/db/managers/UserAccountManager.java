@@ -413,13 +413,8 @@ public boolean areFriends(String initEmail, String receiverEmail){
 		PreparedStatement statementCheck = con.prepareStatement(queryCheck);
 		ResultSet resultCheck = statementCheck.executeQuery();
 		if(resultCheck.next())
-			return true;
-		String query = "select from friend_list where user_emailA = \""+initEmail + "\"";
-		PreparedStatement statement = con.prepareStatement(query);
-		ResultSet result = statement.executeQuery();
-		if(result.next())
-			return true;
-		
+			if(receiverEmail.equals(resultCheck.getString(2)))
+				return true;		
 		
 		con.close();
 
