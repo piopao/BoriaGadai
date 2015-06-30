@@ -40,6 +40,9 @@
 		 </a>
 	</div>
 
+	 <a href="Homepage.jsp">
+  <img class = home src="./Images/home.png">
+	</a> 
 	<div class=scroll>
 		<img id=scroll onclick="scrollDownWindow()" class=scroll
 			src="./Images/scroll-down.png">
