@@ -20,16 +20,16 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS image_table (
 	image_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
-    image_dir VARCHAR(32)
+    image_dir VARCHAR(32) not null unique
 );
 
 CREATE TABLE IF NOT EXISTS game_table (
 	game_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
     game_name VARCHAR(32) NOT NULL UNIQUE,
 	game_description VARCHAR(512),
-    image_name INT not null unique,
+    image_name varchar(32) not null unique,
     game_url VARCHAR(32),
-    FOREIGN KEY (image_id) REFERENCES image_table(image_id) ON DELETE CASCADE
+    FOREIGN KEY (image_name) REFERENCES image_table(image_dir) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS quiz_reviews (
@@ -140,9 +140,14 @@ CREATE TABLE IF NOT EXISTS new_chat_messages(
 CREATE TABLE IF NOT EXISTS fortune_texts(
 	text_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
     fortune_text VARCHAR(128)
-	
-	
 );
+
+
+CREATE TABLE IF NOT EXISTS tarot(
+	text_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
+    dir_name VARCHAR(128)
+);
+
 
 
 CREATE TABLE IF NOT EXISTS fortune_histroy (
