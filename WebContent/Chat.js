@@ -7,7 +7,7 @@ function myTimer() {
     document.getElementById("clock").innerHTML = t;
 }
 
-var ch = setInterval(function(){ checkMes() }, 2000);
+var ch = setInterval(function(){ checkMes() }, 1000);
 
 function checkMes(){
 		 $.post("checkMessagesServlet",
@@ -86,7 +86,7 @@ function flip1(_src){
 		);		
 	}else{		
 		document.getElementById("1").src="./Images/Decks/tarot deck chat/back2.jpg";
-		 $.post("sendTarotServlet", { card: "1 back2"}, function(data,status){});
+		 $.post("sendTarotServlet", { card: "1 back2.jpg"}, function(data,status){});
 	}
 	return true;
 }
@@ -119,7 +119,7 @@ function flip2(_src){
 		);	
 	}else{		
 		document.getElementById("2").src="./Images/Decks/tarot deck chat/back2.jpg";
-		$.post("sendTarotServlet", { card: "2 back2"}, function(data,status){});
+		$.post("sendTarotServlet", { card: "2 back2.jpg"}, function(data,status){});
 	}
 	return true;
 }
@@ -153,7 +153,7 @@ function flip3(_src){
 		
 	}else{		
 		document.getElementById("3").src="./Images/Decks/tarot deck chat/back2.jpg";
-		$.post("sendTarotServlet", { card: "3 back2"}, function(data,status){});
+		$.post("sendTarotServlet", { card: "3 back2.jpg"}, function(data,status){});
 	}
 	return true;
 }
@@ -188,7 +188,7 @@ function flip4(_src){
 		);	
 	}else{		
 		document.getElementById("4").src="./Images/Decks/tarot deck chat/back2.jpg";
-		$.post("sendTarotServlet", { card: "3 back2"}, function(data,status){});
+		$.post("sendTarotServlet", { card: "3 back2.jpg"}, function(data,status){});
 	}
 	return true;
 }
@@ -196,7 +196,7 @@ function flip4(_src){
 
 
 
-var chTarot = setInterval(function(){ checkTarot() }, 2000);
+var chTarot = setInterval(function(){ checkTarot() }, 1000);
 
 function checkTarot(){
 	
