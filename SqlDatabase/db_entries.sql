@@ -9,8 +9,18 @@ insert into admin values ("ekikn12@freeuni.edu.ge");
 insert into admin values ("mpepa13@freeuni.edu.ge");
 insert into admin values ("nbasi13@freeuni.edu.ge");
 
+insert into game_table values(null , "ამინდი", "გაიგე დღეს რა ამინდი გელის111211!!1", 'სურათის აიდი აქ', url);
 insert into game_table values(null , "amindi", "გაიგე დღეს რა ამინდი გელის111211!!1", 'სურათის აიდი აქ', url);
+insert into game_table values(null , "amindi", "გაიგე დღეს რა ამინდი გელის111211!!1", 'სურათის აიდი აქ', url);
+insert into game_table values(null , "amindi", "გაიგე დღეს რა ამინდი გელის111211!!1", 'სურათის აიდი აქ', url);
+insert into game_table values(null , "amindi", "გაიგე დღეს რა ამინდი გელის111211!!1", 'სურათის აიდი აქ', url); 
 
+insert into image_table(image_dir) values( "tarot-icon.png");
+insert into image_table (image_dir) values( "lottery-icon.png");
+insert into image_table  (image_dir)values("weather-icon.png");
+insert into image_table (image_dir) values("yesno-icon.png");
+insert into image_table (image_dir) values("cookie-icon.png");
+select * from image_table;
 
 insert into weather_table values ("501504", "დაუბერავს სუსტი ქარი დასავლეთიდან", "wind.png");
 insert into weather_table values ("501505", "დაუბერავს სუსტი ქარი აღმოსავლეთიდან", "wind.png");
@@ -58,7 +68,7 @@ insert into weather_table values ("302520", "მოსალოდნელი�
 insert into weather_table values ("303520", "მოსალოდნელია თან ღრუბლიანი, თან მზიანი დღე სუსტი თოვლით", "cloud-sun-snow.png");
 
 insert into weather_table values ("301521", "მოსალოდნელია მზიანი დღე თოვლით", "sun-snow.png");
-insert into weather_table values ("302521", "მოსალოდნელია ღრუბლიანი დღე თოვლით", "sun-snow.png");
+insert into weather_table values ("302521", "მოსალოდნელია ღრუბლიანი დღე თოვლით", "cloud-snow.png");
 insert into weather_table values ("303521", "მოსალოდნელია თან ღრუბლიანი, თან მზიანი დღე თოვლით", "cloud-sun-snow.png");
 
 insert into weather_table values ("301522", "მოსალოდნელია მზიანი დღე ძლიერი თოვლით", "sun-snow.png");
