@@ -170,3 +170,29 @@ CREATE TABLE IF NOT EXISTS fortune_cookies_histroy(
 	FOREIGN KEY (user_email) REFERENCES users(email_address) ON DELETE CASCADE
 );
 
+CREATE TABLE IF NOT EXISTS tarot_time(
+	text_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
+    text_time TEXT  CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+    pic_dirname TEXT
+);
+
+CREATE TABLE IF NOT EXISTS tarot_person(
+	text_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
+    text_name TEXT  CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+    pic_dirname TEXT
+);
+
+CREATE TABLE IF NOT EXISTS tarot_adj(
+	text_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
+    text_adj TEXT  CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+    pic_dirname TEXT
+);
+CREATE TABLE IF NOT EXISTS tarot_verb(
+	text_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
+    text_you TEXT  CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+    text_he TEXT  CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+    text_we TEXT  CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+    text_they TEXT  CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+    pic_dirname TEXT
+);
+
