@@ -29,8 +29,12 @@ ServletContext context = getServletContext();
 GameManager db = (GameManager)context.getAttribute("GameManager");
 GameDescription gd = db.getGameDescription(gameParameter);
 UserAccountManager userManager = (UserAccountManager)context.getAttribute("accountManager");
+
+System.out.print(db == null);
+System.out.print(gd == null);
 ArrayList<Review> revArr = gd.getReviews();
 String printing = "";
+
 //Printing Description
 out.println(" <img id=gamePic class = gamePic src=\"./Images/" +gd.getImage() +"\">");
 out.println(" <div class=gameTextCover> <div class = gameText> <h4 class = gameText>" + gd.getDiscription() + "</h4> </div> </div>");

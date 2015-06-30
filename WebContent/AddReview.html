@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+
 <div class = review>
 <div class=starCover onmouseout=outmouseDiv()>
 <img id =i1 onclick="starClick(this)" onmouseover="onmouseStar(this)" onmouseout="outmouseStar(this)" class = star src="./Images/star-empty.png" > 
@@ -77,10 +84,10 @@ $(document).ready(function(){
     $("#AddReview").click(function(){
         $.post("ReviewsServlet",
         {
+          mission: "review add",
           gameName: "weather",
           stars: document.getElementById("starField").value, 
-          text: document.getElementById("comment").value, 
-          
+          text: document.getElementById("comment").value,           
         },
         function(data,status){
             alert("Data: " + data + "\nStatus: " + status);
@@ -99,3 +106,6 @@ $(document).ready(function(){
 }
 loop(); */
 </script>
+
+</body>
+</html>

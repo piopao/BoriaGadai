@@ -8,7 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Random;
 
 import javax.sql.DataSource;
 
@@ -163,6 +162,7 @@ public String getLuckyNumbers(User user) {
 		GameDescription retVal = null ;
 		Review rev = null;
 		ArrayList<Review> reviews = new ArrayList<Review>();
+
 		try {
 			Connection con = Source.getConnection();
 				
@@ -170,16 +170,18 @@ public String getLuckyNumbers(User user) {
 				PreparedStatement statementSelect = con.prepareStatement(querySelect);
 				ResultSet resultSelect = statementSelect.executeQuery();
 				while(resultSelect.next()){
-					System.out.print("kaka kuku \n ");
 						rev = new Review (resultSelect.getString(6), resultSelect.getString(5), resultSelect.getString(2), resultSelect.getInt(3), resultSelect.getInt(1), resultSelect.getDate(4));
 						reviews.add(rev);
-				}	
-			String query =	"select * from game_table where game_name = \""+ gameName +"\"";
+				}
+			
+				
+			String query = generateSimpleSelectQuery("game_table",
+				new ArrayList<String>(), "game_name", gameName);
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 		
 			if (result.next())
-			retVal = new GameDescription(result.getString(2), result.getString(3), result.getString(4), result.getString(5), reviews);
+				retVal = new GameDescription(result.getString(2), result.getString(3), result.getString(4), result.getString(5), reviews);
 			
 			con.close();
 		} catch (SQLException e) {
@@ -230,75 +232,6 @@ public void deleteReview (int id){
 		}
 	}
 	
-
-public String cookyGetHistory(User user) {
-		String text = "";
-	
-	try {
-		Connection con = Source.getConnection();
-		String query = "SELECT * FROM fortune_cookies_history WHERE user_email \"" + user.getEmail() + "\" ;";
-
-		PreparedStatement statement = con.prepareStatement(query);
-		ResultSet result = statement.executeQuery();
-		if(result.next())
-			text = result.getString(2);
-		
-		con.close();
-		
-		
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	return text;
-
-
-}
-
-
-public String cookyGetText(User user) {
-	Random rd = new Random();
-	int random = rd.nextInt(50);
-	random += 1;
-	
-	String text = "";
-	
-	try {
-		Connection con = Source.getConnection();
-		String query = "SELECT * FROM fortune_cookies  where cooky_id = " + random;
-
-		PreparedStatement statement = con.prepareStatement(query);
-		ResultSet result = statement.executeQuery();
-		if(result.next())
-			text = result.getString(2);
-		
-		
-		String queryCheck = "SELECT * FROM fortune_cookies_history  where user_email = " + user.getEmail();
-
-		PreparedStatement statementCheck = con.prepareStatement(queryCheck);
-		ResultSet resultCheck = statementCheck.executeQuery();
-		if(resultCheck.next()){
-			String queryUpdate = "update fortune_cookies_history set fortune_text = \"" + text + "\" where user_email = \""+ user.getEmail() + "\"";
-			PreparedStatement statementUpdate = con.prepareStatement(queryUpdate);
-			int resultUpdate = statementUpdate.executeUpdate();
-			
-		} else {
-			String queryAdd = "INSERT INTO fortune_cookies_history VALUES (\"" + user.getEmail() + "\", \"" + text + "\");";
-			PreparedStatement statementAdd = con.prepareStatement(queryAdd);
-			int resultAdd = statementAdd.executeUpdate();
-		}
-		
-		con.close();
-		
-		
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	return text;
-
-
-}
 	
 	
 	
