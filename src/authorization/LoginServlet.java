@@ -68,7 +68,8 @@ public class LoginServlet extends HttpServlet {
 			dispatch.forward(request, response);
 		}
 		else{
-			context.setAttribute(current.getEmail(), 1);
+			context.setAttribute(current.getEmail(), "1");
+			//String ds = (String)context.getAttribute(current.getEmail());
 			RequestDispatcher dispatch =
 					request.getRequestDispatcher("Homepage.jsp");
 			dispatch.forward(request, response);

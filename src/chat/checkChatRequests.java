@@ -50,7 +50,8 @@ public class checkChatRequests extends HttpServlet {
 				.getAttribute("chatManager");
 
 		if (temp != null) {
-			if ((int) context.getAttribute(temp.getEmail()) == 1) {
+			String onlineStat = (String)context.getAttribute(temp.getEmail());
+			if (onlineStat != null && onlineStat.equals("1")) {
 				String initEmail = chatManager
 						.checkChatRequest(temp.getEmail());
 				PrintWriter out = response.getWriter();

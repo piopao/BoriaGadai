@@ -48,8 +48,8 @@ public class sendChatRequest extends HttpServlet {
 		String getter = (String) request.getParameter("getter");
 		String sender = (String) request.getParameter("sender");
 		String res = "";
-
-		if (context.getAttribute(getter).equals("1")) {
+		String onlineStat = (String)context.getAttribute(getter);
+		if (onlineStat != null && onlineStat.equals("1")) {
 			chatManager.addChatRequest(sender, getter);
 			res = "true";
 
