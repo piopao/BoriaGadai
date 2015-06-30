@@ -7,7 +7,7 @@ function myTimer() {
     document.getElementById("demo").innerHTML = t;
 }
 
-var ch = setInterval(function(){ checkMes() }, 2000);
+//var ch = setInterval(function(){ checkMes() }, 2000);
 
 function checkMes(){
 		 $.post("checkMessagesServlet",
@@ -69,6 +69,8 @@ function flip1(_src){
 	var backsrc = tokenedIntoPair[length-1];
 	if(backsrc == "back2.jpg"){
 		document.getElementById("1").src="./Images/Decks/tarot deck chat/2.jpg";
+	}else{
+		document.getElementById("1").src="./Images/Decks/tarot deck chat/back2.jpg";
 	}
 	return true;
 }
@@ -79,6 +81,8 @@ function flip2(_src){
 	var backsrc = tokenedIntoPair[length-1];
 	if(backsrc == "back2.jpg"){
 		document.getElementById("2").src="./Images/Decks/tarot deck chat/32.jpg";
+	}else{
+		document.getElementById("2").src="./Images/Decks/tarot deck chat/back2.jpg";
 	}
 	return true;
 }
@@ -89,6 +93,8 @@ function flip3(_src){
 	var backsrc = tokenedIntoPair[length-1];
 	if(backsrc == "back2.jpg"){
 		document.getElementById("3").src="./Images/Decks/tarot deck chat/4.jpg";
+	}else{
+		document.getElementById("3").src="./Images/Decks/tarot deck chat/back2.jpg";
 	}
 	return true;
 }
@@ -100,6 +106,8 @@ function flip4(_src){
 	var backsrc = tokenedIntoPair[length-1];
 	if(backsrc == "back2.jpg"){
 		document.getElementById("4").src="./Images/Decks/tarot deck chat/65.jpg";
+	}else{
+		document.getElementById("4").src="./Images/Decks/tarot deck chat/back2.jpg";
 	}
 	return true;
 }

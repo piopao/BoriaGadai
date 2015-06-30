@@ -10,7 +10,7 @@ function checkRequest() {
 		        function(data,status){
 		        	if(data.length  != 0 ){
 		        		 if (confirm("უმკითხავებ?") == true) {
-		        			 	window.location = "Chat.jsp?chatter=" +data;
+		        			 	window.location = "Chat.jsp?status=teller&chatter=" +data;
 		        			 	$.post("changeRequestStatus", {}, function(data,status){}
 		        		        );
 		        		    } else {
