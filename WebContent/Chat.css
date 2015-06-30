@@ -18,6 +18,7 @@ body{
 }
 
 
+
 input.form-control{
 	text-align: left;
 	display: block;
@@ -79,6 +80,14 @@ input.form-control{
 	margin-left: 70px;
 	margin-top:15%;
 	
+	
 }
 
+
+#cards img:hover{
+	height:220px;
+	width: 140px;
+	margin-left: 50px;
+	margin-top: 10%;
+}
 
