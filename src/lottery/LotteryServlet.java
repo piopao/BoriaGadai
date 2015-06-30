@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import authorization.User;
 import Fteller.db.managers.GameManager;
-import weather.DBManager;
 
 /**
  * Servlet implementation class LotteryServlet
@@ -61,7 +60,6 @@ public class LotteryServlet extends HttpServlet {
     		if(i == 0) fin+= numbers[i];
     		else fin+=" "+numbers[i];
     	}    	
-    	User user = new User("pepanashvili.meko@gmail.com"); ///////wasashleli
     	db.lotteryAdd(user,fin);    	
     	return fin;
     }

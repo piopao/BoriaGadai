@@ -90,7 +90,6 @@ public class WeatherServlet extends HttpServlet {
 		generated.add(GenerateTemperature());
 		generated.remove(0);
 		WeatherForDataBase();
-		user = new User("mpepa13@freeuni.edu.ge"); //wasashleli
 		return db.getAndSaveWeather(user,wForDB);
 	}
 	
