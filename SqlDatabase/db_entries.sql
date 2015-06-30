@@ -13,7 +13,7 @@ insert into admin values ("ekikn12@freeuni.edu.ge");
 insert into admin values ("mpepa13@freeuni.edu.ge");
 insert into admin values ("nbasi13@freeuni.edu.ge");
 insert into tarot (dir_name) values ("0.jpg");
-insert into tarot (dir_name) values ("1.jpg");
+insert into tarot (dir_name) values ("1.jpg"); 
 insert into tarot (dir_name) values ("2.jpg");
 insert into tarot (dir_name) values ("3.jpg");
 insert into tarot (dir_name) values ("4.jpg");
@@ -103,11 +103,11 @@ insert into image_table (image_dir) values("yesno-icon.png");
 insert into image_table (image_dir) values("cookie-icon.png");
 select * from image_table;
 
-insert into game_table values(null , "lottery",  "გამოგელია ფული, ცადე იღბლიანი ლატარიის ბილეთი.", "lottery-icon.png", "Lottery.html");
-insert into game_table values(null , "weather",  "არ იცი რა ჩაიცვა? ნახე იწვიმებს თუ არა ხვალ.", "weather-icon.png", "Weather.html");
-insert into game_table values(null , "tarot",  "ტარო ტატარო ტარო ტატარო", "tarot-icon.png", "Tarot.html");
-insert into game_table values(null , "yesno",  "კი თუ არა, თუ კი, თუ არა?", "yesno-icon.png", "YesNo.jsp");
-insert into game_table values(null , "fortunecookie","ასეთი გემრიელი და თან იღბლიანი ნამცხვარი არასდროს ყოფილა", "cookie-icon.png", "FortuneCookie.jsp");
+insert into game_table values(null , "lottery",  "გამოგელია ფული, ცადე იღბლიანი ლატარიის ბილეთი.", "lottery-icon.png", "Lottery.html", 0, 0);
+insert into game_table values(null , "weather",  "არ იცი რა ჩაიცვა? ნახე იწვიმებს თუ არა ხვალ.", "weather-icon.png", "Weather.html", 0, 0);
+insert into game_table values(null , "tarot",  "ტარო ტატარო ტარო ტატარო", "tarot-icon.png", "Tarot.html", 0, 0);
+insert into game_table values(null , "yesno",  "კი თუ არა, თუ კი, თუ არა?", "yesno-icon.png", "YesNo.jsp", 0, 0);
+insert into game_table values(null , "fortunecookie","ასეთი გემრიელი და თან იღბლიანი ნამცხვარი არასდროს ყოფილა", "cookie-icon.png", "FortuneCookie.jsp", 0, 0);
 select * from game_table;
 
 insert into weather_table values ("501504", "დაუბერავს სუსტი ქარი დასავლეთიდან", "wind.png");
