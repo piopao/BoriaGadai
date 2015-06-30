@@ -151,7 +151,7 @@ public class ChatManager extends DBManager {
 				int resultDelete = statementDelete.executeUpdate();
 			}
 			con.close();
-		System.out.println("checknewmessages");	
+		//sSystem.out.println("checknewmessages");	
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -245,33 +245,33 @@ public class ChatManager extends DBManager {
 	}
 	
 	
-	public String checkPlayedCard(String email){
-		String message = "";
+	public String checkPlayedCard(String initEmail, String receiver){
+		String played_card = "";
 		try {
 			Connection con = Source.getConnection();
-			String query = "select * from new_chat_messages where receiver_user_email=\""+ email+"\"";
+			String query = "select * from played_tarot_card where receiver_user_emailB=\""+ receiver+"\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 			if(result.next()){
-				message = result.getString(1);
-				//message += 
-				message +=": " +result.getString(3);
+	
+				played_card +=result.getString(3);
+			
 			
 				
 				
-				String queryDelete = "delete from new_chat_messages where receiver_user_email =  \""+email+ "\"";
+				String queryDelete = "delete from played_tarot_crads where played_card =  \""+played_card+ "\"";
 				PreparedStatement statementDelete = con.prepareStatement(queryDelete);
 				int resultDelete = statementDelete.executeUpdate();
 			}
 			con.close();
-		System.out.println("checknewmessages");	
+		//System.out.println("checknewmessages");	
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		return message;
+		return played_card;
 			
 	}
 	
