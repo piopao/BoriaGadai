@@ -44,7 +44,7 @@
 		<img id=scroll onclick="scrollDownWindow()" class=scroll
 			src="./Images/scroll-down.png">
 	</div>
-
+	<p id = gameName style = "display:none;">fortunecookie</p>
 	<div id=reviewCover class=reviewCover></div>
 
 	<script>

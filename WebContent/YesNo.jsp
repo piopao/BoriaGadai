@@ -57,7 +57,7 @@
 
 <div id = reviewCover class= reviewCover >
 </div>
-
+<p id = gameName style = "display:none;">yesno</p>
 <script> 
  $(function(){
    $("#reviewCover").load("AddReview.html"); 
