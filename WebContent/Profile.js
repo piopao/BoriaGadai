@@ -181,7 +181,8 @@ function ftRequest(){
 		}, function(data){
 			if (data == "true"){
 				alert("მოთხოვნა გაგზავნილია");
-				window.location = "Chat.jsp?status=client&chatter="+email2;
+				var newLocation = "Chat.jsp?status=client&chatter="+email2;
+				window.location = newLocation;
 			}else{
 				alert("მოთხოვნა უკვე გაგზავნილია");
 			}
