@@ -15,26 +15,22 @@
 <script src="FortuneCookie.js"></script>
 </head>
 <body>
-	<div class="container cookies zoom_img">
-		<h2 id="title">აირჩიე ორცხობილა</h2>
-		<div class="row">
-			<div class="col-md-4 cookie">
-				<a href="#" onclick="breakCookie1();"><img id="cookie1" src="./Images/fortune-cookie.png"
-					style="width: 150px; height: 160px"></a>
-			</div>
-			<div class="col-md-4 cookie">
-				<a href="#" onclick="breakCookie2()"><img id="cookie2" src="./Images/fortune-cookie.png"
-					style="width: 150px; height: 160px"></a>
-			</div>
-			<div class="col-md-4 cookie">
-				<a href="#" onclick="breakCookie3()"><img id="cookie3" src="./Images/fortune-cookie.png"
-					style="width: 150px; height: 160px"></a>
-			</div>
-			<div class="col-md-4 cookie">
-				<a href="#" onclick="breakCookie4()"><img id="cookie4" src="./Images/fortune-cookie.png"
-					style="width: 150px; height: 160px"></a>
-			</div>
-		</div>
+	<div class="container cookies zoom_img">		
+	
+				<a href="#" id = a1 onclick="breakCookie1();"><img class = coPic id="cookie1" src="./Images/fortune-cookie2.png"
+				></a>			
+			
+				<a id = a2 href="#" onclick="breakCookie2()"><img class = coPic id="cookie2" src="./Images/fortune-cookie2.png"
+					></a>		
+					
+				<a id = a3 href="#" onclick="breakCookie3()"><img class = coPic id="cookie3" src="./Images/fortune-cookie2.png"
+					></a>
+					
+				<a id = a4 href="#" onclick="breakCookie4()"><img class = coPic id="cookie4" src="./Images/fortune-cookie2.png"
+					></a>
+			
+	
+		<h2 id="title"> აირჩიე ორცხობილა</h2>
 	</div>
 	
 	<div id="cookieFortune">

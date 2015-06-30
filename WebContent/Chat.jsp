@@ -33,17 +33,17 @@
         	<div id ="cards">
         		<% 
 					String stat = request.getParameter("status");
-        			if(/*stat != null && stat.equals("teller")*/true){
+        			if(stat != null && stat.equals("teller")){
 	        			out.println("<div><img id = \"1\" src=\"./Images/Decks/tarot deck chat/back2.jpg\" onclick = \"return flip1(this.src)\">");
 	        			out.println("<img id = \"2\" src=\"./Images/Decks/tarot deck chat/back2.jpg\" onclick = \"return flip2(this.src)\">");
 	        			out.println("<div><img id = \"3\" src=\"./Images/Decks/tarot deck chat/back2.jpg\" onclick = \"return flip3(this.src)\">");
 	        			out.println("<img id = \"4\" src=\"./Images/Decks/tarot deck chat/back2.jpg\" onclick = \"return flip4(this.src)\">");
-        			} /*else{
+        			} else{
         				out.println("<div><img id = \"1\" src=\"./Images/Decks/tarot deck chat/back2.jpg\">");
 	        			out.println("<img id = \"2\" src=\"./Images/Decks/tarot deck chat/back2.jpg\">");
 	        			out.println("<div><img id = \"3\" src=\"./Images/Decks/tarot deck chat/back2.jpg\">");
 	        			out.println("<img id = \"4\" src=\"./Images/Decks/tarot deck chat/back2.jpg\">");
-        			}*/
+        			}
 				%>     	
         	</div>       
         </div>                       

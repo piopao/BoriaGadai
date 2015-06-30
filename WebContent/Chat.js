@@ -76,9 +76,9 @@ function flip1(_src){
 		var src4card = tokens4[tokens4.length - 1];
 		
 		$.post("GenerateCardServlet", { 
-			card1 : src2,
-			card2 : src3,
-			card3 : src4
+			card1 : src2card,
+			card2 : src3card,
+			card3 : src4card
 			}, function(data,status){
 		       document.getElementById("1").src="./Images/Decks/tarot deck chat/"+data;
 		    }
@@ -108,9 +108,9 @@ function flip2(_src){
 		var tokens4 = src4.split("/");
 		var src4card = tokens4[tokens4.length - 1];
 		$.post("GenerateCardServlet", { 
-			card1 : src1,
-			card2 : src3,
-			card3 : src4
+			card1 : src1card,
+			card2 : src3card,
+			card3 : src4card
 			}, function(data,status){
 		       document.getElementById("2").src="./Images/Decks/tarot deck chat/"+data;
 		    }
@@ -139,9 +139,9 @@ function flip3(_src){
 		var tokens4 = src4.split("/");
 		var src4card = tokens4[tokens4.length - 1];
 		$.post("GenerateCardServlet", { 
-			card1 : src2,
-			card2 : src1,
-			card3 : src4
+			card1 : src2card,
+			card2 : src1card,
+			card3 : src4card
 			}, function(data,status){
 		       document.getElementById("3").src="./Images/Decks/tarot deck chat/"+data;
 		    }
@@ -171,10 +171,11 @@ function flip4(_src){
 		var src3 = document.getElementById("3").src;
 		var tokens3 = src3.split("/");
 		var src3card = tokens3[tokens3.length - 1];
+		
 		$.post("GenerateCardServlet", { 
-			card1 : src2,
-			card2 : src3,
-			card3 : src1
+			card1 : src2card,
+			card2 : src3card,
+			card3 : src1card
 			}, function(data,status){
 		       document.getElementById("4").src="./Images/Decks/tarot deck chat/"+data;
 		    }
