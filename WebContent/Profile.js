@@ -29,7 +29,6 @@ function loadInfo(data) {
 			document.getElementById(dataTokens[index] + "-div").style.visibility = 'visible';
 			document.getElementById("email").innerHTML = dataTokens[++index];
 			document.getElementById("underPicName").innerHTML = dataTokens[index];
-			
 		}else{
 			document.getElementById(dataTokens[index] + "-div").style.visibility = 'visible';
 			document.getElementById(dataTokens[index]).innerHTML = dataTokens[++index];
@@ -40,6 +39,7 @@ function loadInfo(data) {
 function guestOrUser() {
 	var user = document.getElementById("user").innerHTML;
 	var profileUser = document.getElementById("email").innerHTML;
+	document.getElementById("change-pic-but").style.visibility = "hidden";
 	if (user == profileUser) {
 		userRightSideInfo();
 	} else if (user == "ადმინი") {
@@ -60,6 +60,8 @@ function guestOrUser() {
 }
 
 function userRightSideInfo() {
+	document.getElementById("change-pic-but").style.visibility = "visible";
+	document.getElementById("change-pic-but").href = "ChooseProfilePic.jsp";
 	document.getElementById("edit-info-but").style.visibility = "visible";
 	document.getElementById("edit-info-but").setAttribute("disabled", "false");
 	document.getElementById("messages").innerHTML = "მკითხაობის მოთხოვნები";
@@ -179,7 +181,7 @@ function ftRequest(){
 		}, function(data){
 			if (data == "true"){
 				alert("მოთხოვნა გაგზავნილია");
-				window.location = "Chat.jsp?chatter="+email2;
+				window.location = "Chat.jsp?status=client&chatter="+email2;
 			}else{
 				alert("მოთხოვნა უკვე გაგზავნილია");
 			}
