@@ -67,7 +67,7 @@ public class ExternalLoginServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();	
 		if(temp != null){
 			if(manager.isBanned(temp.getEmail())){
-				//out.print("");				
+				out.print("Login.jsp");				
 			}else{			
 				context.setAttribute(temp.getEmail(), "1");
 				String login = request.getParameter("login");
