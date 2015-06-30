@@ -47,7 +47,7 @@ public class sendChatRequest extends HttpServlet {
 
 		String getter = (String) request.getParameter("getter");
 		String sender = (String) request.getParameter("sender");
-
+		chatManager.addChatRequest(sender, getter);
 		String res = "";
 
 		if ((int) context.getAttribute(getter) == 1) {
