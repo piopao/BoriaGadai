@@ -75,20 +75,14 @@ CREATE TABLE IF NOT EXISTS pending_friend_list (
 
 
 
---
-CREATE TABLE IF NOT EXISTS fortune_card (
-	prediction_text TEXT  CHARACTER SET utf8 COLLATE utf8_unicode_ci,
-    card_id INT,
-	FOREIGN KEY (card_id) REFERENCES cards(card_id) ON DELETE CASCADE
-	
-);
+
 
 
 
 
 CREATE TABLE IF NOT EXISTS weather_table (
 	weather_id INT PRIMARY KEY UNIQUE,
-    weather_text TEXT  CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL UNIQUE,
+    weather_text VARCHAR(255)  CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL UNIQUE,
 	image_dir VARCHAR(64)
 );
 
