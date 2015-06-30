@@ -1,27 +1,55 @@
 @import url("NavigationBar.css");
 .popularUsers {
 	position: absolute;
-	left: 900px;
+	right: 200px;
 	top: 0;
 	rigt: 0;
 	margin-top: 170px;
+	max-width: 200px;
+	
 }
 
 .table-hover {
-	width: 300px;
+	width: 250px;
 	height: 160px;
 }
 
 .fortune-tellings {
-	width: 730px;
-	margin-left: 20px;
+	margin-top: 50px;
+	width: 900px;
+	height: 800px;
+	text-align: center;
+}
+
+.row{
+	text-align: center;	
+	border-style:solid;
+	border-color: rgb(220, 220, 220);	 
+	border-width: 1px;
+	width: 1000px;
+	height: 900px;
 }
 
 .pop-users {
 	font-size: large;
-	width: 300px;
+	width: 200px;
 }
 
 body{
 	background-color: gray;
+}
+
+.predPic{	
+	display: inline;
+	width: 140px;
+	height: auto;
+	display: none;
+}
+
+div.finalRow{	
+	background-color: red;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	text-align:center;
 }

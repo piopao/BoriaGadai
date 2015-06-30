@@ -3,8 +3,7 @@
 img.scroll{
 	position: absolute;
 	transform: translate(-50%, -50%); 
-	top: 90%;
-	
+	top: 90%	
 }
 
 .home{
@@ -25,18 +24,18 @@ div.scroll{
 }
 
 div.review{
- position:absolute;
-  top: 120%;
-  margin-bottom: 200px;
-  text-align: center; 
-  transform: translate(-50%, -50%);
+    position: absolute;
+	transform: translate(-50%, -50%); 
+	top: 130%;
+	margin-bottom: 200px;
 }
 
 div.reviewCover{
+	background-color:transparent;
 	display: flex;
   	justify-content: center;
   	align-items: center;
-  	color:transparent;
+  	text-align:center;
 }
 
 

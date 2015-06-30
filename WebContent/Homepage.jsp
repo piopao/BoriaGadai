@@ -37,35 +37,36 @@
 	
 	<!--  end of google signout code -->
 
-
+   
 	<div class="container fortune-tellings">
-		<h2>Fortune Telling</h2>
-		<p>You can either predict your future, find out you lucky numbers
-			or even see you lucky weather for today ^^</p>
+	
 		<div class="row">
-			<div class="col-md-4">
-				<a href="GameDescription.jsp?gameName=lottery&gameLink=Lottery.html"> ლატარიააა
-					Ticket <img src="./Images/cloud.png" alt="Lottery Ticket"
-					style="width: 150px; height: 150px">
+			<a href="GameDescription.jsp?gameName=lottery&gameLink=Lottery.html">
+					<img id=p4 class = predPic src="./Images/lottery-icon.png" onmouseover="onmousePic(this)" onmouseout="outmousePic(this)" >
 				</a>
-			</div>
-			<div class="col-md-4">
-				<a href="TarotPrediction.jsp"> ტარო
-					reading <img src="./Images/rain.png" alt="Tarot Reading"
-					style="width: 150px; height: 160px">
+			
+				<a class = predLink href="GameDescription.jsp?gameName=cookie&gameLink=Cookie.html">
+				<img id=p1 class = predPic src="./Images/cookie-icon.png"  onmouseover="onmousePic(this)" onmouseout="outmousePic(this)">
 				</a>
-			</div>
-			<div class="col-md-4">
-				<a href="GameDescription.jsp?gameName=weather&gameLink=Weather.html"> ამინდი <img
-					src="./Images/sun.jpg" alt="weather forecast"
-					style="width: 150px; height: 160px">
+				<a class = predLink href="GameDescription.jsp?gameName=weather&gameLink=Weather.htm"> 
+				 <img id=p2 class = predPic src="./Images/weather-icon.png" onmouseover="onmousePic(this)" onmouseout="outmousePic(this)">
 				</a>
-			</div>
+				<a class = predLink href="GameDescription.jsp?gameName=yesno&gameLink=YesNo.jsp"> 
+				 <img id=p3 class = predPic src="./Images/yesno-icon.png" onmouseover="onmousePic(this)" onmouseout="outmousePic(this)">
+				</a>		
 		</div>
+		<div class = finalRow>
+			<a class = predLink href="GameDescription.jsp?gameName=tarot&gameLink=Tarot.html">
+				<img  id = tarot class = predPic src="./Images/tarot-icon.png" onmouseover="onmousePic(this)" onmouseout="outmousePic(this)">
+			</a>
+		</div>
+		
 	</div>
-
-		<div class="col-xs-1 popularUsers">
-		<h1 class="pop-users">პოპულარული მომხმარებლები</h1>
+	
+	
+	
+		<div id=popDiv class="col-xs-1 popularUsers">
+		<h1 class="pop-users">ტოპ  მომხმარებლები</h1>
 			<table class="table table-hover">
 				<tbody>
 					<tr>
@@ -83,7 +84,24 @@
 				</tbody>
 			</table>
 		</div>
-		
+
+<script>
+$(document).ready(function(){
+	 $(".predPic").fadeIn(5000);
+});
+
+function onmousePic(x){	
+	$(x).animate({width:"250px"},100);
+}
+
+
+
+function outmousePic(x){
+	$(x).animate({width:"140px"},100);
+}
+
+</script>	
+
 <script src="ChatRequest.js"></script>
 <script src="checkUser.js"></script>
 </body>
