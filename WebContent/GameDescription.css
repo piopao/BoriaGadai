@@ -93,11 +93,9 @@ div.cover{
 
 div.gamePic{
   	text-align:center;
-  	background-color: red;
 }
 
 div.gamePicCover{
-	background-color: red;
 	display: flex;
   	justify-content: center;
   	align-items: center;
@@ -107,6 +105,8 @@ div.gamePicCover{
 img.gamePic{
 	text-align: center;
 	margin-top: 50px;
+	width: 250px;
+	auto: auto;
 }
 
 #gameButt{
