@@ -165,3 +165,16 @@ CREATE TABLE IF NOT EXISTS fortune_histroy (
 	FOREIGN KEY (user_email) REFERENCES users(email_address) ON DELETE CASCADE
 	
 );
+
+
+CREATE TABLE IF NOT EXISTS fortune_cookies(
+	cooky_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
+    dir_name VARCHAR(128) CHARACTER SET utf8 COLLATE utf8_unicode_ci
+);
+
+CREATE TABLE IF NOT EXISTS fortune_cookies_histroy(
+	user_email VARCHAR(64),
+    fortune_text TEXT  CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+	FOREIGN KEY (user_email) REFERENCES users(email_address) ON DELETE CASCADE
+);
+
