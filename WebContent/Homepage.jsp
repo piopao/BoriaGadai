@@ -18,6 +18,9 @@
 </head>
 <body>
 
+
+
+
 	<div id="Navigation-bar"></div>
 
 	<script>
@@ -35,8 +38,9 @@
 	    });
 	  }</script>
 	
-	<!--  end of google signout code -->
+	<!--  end of google signout code -->	
 
+<div class = wrapwrap>
   <div class = wrap>
 	<div class="container fortune-tellings">
 	
@@ -63,28 +67,39 @@
 		
 	</div>
 	</div>
+</div>	
+	
+
 	
 	
 	
-	<!-- 	<div id=popDiv class="col-xs-1 popularUsers">
-		<h1 class="pop-users">ტოპ  მომხმარებლები</h1>
+<div id=popDiv class="col-xs-1 popularUsers">
+		<h1 class="pop-users">ტოპ  მკითხავი</h1>
 			<table class="table table-hover">
 				<tbody>
 					<tr>
-						<td><a href="#">megobari1</a></td>
+						<td><a class = top href="#">megobari1</a></td>
 					</tr>
 					<tr>
-						<td><a href="#">megobari2</a></td>
+						<td><a class = top href="#">megobari2</a></td>
 					</tr>
 					<tr>
-						<td><a href="#">megobari3</a></td>
+						<td><a class = top href="#">megobari3</a></td>
 					</tr>
 					<tr>
-						<td><a href="#">megobari4</a></td>
+						<td><a class = top href="#">megobari4</a></td>
+					</tr>
+					<tr>
+						<td><button id = popButton type="button" onclick="onmousePopul()">
+						      <span class="glyphicon glyphicon-chevron-left"></span>დაკლიკე </button></td>
 					</tr>
 				</tbody>
 			</table>
-		</div> -->
+</div> 
+		
+		
+
+		
 
 <script>
 $(document).ready(function(){
@@ -99,6 +114,21 @@ function onmousePic(x){
 
 function outmousePic(x){
 	$(x).animate({width:"140px"},100);
+}
+
+
+function onmousePopul(){
+	$("#popDiv").animate({ 
+        right: "100px",
+      }, 1000 );
+	document.getElementById("popButton").onclick = outmousePopul;
+}
+
+function outmousePopul(){
+	$("#popDiv").animate({ 
+        right: "-150px",
+      }, 1000 );
+	document.getElementById("popButton").onclick = onmousePopul;
 }
 
 </script>	

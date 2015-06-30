@@ -1,16 +1,15 @@
 @import url("NavigationBar.css");
 .popularUsers {
 	position: absolute;
-	right: 200px;
+	right: -150px;
 	top: 0;
 	rigt: 0;
 	margin-top: 170px;
-	max-width: 200px;
-	
+	width: 300px;	
 }
 
 .table-hover {
-	width: 250px;
+	width: 300px;
 	height: 160px;
 }
 
@@ -30,6 +29,14 @@
 	width: 1000px;
 	height: 700px;
 	
+}
+
+.wrapwrap{
+	background-color:transparent;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	text-align:center;
 }
 
 .row{
@@ -60,4 +67,22 @@ div.finalRow{
   	justify-content: center;
   	align-items: center;
   	text-align:center;
+}
+
+a.top{
+	float: right;
+	color: rgb(237, 237, 237);
+}
+
+.pop-users{
+	color: rgb(237, 237, 237);
+}
+#popButton{
+	color: rgb(237, 237, 237);
+	background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
 }
