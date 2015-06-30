@@ -234,16 +234,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>CheckPandingRequests</display-name>
-    <servlet-name>CheckPandingRequests</servlet-name>
-    <servlet-class>chat.CheckPandingRequests</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>CheckPandingRequests</servlet-name>
-    <url-pattern>/CheckPandingRequests</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>sendChatRequest</display-name>
     <servlet-name>sendChatRequest</servlet-name>
     <servlet-class>chat.sendChatRequest</servlet-class>
@@ -331,5 +321,15 @@
   <servlet-mapping>
     <servlet-name>sendFriendRequest</servlet-name>
     <url-pattern>/sendFriendRequest</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CheckPendingFRequests</display-name>
+    <servlet-name>CheckPendingFRequests</servlet-name>
+    <servlet-class>checkUser.CheckPendingFRequests</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckPendingFRequests</servlet-name>
+    <url-pattern>/CheckPendingFRequests</url-pattern>
   </servlet-mapping>
 </web-app>
