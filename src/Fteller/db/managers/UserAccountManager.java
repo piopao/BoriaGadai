@@ -409,7 +409,7 @@ public void declineFriendRequest(String initEmail, String receiverEmail){
 public boolean areFriends(String initEmail, String receiverEmail){
 	try {
 		Connection con = Source.getConnection();
-		String queryCheck = "select from friend_list where user_emailA = \""+initEmail + "\"";
+		String queryCheck = "select * from friend_list where user_emailA = \""+initEmail + "\"";
 		PreparedStatement statementCheck = con.prepareStatement(queryCheck);
 		ResultSet resultCheck = statementCheck.executeQuery();
 		if(resultCheck.next())
