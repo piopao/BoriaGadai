@@ -7,11 +7,11 @@ import authorization.User;
 
 public class Review {
 	
-	private User user;
+	private String user;
 	private String gameName, text, date;
 	private int stars, reviewID;
 		
-	public Review(User user, String gameName, String text, int stars, int reviewID , Date date){
+	public Review(String user, String gameName, String text, int stars, int reviewID , Date date){
 		this.user = user;
 		this.gameName = gameName;
 		this.text = text;
@@ -24,7 +24,7 @@ public class Review {
 		this.date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
 	}
 	
-	public void setUser(User user){
+	public void setUser(String user){
 		this.user = user;
 	}
 	
@@ -44,11 +44,7 @@ public class Review {
 		return date;
 	}
 	
-	public String getUserFullName(){
-		return user.getName() + " " + user.getSurname();
-	}
-	
-	public User getUser(){
+	public String getUser(){
 		return user;
 	}
 	

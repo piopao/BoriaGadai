@@ -160,27 +160,28 @@ public String getLuckyNumbers(User user) {
 	
 	public GameDescription getGameDescription(String gameName){
 		GameDescription retVal = null ;
+		Review rev = null;
 		ArrayList<Review> reviews = new ArrayList<Review>();
-		int number = 0;
+
 		try {
 			Connection con = Source.getConnection();
-		
+				
+				String querySelect = "select  *  from quiz_reviews where game name = \"" + gameName + "\"";
+				PreparedStatement statementSelect = con.prepareStatement(querySelect);
+				ResultSet resultSelect = statementSelect.executeQuery();
+				while(resultSelect.next()){
+						rev = new Review (resultSelect.getString(6), resultSelect.getString(5), resultSelect.getString(2), resultSelect.getInt(3), resultSelect.getInt(1), resultSelect.getDate(4));
+						reviews.add(rev);
+				}
 			
-			String queryCount = "select  count(*) from quiz_reviews where game name = \"" + gameName + "\"";
-				PreparedStatement statementCount = con.prepareStatement(queryCount);
-				ResultSet resultCount = statementCount.executeQuery();
-				if(resultCount.next())
-					number = resultCount.getInt(1);
-			
-			
-			
+				
 			String query = generateSimpleSelectQuery("game_table",
 				new ArrayList<String>(), "game_name", gameName);
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 		
 			if (result.next())
-			retVal = new GameDescription(result.getString(2), result.getString(3), result.getString(4), result.getString(5), null);
+			retVal = new GameDescription(result.getString(2), result.getString(3), result.getString(4), result.getString(5), reviews);
 			
 			con.close();
 		} catch (SQLException e) {
@@ -192,4 +193,10 @@ public String getLuckyNumbers(User user) {
 		return retVal;
 	
 	}	
+	
+	
+	
+	
+	
+	
 }

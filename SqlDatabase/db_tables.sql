@@ -18,10 +18,18 @@ CREATE TABLE IF NOT EXISTS users (
 	info TEXT
 );
 
-#dir_names for default avatar pictures
-CREATE TABLE IF NOT EXISTS pictures (
-	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
-	location NCHAR(128)
+CREATE TABLE IF NOT EXISTS image_table (
+	image_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
+    image_dir VARCHAR(32)
+);
+
+CREATE TABLE IF NOT EXISTS game_table (
+	game_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
+    game_name VARCHAR(32) NOT NULL UNIQUE,
+	game_description VARCHAR(512),
+    image_name INT not null unique,
+    game_url VARCHAR(32),
+    FOREIGN KEY (image_id) REFERENCES image_table(image_id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS quiz_reviews (
@@ -29,9 +37,9 @@ CREATE TABLE IF NOT EXISTS quiz_reviews (
 	review_text TEXT CHARACTER SET utf8,
 	review_rating INT,
 	review_date DATETIME,
-    game_name varchar(64),
+    game_name varchar(32),
 	user_email VARCHAR(64),
-   # FOREIGN KEY (game_name) REFERENCES game_table(game_name) ON DELETE CASCADE,
+	FOREIGN KEY (game_name) REFERENCES game_table(game_name) ON DELETE CASCADE,
 	FOREIGN KEY (user_email) REFERENCES users(email_address) ON DELETE CASCADE
 	
 	
@@ -81,19 +89,7 @@ CREATE TABLE IF NOT EXISTS fortune_card (
 	
 );
 
-CREATE TABLE IF NOT EXISTS image_table (
-	image_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
-    image_dir VARCHAR(32)
-);
 
-CREATE TABLE IF NOT EXISTS game_table (
-	game_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
-    game_name VARCHAR(32) NOT NULL UNIQUE,
-	game_description VARCHAR(512),
-    image_id INT,
-    game_url VARCHAR(32),
-    FOREIGN KEY (image_id) REFERENCES image_table(image_id) ON DELETE CASCADE
-);
 
 
 CREATE TABLE IF NOT EXISTS weather_table (
