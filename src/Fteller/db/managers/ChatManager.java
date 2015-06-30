@@ -245,7 +245,7 @@ public class ChatManager extends DBManager {
 	}
 	
 	
-	public String checkPlayedCard(String initEmail, String receiver){
+	public String checkPlayedCard(String receiver){
 		String played_card = "";
 		try {
 			Connection con = Source.getConnection();
