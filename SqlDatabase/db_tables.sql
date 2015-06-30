@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS quiz_reviews (
 	review_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
 	review_text TEXT  CHARACTER SET utf8 COLLATE utf8_unicode_ci,
 	review_rating INT,
-	review_date DATETIME,
+	review_date VARCHAR(64),
     game_name varchar(32)  CHARACTER SET utf8 COLLATE utf8_unicode_ci,
 	user_email VARCHAR(64),
 	FOREIGN KEY (game_name) REFERENCES game_table(game_name) ON DELETE CASCADE,
