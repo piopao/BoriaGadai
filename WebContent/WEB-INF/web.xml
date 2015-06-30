@@ -345,4 +345,14 @@
   <listener>
     <listener-class>listener.MySessionListener</listener-class>
   </listener>
+  <servlet>
+    <description></description>
+    <display-name>BlockUser</display-name>
+    <servlet-name>BlockUser</servlet-name>
+    <servlet-class>checkUser.BlockUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BlockUser</servlet-name>
+    <url-pattern>/BlockUser</url-pattern>
+  </servlet-mapping>
 </web-app>
