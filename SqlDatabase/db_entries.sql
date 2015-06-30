@@ -9,6 +9,8 @@ insert into admin values ("ekikn12@freeuni.edu.ge");
 insert into admin values ("mpepa13@freeuni.edu.ge");
 insert into admin values ("nbasi13@freeuni.edu.ge");
 
+insert into game_table values(null , "amindi", "გაიგე დღეს რა ამინდი გელის111211!!1", 'სურათის აიდი აქ', url);
+
 
 insert into weather_table values ("501504", "დაუბერავს სუსტი ქარი დასავლეთიდან", "wind.png");
 insert into weather_table values ("501505", "დაუბერავს სუსტი ქარი აღმოსავლეთიდან", "wind.png");

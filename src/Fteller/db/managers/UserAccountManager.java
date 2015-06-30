@@ -274,14 +274,8 @@ public void changeHashedPassword(User user, String newHashedPassword) {
 			"email_address", user.getEmail());
 }
 
-
-public void changeEmail(User user, String newEmail) {
-	executeSimpleUpdate("users", "email_address", newEmail, "email_address",
-			user.getEmail());
-}
-
 public void changeLastName(User user, String newLastName) {
-	System.out.println(user.getEmail());
+	//System.out.println(user.getEmail());
 	executeSimpleUpdate("users", "user_surname", newLastName, "email_address",
 			user.getEmail());
 }
@@ -312,7 +306,7 @@ public void changeGender(User user, String newGender) {
 
 public void changeAvatarName(User user, String newAvatarName) {
 	executeSimpleUpdate("users", "avatar_filename", newAvatarName,
-			"user_id", user.getUsername());
+			"user_id", user.getEmail());
 }
 
 public ArrayList<String> checkPendingFriendRequests(String email){
