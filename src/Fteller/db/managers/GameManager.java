@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -196,11 +197,14 @@ public String getLuckyNumbers(User user) {
 	
 	
 	public void addReview (Review rev){
+		Date dt = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
 		
 		try {
 			Connection con = Source.getConnection();
 			String query = "INSERT INTO quiz_reviews VALUES (null, \"" + rev.getText() + "\", "+
-			  rev.getStars()   +", \"" + rev.getDate() + "\", \""+  rev.getGameName()+"\", \"" + rev.getUser() +"\");";
+			  rev.getStars()   +", \"" + sdf.format(dt) + "\", \""+  rev.getGameName()+"\", \"" + rev.getUser() +"\");";
 	
 			PreparedStatement statement = con.prepareStatement(query);
 			int result = statement.executeUpdate();

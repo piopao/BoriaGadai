@@ -2,7 +2,8 @@ package unitTest;
 
 import static org.junit.Assert.*;
 
-import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -64,6 +65,7 @@ public class UserAccountManagerTest {
 		assertTrue(manager.isAdmin("ekikn12@freeuni.edu.ge"));
 		assertTrue(manager.isAdmin("mpepa13@freeuni.edu.ge"));
 		assertTrue(manager.isAdmin("nbasi13@freeuni.edu.ge"));
+		
 	}
 	
 	@Test
@@ -89,7 +91,7 @@ public class UserAccountManagerTest {
 	
 	@Test
 	public void testChanges() {
-		User dummy = new User("dummy", "dummy", "dummson", "dummy@hash", "dummy@mail.com", Date.valueOf("1994-06-13"), "Female", null, "i am dummy");
+		User dummy = new User("dummy", "dummy", "dummson", "dummy@hash", "dummy@mail.com", null, "Female", null, "i am dummy");
 		manager.createUserAccount(dummy);
 		
 		User temp = manager.getUserAccount(dummy.getEmail());
