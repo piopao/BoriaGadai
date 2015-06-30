@@ -49,10 +49,6 @@ public class RegistrationServlet extends HttpServlet {
 		ServletContext context = getServletContext();
 		UserAccountManager manager = (UserAccountManager)context.getAttribute("accountManager");		
 		boolean success = manager.createUserAccount(newbie);
-		boolean check = manager.checkEmail(email);
-		if(check){RequestDispatcher dispatch =
-				request.getRequestDispatcher("Homepage.jsp");
-		dispatch.forward(request, response); }
 		if(success){
 			RequestDispatcher dispatch =
 					request.getRequestDispatcher("Login.jsp");
