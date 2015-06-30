@@ -332,4 +332,14 @@
     <servlet-name>CheckPendingFRequests</servlet-name>
     <url-pattern>/CheckPendingFRequests</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>accRejFriendRequest</display-name>
+    <servlet-name>accRejFriendRequest</servlet-name>
+    <servlet-class>friend.accRejFriendRequest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>accRejFriendRequest</servlet-name>
+    <url-pattern>/accRejFriendRequest</url-pattern>
+  </servlet-mapping>
 </web-app>
