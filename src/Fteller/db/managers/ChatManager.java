@@ -249,7 +249,7 @@ public class ChatManager extends DBManager {
 		String played_card = "";
 		try {
 			Connection con = Source.getConnection();
-			String query = "select * from played_tarot_card where receiver_user_emailB=\""+ receiver+"\"";
+			String query = "select * from played_tarot_cards where receiver_user_emailB=\""+ receiver+"\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 			if(result.next()){

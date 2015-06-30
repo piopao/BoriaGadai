@@ -196,22 +196,23 @@ function flip4(_src){
 
 
 
-/*var chTarot = setInterval(function(){ checkTarot() }, 2000);
+var chTarot = setInterval(function(){ checkTarot() }, 2000);
 
 function checkTarot(){
 	
 	$.post("checkTarotServlet", { 
 		
-		}, function(data,status){
+		}, 
+		function(data,status){
 			if(data != null || data.length != 0){
 				var tokens = data.split(" ");
 				 document.getElementById(tokens[0]).src = "./Images/Decks/tarot deck chat/" + tokens[1];
-			}
+				}
 	       
-	    }
-	);	}
+	    	});	
+	}
 	
-	*/
+
 	
 
 

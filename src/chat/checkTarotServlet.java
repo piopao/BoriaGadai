@@ -8,7 +8,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import authorization.User;
 import Fteller.db.managers.ChatManager;
 
 /**
@@ -37,10 +39,10 @@ public class checkTarotServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ServletContext context= getServletContext();
-		ChatManager chatManager = (ChatManager)context.getAttribute("chatManager");
-		
-		String ret = "";
-		//String ret = chatManager.checkPlayedCard(initEmail, receiver);
+		ChatManager chatManager = (ChatManager)context.getAttribute("chatManager");		
+		HttpSession sess = request.getSession();
+		User temp = (User) sess.getAttribute("user");		
+		String ret = chatManager.checkPlayedCard(temp.getEmail());
 		PrintWriter out = response.getWriter();
 		out.print(ret);
 	}
