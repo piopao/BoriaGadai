@@ -312,23 +312,15 @@ public void changeAvatarName(User user, String newAvatarName) {
 public ArrayList<String> checkPendingFriendRequests(String email){
 	
 	ArrayList<String> initEmail =null;
-	int number = 0;
 	
 	try {
 		Connection con = Source.getConnection();
-		
-		String queryCount = "select  count(user_emailA) from pending_friend_list where user_emailB = \"" + email + "\"";
-		PreparedStatement statementCount = con.prepareStatement(queryCount);
-		ResultSet resultCount = statementCount.executeQuery();
-		if(resultCount.next())
-			number = resultCount.getInt(1);
-		//.out.println(number);
 		
 		String query = generateSimpleSelectQuery("pending_friend_list",
 				new ArrayList<String>(), "user_emailB", email);
 		PreparedStatement statement = con.prepareStatement(query);
 		ResultSet result = statement.executeQuery();
-		if(result.next())
+		while(result.next())
 			initEmail.add(result.getString(1));
 		con.close();
 
@@ -356,10 +348,6 @@ public boolean sendFriendRequest(String initEmail, String receiverEmail){
 			return false;		
 		
 		
-		
-		
-		
-		
 		String query = "insert into pending_friend_list values (\"" + initEmail + "\", \""
 		+ receiverEmail + "\")";
 		PreparedStatement statement = con.prepareStatement(query);
@@ -372,9 +360,75 @@ public boolean sendFriendRequest(String initEmail, String receiverEmail){
 		
 	}
 	
-	return true;
+	return true;		
+}
 
+
+public void acceptFriendRequest(String initEmail, String receiverEmail){
+	try {
+		Connection con = Source.getConnection();
+		String queryCheck = "delete from pending_friend_list where user_emailA = \""+initEmail + "\"";
+		PreparedStatement statementCheck = con.prepareStatement(queryCheck);
+		ResultSet resultCheck = statementCheck.executeQuery();	
 		
+		
+		String query = "insert into friend_list values (\"" + initEmail + "\", \""
+		+ receiverEmail + "\")";
+		PreparedStatement statement = con.prepareStatement(query);
+		int result = statement.executeUpdate();
+		
+		String queryTwo = "insert into friend_list values (\"" + receiverEmail + "\", \""
+				+ initEmail + "\")";
+				PreparedStatement statementTwo = con.prepareStatement(queryTwo);
+				int resultTwo = statementTwo.executeUpdate();
+		con.close();
+
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		
+	}		
+}
+
+public void declineFriendRequest(String initEmail, String receiverEmail){
+	try {
+		Connection con = Source.getConnection();
+		String queryCheck = "delete from pending_friend_list where user_emailA = \""+initEmail + "\"";
+		PreparedStatement statementCheck = con.prepareStatement(queryCheck);
+		ResultSet resultCheck = statementCheck.executeQuery();
+		con.close();
+
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		
+	}		
+}
+
+
+public boolean areFriens(String initEmail, String receiverEmail){
+	try {
+		Connection con = Source.getConnection();
+		String queryCheck = "select from friend_list where user_emailA = \""+initEmail + "\"";
+		PreparedStatement statementCheck = con.prepareStatement(queryCheck);
+		ResultSet resultCheck = statementCheck.executeQuery();
+		if(resultCheck.next())
+			return true;
+		String query = "select from friend_list where user_emailA = \""+initEmail + "\"";
+		PreparedStatement statement = con.prepareStatement(query);
+		ResultSet result = statement.executeQuery();
+		if(result.next())
+			return true;
+		
+		
+		con.close();
+
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		
+	}		
+	return false;
 }
 
 

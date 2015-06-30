@@ -57,14 +57,14 @@ CREATE TABLE IF NOT EXISTS banned_accounts (
 
 CREATE TABLE IF NOT EXISTS friend_list (
 	user_emailA VARCHAR(64),
-    user_emailB VARCHAR(76),
+    user_emailB VARCHAR(64),
 	FOREIGN KEY (user_emailA) REFERENCES users(email_address) ON DELETE CASCADE,
 	FOREIGN KEY (user_emailB) REFERENCES users(email_address) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS pending_friend_list (
 	user_emailA VARCHAR(64),
-    user_emailB VARCHAR(76),
+    user_emailB VARCHAR(64),
 	FOREIGN KEY (user_emailA) REFERENCES users(email_address) ON DELETE CASCADE,
 	FOREIGN KEY (user_emailB) REFERENCES users(email_address) ON DELETE CASCADE
 );
