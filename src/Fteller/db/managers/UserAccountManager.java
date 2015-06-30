@@ -458,42 +458,26 @@ public ArrayList<String> getFriends(String email){
 
 //TODO: add after review class is created. 
 
-
-/*
-public List<Review> getReviews(User user, int page, int limit) {
-	List<Review> reviews = new ArrayList<Review>();
+public void deleteFriend(String initEmail, String receiverEmail){
 	try {
 		Connection con = Source.getConnection();
-		StringBuilder builder = new StringBuilder("SELECT * FROM quiz_reviews ");
-		builder.append("WHERE user_id = ? ");
-		builder.append("ORDER BY review_date DESC ");
-		builder.append("LIMIT ?, ? ;");
-		PreparedStatement statement = con.prepareStatement(builder
-				.toString());
-		statement.setLong(1, user.getId());
-		statement.setInt(2, (page - 1) * limit);
-		statement.setInt(3, limit);
-		ResultSet rs = statement.executeQuery();
-		// building Review objects
-		while (rs.next()) {
-			String username = rs.getString(1);
-			int game_id = rs.getInt(2);
-			Integer rating = rs.getInt(3);
-			String reviewText = rs.getString(4);
-			Timestamp time = rs.getTimestamp(5);
-			Review review = new Review(username, game_id, rating,
-					reviewText, time);
-			reviews.add(review);
-		}
+		String queryCheck = "delete from pending_friend_list where user_emailA = \""+initEmail + "\" AND \"" + receiverEmail +"\"";
+		PreparedStatement statementCheck = con.prepareStatement(queryCheck);
+		ResultSet resultCheck = statementCheck.executeQuery();
+		
+		
+		String query = "delete from pending_friend_list where user_emailA = \""+ receiverEmail+ "\" AND \"" + initEmail +"\"";
+		PreparedStatement statement = con.prepareStatement(query);
+		ResultSet result = statement.executeQuery();
+		
 		con.close();
+
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
-	}
-	return reviews;
+		
+	}		
 }
-*/
-
 public void removeAccount(User user) {
 	executeSimpleDelete("users", "email_address", user.getEmail());
 }
