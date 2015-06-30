@@ -85,7 +85,7 @@ $(document).ready(function(){
         $.post("ReviewsServlet",
         {
           mission: "review add",
-          gameName: "weather",
+          gameName: document.getElementById("gameName").value,
           stars: document.getElementById("starField").value, 
           text: document.getElementById("comment").value,           
         },
