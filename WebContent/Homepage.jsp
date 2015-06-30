@@ -37,7 +37,7 @@
 	
 	<!--  end of google signout code -->
 
-   
+  <div class = wrap>
 	<div class="container fortune-tellings">
 	
 		<div class="row">
@@ -62,10 +62,11 @@
 		</div>
 		
 	</div>
+	</div>
 	
 	
 	
-		<div id=popDiv class="col-xs-1 popularUsers">
+	<!-- 	<div id=popDiv class="col-xs-1 popularUsers">
 		<h1 class="pop-users">ტოპ  მომხმარებლები</h1>
 			<table class="table table-hover">
 				<tbody>
@@ -83,7 +84,7 @@
 					</tr>
 				</tbody>
 			</table>
-		</div>
+		</div> -->
 
 <script>
 $(document).ready(function(){

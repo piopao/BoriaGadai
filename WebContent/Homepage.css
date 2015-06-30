@@ -15,19 +15,25 @@
 }
 
 .fortune-tellings {
-	margin-top: 50px;
 	width: 900px;
-	height: 800px;
 	text-align: center;
 }
 
-.row{
-	text-align: center;	
-	border-style:solid;
+.wrap{
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+	text-align: center;
+	border-style: solid;
 	border-color: rgb(220, 220, 220);	 
 	border-width: 1px;
 	width: 1000px;
-	height: 900px;
+	height: 700px;
+	
+}
+
+.row{
+	text-align: center;
 }
 
 .pop-users {
@@ -44,10 +50,12 @@ body{
 	width: 140px;
 	height: auto;
 	display: none;
+	z-index: -1;
+	margin: 10px;
+	margin-left: 20px;
 }
 
 div.finalRow{	
-	background-color: red;
 	display: flex;
   	justify-content: center;
   	align-items: center;
