@@ -68,11 +68,18 @@ public class LoginServlet extends HttpServlet {
 			dispatch.forward(request, response);
 		}
 		else{
+			if(manager.isBanned(current.getEmail())){
+				sess.setAttribute("LoginStatus", "Banned");
+				RequestDispatcher dispatch =
+						request.getRequestDispatcher("Login.jsp");
+				dispatch.forward(request, response);				
+			}else{
 			context.setAttribute(current.getEmail(), "1");
 			//String ds = (String)context.getAttribute(current.getEmail());
 			RequestDispatcher dispatch =
 					request.getRequestDispatcher("Homepage.jsp");
 			dispatch.forward(request, response);
+			}
 		}
 	}
 

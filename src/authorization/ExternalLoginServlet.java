@@ -64,11 +64,18 @@ public class ExternalLoginServlet extends HttpServlet {
 		}
 		HttpSession sess = request.getSession();
 		sess.setAttribute("user", temp);
-		if(temp != null)context.setAttribute(temp.getEmail(), "1");
-		String login = request.getParameter("login");
-		sess.setAttribute("login", login);
-		PrintWriter out = response.getWriter();
-		out.print("Homepage.jsp");
+		PrintWriter out = response.getWriter();	
+		if(temp != null){
+			if(manager.isBanned(temp.getEmail())){
+				//out.print("");				
+			}else{			
+				context.setAttribute(temp.getEmail(), "1");
+				String login = request.getParameter("login");
+				sess.setAttribute("login", login);
+						
+				out.print("Homepage.jsp");
+			}
+		}
 	}
 
 }

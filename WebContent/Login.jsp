@@ -40,6 +40,9 @@
 			if(!(condition == null) && condition.equals("TryAgain")){
 				sess.setAttribute("LoginStatus", null);
 				out.println("<h5 id = \"error\">მომხმარებლის ერთ-ერთი მონაცემი არასწორია</h5>");
+			}else if (!(condition == null)){
+				sess.setAttribute("LoginStatus", null);
+				out.println("<h5 id = \"error\">მომხმარებელი დროებით დაბლოკილია</h5>");
 			}
 		%>
 		<p id = "warning">* *</p>
