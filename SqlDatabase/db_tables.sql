@@ -155,7 +155,7 @@ CREATE TABLE IF NOT EXISTS played_tarot_cards(
     played_card VARCHAR(64),
     FOREIGN KEY (init_user_email) REFERENCES users(email_address) ON DELETE CASCADE,
     FOREIGN KEY (receiver_user_email) REFERENCES users(email_address) ON DELETE CASCADE
-)
+);
 
 
 
