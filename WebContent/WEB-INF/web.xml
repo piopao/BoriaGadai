@@ -254,16 +254,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>sendFriendRequest</display-name>
-    <servlet-name>sendFriendRequest</servlet-name>
-    <servlet-class>friend.sendFriendRequest</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>sendFriendRequest</servlet-name>
-    <url-pattern>/sendFriendRequest</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>CurrentUserServlet</display-name>
     <servlet-name>CurrentUserServlet</servlet-name>
     <servlet-class>chat.CurrentUserServlet</servlet-class>
@@ -321,5 +311,25 @@
   <servlet-mapping>
     <servlet-name>sendTarotServlet</servlet-name>
     <url-pattern>/sendTarotServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>isFriendServlet</display-name>
+    <servlet-name>isFriendServlet</servlet-name>
+    <servlet-class>friend.isFriendServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>isFriendServlet</servlet-name>
+    <url-pattern>/isFriendServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>sendFriendRequest</display-name>
+    <servlet-name>sendFriendRequest</servlet-name>
+    <servlet-class>friend.sendFriendRequest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>sendFriendRequest</servlet-name>
+    <url-pattern>/sendFriendRequest</url-pattern>
   </servlet-mapping>
 </web-app>
