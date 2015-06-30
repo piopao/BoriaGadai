@@ -42,7 +42,6 @@ public class sendChatRequest extends HttpServlet {
 		
 		String getter = (String) request.getParameter("getter");
 		String sender = (String) request.getParameter("sender");
-		System.out.println(getter +" -> "+sender);
 		boolean sent = chatManager.addChatRequest(sender, getter);
 		String res = "";
 		if (sent){

@@ -4,10 +4,10 @@ var myVar = setInterval(function(){ myTimer() }, 1000);
 function myTimer() {
     var d = new Date();
     var t = d.toLocaleTimeString();
-    document.getElementById("demo").innerHTML = t;
+    document.getElementById("clock").innerHTML = t;
 }
 
-//var ch = setInterval(function(){ checkMes() }, 2000);
+var ch = setInterval(function(){ checkMes() }, 2000);
 
 function checkMes(){
 		 $.post("checkMessagesServlet",
