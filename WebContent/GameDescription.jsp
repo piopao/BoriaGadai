@@ -37,7 +37,9 @@ out.println(" <div class=gamePicCover> <div class = gamePic>  <img id=gamePic cl
 out.println(" <div class=gameTextCover> <div class = gameText> <h4 class = gameText>" + gd.getDiscription() + "</h4> </div> </div>");
 if(user != null) out.println("<a id= \"gameButt\" href= \""+ gameLink +"\" class=\"btn btn-success  btn-lg\" role=\"button\">ვიმკითხაოთ</a>");
 else out.println("<a id= \"gameButt\" href= \""+ gameLink +"\" class=\"btn btn-success  btn-lg disabled\" role=\"button\">ვიმკითხაოთ</a>");
+out.println("<div class = ratingCover ><h1 id = rating>" + db.getReviewRating(gameParameter) + "</h1></div>" );
 printing += "<div class = cover> <div class = reviewComb> ";
+
 
 //Printing Reviews
 if(revArr != null){

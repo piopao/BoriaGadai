@@ -149,5 +149,17 @@ a.userId:visited {
     color: rgb(220, 220, 220);
 }
 
+#rating{
+	text-align: center;
+	color: rgb(220, 220, 220);
+	position: absolute;
+	top: 80%;
+	transform: translate(-50%, -50%);  
+}
 
-
+div.ratingCover{
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	text-align:center;
+}

@@ -242,7 +242,7 @@ public class GameManager {
 		}
 	}
 
-	public void addGamerRating(String name, int rate) {
+	public void addGameRating(String name, int rate) {
 		double prevRating = 0.0;
 		double newRating = 0.0;
 		try {
@@ -257,7 +257,7 @@ public class GameManager {
 
 				String queryUpdate = "update game_table set rating = "
 						+ newRating + ", users = " + (result.getInt(2) + 1)
-						+ "where game_name = \"" + name + "\"";
+						+ " where game_name = \"" + name + "\"";
 				PreparedStatement statementUpdate = con
 						.prepareStatement(queryUpdate);
 				int resultUpate = statementUpdate.executeUpdate();
