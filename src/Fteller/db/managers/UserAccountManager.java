@@ -442,7 +442,7 @@ public class UserAccountManager extends DBManager {
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 			while (result.next())
-				initEmail.add(result.getString(1));
+				initEmail.add(result.getString(2));
 			con.close();
 
 			return initEmail;
