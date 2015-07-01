@@ -65,6 +65,8 @@ public class UserProfileServlet extends HttpServlet {
 				info += "/profilePic/" + user.getPictureDirname();
 			if (user.getInfo() != "" && user.getInfo() != null)
 				info += "/info/" + user.getInfo();
+			if ((Double)manager.getUserRating(email) != null)
+				info += "/rating/" + (Double)manager.getUserRating(email);
 
 			response.setCharacterEncoding("UTF-8");
 			PrintWriter out = response.getWriter();

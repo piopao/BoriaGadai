@@ -36,12 +36,15 @@ function loadInfo(data) {
 			document.getElementById(dataTokens[index] + "-div").style.visibility = 'visible';
 			document.getElementById("email").innerHTML = dataTokens[++index];
 			document.getElementById("underPicName").innerHTML = dataTokens[index];
+		} else if (dataTokens[index] == "rating") {
+			document.getElementById("ratingStars").innerHTML = dataTokens[++index];
 		} else {
 			document.getElementById(dataTokens[index] + "-div").style.visibility = 'visible';
 			document.getElementById(dataTokens[index]).innerHTML = dataTokens[++index];
 		}
 	}
 }
+
 
 function guestOrUser() {
 	var user = document.getElementById("user").innerHTML;
@@ -166,14 +169,14 @@ function SaveChanges() {
 	var editInfo = document.getElementById("edit-info").value;
 
 	$.post('UpdateInfo', {
-		username : editUsername,
-		name : editName,
-		surname : editSurname,
-		passwordOld : editPasswordOld,
-		passwordNew : editPasswordNew,
-		birthdate : editBirthdate,
-		gender : editGender,
-		info : editInfo
+		"username" : editUsername,
+		"name" : editName,
+		"surname" : editSurname,
+		"passwordOld" : editPasswordOld,
+		"passwordNew" : editPasswordNew,
+		"birthdate" : editBirthdate,
+		"gender" : editGender,
+		"info" : editInfo
 	}, function(data) {
 		if (data == "shortPass") {
 			document.getElementById("error2").style.visibility = "visible";
@@ -196,8 +199,8 @@ function ftRequest() {
 		var email1 = document.getElementById("user").innerHTML;
 		var email2 = document.getElementById("email").innerHTML;
 		$.post("sendChatRequest", {
-			sender : email1,
-			getter : email2
+			"sender" : email1,
+			"getter" : email2
 		}, function(data) {
 			if (data == "true") {
 				alert("მოთხოვნა გაგზავნილია");
@@ -219,9 +222,9 @@ function fRequest() {
 		var email2 = document.getElementById("email").innerHTML;
 		if (buttonText == "დამეგობრება") {
 			$.post("sendFriendRequest", {
-				sender : email1,
-				getter : email2,
-				action : "befriend"
+				"sender" : email1,
+				"getter" : email2,
+				"action" : "befriend"
 			}, function(data) {
 				if (data == "true") {
 					alert("მოთხოვნა გაგზავნილია");
@@ -234,9 +237,9 @@ function fRequest() {
 					.post(
 							"sendFriendRequest",
 							{
-								sender : email1,
-								getter : email2,
-								action : "unfriend"
+								"sender" : email1,
+								"getter" : email2,
+								"action" : "unfriend"
 							},
 							function(data) {
 								if (data == "true") {
@@ -252,11 +255,11 @@ function blockUser() {
 	var action = document.getElementById("block-but").innerHTML;
 	if (action == "დაბლოკე") {
 		$.post("BlockUser", {
-			action : "block"
+			"action" : "block"
 		}, function() {
 			document.getElementById("block-but").innerHTML = "ახსენი ბლოკი";
 		});
-	} else if (action == "ახსენი ბლოკი") {
+	} else if ("action" == "ახსენი ბლოკი") {
 		$.post("BlockUser", {
 			action : "unblock"
 		}, function() {

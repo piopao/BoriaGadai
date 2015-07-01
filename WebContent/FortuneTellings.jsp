@@ -86,8 +86,8 @@
 	<script>
 		function deleteRev(x) {
 			$.post("ReviewsServlet", {
-				mission : "review delete",
-				reviewID : x.id,
+				"mission" : "review delete",
+				"reviewID" : x.id,
 			}, function(data, status) {
 				location.reload();
 			});

@@ -169,14 +169,14 @@ function outmousePic(x){
 
 function onmousePopul(){
 	$("#popDiv").animate({ 
-        right: "100px",
+        "right": "100px",
       }, 1000 );
 	document.getElementById("popButton").onclick = outmousePopul;
 }
 
 function outmousePopul(){
 	$("#popDiv").animate({ 
-        right: "-150px",
+        "right": "-150px",
       }, 1000 );
 	document.getElementById("popButton").onclick = onmousePopul;
 }

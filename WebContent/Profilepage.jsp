@@ -55,8 +55,8 @@
 					<td><span id="friendingLogo" class="glyphicon glyphicon-globe"></span></td>
 				</tr>
 				<tr>
-					<td><a href="#">რეიტინგი</a></td>
-					<td><i><span class="glyphicon glyphicon-star"></span></i> <i><span
+					<td><a id="rating" href="#">რეიტინგი</a></td>
+					<td id="ratingStars"><i><span class="glyphicon glyphicon-star"></span></i> <i><span
 							class="glyphicon glyphicon-star"></span></i> <i><span
 							class="glyphicon glyphicon-star"></span></i> <i><span
 							class="glyphicon glyphicon-star"></span></i></td>
