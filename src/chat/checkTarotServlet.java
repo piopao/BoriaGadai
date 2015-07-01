@@ -39,7 +39,7 @@ public class checkTarotServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ServletContext context= getServletContext();
-		ChatManager chatManager = (ChatManager)context.getAttribute("chatManager");		
+		ChatManager chatManager = (ChatManager)context.getAttribute("ChatManager");		
 		HttpSession sess = request.getSession();
 		User temp = (User) sess.getAttribute("user");		
 		String ret = chatManager.checkPlayedCard(temp.getEmail());

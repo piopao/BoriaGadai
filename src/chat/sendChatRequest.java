@@ -43,7 +43,7 @@ public class sendChatRequest extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		ServletContext context = getServletContext();
 		ChatManager chatManager = (ChatManager) context
-				.getAttribute("chatManager");
+				.getAttribute("ChatManager");
 
 		String getter = (String) request.getParameter("getter");
 		String sender = (String) request.getParameter("sender");

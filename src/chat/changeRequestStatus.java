@@ -41,7 +41,7 @@ public class changeRequestStatus extends HttpServlet {
 		HttpSession sess = request.getSession();
 		User temp = (User) sess.getAttribute("user");
 		ServletContext context = getServletContext();
-		ChatManager chatManager = (ChatManager)context.getAttribute("chatManager");
+		ChatManager chatManager = (ChatManager)context.getAttribute("ChatManager");
 		if(temp!=null)
 			chatManager.deleteChatRequest(temp.getEmail());
 		

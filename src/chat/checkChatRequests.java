@@ -47,13 +47,12 @@ public class checkChatRequests extends HttpServlet {
 		User temp = (User) sess.getAttribute("user");
 		ServletContext context = getServletContext();
 		ChatManager chatManager = (ChatManager) context
-				.getAttribute("chatManager");
+				.getAttribute("ChatManager");
 
 		if (temp != null) {
 			String onlineStat = (String)context.getAttribute(temp.getEmail());
 			if (onlineStat != null && onlineStat.equals("1")) {
-				String initEmail = chatManager
-						.checkChatRequest(temp.getEmail());
+				String initEmail = chatManager.checkChatRequest(temp.getEmail());
 				PrintWriter out = response.getWriter();
 				out.print(initEmail);
 			}

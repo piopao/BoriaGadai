@@ -43,7 +43,7 @@ public class sendTarotServlet extends HttpServlet {
 		String chatterEmail = (String) sess.getAttribute("chatter");		
 		String cardInfo = request.getParameter("card");
 		ServletContext context= getServletContext();
-		ChatManager chatManager = (ChatManager)context.getAttribute("chatManager");
+		ChatManager chatManager = (ChatManager)context.getAttribute("ChatManager");
 		chatManager.addPlayedCard(temp.getEmail(), chatterEmail, cardInfo);		
 	}
 

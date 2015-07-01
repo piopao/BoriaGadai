@@ -41,7 +41,7 @@ public class GenerateCardServlet extends HttpServlet {
 		String card3 =  request.getParameter("card3");
 		
 		ServletContext context = getServletContext();
-		ChatManager chatManager = (ChatManager)context.getAttribute("chatManager");
+		ChatManager chatManager = (ChatManager)context.getAttribute("ChatManager");
 		String randomCard = chatManager.getRandomTarotCard();
 		while(randomCard.equals(card1) || randomCard.equals(card2) || randomCard.equals(card3)){
 			randomCard = chatManager.getRandomTarotCard();
