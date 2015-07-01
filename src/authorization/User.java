@@ -9,14 +9,14 @@ public class User {
 	private int id, userStatus;
 	private String username, hashPassword, email, name, surname, picture, info, gender;
 	private ArrayList<Integer> friends; //stores ids
-	private Date birthDate;
+	private String birthDate;
 	
 	
 	public User(String email){
 		this(null, null,  null, null, email, null, null, null, null);
 	}
 	
-	public User( String username, String name, String surname, String hashPassword, String email, Date birthdate, String gender, String picture, String info){
+	public User( String username, String name, String surname, String hashPassword, String email, String birthdate, String gender, String picture, String info){
 		userStatus = 0;
 		friends = new ArrayList<Integer>();
 		setUsername(username);
@@ -144,11 +144,11 @@ public class User {
 	}	
 	
 	/*user birth date setter/getters*/
-	public void setBirthDate(Date date){
+	public void setBirthDate(String date){
 		this.birthDate = date;
 	}
 	
-	public Date getBirthDate(){
+	public String getBirthDate(){
 		return this.birthDate;
 	}	
 	

@@ -167,7 +167,7 @@ public class UserAccountManager {
 			if (rs.next())
 				user = new User(rs.getString(2), rs.getString(3),
 						rs.getString(4), rs.getString(5), rs.getString(6),
-						rs.getDate(7), rs.getString(8), rs.getString(9),
+						rs.getString(7), rs.getString(8), rs.getString(9),
 						rs.getString(10));
 
 			con.close();
