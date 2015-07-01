@@ -38,9 +38,7 @@ public class FortuneCookieServlet extends HttpServlet {
 		
 		String fortune = "your fortune";
 		if(currentUser != null){
-			System.out.println("ola");
-			fortune = db.getCookie(currentUser);
-			System.out.println(fortune);
+			fortune = db.getAndSaveCookie(currentUser);
 		}
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();

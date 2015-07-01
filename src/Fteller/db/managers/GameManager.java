@@ -402,7 +402,7 @@ public class GameManager {
 
 		try {
 			Connection con = Source.getConnection();
-			String query = "select fortune text from fortune_cookies where cooky_id = "
+			String query = "select fortune_text from fortune_cookies where cooky_id = "
 					+ random;
 			// System.out.println(weatherVal.get(0));
 			PreparedStatement statement = con.prepareStatement(query);
