@@ -19,6 +19,15 @@ function checkMes(){
 					  	var node = document.createTextNode(data);
 					   	paragraph.appendChild(node);
 					   	textdiv.appendChild(paragraph);
+					   	var tokens = data.split(" ");
+					   	if(tokens[1] === "DISCONNECTED"){
+					   		if(confirm("გსურთ მკითხავის შეფასება?") == true){
+					   			window.location = "RateTeller.jsp";
+					   		}else{
+					   			window.location = "Homepage.jsp";
+					   		}
+					   	}
+					   	
 				   	}
 				   	return true;  			        	      	
 		 });	
@@ -221,7 +230,7 @@ function endGame(){
 }
 	
 function endGameClient(){
-	 document.getElementById("message").value = "DISCONNECTED";
+	 document.getElementById("message").value = "your client ran away";
 	 sendMessage();	 
 	 window.location = "Homepage.jsp";
 	 return true;
