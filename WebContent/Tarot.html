@@ -36,7 +36,8 @@ function newPrediction(){
       deckIndex: document.getElementById("deckIndex").innerHTML,
     },
     function(data,status){  
-    	$("#predictionCover").append(data);
+    	/*$("#predictionCover").append(data);*/
+    	loadData(data);
     	$(".predPicMain").fadeIn(9000);
      });
 	}
@@ -44,6 +45,51 @@ function newPrediction(){
 		finished();
 	}
 };
+
+
+function loadData(data){
+	var deckID = document.getElementById("deckIndex").innerHTML;
+	 var text = "";
+	  var tokenedIntoPair = data.split("/");
+	  var length = tokenedIntoPair.length;	  
+	  for(i = 0; i<length; i++){
+		 var tokenedTextPic = tokenedIntoPair[i].split("*");
+		 var sublength = tokenedTextPic.lenght;
+		 
+		  var pic = document.createElement("IMG");
+		  pic.setAttribute("src","./Images/Weather/" + deckID +  tokenedTextPic[1]);
+		  pic.setAttribute("class", "predElem");
+		  text += document.createTextNode(tokenedTextPic[0]);
+		  text.appendChild(node);
+		  textDiv.appendChild(text);
+		  
+		  var div = document.createElement("div");
+		  div.setAttribute("class", "comb");
+		  div.appendChild(pic);
+		  div.appendChild(textDiv);
+		  document.getElementById("dataLoad").appendChild(div);
+		  		  
+	  }
+	
+	
+	
+	
+	
+	
+	/*
+	out.println("<div id=prediction class= prediction>");
+	out.println("<img class=predPicMain onclick = \"showPrediction()\" src=\"./Images/Decks/1.jpg\">");
+	out.println("<img class=predElem  style=\"display:none;\" src=\"./Images/Decks/3.jpg\">");
+	out.println("<img class=predElem style=\"display:none;\" src=\"./Images/Decks/4.jpg\">");
+	out.println("<img class=predElem style=\"display:none;\" src=\"./Images/Decks/1.jpg\">");
+	out.println("<img class=predElem style=\"display:none;\" src=\"./Images/Decks/2.jpg\">");
+	out.println("<h5 class=predText id=predText style=\"display:none;\" >  </h5>" );
+	out.println("</div>");
+	*/
+}
+
+
+
 
 function finished(){
 	$("#predictionCover").append("<div class = finished> <h3 class = finished> მესამე თვალი გადაიღალა </h3> </div>");

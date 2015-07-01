@@ -18,7 +18,7 @@ public class ChatManager {
 
 	protected DataSource Source;
 
-	public static final String ATTRIBUTE_NAME = "GameManager";
+	public static final String ATTRIBUTE_NAME = "ChatManager";
 	
 	/*
 	* Enum used to represent matching type for SQL statement.
