@@ -27,8 +27,7 @@ public class UserAccountManager extends DBManager {
 	public boolean checkEmail(String email) {
 		try {
 			Connection con = Source.getConnection();
-			String query = generateSimpleSelectQuery("users",
-					new ArrayList<String>(), "email_address", email);
+			String query = "select * from users where email_address = \""+email +"\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 			boolean contains = result.next();
@@ -148,8 +147,7 @@ public class UserAccountManager extends DBManager {
 		User user = null;
 		try {
 			Connection con = Source.getConnection();
-			String query = generateSimpleSelectQuery("users",
-					new ArrayList<String>(), "email_address", email);
+			String query = "select * from users where email_address = \""+email+"\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet rs = statement.executeQuery();
 
@@ -174,21 +172,6 @@ public class UserAccountManager extends DBManager {
 		return user;
 	}
 
-	public List<User> getUserAccounts(int page, int limit) throws SQLException {
-		List<User> userAccounts = new ArrayList<User>();
-		Connection con = Source.getConnection();
-		String query = "SELECT username FROM users LIMIT ?, ?;";
-		PreparedStatement statement = con.prepareStatement(query);
-		statement.setInt(1, (page - 1) * limit);
-		statement.setInt(2, limit);
-		ResultSet rs = statement.executeQuery();
-		while (rs.next()) {
-			User user = new User(rs.getString(1));
-			userAccounts.add(user);
-		}
-		con.close();
-		return userAccounts;
-	}
 
 	public int getUserAccountsQuantity() {
 		int result = 0;
@@ -217,8 +200,7 @@ public class UserAccountManager extends DBManager {
 	public boolean isAdmin(String email) {
 		try {
 			Connection con = Source.getConnection();
-			String query = generateSimpleSelectQuery("admin",
-					new ArrayList<String>(), "email", email);
+			String query = "select * from admin where user_email = \"" + email +"\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 
@@ -234,14 +216,23 @@ public class UserAccountManager extends DBManager {
 	}
 
 	public void removeAdmin(User user) {
-		executeSimpleDelete("admin", "email_address", user.getEmail());
+		try {
+			Connection con = Source.getConnection();
+			String query = "delete from admin where user_email = \"" + user.getEmail() +"\"";
+			PreparedStatement statement = con.prepareStatement(query);
+			int result = statement.executeUpdate();
+
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public boolean isBanned(String email) {
 		try {
 			Connection con = Source.getConnection();
-			String query = generateSimpleSelectQuery("banned_accounts",
-					new ArrayList<String>(), "email", email);
+			String query = "select * from banned_accounts where email_address = \""+email+"\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 
@@ -256,29 +247,61 @@ public class UserAccountManager extends DBManager {
 		return false;
 	}
 
-	public boolean banAccount(User user) {
-		String userEmail = user.getEmail();
-		if (checkEmail(userEmail)) {
-			List<String> values = new ArrayList<String>();
-			values.add(userEmail);
-			executeInsert("banned_accounts", values);
-			return true;
+	public void banAccount(User user) {
+		try {
+			Connection con = Source.getConnection();
+			String query = "insert into banned_accounts values  (\"" + user.getEmail() +"\")";
+			PreparedStatement statement = con.prepareStatement(query);
+			int result = statement.executeUpdate();
+
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		return false;
+			
 	}
 
 	public void unbanAccount(User user) {
-		executeSimpleDelete("banned_accounts", "email", user.getEmail());
+		try {
+			Connection con = Source.getConnection();
+			String query = "delete from banned_accounts where user_email = \"" + user.getEmail() +"\"";
+			PreparedStatement statement = con.prepareStatement(query);
+			int result = statement.executeUpdate();
+
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void changeUserName(User user, String newUserName) {
-		executeSimpleUpdate("users", "username", newUserName, "email_address",
-				user.getEmail());
+		try {
+			Connection con = Source.getConnection();
+			String query = "update users set username=\""+ newUserName + "\"  where user_email = \"" + user.getEmail() +"\"";
+			PreparedStatement statement = con.prepareStatement(query);
+			int result = statement.executeUpdate();
+
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void changeInfo(User user, String newInfo) {
-		executeSimpleUpdate("users", "info", newInfo, "email_address",
-				user.getEmail());
+		try {
+			Connection con = Source.getConnection();
+			String query = "update users set info=\""+ newInfo + "\"  where user_email = \"" + user.getEmail() +"\"";
+			PreparedStatement statement = con.prepareStatement(query);
+			int result = statement.executeUpdate();
+
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void changeHashedPassword(User user, String newHashedPassword) {
