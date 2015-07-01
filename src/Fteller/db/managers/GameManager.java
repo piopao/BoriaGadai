@@ -34,7 +34,7 @@ public class GameManager extends DBManager {
 		try {
 
 			Connection con = Source.getConnection();
-			String query = "select * from weather_history where user_email = " + user.getEmail();
+			String query = "select * from weather_history where user_email = \"" + user.getEmail() + "\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 
@@ -43,7 +43,7 @@ public class GameManager extends DBManager {
 				if (temp.equals(historyDate)){
 					text = result.getString(2);
 				}else{
-					String queryDelete = "delete from weather_history where user_email = " + user.getEmail();
+					String queryDelete = "delete from weather_history where user_email = \"" + user.getEmail()+"\"";
 					PreparedStatement statementDelete = con.prepareStatement(queryDelete);
 					int resultDelete = statementDelete.executeUpdate();
 				}
@@ -66,8 +66,7 @@ public class GameManager extends DBManager {
 		// getting weather predicition from weather table.
 		try {
 			Connection con = Source.getConnection();
-			String query = generateSimpleSelectQuery("weather_table",
-					new ArrayList<String>(), "weather_id", weatherVal.get(0));
+			String query = "select * from weather_table where weather_id = \"" + weatherVal.get(0)+"\"";
 			// System.out.println(weatherVal.get(0));
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
@@ -75,8 +74,7 @@ public class GameManager extends DBManager {
 				weatherPredicition += result.getString(2) + "*"
 						+ result.getString(3) + "/";
 
-			String queryTwo = generateSimpleSelectQuery("weather_table",
-					new ArrayList<String>(), "weather_id", weatherVal.get(1));
+			String queryTwo = "select * from weather_table where weather_id = \"" + weatherVal.get(1)+"\"";
 
 			PreparedStatement statementTwo = con.prepareStatement(queryTwo);
 			ResultSet resultTwo = statementTwo.executeQuery();
