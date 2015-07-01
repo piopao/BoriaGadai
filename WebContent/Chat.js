@@ -45,7 +45,7 @@ function sendMessage(){
 		        	var paragraph = document.createElement("p");		        	
 		        	var node = document.createTextNode(data + ": " + document.getElementById("message").value);
 		        	paragraph.appendChild(node);
-		        	textdiv.appendChild(paragraph);
+		        	textdiv.appendChild(paragraph);		        	
 		        	$.post("addNewChatMessage", { text: document.getElementById("message").value 
 		   		 }, function(data,status){
 		   		 });
