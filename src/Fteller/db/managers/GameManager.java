@@ -16,12 +16,21 @@ import javax.sql.DataSource;
 import review.Review;
 import authorization.User;
 
-public class GameManager extends DBManager {
+public class GameManager {
+	
+	protected DataSource Source;
 
 	public static final String ATTRIBUTE_NAME = "GameManager";
+	
+	/*
+	* Enum used to represent matching type for SQL statement.
+	*/
+	protected enum MatchType {
+			EXACT, LIKE
+	};
 
 	public GameManager(DataSource Source) {
-		super(Source);
+		this.Source = Source;
 	}
 
 	// sfsdfsd
@@ -130,8 +139,7 @@ public class GameManager extends DBManager {
 		String luckyNumbers = "";
 		try {
 			Connection con = Source.getConnection();
-			String query = generateSimpleSelectQuery("lottary_history",
-					new ArrayList<String>(), "user_email", user.getEmail());
+			String query = "select * from lottary_history where user_email = \"" + user.getEmail() + "\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 
@@ -168,8 +176,7 @@ public class GameManager extends DBManager {
 				reviews.add(rev);
 			}
 
-			String query = generateSimpleSelectQuery("game_table",
-					new ArrayList<String>(), "game_name", gameName);
+			String query = "select * from game_table where game_name = \"" + gameName + "\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 

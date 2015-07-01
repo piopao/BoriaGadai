@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS pending_friend_list (
 
 
 CREATE TABLE IF NOT EXISTS weather_table (
-	weather_id INT PRIMARY KEY UNIQUE,
+	weather_id VARCHAR(64) PRIMARY KEY UNIQUE,
     weather_text VARCHAR(255)  CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL UNIQUE,
 	image_dir VARCHAR(64)
 );
