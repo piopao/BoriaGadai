@@ -427,12 +427,12 @@ public class GameManager {
 
 			} else {
 
-			String queryInsert = "INSERT INTO lottary_history VALUES (\""
+			String queryInsert = "INSERT INTO fortune_cookies_history VALUES (\""
 					+ user.getEmail() + "\", \"" + cookyFortune + "\");";
 
 			PreparedStatement statementInsert = con.prepareStatement(queryInsert);
 			int resultInsert = statementInsert.executeUpdate();
-
+			}
 			con.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
