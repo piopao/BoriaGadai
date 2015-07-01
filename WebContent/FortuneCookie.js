@@ -16,7 +16,7 @@ function breakCookie4() {
 
 function breakCookie(cookie){
 	if(document.getElementById(cookie).getAttribute("disabled") == "true"){
-		//alert("უკვე ჭამე ნოდარი");
+		alert("უკვე ჭამე ნოდარი");
 	}else{
 		document.getElementById(cookie).src = "./Images/broken-cookie.png";
 		document.getElementById(cookie).setAttribute("disabled", "true");
