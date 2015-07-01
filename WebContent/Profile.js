@@ -193,8 +193,9 @@ function SaveChanges() {
 }
 
 function ftRequest() {
-	var email = document.getElememtById("user").innerHTML;
-	if (email != "სტუმარი") {
+	var buttonEnabled = document.getElementById("messages").getAttribute(
+			"disabled");
+	if (buttonEnabled == "false") {
 		var email1 = document.getElementById("user").innerHTML;
 		var email2 = document.getElementById("email").innerHTML;
 		$.post("sendChatRequest", {
@@ -213,9 +214,10 @@ function ftRequest() {
 }
 
 function fRequest() {
-	var email = document.getElememtById("user").innerHTML;
+	var buttonEnabled = document.getElementById("friending").getAttribute(
+			"disabled");
 	var buttonText = document.getElementById("friending").innerHTML;
-	if (email != "სტუმარი") {
+	if (buttonEnabled == "false") {
 		var email1 = document.getElementById("user").innerHTML;
 		var email2 = document.getElementById("email").innerHTML;
 		if (buttonText == "დამეგობრება") {
