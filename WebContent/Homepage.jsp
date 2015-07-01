@@ -183,7 +183,6 @@ function outmousePopul(){
 }
 
 </script>	
-
 <script src="ChatRequest.js"></script>
 <script src="checkUser.js"></script>
 </body>

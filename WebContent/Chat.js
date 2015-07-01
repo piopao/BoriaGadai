@@ -45,7 +45,7 @@ function sendMessage(){
 		        	var paragraph = document.createElement("p");		        	
 		        	var node = document.createTextNode(data + ": " + document.getElementById("message").value);
 		        	paragraph.appendChild(node);
-		        	textdiv.appendChild(paragraph);
+		        	textdiv.appendChild(paragraph);		        	
 		        	$.post("addNewChatMessage", { text: document.getElementById("message").value 
 		   		 }, function(data,status){
 		   		 });
@@ -214,14 +214,14 @@ function checkTarot(){
 	
 
 function endGame(){
-	 document.getElementById("message").value = "FORTUNE-TELLER HAS DISCONNECTED";
+	 document.getElementById("message").value = "DISCONNECTED";
 	 sendMessage();	 
 	 window.location = "Homepage.jsp";
 	 return true;
 }
 	
 function endGameClient(){
-	 document.getElementById("message").value = "CLIENT HAS DISCONNECTED";
+	 document.getElementById("message").value = "DISCONNECTED";
 	 sendMessage();	 
 	 window.location = "Homepage.jsp";
 	 return true;

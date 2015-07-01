@@ -41,10 +41,12 @@ public class checkTarotServlet extends HttpServlet {
 		ServletContext context= getServletContext();
 		ChatManager chatManager = (ChatManager)context.getAttribute("ChatManager");		
 		HttpSession sess = request.getSession();
-		User temp = (User) sess.getAttribute("user");		
-		String ret = chatManager.checkPlayedCard(temp.getEmail());
-		PrintWriter out = response.getWriter();
-		out.print(ret);
+		User temp = (User) sess.getAttribute("user");	
+		if(temp != null){
+			String ret = chatManager.checkPlayedCard(temp.getEmail());
+			PrintWriter out = response.getWriter();
+			out.print(ret);
+		}
 	}
 
 }
