@@ -38,16 +38,15 @@ public class BlockUser extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession sess = request.getSession();
-		System.out.println("servletshi var");
 		String email = (String) sess.getAttribute("profile");
 
-		System.out.println("maili ver momaqvs");
+		
 		String action = request.getParameter("action");
 		ServletContext context = getServletContext();
 		UserAccountManager manager = (UserAccountManager) context.getAttribute("accountManager");
 		User user = manager.getUserAccount(email);
 		
-		System.out.println(email + "-s " + action);
+		
 		if(action.equals("block")){
 			manager.banAccount(user);
 		} else if(action.equals("unblock")){

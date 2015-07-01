@@ -46,7 +46,6 @@ public class ChangeProfilePicture extends HttpServlet {
 		if (user != null) {
 			manager.changeAvatarName(user, newAvatar);
 			String url = "Profilepage.jsp?profile=" + user.getEmail();
-			System.out.println(url);
 			response.sendRedirect(url);
 		}
 	}
