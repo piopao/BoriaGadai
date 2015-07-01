@@ -52,14 +52,8 @@ public class UpdateInfo extends HttpServlet {
 		String surname = request.getParameter("surname");
 		String passwordOld = request.getParameter("passwordOld");
 		String passwordNew = request.getParameter("passwordNew");
-		String birthdate = request.getParameter("birthdate");
-		DateFormat df = new SimpleDateFormat("MM/dd/yyyy"); 
-		Date date = null;
-		try {
-			date = (Date) df.parse(birthdate);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		String date = request.getParameter("birthdate");
+		
 		String gender = request.getParameter("gender");
 		String info = request.getParameter("info");
 		HttpSession sess = request.getSession();

@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS users (
     user_surname CHAR(64)  CHARACTER SET utf8 COLLATE utf8_unicode_ci,
 	hashed_password CHAR(64),
 	email_address VARCHAR(254) NOT NULL UNIQUE,
-	birthdate DATE,
+	birthdate VARCHAR(64),
 	gender CHAR(8),
 	avatar_filename VARCHAR(128)  CHARACTER SET utf8 COLLATE utf8_unicode_ci,
 	info TEXT,

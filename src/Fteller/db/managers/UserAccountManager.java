@@ -15,12 +15,18 @@ import javax.sql.DataSource;
 
 import review.Review;
 
-public class UserAccountManager extends DBManager {
+public class UserAccountManager {
+	
+	protected DataSource Source;
 
 	public static final String ATTRIBUTE_NAME = "user_account_manager";
 
+	protected enum MatchType {
+		EXACT, LIKE
+	};
+	
 	public UserAccountManager(DataSource Source) {
-		super(Source);
+		this.Source = Source;
 		// TODO Auto-generated constructor stub
 	}
 
@@ -305,37 +311,88 @@ public class UserAccountManager extends DBManager {
 	}
 
 	public void changeHashedPassword(User user, String newHashedPassword) {
-		executeSimpleUpdate("users", "hashed_password", newHashedPassword,
-				"email_address", user.getEmail());
+		try {
+			Connection con = Source.getConnection();
+			String query = "update users set hashed_password=\""+ newHashedPassword + "\"  where user_email = \"" + user.getEmail() +"\"";
+			PreparedStatement statement = con.prepareStatement(query);
+			int result = statement.executeUpdate();
+
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void changeLastName(User user, String newLastName) {
 		// System.out.println(user.getEmail());
-		executeSimpleUpdate("users", "user_surname", newLastName,
-				"email_address", user.getEmail());
+		try {
+			Connection con = Source.getConnection();
+			String query = "update users set user_surname=\""+ newLastName + "\"  where user_email = \"" + user.getEmail() +"\"";
+			PreparedStatement statement = con.prepareStatement(query);
+			int result = statement.executeUpdate();
+
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void changeFirstName(User user, String newFirstName) {
-		executeSimpleUpdate("users", "user_name", newFirstName,
-				"email_address", user.getEmail());
+		try {
+			Connection con = Source.getConnection();
+			String query = "update users set user_name=\""+ newFirstName + "\"  where user_email = \"" + user.getEmail() +"\"";
+			PreparedStatement statement = con.prepareStatement(query);
+			int result = statement.executeUpdate();
+
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
-	public void changeBirthdate(User user, Date newBirthdate) {
-		String birthday = null;
-		if (newBirthdate != null)
-			birthday = newBirthdate.toString();
-		executeSimpleUpdate("users", "birthdate", birthday, "email_address",
-				user.getEmail());
+	public void changeBirthdate(User user, String newBirthdate) {
+		try {
+			Connection con = Source.getConnection();
+			String query = "update users set birthdate=\""+ newBirthdate + "\"  where user_email = \"" + user.getEmail() +"\"";
+			PreparedStatement statement = con.prepareStatement(query);
+			int result = statement.executeUpdate();
+
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void changeGender(User user, String newGender) {
-		executeSimpleUpdate("users", "gender", newGender, "email_address",
-				user.getEmail());
+		try {
+			Connection con = Source.getConnection();
+			String query = "update users set gender=\""+ newGender + "\"  where user_email = \"" + user.getEmail() +"\"";
+			PreparedStatement statement = con.prepareStatement(query);
+			int result = statement.executeUpdate();
+
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void changeAvatarName(User user, String newAvatarName) {
-		executeSimpleUpdate("users", "avatar_filename", newAvatarName,
-				"email_address", user.getEmail());
+		try {
+			Connection con = Source.getConnection();
+			String query = "update users set avatar_filename=\""+ newAvatarName + "\"  where user_email = \"" + user.getEmail() +"\"";
+			PreparedStatement statement = con.prepareStatement(query);
+			int result = statement.executeUpdate();
+
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public ArrayList<String> checkPendingFriendRequests(String email) {
@@ -366,9 +423,7 @@ public class UserAccountManager extends DBManager {
 		try {
 			Connection con = Source.getConnection();
 
-			String queryCheck = generateSimpleSelectQuery(
-					"pending_friend_list", new ArrayList<String>(),
-					"user_emailA", initEmail);
+			String queryCheck = "select * from pending_friend_request where user_emailA = \""+initEmail+"\"";
 			PreparedStatement statementCheck = con.prepareStatement(queryCheck);
 			ResultSet resultCheck = statementCheck.executeQuery();
 			if (resultCheck.next())
@@ -460,8 +515,7 @@ public class UserAccountManager extends DBManager {
 		try {
 			Connection con = Source.getConnection();
 
-			String query = generateSimpleSelectQuery("friend_list",
-					new ArrayList<String>(), "user_emailA", email);
+			String query = "select * from friend_list where user_emailA = \"" + email +"\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 			while (result.next())
@@ -542,7 +596,17 @@ public class UserAccountManager extends DBManager {
 	}
 
 	public void removeAccount(User user) {
-		executeSimpleDelete("users", "email_address", user.getEmail());
+		try {
+			Connection con = Source.getConnection();
+			String query = "delete from users where email_address = \"" + user.getEmail() +"\"";
+			PreparedStatement statement = con.prepareStatement(query);
+			int result = statement.executeUpdate();
+
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public ArrayList<Review> getUserReviews(String email){
