@@ -32,9 +32,10 @@ public class MySessionListener implements HttpSessionListener {
     public void sessionDestroyed(HttpSessionEvent arg0)  { 
     	HttpSession session = arg0.getSession();
     	User usr = (User)session.getAttribute("user");
-    	String email = usr.getEmail();
-    	if(email != null){
+    	if(usr != null){
+    		String email = usr.getEmail();    	
     		session.getServletContext().removeAttribute(email);
+    		
     	}
     }
 	
