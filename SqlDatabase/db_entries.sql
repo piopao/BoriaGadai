@@ -213,12 +213,12 @@ insert into tarot_time (text_time, pic_dirname) values("მაზეგ","mazeg.
 insert into tarot_time (text_time, pic_dirname) values("უახლოეს მომავალში", "momavalshi.jpg");
 
 insert into tarot_person (text_name, pic_dirname) values("შენ","shen.jpg");
-insert into tarot_person (text_name, pic_dirname) values("დედაშენი","deda.jpg");
-insert into tarot_person (text_name, pic_dirname) values("მამაშენი","mama.jpg");
+insert into tarot_person (text_name, pic_dirname) values("დედა","deda.jpg");
+insert into tarot_person (text_name, pic_dirname) values("მამა","mama.jpg");
 insert into tarot_person (text_name, pic_dirname) values( "ძმა","dzma.jpg");
 insert into tarot_person (text_name, pic_dirname) values( "და","da.jpg");
-insert into tarot_person (text_name, pic_dirname) values("ბებიაშენი" ,"bebia.jpg");
-insert into tarot_person (text_name, pic_dirname) values("ბაბუაშენი","babua.jpg");
+insert into tarot_person (text_name, pic_dirname) values("ბებია" ,"bebia.jpg");
+insert into tarot_person (text_name, pic_dirname) values("ბაბუა","babua.jpg");
 insert into tarot_person (text_name, pic_dirname) values("მეგობარი","megobari.jpg");
 insert into tarot_person (text_name, pic_dirname) values("შეყვარებული","sheyvarebuli.jpg");
 insert into tarot_person (text_name, pic_dirname) values( "ნათესავი","natesavi.jpg");
@@ -231,7 +231,7 @@ insert into tarot_person (text_name, pic_dirname) values("მეეზოვე"
 insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname) values("იცეკვებ","იცეკვებს", "იცეკვებთ", "იცეკვებენ", "cekva.jpg");
 insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname)  values("სახლში გვიან მიხვალ ","სახლში გვიან მივა","სახლში გვიან მიხვალთ", "სახლში გვიან მივლენ","dagvianeba.jpg");
 insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname) values("დაიგვიანებ საქმეზე", "დაიგვიანებს საქმეზე", "დაიგვიანებთ საქმეზე", "დაიგვიანებენ საქმეზე","gviangaghvidzeba.jpg");
-insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname)  values("მადა დაგეკარგება", "მადა დაეკარგება", "მადა დაგეკარგებათ", "მადა დაეკარგებათ","wama.jpg");
+insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname)  values("მადას დაკარგავ", "მადას დაკარგავს", "მადას დაკარგავთ", "მადას დაკარგაენ","wama.jpg");
 insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname)  values("ცუდად დაისვენებ","ცუდად დაისვენებს", "ცუდად დაისვენებთ", "ცუდად დაისვენებენ","dasveneba.jpg");
 insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname)  values("ცივ წყალში იბანავებ", "ცივ წყალში იბანავებს", "ცივ წყალში იბანავებთ", "ცივ წყალში იბანავებენ", "banaoba.jpg");
 insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname)  values("ავარიაში მოყვები", "ავარიაში მოყვება", "ავარიაში მოყვებით", "ავარიაში მოყვებიან", "avaria.jpg");
