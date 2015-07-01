@@ -1,9 +1,11 @@
 @CHARSET "ISO-8859-1";
 
 body {
-	background-repeat: no-repeat;
-	background-attachment: fixed;
+	background-image: url("./Images/homepageback.jpg");
 	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
 }
 
 div.box {

@@ -132,7 +132,6 @@
 		function popUsers() {
 			$.post('PopularUsers', function(data) {
 				if (data != "") {
-					alert(data);
 					loadUsers(data);
 				}
 			});
