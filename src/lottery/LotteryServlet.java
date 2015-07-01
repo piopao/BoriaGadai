@@ -40,7 +40,7 @@ public class LotteryServlet extends HttpServlet {
     
     private boolean usedNum(int num){
     	for(int i=0; i< NUMBERS_NUM; i++){
-    		if(i == num) return true;
+    		if(numbers[i] == num) return true;
     	}
     	return false;
     }

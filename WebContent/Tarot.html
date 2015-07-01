@@ -20,9 +20,9 @@
          },
          function(data,status){
              document.getElementById("decks").innerHTML = data;
-             document.getElementById("deckText").innerHTML = "აირჩიეთ დასტა";
-             $(".deckPic").fadeIn(2500);
-          });
+            $(".deckPic").fadeIn(2500);
+            $("#deckText").text("აირჩიეთ დასტა");
+        });
 };
  
 function newPrediction(){	
@@ -124,6 +124,8 @@ function showPrediction(){
 <div class = predictionCover style = "display:none;" id = predictionCover></div>
 <script>
 loadDecks();
+
+
 </script>
 
 

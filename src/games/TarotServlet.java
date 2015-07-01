@@ -50,7 +50,7 @@ public class TarotServlet extends HttpServlet {
 			 out.println("<img id = deck" + i + " class = deckPic onclick = \"choseDeck(this)\" class = scroll src=\"./Images/Decks/" + i+
 					 ".jpg\">");			 
 		}
-		out.println("<h3 id = deckText class = deckText>  </h3>");
+		out.println("<h3 id = deckText class = deckText> </h3>");
 	}
 	
 	private void NewPrediction(PrintWriter out){

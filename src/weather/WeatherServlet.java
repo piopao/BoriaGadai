@@ -75,7 +75,7 @@ public class WeatherServlet extends HttpServlet {
 	//Main weather generator method
 	public String GenerateWeather(){
 		rand = new Random();
-		String allreadyGenerated = "";//db.checkTodaysWeather(user);
+		String allreadyGenerated = db.checkTodaysWeather(user);
 		
 		if(!allreadyGenerated.equals("")){
 			return allreadyGenerated;
