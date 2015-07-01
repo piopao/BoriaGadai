@@ -214,14 +214,14 @@ function checkTarot(){
 	
 
 function endGame(){
-	 document.getElementById("message").value = "FORTUNE-TELLER HAS DISCONNECTED";
+	 document.getElementById("message").value = "DISCONNECTED";
 	 sendMessage();	 
 	 window.location = "Homepage.jsp";
 	 return true;
 }
 	
 function endGameClient(){
-	 document.getElementById("message").value = "CLIENT HAS DISCONNECTED";
+	 document.getElementById("message").value = "DISCONNECTED";
 	 sendMessage();	 
 	 window.location = "Homepage.jsp";
 	 return true;
