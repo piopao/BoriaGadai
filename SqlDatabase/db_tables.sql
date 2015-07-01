@@ -164,7 +164,7 @@ CREATE TABLE IF NOT EXISTS fortune_cookies(
     fortune_text VARCHAR(128) CHARACTER SET utf8 COLLATE utf8_unicode_ci
 );
 
-CREATE TABLE IF NOT EXISTS fortune_cookies_histroy(
+CREATE TABLE IF NOT EXISTS fortune_cookies_history(
 	user_email VARCHAR(64),
     fortune_text TEXT  CHARACTER SET utf8 COLLATE utf8_unicode_ci,
 	FOREIGN KEY (user_email) REFERENCES users(email_address) ON DELETE CASCADE
