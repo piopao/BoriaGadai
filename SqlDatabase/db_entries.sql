@@ -165,6 +165,8 @@ insert into weather_table values ("303522", "მოსალოდნელი�
 
 
 /*Taros Imagebi*/
+
+/* Pirovnebebi */
 insert into image_table (image_dir) values("deda.jpg");
 insert into image_table (image_dir) values("mama.jpg");
 insert into image_table (image_dir) values("dzma.jpg");
@@ -177,12 +179,77 @@ insert into image_table (image_dir) values("natesavi.jpg");
 insert into image_table (image_dir) values("mezobeli.jpg");
 insert into image_table (image_dir) values("kurseli.jpg");
 insert into image_table (image_dir) values("tanamshromeli.jpg");
-insert into image_table (image_dir) values(".jpg");
-insert into image_table (image_dir) values(".jpg");
-insert into image_table (image_dir) values(".jpg");
-insert into image_table (image_dir) values(".jpg");
-insert into image_table (image_dir) values(".jpg");
-insert into image_table (image_dir) values(".jpg");
-insert into image_table (image_dir) values(".jpg");
-insert into image_table (image_dir) values(".jpg");
-insert into image_table (image_dir) values(".jpg");
+insert into image_table (image_dir) values("meezove.jpg");
+
+/*dro */
+insert into image_table (image_dir) values("dila.jpg");
+insert into image_table (image_dir) values("ghame.jpg");
+insert into image_table (image_dir) values("xval.jpg");
+insert into image_table (image_dir) values("zeg.jpg");
+insert into image_table (image_dir) values("momavalshi.jpg");
+insert into image_table (image_dir) values("mazeg.jpg");
+
+/*zmna*/
+insert into image_table (image_dir) values("cekva.jpg");
+insert into image_table (image_dir) values("dagvianeba.jpg");
+insert into image_table (image_dir) values("gviangaghvidzeba.jpg");
+insert into image_table (image_dir) values("wama.jpg");
+insert into image_table (image_dir) values("dzili.jpg");
+insert into image_table (image_dir) values("dasveneba.jpg");
+insert into image_table (image_dir) values("banaoba.jpg");
+insert into image_table (image_dir) values("avaria.jpg");
+insert into image_table (image_dir) values("sikvdili.jpg");
+insert into image_table (image_dir) values("sixaruli.jpg");
+
+select * from image_table;
+
+
+insert into tarot_time (text_time, pic_dirname) values("დღისით", "dghe.jpg");
+insert into tarot_time (text_time, pic_dirname) values("ღამით" ,"ghame.jpg");
+insert into tarot_time (text_time, pic_dirname) values("ხვალ" ,"xval.jpg");
+insert into tarot_time (text_time, pic_dirname) values("ზეგ","zeg.jpg");
+insert into tarot_time (text_time, pic_dirname) values("მომავალში","momavalshi.jpg");
+insert into tarot_time (text_time, pic_dirname) values("მაზეგ","mazeg.jpg");
+insert into tarot_time (text_time, pic_dirname) values("უახლოეს მომავალში", "momavalshi.jpg");
+
+insert into tarot_person (text_name, pic_dirname) values("შენ","shen.jpg");
+insert into tarot_person (text_name, pic_dirname) values("დედაშენი","deda.jpg");
+insert into tarot_person (text_name, pic_dirname) values("მამაშენი","mama.jpg");
+insert into tarot_person (text_name, pic_dirname) values( "ძმა","dzma.jpg");
+insert into tarot_person (text_name, pic_dirname) values( "და","da.jpg");
+insert into tarot_person (text_name, pic_dirname) values("ბებიაშენი" ,"bebia.jpg");
+insert into tarot_person (text_name, pic_dirname) values("ბაბუაშენი","babua.jpg");
+insert into tarot_person (text_name, pic_dirname) values("მეგობარი","megobari.jpg");
+insert into tarot_person (text_name, pic_dirname) values("შეყვარებული","sheyvarebuli.jpg");
+insert into tarot_person (text_name, pic_dirname) values( "ნათესავი","natesavi.jpg");
+insert into tarot_person (text_name, pic_dirname) values("მეზობელი","mezobeli.jpg");
+insert into tarot_person (text_name, pic_dirname) values("კურსელი","kurseli.jpg");
+insert into tarot_person (text_name, pic_dirname) values("თანამშრომელი","tanamshromeli.jpg");
+insert into tarot_person (text_name, pic_dirname) values("მეეზოვე","meezove.jpg");
+
+
+insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname) values("იცეკვებ","იცეკვებს", "იცეკვებთ", "იცეკვებენ", "cekva.jpg");
+insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname)  values("სახლში გვიან მიხვალ ","სახლში გვიან მივა","სახლში გვიან მიხვალთ", "სახლში გვიან მივლენ","dagvianeba.jpg");
+insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname) values("გვიან დაიძინებ", "გვიან დაიძინებს", "გვიან დაიძინებთ", "გვიან დაიძინებენ","gviangaghvidzeba.jpg");
+insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname)  values("მადა დაგეკარგება", "მადა დაეკარგება", "მადა დაგეკარგებათ", "მადა დაეკარგებათ","wama.jpg");
+insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname)  values("ცუდად დაისვენებ","ცუდად დაისვენებს", "ცუდად დაისვენებთ", "ცუდად დაისვენებენ","dasveneba.jpg");
+insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname)  values("ცივ წყალში იბანავებ", "ცივ წყალში იბანავებს", "ცივ წყალში იბანავებთ", "ცივ წყალში იბანავებენ", "banaoba.jpg");
+insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname)  values("ავარია მოგივა", "ავარია მოუვა", "ავარია მოგივათ", "ავარია მოუვათ", "avaria.jpg");
+insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname)  values("მოკვდები", "მოკვდება", "მოკვდებით", "მოკვდებიან","sikvdili.jpg");
+insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname)  values("გაგიხარდება რაღაც", "გაუხარდება რაღაც", "გაგიხარდებათ რაღაც", "გაუხარდებათ რაღაც","sixaruli.jpg");
+insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname)  values("მოიტყები მწარედ","მოიტყუება მწარედ", "მოიტყუებით მწარედ","მოიტყუებიან მწარედ","tyuili.jpg");
+
+insert into tarot_adj (text_adj) values("");
+insert into tarot_adj (text_adj) values("ზარმაცი");
+insert into tarot_adj (text_adj) values("საოცარი");
+insert into tarot_adj (text_adj) values("ლამაზი");
+insert into tarot_adj (text_adj) values("დაბალი");
+insert into tarot_adj (text_adj) values("ხელმოკლე");
+insert into tarot_adj (text_adj) values("ღარიბი");
+insert into tarot_adj (text_adj) values("გიჟი");
+insert into tarot_adj (text_adj) values("ენაბლუ");
+insert into tarot_adj (text_adj) values("ცალთვალა");
+insert into tarot_adj (text_adj) values("სასაცილო");
+insert into tarot_adj (text_adj) values("ამაზრზენი");
+
+
