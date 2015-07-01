@@ -14,20 +14,28 @@ import javax.sql.DataSource;
 
 import authorization.User;
 
-public class ChatManager extends DBManager {
+public class ChatManager {
 
-	public static final String ATTRIBUTE_NAME = "chatManager";
+	protected DataSource Source;
+
+	public static final String ATTRIBUTE_NAME = "GameManager";
+	
+	/*
+	* Enum used to represent matching type for SQL statement.
+	*/
+	protected enum MatchType {
+			EXACT, LIKE
+	};
 
 	public ChatManager(DataSource Source) {
-		super(Source);
+		this.Source = Source;
 	}
 
 	public String checkChatRequest(String email) {
 		String initEmail = "";
 		try {
 			Connection con = Source.getConnection();
-			String query = generateSimpleSelectQuery("chat_requests",
-					new ArrayList<String>(), "receiver_user_email", email);
+			String query = "select * from chat_requests where receiver_user_email = \"" + email +"\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 			if (result.next())
@@ -47,8 +55,7 @@ public class ChatManager extends DBManager {
 		try {
 			Connection con = Source.getConnection();
 
-			String queryCheck = generateSimpleSelectQuery("chat_requests",
-					new ArrayList<String>(), "init_user_email", initEmail);
+			String queryCheck = "select * from chat_requests where init = \"" + initEmail +"\"";
 			PreparedStatement statementCheck = con.prepareStatement(queryCheck);
 			ResultSet resultCheck = statementCheck.executeQuery();
 			if (resultCheck.next())

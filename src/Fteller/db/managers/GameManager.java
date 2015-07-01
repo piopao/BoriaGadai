@@ -352,7 +352,7 @@ public class GameManager {
 		String luckyNumbers = "";
 		try {
 			Connection con = Source.getConnection();
-			String query = "SELECT "+ coloumn +", dirName FROM tarot_verb where text_id = "
+			String query = "SELECT "+ coloumn +", pic_dirName FROM tarot_verb where text_id = "
 					+ text_id;
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
