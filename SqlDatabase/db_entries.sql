@@ -230,14 +230,16 @@ insert into tarot_person (text_name, pic_dirname) values("მეეზოვე"
 
 insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname) values("იცეკვებ","იცეკვებს", "იცეკვებთ", "იცეკვებენ", "cekva.jpg");
 insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname)  values("სახლში გვიან მიხვალ ","სახლში გვიან მივა","სახლში გვიან მიხვალთ", "სახლში გვიან მივლენ","dagvianeba.jpg");
-insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname) values("გვიან დაიძინებ", "გვიან დაიძინებს", "გვიან დაიძინებთ", "გვიან დაიძინებენ","gviangaghvidzeba.jpg");
+insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname) values("დაიგვიანებ საქმეზე", "დაიგვიანებს საქმეზე", "დაიგვიანებთ საქმეზე", "დაიგვიანებენ საქმეზე","gviangaghvidzeba.jpg");
 insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname)  values("მადა დაგეკარგება", "მადა დაეკარგება", "მადა დაგეკარგებათ", "მადა დაეკარგებათ","wama.jpg");
 insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname)  values("ცუდად დაისვენებ","ცუდად დაისვენებს", "ცუდად დაისვენებთ", "ცუდად დაისვენებენ","dasveneba.jpg");
 insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname)  values("ცივ წყალში იბანავებ", "ცივ წყალში იბანავებს", "ცივ წყალში იბანავებთ", "ცივ წყალში იბანავებენ", "banaoba.jpg");
-insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname)  values("ავარია მოგივა", "ავარია მოუვა", "ავარია მოგივათ", "ავარია მოუვათ", "avaria.jpg");
+insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname)  values("ავარიაში მოყვები", "ავარიაში მოყვება", "ავარიაში მოყვებით", "ავარიაში მოყვებიან", "avaria.jpg");
 insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname)  values("მოკვდები", "მოკვდება", "მოკვდებით", "მოკვდებიან","sikvdili.jpg");
-insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname)  values("გაგიხარდება რაღაც", "გაუხარდება რაღაც", "გაგიხარდებათ რაღაც", "გაუხარდებათ რაღაც","sixaruli.jpg");
+insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname)  values("რაღაცით გაიხარებ", "რაღაცით გაიხარებს", "რაღაცით გაიხარებთ", "რაღაცით გაიხარებენ","sixaruli.jpg");
 insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname)  values("მოიტყები მწარედ","მოიტყუება მწარედ", "მოიტყუებით მწარედ","მოიტყუებიან მწარედ","tyuili.jpg");
+insert into tarot_verb (text_you, text_he, text_we, text_they, pic_dirname)  values("გაიპარები","გაიპარება", "გაიპარებით","გაიპარებიან","tyuili.jpg");
+
 
 insert into tarot_adj (text_adj) values("");
 insert into tarot_adj (text_adj) values("ზარმაცი");
@@ -252,34 +254,4 @@ insert into tarot_adj (text_adj) values("ცალთვალა");
 insert into tarot_adj (text_adj) values("სასაცილო");
 insert into tarot_adj (text_adj) values("ამაზრზენი");
 
-insert into fortune_cookies (fortune_text) values("შენი ჯანმრთელობისთვის კარგი იქნება თუ ღრმად ჩაისუნთქავ და ცოტა ხნით აღარ ამოისუნთქავ");
-insert into fortune_cookies (fortune_text) values("ამ თვეში უცხოპლანეტელები შეგაწუხებენ ხოლმე");
-insert into fortune_cookies (fortune_text) values("ერთ საათში ისევ მოგშივდება");
-insert into fortune_cookies (fortune_text) values("კბილის ჯაგრისი შენს ცხოვრებას შეცვლის");
-insert into fortune_cookies (fortune_text) values("არ დაივიწყო მეგობარი, მითუმეეს თუ მართებს შენი");
-insert into fortune_cookies (fortune_text) values("შეიძლება ითქვას, აგისრულდება რაც გინდა");
-insert into fortune_cookies (fortune_text) values("ცხოველები გადაგემტერებიან");
-insert into fortune_cookies (fortune_text) values("ამ თვეში მზეს დაემალე, თორემ დაიწვები");
-insert into fortune_cookies (fortune_text) values("ქათამი ბევრ ზეთში არ შეწვა, უბედურება მოაქვსო");
-insert into fortune_cookies (fortune_text) values("მოვა დრო როცა ბეგემოტის დანახვაზე გაგაჟრიალებს");
-insert into fortune_cookies (fortune_text) values("უახლოეს მომავალში გკითხავენ დედა ურო გიყვარს თუ მამა-ო");
-insert into fortune_cookies (fortune_text) values("ჩემი სიდედრი შენსას ჯობია");
-insert into fortune_cookies (fortune_text) values("თუ ყველა შენკენ მოდის გვერდზე გადადი");
-insert into fortune_cookies (fortune_text) values("რა გითხრა რით გაგახარო");
-insert into fortune_cookies (fortune_text) values("ტუალეტში მოკვდები");
-insert into fortune_cookies (fortune_text) values("აბა აშმალახა");
-insert into fortune_cookies (fortune_text) values("ახალი ფეხსაცმელი არ იყიდო, ფეხს გატკენს");
-insert into fortune_cookies (fortune_text) values("შენი მეგობრები ფიქრობენ რომ ცალი თავი პატარა გაქვს");
-insert into fortune_cookies (fortune_text) values("დასვენებაა?. არა პროექტი");
-insert into fortune_cookies (fortune_text) values("ცხოველები გადაგემტერებიან");
-insert into fortune_cookies (fortune_text) values("ძაან ჩვეულებრივი ქუქი");
-insert into fortune_cookies (fortune_text) values("სტრიპტიზს კაცი არ მოუკლავს");
-insert into fortune_cookies (fortune_text) values("თუ რამე არ იცი დაგუგლე");
-insert into fortune_cookies (fortune_text) values("წითელნასკებიანი კაცი შენი ბედია");
-insert into fortune_cookies (fortune_text) values("ცხოველები გადაგემტერებიან");
-insert into fortune_cookies (fortune_text) values("ბეტმენი არ არსებობს");
-insert into fortune_cookies (fortune_text) values("ცხოველები გადაგემტერებიან");
-insert into fortune_cookies (fortune_text) values("ამ კვირაში წაქცევის დიდი შანსი გაქვს, რამეს მოეჭიდე");
-insert into fortune_cookies (fortune_text) values("მორჩი დოტას თამაშს");
-insert into fortune_cookies (fortune_text) values("ცხოველები გადაგემტერებიან");
-insert into fortune_cookies (fortune_text) values("ვინმემ პლიაჟის მზე თუ დაგიძახა ესეიგი გაგინებს");
+

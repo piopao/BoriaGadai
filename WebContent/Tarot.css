@@ -75,17 +75,20 @@ img.predElem{
 	margin-bottom: 10px;
 	width: 90px;
 	height:auto;
+	display: none;
 }
 img.predPicMain{
 	margin: 30px;
 	margin-bottom: 10px;
 	width: 90px;
 	height:auto;
+	display: none;
 }
 
 .predText{
 	margin-bottom: 30px;
 	color: rgb(230, 230, 230);
+	display: none;
 }
 
 

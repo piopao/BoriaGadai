@@ -2,7 +2,9 @@ package games;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -20,6 +22,7 @@ public class TarotServlet extends HttpServlet {
 	private GameManager db;
 	private Random rand;
 	private boolean you;
+	private Set<Integer> st;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -55,19 +58,21 @@ public class TarotServlet extends HttpServlet {
 
 	private void LoadDeck(PrintWriter out){
 		for(int i=1; i<=DECK_NUM; i++){
-			 out.println("<img id = deck" + i + " class = deckPic onclick = \"choseDeck(this)\" class = scroll src=\"./Images/Decks/" + i+
+			 out.println("<img id = deck" + i + " class = deckPic onclick = \"choseDeck(this)\" class = scroll src=\"./Images/Tarot/" + i+
 					 ".jpg\">");			 
 		}
 		out.println("<h3 id = deckText class = deckText> </h3>");
 	}
 	
 	private void NewPrediction(PrintWriter out){
+		st = new HashSet<Integer>();
 		you = false;
 		String data = "";
 		data+=  GenerateTime();
-		int r = 1 +  rand.nextInt(3);
+		int r = 1 +  rand.nextInt(2);
 		for(int i =0; i<r; i++ ){
-		data+= "/" + GeneratePerson();
+			if(i == r-1) data+= "/!" + GeneratePerson();
+			else data+= "/!," + GeneratePerson();
 		}
 		String verbT;
 		if(you){
@@ -80,14 +85,7 @@ public class TarotServlet extends HttpServlet {
 		}
 		data+= "/" + GenerateVerb(verbT);
 		System.out.print(data);
-		out.println("<div id=prediction class= prediction>");
-		out.println("<img class=predPicMain onclick = \"showPrediction()\" src=\"./Images/Decks/1.jpg\">");
-		out.println("<img class=predElem  style=\"display:none;\" src=\"./Images/Decks/3.jpg\">");
-		out.println("<img class=predElem style=\"display:none;\" src=\"./Images/Decks/4.jpg\">");
-		out.println("<img class=predElem style=\"display:none;\" src=\"./Images/Decks/1.jpg\">");
-		out.println("<img class=predElem style=\"display:none;\" src=\"./Images/Decks/2.jpg\">");
-		out.println("<h5 class=predText id=predText style=\"display:none;\" >  </h5>" );
-		out.println("</div>");
+		out.println(data);
 	}
 		
 	private String GenerateVerb(String column){
@@ -102,7 +100,14 @@ public class TarotServlet extends HttpServlet {
 		int id = 1 + rand.nextInt(DESCRIBE);
 		desc = db.getTarotAdj(id) + " ";
 		id =1 +  rand.nextInt(PEOPLE);
-		if(id == 1) you = true;
+		while(st.contains(id)){
+			id =1 +  rand.nextInt(PEOPLE);
+		}
+		st.add(id);
+		if(id == 1){ 
+			you = true;
+			return  db.getTarotPerson(id);
+		}
 		return desc +  db.getTarotPerson(id);
 	}
 	
