@@ -17,16 +17,16 @@ import review.Review;
 import authorization.User;
 
 public class GameManager {
-	
+
 	protected DataSource Source;
 
 	public static final String ATTRIBUTE_NAME = "GameManager";
-	
+
 	/*
-	* Enum used to represent matching type for SQL statement.
-	*/
+	 * Enum used to represent matching type for SQL statement.
+	 */
 	protected enum MatchType {
-			EXACT, LIKE
+		EXACT, LIKE
 	};
 
 	public GameManager(DataSource Source) {
@@ -43,17 +43,20 @@ public class GameManager {
 		try {
 
 			Connection con = Source.getConnection();
-			String query = "select * from weather_history where user_email = \"" + user.getEmail() + "\"";
+			String query = "select * from weather_history where user_email = \""
+					+ user.getEmail() + "\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 
 			if (result.next()) {
 				String historyDate = result.getString(3);
-				if (temp.equals(historyDate)){
+				if (temp.equals(historyDate)) {
 					text = result.getString(2);
-				}else{
-					String queryDelete = "delete from weather_history where user_email = \"" + user.getEmail()+"\"";
-					PreparedStatement statementDelete = con.prepareStatement(queryDelete);
+				} else {
+					String queryDelete = "delete from weather_history where user_email = \""
+							+ user.getEmail() + "\"";
+					PreparedStatement statementDelete = con
+							.prepareStatement(queryDelete);
 					int resultDelete = statementDelete.executeUpdate();
 				}
 			}
@@ -75,7 +78,8 @@ public class GameManager {
 		// getting weather predicition from weather table.
 		try {
 			Connection con = Source.getConnection();
-			String query = "select * from weather_table where weather_id = \"" + weatherVal.get(0)+"\"";
+			String query = "select * from weather_table where weather_id = \""
+					+ weatherVal.get(0) + "\"";
 			// System.out.println(weatherVal.get(0));
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
@@ -83,7 +87,8 @@ public class GameManager {
 				weatherPredicition += result.getString(2) + "*"
 						+ result.getString(3) + "/";
 
-			String queryTwo = "select * from weather_table where weather_id = \"" + weatherVal.get(1)+"\"";
+			String queryTwo = "select * from weather_table where weather_id = \""
+					+ weatherVal.get(1) + "\"";
 
 			PreparedStatement statementTwo = con.prepareStatement(queryTwo);
 			ResultSet resultTwo = statementTwo.executeQuery();
@@ -118,11 +123,28 @@ public class GameManager {
 
 		try {
 			Connection con = Source.getConnection();
-			String query = "INSERT INTO lottary_history VALUES (\""
+
+			String query = "select * from lottary_history where user_email = \""
+					+ user.getEmail() + "\"";
+			PreparedStatement statement = con.prepareStatement(query);
+			ResultSet result = statement.executeQuery();
+
+			if (result.next()) {
+
+				String queryUpdate = "update lottary_history set numners = \""
+						+ numbers + "\" where user_email = \"" +user.getEmail()+"\"";
+
+				PreparedStatement statementUpdate = con
+						.prepareStatement(queryUpdate);
+				int resultUpdate = statementUpdate.executeUpdate();
+
+			}
+
+			String queryInsert = "INSERT INTO lottary_history VALUES (\""
 					+ user.getEmail() + "\", \"" + numbers + "\");";
 
-			PreparedStatement statement = con.prepareStatement(query);
-			int result = statement.executeUpdate();
+			PreparedStatement statementInsert = con.prepareStatement(queryInsert);
+			int resultInsert = statementInsert.executeUpdate();
 
 			con.close();
 
@@ -139,7 +161,8 @@ public class GameManager {
 		String luckyNumbers = "";
 		try {
 			Connection con = Source.getConnection();
-			String query = "select * from lottary_history where user_email = \"" + user.getEmail() + "\"";
+			String query = "select * from lottary_history where user_email = \""
+					+ user.getEmail() + "\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 
@@ -176,7 +199,8 @@ public class GameManager {
 				reviews.add(rev);
 			}
 
-			String query = "select * from game_table where game_name = \"" + gameName + "\"";
+			String query = "select * from game_table where game_name = \""
+					+ gameName + "\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 
@@ -330,8 +354,7 @@ public class GameManager {
 		String luckyNumbers = "";
 		try {
 			Connection con = Source.getConnection();
-			String query = "SELECT * FROM tarot_adj where text_id = "
-					+ text_id;
+			String query = "SELECT * FROM tarot_adj where text_id = " + text_id;
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 
@@ -346,19 +369,20 @@ public class GameManager {
 		return luckyNumbers;
 
 	}
-	
+
 	public String getTarotVerb(String coloumn, int text_id) {
 
 		String luckyNumbers = "";
 		try {
 			Connection con = Source.getConnection();
-			String query = "SELECT "+ coloumn +", pic_dirName FROM tarot_verb where text_id = "
+			String query = "SELECT " + coloumn
+					+ ", pic_dirName FROM tarot_verb where text_id = "
 					+ text_id;
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 
 			if (result.next())
-				luckyNumbers = result.getString(1)+"*"+result.getString(2);
+				luckyNumbers = result.getString(1) + "*" + result.getString(2);
 
 			con.close();
 		} catch (SQLException e) {
@@ -368,7 +392,7 @@ public class GameManager {
 		return luckyNumbers;
 
 	}
-	
+
 	public void getAndSaveCookie(User user) {
 		Random rd = new Random();
 		int random = rd.nextInt(50);
@@ -376,7 +400,8 @@ public class GameManager {
 
 		try {
 			Connection con = Source.getConnection();
-			String query = "select fortune text from fortune_cookies where cooky_id = " + random;
+			String query = "select fortune text from fortune_cookies where cooky_id = "
+					+ random;
 			// System.out.println(weatherVal.get(0));
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
@@ -385,7 +410,7 @@ public class GameManager {
 
 			// updating fortunecookues tabl
 			String queryFour = "INSERT INTO fortune_cookies_history VALUES (\""
-					+ user.getEmail() + "\", \"" + cookyFortune+ "\");";
+					+ user.getEmail() + "\", \"" + cookyFortune + "\");";
 			PreparedStatement statementFour = con.prepareStatement(queryFour);
 			int resultFour = statementFour.executeUpdate();
 
@@ -396,19 +421,20 @@ public class GameManager {
 		}
 
 	}
-	
+
 	public String getCookie(User user) {
 		String text = "";
 
 		try {
 
 			Connection con = Source.getConnection();
-			String query = "select fortune_text from fortune_cookies_history where user_email = \""+user.getEmail()+"\"";
+			String query = "select fortune_text from fortune_cookies_history where user_email = \""
+					+ user.getEmail() + "\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 
 			if (result.next()) {
-					text = result.getString(1);
+				text = result.getString(1);
 			}
 
 			con.close();

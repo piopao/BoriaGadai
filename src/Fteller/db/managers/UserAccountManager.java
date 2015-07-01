@@ -206,7 +206,7 @@ public class UserAccountManager {
 	public boolean isAdmin(String email) {
 		try {
 			Connection con = Source.getConnection();
-			String query = "select * from admin where user_email = \"" + email +"\"";
+			String query = "select * from admin where email = \"" + email +"\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 
@@ -224,7 +224,7 @@ public class UserAccountManager {
 	public void removeAdmin(User user) {
 		try {
 			Connection con = Source.getConnection();
-			String query = "delete from admin where user_email = \"" + user.getEmail() +"\"";
+			String query = "delete from admin where email = \"" + user.getEmail() +"\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			int result = statement.executeUpdate();
 
@@ -238,7 +238,7 @@ public class UserAccountManager {
 	public boolean isBanned(String email) {
 		try {
 			Connection con = Source.getConnection();
-			String query = "select * from banned_accounts where email_address = \""+email+"\"";
+			String query = "select * from banned_accounts where email = \""+email+"\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 
@@ -271,7 +271,7 @@ public class UserAccountManager {
 	public void unbanAccount(User user) {
 		try {
 			Connection con = Source.getConnection();
-			String query = "delete from banned_accounts where user_email = \"" + user.getEmail() +"\"";
+			String query = "delete from banned_accounts where email = \"" + user.getEmail() +"\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			int result = statement.executeUpdate();
 
@@ -285,7 +285,7 @@ public class UserAccountManager {
 	public void changeUserName(User user, String newUserName) {
 		try {
 			Connection con = Source.getConnection();
-			String query = "update users set username=\""+ newUserName + "\"  where user_email = \"" + user.getEmail() +"\"";
+			String query = "update users set username=\""+ newUserName + "\"  where email_address = \"" + user.getEmail() +"\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			int result = statement.executeUpdate();
 
@@ -299,7 +299,7 @@ public class UserAccountManager {
 	public void changeInfo(User user, String newInfo) {
 		try {
 			Connection con = Source.getConnection();
-			String query = "update users set info=\""+ newInfo + "\"  where user_email = \"" + user.getEmail() +"\"";
+			String query = "update users set info=\""+ newInfo + "\"  where email_address = \"" + user.getEmail() +"\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			int result = statement.executeUpdate();
 
@@ -313,7 +313,7 @@ public class UserAccountManager {
 	public void changeHashedPassword(User user, String newHashedPassword) {
 		try {
 			Connection con = Source.getConnection();
-			String query = "update users set hashed_password=\""+ newHashedPassword + "\"  where user_email = \"" + user.getEmail() +"\"";
+			String query = "update users set hashed_password=\""+ newHashedPassword + "\"  where email_address = \"" + user.getEmail() +"\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			int result = statement.executeUpdate();
 
@@ -328,7 +328,7 @@ public class UserAccountManager {
 		// System.out.println(user.getEmail());
 		try {
 			Connection con = Source.getConnection();
-			String query = "update users set user_surname=\""+ newLastName + "\"  where user_email = \"" + user.getEmail() +"\"";
+			String query = "update users set user_surname=\""+ newLastName + "\"  where email_address = \"" + user.getEmail() +"\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			int result = statement.executeUpdate();
 
@@ -342,7 +342,7 @@ public class UserAccountManager {
 	public void changeFirstName(User user, String newFirstName) {
 		try {
 			Connection con = Source.getConnection();
-			String query = "update users set user_name=\""+ newFirstName + "\"  where user_email = \"" + user.getEmail() +"\"";
+			String query = "update users set user_name=\""+ newFirstName + "\"  where email_address = \"" + user.getEmail() +"\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			int result = statement.executeUpdate();
 
@@ -356,7 +356,7 @@ public class UserAccountManager {
 	public void changeBirthdate(User user, String newBirthdate) {
 		try {
 			Connection con = Source.getConnection();
-			String query = "update users set birthdate=\""+ newBirthdate + "\"  where user_email = \"" + user.getEmail() +"\"";
+			String query = "update users set birthdate=\""+ newBirthdate + "\"  where email_address = \"" + user.getEmail() +"\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			int result = statement.executeUpdate();
 
@@ -370,7 +370,7 @@ public class UserAccountManager {
 	public void changeGender(User user, String newGender) {
 		try {
 			Connection con = Source.getConnection();
-			String query = "update users set gender=\""+ newGender + "\"  where user_email = \"" + user.getEmail() +"\"";
+			String query = "update users set gender=\""+ newGender + "\"  where email_address = \"" + user.getEmail() +"\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			int result = statement.executeUpdate();
 
@@ -384,7 +384,7 @@ public class UserAccountManager {
 	public void changeAvatarName(User user, String newAvatarName) {
 		try {
 			Connection con = Source.getConnection();
-			String query = "update users set avatar_filename=\""+ newAvatarName + "\"  where user_email = \"" + user.getEmail() +"\"";
+			String query = "update users set avatar_filename=\""+ newAvatarName + "\"  where email_address = \"" + user.getEmail() +"\"";
 			PreparedStatement statement = con.prepareStatement(query);
 			int result = statement.executeUpdate();
 
