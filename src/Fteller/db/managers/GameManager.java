@@ -34,15 +34,19 @@ public class GameManager extends DBManager {
 		try {
 
 			Connection con = Source.getConnection();
-			String query = generateSimpleSelectQuery("weather_history",
-					new ArrayList<String>(), "user_email", user.getEmail());
+			String query = "select * from weather_history where user_email = " + user.getEmail();
 			PreparedStatement statement = con.prepareStatement(query);
 			ResultSet result = statement.executeQuery();
 
 			if (result.next()) {
 				String historyDate = result.getString(3);
-				if (temp.equals(historyDate))
+				if (temp.equals(historyDate)){
 					text = result.getString(2);
+				}else{
+					String queryDelete = "delete from weather_history where user_email = " + user.getEmail();
+					PreparedStatement statementDelete = con.prepareStatement(queryDelete);
+					int resultDelete = statementDelete.executeUpdate();
+				}
 			}
 
 			con.close();
