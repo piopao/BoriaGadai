@@ -50,7 +50,7 @@ public class TarotServlet extends HttpServlet {
 			 out.println("<img id = deck" + i + " class = deckPic onclick = \"choseDeck(this)\" class = scroll src=\"./Images/Decks/" + i+
 					 ".jpg\">");			 
 		}
-		out.println("<h3 id = deckText class = deckText> აირჩიეთ დასტა </h3>");
+		out.println("<h3 id = deckText class = deckText>  </h3>");
 	}
 	
 	private void NewPrediction(PrintWriter out){
@@ -60,7 +60,7 @@ public class TarotServlet extends HttpServlet {
 		out.println("<img class=predElem style=\"display:none;\" src=\"./Images/Decks/4.jpg\">");
 		out.println("<img class=predElem style=\"display:none;\" src=\"./Images/Decks/1.jpg\">");
 		out.println("<img class=predElem style=\"display:none;\" src=\"./Images/Decks/2.jpg\">");
-		out.println("<h5 class=predText id=predText style=\"display:none;\" > აქ უნდა იყოს მკითხაობის ტექსტი </h5>" );
+		out.println("<h5 class=predText id=predText style=\"display:none;\" >  </h5>" );
 		out.println("</div>");
 	}
 }
