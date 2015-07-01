@@ -431,8 +431,8 @@ public class UserAccountManager extends DBManager {
 
 	@SuppressWarnings("null")
 	public ArrayList<String> getFriends(String email) {
-
-		ArrayList<String> initEmail = null;
+		
+		ArrayList<String> initEmail = new ArrayList<String>();
 
 		try {
 			Connection con = Source.getConnection();
