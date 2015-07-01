@@ -84,7 +84,6 @@ public class TarotServlet extends HttpServlet {
 			else verbT = "text_they";
 		}
 		data+= "/" + GenerateVerb(verbT);
-		System.out.print(data);
 		out.println(data);
 	}
 		
