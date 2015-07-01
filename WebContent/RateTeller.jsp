@@ -36,12 +36,25 @@
 	</script>
 	<img src="./Images/paka.png" >
 	<div class="btn-group">
-		 <button type="button" class="btn btn-default btn-lg"  id = "1">1</button>
-		 <button type="button" class="btn btn-default btn-lg"  id = "2">2</button>
-		 <button type="button" class="btn btn-default btn-lg"  id = "3">3</button>
-		 <button type="button" class="btn btn-default btn-lg"  id = "4">4</button>
-		 <button type="button" class="btn btn-default btn-lg"  id = "5">5</button>
+		 <button type="button" class="btn btn-default btn-lg"  id = "1" onclick = "return rate(this)">1</button>
+		 <button type="button" class="btn btn-default btn-lg"  id = "2" onclick = "return rate(this)">2</button>
+		 <button type="button" class="btn btn-default btn-lg"  id = "3" onclick = "return rate(this)">3</button>
+		 <button type="button" class="btn btn-default btn-lg"  id = "4" onclick = "return rate(this)">4</button>
+		 <button type="button" class="btn btn-default btn-lg"  id = "5" onclick = "return rate(this)">5</button>
 	</div>
+	
+	<script>
+		function rate(x){
+			$.post("RateTellerServlet",
+					 { rate : x.id },
+				function(data,status){
+						 alert("rated");
+						 window.location = "Homepage.jsp";
+					 });
+		}
+	
+	
+	</script>
 
 </body>
 </html>

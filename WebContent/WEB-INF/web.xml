@@ -365,4 +365,14 @@
     <servlet-name>PopularUsers</servlet-name>
     <url-pattern>/PopularUsers</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RateTellerServlet</display-name>
+    <servlet-name>RateTellerServlet</servlet-name>
+    <servlet-class>chat.RateTellerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RateTellerServlet</servlet-name>
+    <url-pattern>/RateTellerServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
