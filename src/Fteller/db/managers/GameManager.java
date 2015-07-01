@@ -131,7 +131,7 @@ public class GameManager {
 
 			if (result.next()) {
 
-				String queryUpdate = "update lottary_history set numners = \""
+				String queryUpdate = "update lottary_history set numbers = \""
 						+ numbers + "\" where user_email = \"" +user.getEmail()+"\"";
 
 				PreparedStatement statementUpdate = con
