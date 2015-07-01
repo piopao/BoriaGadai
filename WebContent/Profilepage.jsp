@@ -185,6 +185,7 @@
 
 	<script src="checkUser.js"></script>
 	<script src="Profile.js"></script>
+	<script src="ChatRequest.js"></script>
 </body>
 </html>
 

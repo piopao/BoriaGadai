@@ -56,5 +56,6 @@
 	   		<button class = "btn btn-default">მთავარ გვერდზე დაბრუნება</button>
 		</form>		
 	</div>
+	<script src="ChatRequest.js"></script>
 </body>
 </html>

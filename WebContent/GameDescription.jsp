@@ -81,7 +81,7 @@ function deleteRev(x){
         });
 };
 </script>
-
+<script src="ChatRequest.js"></script>
 
 </body>
 </html>

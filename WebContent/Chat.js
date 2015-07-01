@@ -85,9 +85,9 @@ function flip1(_src){
 		var src4card = tokens4[tokens4.length - 1];
 		
 		$.post("GenerateCardServlet", { 
-			card1 : src2card,
-			card2 : src3card,
-			card3 : src4card
+			"card1" : src2card,
+			"card2" : src3card,
+			"card3" : src4card
 			}, function(data,status){
 		       document.getElementById("1").src="./Images/Decks/tarot deck chat/"+data;
 		       $.post("sendTarotServlet", { card: "1 "+data}, function(data,status){});
@@ -118,9 +118,9 @@ function flip2(_src){
 		var tokens4 = src4.split("/");
 		var src4card = tokens4[tokens4.length - 1];
 		$.post("GenerateCardServlet", { 
-			card1 : src1card,
-			card2 : src3card,
-			card3 : src4card
+			"card1" : src1card,
+			"card2" : src3card,
+			"card3" : src4card
 			}, function(data,status){
 		       document.getElementById("2").src="./Images/Decks/tarot deck chat/"+data;
 		       $.post("sendTarotServlet", { card: "2 "+data}, function(data,status){});
@@ -151,9 +151,9 @@ function flip3(_src){
 		var tokens4 = src4.split("/");
 		var src4card = tokens4[tokens4.length - 1];
 		$.post("GenerateCardServlet", { 
-			card1 : src2card,
-			card2 : src1card,
-			card3 : src4card
+			"card1" : src2card,
+			"card2" : src1card,
+			"card3" : src4card
 			}, function(data,status){
 		       document.getElementById("3").src="./Images/Decks/tarot deck chat/"+data;
 		       $.post("sendTarotServlet", { card: "3 "+data}, function(data,status){});
@@ -187,9 +187,9 @@ function flip4(_src){
 		var src3card = tokens3[tokens3.length - 1];
 		
 		$.post("GenerateCardServlet", { 
-			card1 : src2card,
-			card2 : src3card,
-			card3 : src1card
+			"card1" : src2card,
+			"card2" : src3card,
+			"card3" : src1card
 			}, function(data,status){
 		       document.getElementById("4").src="./Images/Decks/tarot deck chat/"+data;
 		       $.post("sendTarotServlet", { card: "4 "+data}, function(data,status){});
