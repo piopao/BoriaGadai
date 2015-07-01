@@ -3,7 +3,8 @@
 img.scroll{
 	position: absolute;
 	transform: translate(-50%, -50%); 
-	top: 90%	
+	top: 90%;
+	width: 50px;
 }
 
 .home{
