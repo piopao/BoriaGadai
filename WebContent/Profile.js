@@ -19,14 +19,16 @@ function myTimer() {
 
 $(document).ready(function() {
 	$.post('UserProfileServlet', function(data) {
-		loadInfo(data);
+		if(data != ""){
+			loadInfo(data);
+		}
 		guestOrUser();
 	});
 });
 
 function loadInfo(data) {
 	var dataTokens = data.split("/");
-	for (var index = 0; index < dataTokens.length; index++) {
+	for (var index = 1; index < dataTokens.length; index++) {
 		if (dataTokens[index] == "profilePic") {
 			var pic = "./avatars/" + dataTokens[++index];
 			document.getElementById("profilePic").src = pic;
@@ -52,6 +54,8 @@ function guestOrUser() {
 	} else {
 		isFriend();
 	}
+	document.getElementById("friends").href = "Friends.jsp?profile=" + profileUser;
+	document.getElementById("fortuneTellings").href = "FortuneTellings.jsp?profile=" + profileUser;
 }
 
 function isFriend() {
@@ -72,8 +76,7 @@ function userRightSideInfo() {
 	document.getElementById("change-pic-but").href = "ChooseProfilePic.jsp";
 	document.getElementById("edit-info-but").style.visibility = "visible";
 	document.getElementById("edit-info-but").setAttribute("disabled", "false");
-	document.getElementById("messages").innerHTML = "მკითხაობის მოთხოვნები";
-	document.getElementById("messages").href = "#";
+	document.getElementById("messages-row").style.display = "none";
 	document.getElementById("friending").innerHTML = "დამეგობრების მოთხოვნები";
 	document.getElementById("friending").href = "FriendRequest.jsp";
 }

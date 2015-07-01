@@ -5,9 +5,9 @@
 
 $(document).ready(function() {
 	$.post('CheckUserServlet', {}, function(data) {
-		if (data == "სტუმარი") {
+		if (data == "visitor") {
 			document.getElementById("logBut").innerHTML = "შესვლა";
-			document.getElementById("user").innerHTML = data;
+			document.getElementById("user").innerHTML = "სტუმარი";
 		} else if (data == "ადმინი") {
 			document.getElementById("user").innerHTML = data;
 		} else {

@@ -355,4 +355,14 @@
     <servlet-name>BlockUser</servlet-name>
     <url-pattern>/BlockUser</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PopularUsers</display-name>
+    <servlet-name>PopularUsers</servlet-name>
+    <servlet-class>checkUser.PopularUsers</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PopularUsers</servlet-name>
+    <url-pattern>/PopularUsers</url-pattern>
+  </servlet-mapping>
 </web-app>
