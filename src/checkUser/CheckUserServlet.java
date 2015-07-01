@@ -45,7 +45,7 @@ public class CheckUserServlet extends HttpServlet {
 		String user = "";
 		User currentUser = (User) sess.getAttribute("user");
 		if (currentUser == null) {
-			user = "სტუმარი";
+			user = "visitor";
 		} else {
 			user = (String) currentUser.getEmail();
 		}
