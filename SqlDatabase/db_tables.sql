@@ -161,7 +161,7 @@ CREATE TABLE IF NOT EXISTS fortune_histroy (
 
 CREATE TABLE IF NOT EXISTS fortune_cookies(
 	cooky_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
-    dir_name VARCHAR(128) CHARACTER SET utf8 COLLATE utf8_unicode_ci
+    fortune_text VARCHAR(128) CHARACTER SET utf8 COLLATE utf8_unicode_ci
 );
 
 CREATE TABLE IF NOT EXISTS fortune_cookies_histroy(

@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 import javax.sql.DataSource;
 
@@ -27,9 +28,9 @@ public class GameManager extends DBManager {
 
 	public String checkTodaysWeather(User user) {
 		String text = "";
-		Date today = new Date();
-		String temp = Integer.toString(today.getMonth()) + "-"
-				+ Integer.toString(today.getDate());
+		Date dt = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String temp = sdf.format(dt);
 		try {
 
 			Connection con = Source.getConnection();
@@ -83,12 +84,11 @@ public class GameManager extends DBManager {
 			weatherPredicition += weatherVal.get(2) + "*" + "temp.png";
 
 			// updating weather_history table/
-			Date today = new Date();
-			String temp = Integer.toString(today.getMonth()) + "-"
-					+ Integer.toString(today.getDate());
+			Date dt = new Date();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			String queryFour = "INSERT INTO weather_history VALUES (\""
 					+ user.getEmail() + "\", \"" + weatherPredicition
-					+ "\", \"" + temp + "\");";
+					+ "\", \"" + sdf.format(dt) + "\");";
 			PreparedStatement statementFour = con.prepareStatement(queryFour);
 			int resultFour = statementFour.executeUpdate();
 
@@ -357,6 +357,57 @@ public class GameManager extends DBManager {
 			e.printStackTrace();
 		}
 		return luckyNumbers;
+
+	}
+	
+	public void getAndSaveCookie(User user) {
+		Random rd = new Random();
+		int random = rd.nextInt(50);
+		String cookyFortune = "";
+
+		try {
+			Connection con = Source.getConnection();
+			String query = "select fortune text from fortune_cookies where cooky_id = " + random;
+			// System.out.println(weatherVal.get(0));
+			PreparedStatement statement = con.prepareStatement(query);
+			ResultSet result = statement.executeQuery();
+			if (result.next())
+				cookyFortune = result.getString(1);
+
+			// updating fortunecookues tabl
+			String queryFour = "INSERT INTO fortune_cookies_history VALUES (\""
+					+ user.getEmail() + "\", \"" + cookyFortune+ "\");";
+			PreparedStatement statementFour = con.prepareStatement(queryFour);
+			int resultFour = statementFour.executeUpdate();
+
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
+	public String getCookie(User user) {
+		String text = "";
+
+		try {
+
+			Connection con = Source.getConnection();
+			String query = "select fortune_text from fortune_cookies_history where user_email = \""+user.getEmail()+"\"";
+			PreparedStatement statement = con.prepareStatement(query);
+			ResultSet result = statement.executeQuery();
+
+			if (result.next()) {
+					text = result.getString(1);
+			}
+
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return text;
 
 	}
 

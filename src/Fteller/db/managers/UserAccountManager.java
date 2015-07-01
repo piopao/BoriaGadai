@@ -13,6 +13,8 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import review.Review;
+
 public class UserAccountManager extends DBManager {
 
 	public static final String ATTRIBUTE_NAME = "user_account_manager";
@@ -519,5 +521,31 @@ public class UserAccountManager extends DBManager {
 	public void removeAccount(User user) {
 		executeSimpleDelete("users", "email_address", user.getEmail());
 	}
+	
+	public ArrayList<Review> getUserReviews(String email){
+		ArrayList<Review> revs = new ArrayList<Review>();
+		
+		try {
+			Connection con = Source.getConnection();
+
+			String query = "select * from quiz_reviews where user_email = \""
+					+ email + "\"";
+			PreparedStatement statement = con.prepareStatement(query);
+			ResultSet result = statement.executeQuery();
+			while (result.next()){
+				Review rev = new Review(result.getString(6), result.getString(5), result.getString(2), result.getInt(3), result.getInt(1), result.getString(4));
+				revs.add(rev);
+				
+				
+			}
+			con.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return revs;	
+	}
+	
 
 }
