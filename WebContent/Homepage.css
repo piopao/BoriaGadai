@@ -1,8 +1,8 @@
 @import url("NavigationBar.css");
 
 body{
-	background-image: url("./Images/homepageback.jpg");
-	background-size: 100%;
+	background-image: url("./Images/homepage2.jpg");
+	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-attachment: fixed;
