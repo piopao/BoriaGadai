@@ -20,6 +20,7 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="FriendRequest.css">
+<link rel="stylesheet" type="text/css" href="NavigationBar.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta charset="utf-8">
 <title>Friend Requests</title>
@@ -69,7 +70,6 @@
 
 	<script>
 		function accRej(user) {
-			alert("opaaa");
 			$.post("accRejFriendRequest", {
 				action : user.id,
 				request : user.name,

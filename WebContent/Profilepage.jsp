@@ -45,7 +45,7 @@
 		<p id="underPicName"></p>
 		<table class="table table-striped table-hover">
 			<tbody>
-				<tr>
+				<tr id="messages-row">
 					<td><a id="messages" href="#" onclick="ftRequest()"></a></td>
 					<td style="width: 30%;"><span
 						class="glyphicon glyphicon-envelope"></span></td>
@@ -62,11 +62,11 @@
 							class="glyphicon glyphicon-star"></span></i></td>
 				</tr>
 				<tr>
-					<td><a href="#">მეგობრები</a></td>
+					<td><a id="friends" href="#">მეგობრები</a></td>
 					<td><span class="glyphicon glyphicon-user"></span></td>
 				</tr>
 				<tr>
-					<td><a href="#">წინასწარმეტყველებანი</a></td>
+					<td><a id="fortuneTellings" href="#">წინასწარმეტყველებანი</a></td>
 					<td><span class="glyphicon glyphicon-user"></span></td>
 				</tr>
 				<%

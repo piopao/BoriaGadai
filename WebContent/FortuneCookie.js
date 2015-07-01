@@ -26,6 +26,7 @@ function breakCookie(cookie){
 }
 
 function getFortune(){
+	document.getElementById("AddReview").disabled = false;
 	$.get("FortuneCookieServlet", function(data){
 		if(data != ""){
 			document.getElementById("cookieFortune").style.visibility = "visible";

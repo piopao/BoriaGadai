@@ -49,21 +49,21 @@ public class UserProfileServlet extends HttpServlet {
 		User user = manager.getUserAccount(email);
 		String info = "";
 		if (user != null) {
-			if (user.getUsername() != "")
-				info += "username/" + user.getUsername();
-			if (user.getName() != "")
+			if (user.getUsername() != "" && user.getUsername() != null)
+				info += "/username/" + user.getUsername();
+			if (user.getName() != "" && user.getName() != null)
 				info += "/name/" + user.getName();
-			if (user.getSurname() != "")
+			if (user.getSurname() != "" && user.getSurname() != null)
 				info += "/surname/" + user.getSurname();
-			if (user.getEmail() != "")
+			if (user.getEmail() != "" && user.getEmail() != null)
 				info += "/email/" + user.getEmail();
-			if (user.getGender() != "")
+			if (user.getGender() != "" && user.getGender() != null)
 				info += "/gender/" + user.getGender();
 			if (user.getBirthDate() != null)
 				info += "/birthdate/" + user.getBirthDate();
-			if (user.getPictureDirname() != "")
+			if (user.getPictureDirname() != "" && user.getPictureDirname() != null)
 				info += "/profilePic/" + user.getPictureDirname();
-			if (user.getInfo() != "")
+			if (user.getInfo() != "" && user.getInfo() != null)
 				info += "/info/" + user.getInfo();
 
 			response.setCharacterEncoding("UTF-8");

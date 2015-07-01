@@ -1,4 +1,13 @@
 @import url("NavigationBar.css");
+
+body {
+	background-image: url("./Images/homepageback.jpg");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+}
+
 underPicName#profilePic {
 	width: 150px;
 	height: "150px";
@@ -12,10 +21,20 @@ underPicName#profilePic {
 	left: 310px;
 	top: 180px;
 	position: absolute;
+	border: 2px dotted;
+	border-radius: 5px;
+	border-color: rgb(220, 220, 220);
+	background-color:transparent;
+	box-shadow: inset 0 0 0 1000px rgba(0,0,0,.1);
 }
 
 #uneditable-info {
-	margin-left: 300px
+	margin-left: 300px;
+	border: 2px dotted;
+	border-radius: 5px;
+	border-color: rgb(220, 220, 220);
+	background-color:transparent;
+	box-shadow: inset 0 0 0 1000px rgba(0,0,0,.1);
 }
 
 .input-row {
