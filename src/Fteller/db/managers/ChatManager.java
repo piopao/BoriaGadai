@@ -283,6 +283,7 @@ public class ChatManager {
 		double newRating = 0.0;
 		try {
 			Connection con = Source.getConnection();
+
 			String query = "select rating, users from users where email_address=\""
 					+ email + "\"";
 			PreparedStatement statement = con.prepareStatement(query);
@@ -290,10 +291,13 @@ public class ChatManager {
 			if (result.next()) {
 				prevRating = result.getDouble(1) * result.getInt(2);
 				newRating = (prevRating + rate) / (result.getInt(2) + 1);
+				
 
+				
+				
 				String queryUpdate = "update users set rating = " + newRating
 						+ ", users = " + (result.getInt(2) + 1)
-						+ "where email_address = \"" + email + "\"";
+						+ " where email_address = \"" + email + "\"";
 				PreparedStatement statementUpdate = con
 						.prepareStatement(queryUpdate);
 				int resultUpate = statementUpdate.executeUpdate();
