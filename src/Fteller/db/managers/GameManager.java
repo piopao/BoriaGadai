@@ -394,9 +394,10 @@ public class GameManager {
 
 	}
 
-	public void getAndSaveCookie(User user) {
+	public String getAndSaveCookie(User user) {
 		Random rd = new Random();
 		int random = rd.nextInt(50);
+		random = random +1;
 		String cookyFortune = "";
 
 		try {
@@ -410,16 +411,34 @@ public class GameManager {
 				cookyFortune = result.getString(1);
 
 			// updating fortunecookues tabl
-			String queryFour = "INSERT INTO fortune_cookies_history VALUES (\""
+			String queryCheck = "select * from fortune_cookies_history where user_email = \""
+					+ user.getEmail() + "\"";
+			PreparedStatement statementCheck = con.prepareStatement(queryCheck);
+			ResultSet resultCheck = statementCheck.executeQuery();
+
+			if (result.next()) {
+
+				String queryUpdate = "update fortune_cookies_history set fortune_text = \""
+						+ cookyFortune + "\" where user_email = \"" +user.getEmail()+"\"";
+
+				PreparedStatement statementUpdate = con
+						.prepareStatement(queryUpdate);
+				int resultUpdate = statementUpdate.executeUpdate();
+
+			} else {
+
+			String queryInsert = "INSERT INTO lottary_history VALUES (\""
 					+ user.getEmail() + "\", \"" + cookyFortune + "\");";
-			PreparedStatement statementFour = con.prepareStatement(queryFour);
-			int resultFour = statementFour.executeUpdate();
+
+			PreparedStatement statementInsert = con.prepareStatement(queryInsert);
+			int resultInsert = statementInsert.executeUpdate();
 
 			con.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return cookyFortune;
 
 	}
 
