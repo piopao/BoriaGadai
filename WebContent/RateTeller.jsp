@@ -17,6 +17,13 @@
 			margin-top: 5%;
 			left: 20px;
 		}	
+		.btn-group {
+  			position: absolute;
+   		 	left: 640px;
+  		 	top: 320px;
+  		 	text-align: center;	
+  		}
+  		
 	</style>
 </head>
 <body>
@@ -28,7 +35,13 @@
 		});
 	</script>
 	<img src="./Images/paka.png" >
-	
+	<div class="btn-group">
+		 <button type="button" class="btn btn-default btn-lg"  id = "1">1</button>
+		 <button type="button" class="btn btn-default btn-lg"  id = "2">2</button>
+		 <button type="button" class="btn btn-default btn-lg"  id = "3">3</button>
+		 <button type="button" class="btn btn-default btn-lg"  id = "4">4</button>
+		 <button type="button" class="btn btn-default btn-lg"  id = "5">5</button>
+	</div>
 
 </body>
 </html>
