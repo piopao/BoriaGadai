@@ -55,7 +55,7 @@ public class ChatManager {
 		try {
 			Connection con = Source.getConnection();
 
-			String queryCheck = "select * from chat_requests where init = \"" + initEmail +"\"";
+			String queryCheck = "select * from chat_requests where init_user_email = \"" + initEmail +"\"";
 			PreparedStatement statementCheck = con.prepareStatement(queryCheck);
 			ResultSet resultCheck = statementCheck.executeQuery();
 			if (resultCheck.next())

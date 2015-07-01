@@ -138,7 +138,7 @@ public class GameManager {
 						.prepareStatement(queryUpdate);
 				int resultUpdate = statementUpdate.executeUpdate();
 
-			}
+			} else {
 
 			String queryInsert = "INSERT INTO lottary_history VALUES (\""
 					+ user.getEmail() + "\", \"" + numbers + "\");";
@@ -147,6 +147,7 @@ public class GameManager {
 			int resultInsert = statementInsert.executeUpdate();
 
 			con.close();
+			}
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
