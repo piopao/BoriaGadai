@@ -423,7 +423,7 @@ public class UserAccountManager {
 		try {
 			Connection con = Source.getConnection();
 
-			String queryCheck = "select * from pending_friend_request where user_emailA = \""+initEmail+"\"";
+			String queryCheck = "select * from pending_friend_list where user_emailA = \""+initEmail+"\"";
 			PreparedStatement statementCheck = con.prepareStatement(queryCheck);
 			ResultSet resultCheck = statementCheck.executeQuery();
 			if (resultCheck.next())
