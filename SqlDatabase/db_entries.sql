@@ -103,10 +103,10 @@ insert into image_table (image_dir) values("yesno-icon.png");
 insert into image_table (image_dir) values("cookie-icon.png");
 select * from image_table;
 
-insert into game_table values(null , "lottery",  "გამოგელია ფული, ცადე იღბლიანი ლატარიის ბილეთი.", "lottery-icon.png", "Lottery.html", 0, 0);
-insert into game_table values(null , "weather",  "არ იცი რა ჩაიცვა? ნახე იწვიმებს თუ არა ხვალ.", "weather-icon.png", "Weather.html", 0, 0);
-insert into game_table values(null , "tarot",  "ტარო ტატარო ტარო ტატარო", "tarot-icon.png", "Tarot.html", 0, 0);
-insert into game_table values(null , "yesno",  "კი თუ არა, თუ კი, თუ არა?", "yesno-icon.png", "YesNo.jsp", 0, 0);
+insert into game_table values(null , "lottery",  "გამოგელია ფული? მაშინ სწორედ იმის დროა, რომ გაიგო, რომელი რიცხვები გახდება შენთვის ლატარეაში მომგებიანი.", "lottery-icon.png", "Lottery.html", 0, 0);
+insert into game_table values(null , "weather",  "გარეთ გინდა გასვლა და არ იცი რა ჩაიცვა? ქოლგის გარეშე გინდა სიარული, მაგრამ წვიმის მაინც გეშინია? გაიგე დღევანდელი ამინდი ახლავე!.", "weather-icon.png", "Weather.html", 0, 0);
+insert into game_table values(null , "tarot",  "ჩვენი გამოცდილი მკითხავი ტარო შეეცდება რომ უზუსტესად გამოიცნოს თქვენი მომავალი", "tarot-icon.png", "Tarot.html", 0, 0);
+insert into game_table values(null , "yesno",  "გაქვს უპასუხო კითხვები? გადადი მკითხაობაზე და მიიღე პასუხები.", "yesno-icon.png", "YesNo.jsp", 0, 0);
 insert into game_table values(null , "fortunecookie","ასეთი გემრიელი და თან იღბლიანი ნამცხვარი არასდროს ყოფილა", "cookie-icon.png", "FortuneCookie.jsp", 0, 0);
 select * from game_table;
 
