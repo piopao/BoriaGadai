@@ -74,7 +74,7 @@
 					ServletContext context = getServletContext();
 					UserAccountManager manager = (UserAccountManager)context.getAttribute("accountManager");
 					User profileUser = manager.getUserAccount(profile);
-					if (user.getUserStatus() == 1) {
+					if (user != null && user.getUserStatus() == 1) {
 						if(!user.getEmail().equals(profile) && profileUser.getUserStatus() != 1){
 							out.print("<tr><td><a id=\"block-but\" href=\"#\" onclick=\"blockUser()\">");
 							if(manager.isBanned(profile)) {
